@@ -379,8 +379,6 @@ article h2 {
 }
 .article-toc a[aria-current='location'] {
   color: var(--gold);
-  background: #302c23;
-  box-shadow: inset 3px 0 var(--gold);
 }
 .article-toc a:hover,
 .article-toc a:focus-visible {
