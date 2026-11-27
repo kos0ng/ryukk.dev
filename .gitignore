@@ -54,6 +54,9 @@ typings/
 # dotenv environment variable files
 .env*
 
+# Local-only copies of shared note passwords (never published)
+/.secrets/
+
 # gatsby files
 .cache/
 public

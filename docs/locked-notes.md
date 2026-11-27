@@ -9,6 +9,8 @@ python3 -c 'from getpass import getpass; print(getpass("Note password: "))' | \
   node scripts/seal-note.js /private/path/to/article.md books/notes/research/YEAR/SLUG/note.locked
 ```
 
+For a local password reminder, use `.secrets/SLUG.password` at the repository root, outside all published directories. This folder is ignored by Git. Use directory permissions `700` and file permissions `600`; the file itself is plaintext, so keep a separate password-manager backup if you need recovery after losing this checkout. The sealer can read the file with `< .secrets/SLUG.password` instead of prompting. Neither the build nor the unlock page reads it.
+
 The sealer sanitizes and renders Markdown and embeds its PNG/JPEG/GIF/WebP illustrations (relative files or HTTPS GitBook uploads). It compresses and encrypts the entire result with AES-256-GCM, a random nonce and a key derived with PBKDF2-SHA-256 (600,000 iterations, random 128-bit salt). Builds copy only ciphertext and do not need a secret in GitHub Actions. Readers unlock it in their browser over HTTPS or localhost. No password is sent to the server or saved in browser storage.
 
 Use a strong, unique passphrase and share it separately. A shared-password page does not prevent authorized readers from saving a copy, revoke previously downloaded content, protect the upstream originals, or provide server-side rate limiting against offline guesses. Never publish cleartext first and rely on deleting it later.
