@@ -51,13 +51,13 @@ export function archiveTree(pages, esc) {
     const key = [...path, node.label]
     const items = children.map((c) => render(c, key))
     const count = items.reduce((n, i) => n + i.count, page ? 1 : 0)
-    const overview = /^ctf-author\/20\d\d$/.test(page?.dir)
-      ? 'Challenge list'
-      : 'Overview'
+    const authorYear = /^ctf-author\/20\d\d$/.test(page?.dir)
+    const folder = authorYear || children.length > 0
+    const overview = authorYear ? 'Challenge list' : 'Overview'
     const link = page
-      ? `<a class="tree-page" data-search="${esc([...key, page.title, page.dir.replaceAll('-', ' ')].join(' ').toLowerCase())}" href="${esc(page.url)}"${children.length ? ` aria-label="${esc(key.join(' / ') + ': ' + overview)}"` : ''}>${esc(children.length ? overview : node.label)}<span aria-hidden="true">→</span></a>`
+      ? `<a class="tree-page" data-search="${esc([...key, page.title, page.dir.replaceAll('-', ' ')].join(' ').toLowerCase())}" href="${esc(page.url)}"${folder ? ` aria-label="${esc(key.join(' / ') + ': ' + overview)}"` : ''}>${esc(folder ? overview : node.label)}<span aria-hidden="true">→</span></a>`
       : ''
-    if (!children.length) return { html: `<li>${link}</li>`, count }
+    if (!folder) return { html: `<li>${link}</li>`, count }
     const html = `<li><details${open ? ' open' : ''}><summary><span>${esc(node.label)}</span><small>${count} ${count === 1 ? 'page' : 'pages'}</small></summary><ul>${page ? `<li>${link}</li>` : ''}${items.map((c) => c.html).join('')}</ul></details></li>`
     return { html, count }
   }
