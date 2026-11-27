@@ -127,10 +127,11 @@ main {
   margin: 1rem 0 1.4rem;
 }
 .intro .job-title {
-  margin-block: 0.25rem 1rem;
-  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
-  font-weight: 600;
-  line-height: 1.25;
+  margin-block: 0 1rem;
+  color: color-mix(in srgb, var(--text) 60%, var(--muted));
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 .intro .affiliations {
   max-width: 36ch;
