@@ -1,7 +1,7 @@
 # Flare-On 11
 
 {% hint style="info" %}
-Participated as ryuk. Got 23rd place in worldwide and 1st place in Indonesia. &#x20;
+Participated as ryuk. Placed 23rd worldwide and 1st in Indonesia.
 {% endhint %}
 
 <figure><img src="images/a4422ba7ca609fed201aa880.png" alt=""><figcaption></figcaption></figure>

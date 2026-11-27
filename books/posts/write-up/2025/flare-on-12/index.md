@@ -1,7 +1,7 @@
 # Flare-On 12
 
 {% hint style="info" %}
-Participated as ryuk. Placed 5th in worldwide and 1st place in Indonesia.
+Participated as ryuk. Placed 5th worldwide and 1st in Indonesia.
 {% endhint %}
 
 Write-ups for the nine challenges are not yet published.
