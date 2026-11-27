@@ -113,7 +113,7 @@ main {
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: url('/storm.svg') right bottom/auto 100% no-repeat;
+  background: url('storm.svg') right bottom/auto 100% no-repeat;
 }
 .intro {
   width: fit-content;
@@ -167,7 +167,7 @@ h1 {
 }
 @font-face {
   font-family: 'Hero Mono';
-  src: url('/fonts/jetbrains-mono-latin-700-normal.woff2') format('woff2');
+  src: url('fonts/jetbrains-mono-latin-700-normal.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }

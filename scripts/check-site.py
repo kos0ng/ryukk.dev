@@ -30,14 +30,15 @@ for note in list(expected):
     if note.is_relative_to(public / 'notes'):
         alias = public / 'shelves' / note.relative_to(public / 'notes')
         target = '/' + note.parent.relative_to(public).as_posix() + '/'
-        if alias not in pages or target not in pages[alias].links:
+        alias_url = '/' + alias.relative_to(public).as_posix()
+        if alias not in pages or not any(urljoin(alias_url, link) == target for link in pages[alias].links):
             raise SystemExit(f'Missing redirect from {alias} to {target}')
         expected.add(alias)
 if expected != pages.keys():
     raise SystemExit(f'Page inventory mismatch: {expected.symmetric_difference(pages)}')
 errors = []
 for path, page in pages.items():
-    base = '/' + path.parent.relative_to(public).as_posix() + '/'
+    base = '/' + path.relative_to(public).as_posix()
     for link in page.links:
         u = urlsplit(urljoin(base, link))
         if u.netloc or u.scheme:

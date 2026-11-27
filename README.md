@@ -8,6 +8,12 @@ Use Node 20.19+ and run `npm ci`, then `npm start`. The preview server uses port
 
 After building, run `python3 scripts/check-site.py` to verify that every Markdown file has a published page and that all local links, images and heading references resolve.
 
+## Publishing
+
+[GitHub Actions](https://github.com/kos0ng/ryukk.dev/actions/workflows/pages.yml) builds, checks and deploys the blog on pushes to `master`, or via **Run workflow**. The initial address is <https://kos0ng.github.io/ryukk.dev/>. The workflow publishes only `public/`. Its page links are relative, so the same deployment also works at the root of a custom domain.
+
+To connect `ryukk.dev` later, verify domain ownership in your GitHub account’s **Settings → Pages**, then add `ryukk.dev` under the **repository’s Settings → Pages → Custom domain**. Follow [GitHub’s DNS instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site) for an apex domain. Once GitHub validates DNS and issues the certificate, enable **Enforce HTTPS**. Re-run the workflow so the sitemap uses the new domain.
+
 ## Content
 
 - `books/posts/` mirrors the [CTF GitBook](https://kos0ng.gitbook.io/ctfs). The Posts index shows write-ups by year → competition → category. Expanding a competition reveals its recorded participation result (when available) above direct links to category write-ups. The team and placement are also searchable. Collections holds authored challenges (grouped by year) and Lifetime CTF. The introduction and write-up year overviews keep their URLs but are omitted from the index. Filtering opens matching branches; clearing the search restores your place.
