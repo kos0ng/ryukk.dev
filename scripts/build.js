@@ -20,8 +20,8 @@ const md = MarkdownIt({ html: true, linkify: false }).use(archiveMath)
 const labels = { posts: 'Posts', notes: 'Notes' }
 const descriptions = {
   posts:
-    'Explore CTF write-ups by year, then open a competition to find its challenges.',
-  notes: 'Research notes on reverse engineering, software and security.',
+    'CTF writeups for various competitions and categories.',
+  notes: 'Research notes on security things.',
 }
 const github = 'https://github.com/kos0ng'
 const twitter = 'https://x.com/_ryuk12345'
