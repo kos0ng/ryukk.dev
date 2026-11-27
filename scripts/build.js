@@ -95,7 +95,6 @@ function article(p) {
           attrs.match(/title="([^"]+)"/)?.[1]?.replace(/^(.+)$/, '**$1**\n') ||
           ''
         )
-      if (name === 'hint') return '**Note**\n'
       return ''
     })
     .join('\n')
