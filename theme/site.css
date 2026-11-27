@@ -335,6 +335,84 @@ article h3 {
 article h2 {
   font-size: 1.8rem;
 }
+.article-toc {
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--gold);
+}
+.article-toc summary {
+  cursor: pointer;
+  color: var(--gold);
+  font: 700 0.95rem/1.5 var(--mono);
+}
+.article-toc nav {
+  max-height: 40vh;
+  overflow-y: auto;
+  margin-top: 0.65rem;
+}
+.article-toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.article-toc ul ul {
+  margin-left: 0.45rem;
+  padding-left: 0.7rem;
+  border-left: 1px solid var(--edge);
+}
+.article-toc a {
+  display: block;
+  padding: 0.25rem 0.3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.article-toc a:hover,
+.article-toc a:focus-visible {
+  color: var(--gold);
+  text-decoration: underline;
+}
+.article-toc a:focus-visible {
+  outline-offset: -2px;
+}
+.article-body :is(h2, h3, h4) {
+  scroll-margin-top: 1rem;
+}
+.article-body :is(h2, h3, h4):target {
+  text-decoration: underline var(--gold);
+  text-underline-offset: 0.15em;
+}
+@media (min-width: 64rem) {
+  article.with-toc {
+    max-width: none;
+  }
+  .reading-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 15rem;
+    grid-template-areas: 'body toc';
+    gap: 2rem;
+  }
+  .article-body {
+    grid-area: body;
+  }
+  .article-toc {
+    grid-area: toc;
+    align-self: start;
+    position: sticky;
+    top: 1rem;
+  }
+  .article-toc nav {
+    max-height: calc(100vh - 7rem);
+  }
+}
+@media print {
+  .article-toc {
+    display: none;
+  }
+  .reading-layout {
+    display: block;
+  }
+}
 article .katex-display {
   overflow-x: auto;
   padding: 0.4em 0;

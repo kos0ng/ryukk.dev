@@ -10,6 +10,7 @@ import { dirname, join } from 'node:path'
 import { archiveTree, isArchiveEntry } from './archive-tree.js'
 import { highlightCode } from './highlight-code.js'
 import { archiveMath, mathSlots } from './math.js'
+import { indexHeadings, tableOfContents } from './table-of-contents.js'
 import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 
@@ -113,24 +114,7 @@ function article(p) {
     .replace(/^# .+\n/m, '')
   const env = { math: mathSlots(p.url) }
   const tokens = md.parse(markdown, env)
-  const used = new Set()
-  tokens.forEach((t, i) => {
-    if (t.type !== 'heading_open') return
-    const heading = tokens[i + 1].children
-      .filter((child) => ['text', 'code_inline'].includes(child.type))
-      .map((child) => child.content)
-      .join('')
-    const base = heading
-      .toLowerCase()
-      .replace(/[^\p{L}\p{N}_\s-]/gu, '')
-      .trim()
-      .replace(/[\s-]+/g, '-')
-    let id = base,
-      n = 1
-    while (used.has(id)) id = `${base}-${n++}`
-    used.add(id)
-    t.attrSet('id', id)
-  })
+  const { ids: used, headings } = indexHeadings(tokens)
   // A handful of source TOCs still point at older challenge titles/scores.
   // Only rewrite a fragment when its original target is absent on this page.
   const oldTargets = {
@@ -183,7 +167,10 @@ function article(p) {
       img: sanitize.simpleTransform('img', { loading: 'lazy' }),
     },
   })
-  return env.math.restore(highlightCode(safe))
+  return {
+    body: env.math.restore(highlightCode(safe)),
+    toc: p.section === 'posts' ? tableOfContents(headings) : '',
+  }
 }
 rmSync('public', { recursive: true, force: true })
 cpSync('theme', 'public', { recursive: true })
@@ -256,10 +243,12 @@ for (const p of pages.filter((p) => p.dir)) {
       (url) =>
         `<a href="${url}">${esc(url === `/${p.section}/` ? labels[p.section] : byUrl.get(url).title)}</a>`
     )
+  const { body, toc } = article(p)
+  const content = toc ? `<div class="reading-layout">${toc}<div class="article-body">${body}</div></div>` : body
   emit(
     p.url,
     p.title,
-    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article><small>${labels[p.section].toUpperCase()} / FIELD NOTES</small><h1>${esc(p.title)}</h1>${article(p)}</article>`,
+    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article${toc ? ' class="with-toc"' : ''}><small>${labels[p.section].toUpperCase()} / FIELD NOTES</small><h1>${esc(p.title)}</h1>${content}</article>`,
     p.section
   )
 }
