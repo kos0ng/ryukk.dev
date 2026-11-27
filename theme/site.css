@@ -323,14 +323,14 @@ article {
   margin: auto;
   overflow-wrap: anywhere;
 }
-.post-page article {
+.article-page article {
   max-width: 58rem;
   font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
 }
-.post-page article pre {
+.article-page article pre {
   font-size: 0.9em;
 }
-.post-page article p {
+.article-page article p {
   max-width: 80ch;
 }
 article h1 {
@@ -396,7 +396,7 @@ article h2 {
   text-underline-offset: 0.15em;
 }
 @media (min-width: 64rem) {
-  .post-page {
+  .article-page {
     width: min(100% - 2.5rem, 78rem);
   }
   article.with-toc {
