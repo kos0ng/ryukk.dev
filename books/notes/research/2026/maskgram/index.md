@@ -1,1 +1,1 @@
-# MaskGram (password protected)
+# MaskGram (protected)

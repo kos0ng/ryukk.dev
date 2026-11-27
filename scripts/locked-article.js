@@ -13,7 +13,6 @@ export function lockedArticle(page) {
   mkdirSync(destination, { recursive: true })
   cpSync(payload, join(destination, 'note.locked'))
   return { toc: '', body: `<section class="locked-note">
-<p>This note and its illustrations are encrypted. Enter the shared password to read them.</p>
 <form hidden><label>Note password <input type="password" autocomplete="current-password" required></label>
 <button type="submit">Unlock note</button></form>
 <p role="status" aria-live="polite"></p>
