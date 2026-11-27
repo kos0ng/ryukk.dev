@@ -1,0 +1,382 @@
+:root {
+  color-scheme: dark;
+  --bg: #14151b;
+  --panel: #20212a;
+  --text: #f6f3e9;
+  --muted: #c1bdaf;
+  --gold: #ffca50;
+  --edge: #494853;
+  --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font:
+    1rem/1.65 system-ui,
+    sans-serif;
+}
+header {
+  background: #191a21;
+  border-bottom: 1px solid var(--edge);
+}
+main,
+.bar,
+footer {
+  width: min(100% - 2.5rem, 66rem);
+  margin: auto;
+}
+.bar,
+footer,
+.profiles,
+.section-title,
+.card small,
+.entries a,
+.crumb {
+  display: flex;
+  align-items: center;
+}
+.bar {
+  justify-content: space-between;
+  min-height: 4.75rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font: 900 1.4rem var(--mono);
+  color: var(--text);
+}
+.brand span {
+  margin-left: -0.35rem;
+  color: var(--gold);
+}
+a {
+  color: var(--gold);
+  text-underline-offset: 0.2em;
+}
+.brand,
+.bar a,
+.card,
+.entries a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+.bar nav {
+  display: flex;
+  gap: 0.4rem;
+}
+.bar nav a {
+  font: 700 0.94rem var(--mono);
+  padding: 0.65rem;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+}
+.bar nav a[aria-current] {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+main {
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  min-height: 74vh;
+}
+.hero {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  border: 2px solid #63606a;
+  background: #252632;
+  box-shadow: 5px 5px #0a0a10;
+}
+.hero:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--gold) 0 10px,
+    #d58034 10px 20px
+  );
+}
+.scene {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: url('/storm.svg') right bottom/auto 100% no-repeat;
+}
+.intro {
+  width: fit-content;
+}
+.intro p {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin: 1rem 0 1.4rem;
+}
+.profiles,
+footer div {
+  display: flex;
+  gap: 1rem;
+}
+.profiles a,
+footer a,
+.crumb,
+aside {
+  font: 600 0.9rem/1.6 var(--mono);
+}
+small,
+#count {
+  font: 700 0.74rem/1.5 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+h1,
+h2,
+h3 {
+  font-family: var(--mono);
+  letter-spacing: -0.06em;
+  line-height: 1.15;
+}
+h1 {
+  font-size: clamp(2.55rem, 6vw, 4.6rem);
+  margin: 0.35em 0;
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 8vw, 6.2rem);
+  margin: 0.12em 0;
+}
+.intro h1 span,
+footer span {
+  color: var(--gold);
+}
+h2 {
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+}
+.section-title {
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3rem;
+}
+.card {
+  border: 1px solid var(--edge);
+  border-top: 4px solid var(--gold);
+  padding: 1.5rem;
+  background: var(--panel);
+  box-shadow: 4px 4px #090a0e;
+  color: var(--text);
+}
+.card:hover,
+.entries a:hover {
+  background: #2a2931;
+  text-decoration: none;
+  border-color: var(--gold);
+}
+.card small,
+.entries a {
+  justify-content: space-between;
+}
+.card h3 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+.card p {
+  color: var(--muted);
+  margin: 0.4rem 0 1.4rem;
+}
+.card strong {
+  color: var(--gold);
+  font: 700 0.85rem var(--mono);
+}
+footer {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-top: 1px solid var(--edge);
+  padding: 1.75rem 0;
+  font-family: var(--mono);
+}
+.filter {
+  display: block;
+  font: 600 0.9rem var(--mono);
+  margin: 2rem 0 1rem;
+}
+.filter input {
+  display: block;
+  margin-top: 0.55rem;
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.8rem 1rem;
+  width: min(100%, 34rem);
+  border: 1px solid var(--edge);
+  font: inherit;
+}
+.entries {
+  list-style: none;
+  padding: 0;
+}
+.entries a {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--edge);
+  color: var(--text);
+  gap: 1rem;
+}
+.entries strong,
+.entries small {
+  display: block;
+}
+.entries b {
+  color: var(--gold);
+}
+.entries small {
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.crumb {
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.crumb a {
+  color: var(--muted);
+}
+article,
+aside {
+  max-width: 52rem;
+  margin: auto;
+  overflow-wrap: anywhere;
+}
+article h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  padding-bottom: 0.45em;
+  border-bottom: 2px solid var(--gold);
+}
+article h2,
+article h3 {
+  margin-top: 1.8em;
+}
+article h2 {
+  font-size: 1.8rem;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+}
+figure {
+  margin: 1.4rem 0;
+}
+figcaption {
+  color: var(--muted);
+}
+pre,
+table {
+  display: block;
+  overflow: auto;
+}
+pre,
+blockquote,
+details {
+  background: var(--panel);
+  padding: 1rem;
+  border: 1px solid var(--edge);
+}
+pre {
+  font: 0.88rem/1.6 var(--mono);
+  tab-size: 4;
+}
+code {
+  color: #ffe1a0;
+}
+blockquote {
+  margin-inline: 0;
+  border-left: 4px solid var(--gold);
+}
+table {
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--edge);
+  text-align: left;
+}
+th {
+  background: var(--panel);
+}
+aside {
+  margin: 3rem auto 0;
+  border-top: 1px solid var(--edge);
+  padding-top: 1rem;
+}
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #111;
+  padding: 0.7rem;
+  z-index: 10;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 750px) {
+  .scene {
+    opacity: 0.3;
+  }
+  .intro {
+    text-shadow: 0 1px 2px #111;
+  }
+}
+@media (max-width: 560px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .bar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.8rem 0;
+  }
+  .bar nav {
+    gap: 0;
+  }
+  .bar nav a {
+    font-size: 0.83rem;
+    padding: 0.4rem;
+  }
+  .brand {
+    font-size: 1.15rem;
+  }
+  .section-title {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .section-title h2 {
+    margin: 0.25rem 0;
+  }
+  .card {
+    padding: 1rem;
+  }
+  .scene {
+    background-position: 75% bottom;
+  }
+}
