@@ -10,7 +10,7 @@ After building, run `python3 scripts/check-site.py` to verify that every Markdow
 
 ## Content
 
-- `books/posts/` mirrors the [CTF GitBook](https://kos0ng.gitbook.io/ctfs).
+- `books/posts/` mirrors the [CTF GitBook](https://kos0ng.gitbook.io/ctfs). The Posts index builds a disclosure tree from those paths: year → write-ups or authored challenges → competition → category. Undated pages live under Collections. Filtering opens matching branches; clearing the search restores your place.
 - `books/shelves/` mirrors the [Notes GitBook](https://kos0ng.gitbook.io/notes).
 - Run `npm run import` from a networked machine with Python 3.9+ and curl to refresh Markdown from both page sitemaps. Review changes before publishing. It does not delete files for pages removed upstream.
 - The collection roots serve searchable indexes. Each book’s introduction and other Markdown pages retain their source paths and link back to GitBook. Images and downloads remain hosted at their original URLs.

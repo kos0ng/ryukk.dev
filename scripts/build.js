@@ -7,6 +7,7 @@ import {
   writeFileSync,
 } from 'node:fs'
 import { dirname, join } from 'node:path'
+import { postsTree } from './posts-tree.js'
 import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 
@@ -14,7 +15,8 @@ const md = MarkdownIt({ html: true, linkify: false })
 const labels = { posts: 'Posts', shelves: 'Shelves' }
 const books = { posts: 'ctfs', shelves: 'notes' }
 const descriptions = {
-  posts: 'Capture-the-flag write-ups, organized by competition and challenge.',
+  posts:
+    'Explore CTF write-ups by year, then open a competition to find its challenges.',
   shelves: 'Research notes on reverse engineering, software and security.',
 }
 const github = 'https://github.com/kos0ng'
@@ -204,16 +206,20 @@ emit(
   `<section class="hero"><div class="scene" aria-hidden="true"></div><div class="intro"><small>⚡ &nbsp; SECURITY FIELD ARCHIVE</small><h1>kos0ng<span>_</span></h1><p>CTF write-ups &amp; research notes by<br>Achmad Zaenuri Dahlan Putra.</p><div class="profiles">${profiles}</div></div></section><div class="section-title"><small>INDEX / 01</small><h2>Explore the archive</h2></div><div class="cards">${Object.keys(labels).map(card).join('')}</div>`
 )
 for (const [section, label] of Object.entries(labels)) {
-  const rows = entries(section)
-    .map(
-      (p) =>
-        `<li><a href="${p.url}"><div><small>${esc(p.dir.split('/').slice(0, -1).map(pretty).join(' / '))}</small><strong>${esc(p.title)}</strong></div><b aria-hidden="true">→</b></a></li>`
-    )
-    .join('')
+  const items = entries(section)
+  const tree = section === 'posts'
+  const archive = tree
+    ? postsTree(items, esc)
+    : `<ul class="entries" id="entries">${items
+        .map(
+          (p) =>
+            `<li><a href="${p.url}"><div><small>${esc(p.dir.split('/').slice(0, -1).map(pretty).join(' / '))}</small><strong>${esc(p.title)}</strong></div><b aria-hidden="true">→</b></a></li>`
+        )
+        .join('')}</ul>`
   emit(
     `/${section}/`,
     label,
-    `<small>FIELD ARCHIVE / ${section === 'posts' ? '01' : '02'}</small><h1>${label}</h1><p>${descriptions[section]}</p><label class="filter" hidden>Filter ${label.toLowerCase()}<input type="search" placeholder="Type a year, title or topic…" aria-controls="entries"></label><p id="count" aria-live="polite">${entries(section).length} entries</p><ul class="entries" id="entries">${rows}</ul><script src="/filter.js" defer></script>`,
+    `<small>FIELD ARCHIVE / ${section === 'posts' ? '01' : '02'}</small><h1>${label}</h1><p>${descriptions[section]}</p><label class="filter" hidden>Filter ${label.toLowerCase()}<input type="search" placeholder="Type a year, title or topic…" aria-controls="entries"></label><p id="count" aria-live="polite">${items.length} entries</p>${archive}<script src="/${tree ? 'tree-filter' : 'filter'}.js" defer></script>`,
     section
   )
 }
