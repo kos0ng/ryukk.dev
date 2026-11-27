@@ -6,5 +6,5 @@ Participated as ryk
 
 | Category                                                                                                 | Solved |
 | -------------------------------------------------------------------------------------------------------- | ------ |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2023/bsides-indore/reverse-engineering.md) | 1/1    |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2023/bsides-indore/cryptography.md)               | 1/3    |
+| [Reverse Engineering](/posts/write-up/2023/bsides-indore/reverse-engineering/) | 1/1    |
+| [Cryptography](/posts/write-up/2023/bsides-indore/cryptography/)               | 1/3    |

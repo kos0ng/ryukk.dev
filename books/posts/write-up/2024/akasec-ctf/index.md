@@ -6,5 +6,5 @@ Participate invidiually.
 
 | Category                                                                                              | Solved (team) |
 | ----------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/akasec-ctf/reverse-engineering.md) | 7/7           |
-| [Forensic](https://kos0ng.gitbook.io/ctfs/write-up/2024/akasec-ctf/forensic.md)                       | 5/6           |
+| [Reverse Engineering](/posts/write-up/2024/akasec-ctf/reverse-engineering/) | 7/7           |
+| [Forensic](/posts/write-up/2024/akasec-ctf/forensic/)                       | 5/6           |

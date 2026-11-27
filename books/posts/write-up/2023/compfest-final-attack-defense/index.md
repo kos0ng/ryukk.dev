@@ -6,5 +6,5 @@ Participated with Boys Who Cry. Got 4th place.
 
 | Category                                                                                                           | Solved (team) |
 | ------------------------------------------------------------------------------------------------------------------ | ------------- |
-| [Web Exploitation](https://kos0ng.gitbook.io/ctfs/write-up/2023/compfest-final-attack-defense/web-exploitation.md) | 3/3           |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2023/compfest-final-attack-defense/cryptography.md)         | 1/2           |
+| [Web Exploitation](/posts/write-up/2023/compfest-final-attack-defense/web-exploitation/) | 3/3           |
+| [Cryptography](/posts/write-up/2023/compfest-final-attack-defense/cryptography/)         | 1/2           |

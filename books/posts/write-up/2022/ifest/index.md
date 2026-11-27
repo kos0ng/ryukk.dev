@@ -6,6 +6,6 @@ Participated as Boys Who Cry. Got 1st place.
 
 | Category                                                                                         | Solved (team) |
 | ------------------------------------------------------------------------------------------------ | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2022/ifest/reverse-engineering.md) | 4/4           |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2022/ifest/cryptography.md)               | 4/4           |
-| [Forensic](https://kos0ng.gitbook.io/ctfs/write-up/2022/ifest/forensic.md)                       | 2/n           |
+| [Reverse Engineering](/posts/write-up/2022/ifest/reverse-engineering/) | 4/4           |
+| [Cryptography](/posts/write-up/2022/ifest/cryptography/)               | 4/4           |
+| [Forensic](/posts/write-up/2022/ifest/forensic/)                       | 2/n           |

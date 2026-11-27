@@ -6,6 +6,6 @@ Participated with SKSD. Got 5th place out of 1467 teams.&#x20;
 
 | Category                                                                                           | Solved (team) |
 | -------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/tfc-ctf/reverse-engineering.md) | 7/7           |
-| [Forensic](https://kos0ng.gitbook.io/ctfs/write-up/2024/tfc-ctf/forensic.md)                       | 2/2           |
-| [Misc](https://kos0ng.gitbook.io/ctfs/write-up/2024/tfc-ctf/misc.md)                               | 9/9           |
+| [Reverse Engineering](/posts/write-up/2024/tfc-ctf/reverse-engineering/) | 7/7           |
+| [Forensic](/posts/write-up/2024/tfc-ctf/forensic/)                       | 2/2           |
+| [Misc](/posts/write-up/2024/tfc-ctf/misc/)                               | 9/9           |

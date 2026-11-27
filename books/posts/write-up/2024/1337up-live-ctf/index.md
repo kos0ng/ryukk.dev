@@ -6,7 +6,7 @@ Participated with HCS. Got 7th place out of 1071 teams.&#x20;
 
 | Category                                                                                                   | Solved |
 | ---------------------------------------------------------------------------------------------------------- | ------ |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/1337up-live-ctf/reverse-engineering.md) | 4/4    |
-| [Mobile](https://kos0ng.gitbook.io/ctfs/write-up/2024/1337up-live-ctf/mobile.md)                           | 3/3    |
-| [Forensic](https://kos0ng.gitbook.io/ctfs/write-up/2024/1337up-live-ctf/forensic.md)                       | 4/5    |
-| [Misc](https://kos0ng.gitbook.io/ctfs/write-up/2024/1337up-live-ctf/misc.md)                               | 3/3    |
+| [Reverse Engineering](/posts/write-up/2024/1337up-live-ctf/reverse-engineering/) | 4/4    |
+| [Mobile](/posts/write-up/2024/1337up-live-ctf/mobile/)                           | 3/3    |
+| [Forensic](/posts/write-up/2024/1337up-live-ctf/forensic/)                       | 4/5    |
+| [Misc](/posts/write-up/2024/1337up-live-ctf/misc/)                               | 3/3    |

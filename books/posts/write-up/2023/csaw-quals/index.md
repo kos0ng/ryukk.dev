@@ -6,4 +6,4 @@
 
 | Category                                                                                              | Solved (team) |
 | ----------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2023/csaw-quals/reverse-engineering.md) | 4/4           |
+| [Reverse Engineering](/posts/write-up/2023/csaw-quals/reverse-engineering/) | 4/4           |

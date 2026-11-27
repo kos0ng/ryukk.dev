@@ -57,6 +57,8 @@ for path, links, resources in checks:
             errors.append(f'{path}: external render resource {resource}')
     for link in links:
         u = urlsplit(urljoin(base, link))
+        if u.hostname in {'kos0ng.gitbook.io', 'blog.ryukk.dev'} and u.path.strip('/').split('/')[0] in {'ctfs', 'notes'}:
+            errors.append(f'{path}: legacy book link {link}')
         if u.netloc or u.scheme:
             continue
         target = public / unquote(u.path).lstrip('/')

@@ -8,4 +8,4 @@ Currently learning about reverse engineering and web exploitation. Playing CTF w
 * [Medium](http://kos0ng.medium.com/)
 * [Github Gist](https://gist.github.com/kos0ng)
 
-I also do some (little) research individually about security, if you are interested you can take a look on this [**space**](https://kos0ng.gitbook.io/notes).&#x20;
+I also do some (little) research individually about security, if you are interested you can take a look on this [**space**](/notes/).&#x20;

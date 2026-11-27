@@ -6,4 +6,4 @@ Participated with idek. Got 2nd place out of 751 teams.
 
 | Category                                                                                                 | Solved (team) |
 | -------------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2023/ctfzone-quals/reverse-engineering.md) | 2/3           |
+| [Reverse Engineering](/posts/write-up/2023/ctfzone-quals/reverse-engineering/) | 2/3           |

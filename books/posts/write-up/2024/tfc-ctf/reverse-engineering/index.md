@@ -32,7 +32,7 @@ It only shows "Checking flag..." and there is no process that receive our input 
 
 <figure><img src="images/fc546f8d0cc7218095bcdbe8.png" alt=""><figcaption></figcaption></figure>
 
-Based on information above the program should produce "Wrong!" output if we input incorrect value. Previously i've been reversed program compiled with ghc too in this [writeup](https://blog.ryukk.dev/ctfs/write-up/2023/hsctf/reverse-engineering#re-cursed-4-solves).  So the next step i did is debugging using GDB. Set breakpoint on instruction that call res\_evalLazyIO.
+Based on information above the program should produce "Wrong!" output if we input incorrect value. Previously i've been reversed program compiled with ghc too in this [writeup](/posts/write-up/2023/hsctf/reverse-engineering/#re-cursed-4-solves).  So the next step i did is debugging using GDB. Set breakpoint on instruction that call res\_evalLazyIO.
 
 ```
 b *0x48AAD9

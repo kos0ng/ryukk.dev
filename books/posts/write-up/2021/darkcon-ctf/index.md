@@ -6,4 +6,4 @@ Participated as Bat Squad. Got 5th place.
 
 | Category                                                                                               | Solved (team) |
 | ------------------------------------------------------------------------------------------------------ | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2021/darkcon-ctf/reverse-engineering.md) | 2/2           |
+| [Reverse Engineering](/posts/write-up/2021/darkcon-ctf/reverse-engineering/) | 2/2           |

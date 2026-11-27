@@ -2,4 +2,4 @@
 
 | CTF Name | Writeup                                                          |
 | -------- | ---------------------------------------------------------------- |
-| Deep CTF | [Link](https://kos0ng.gitbook.io/ctfs/write-up/2020/deep-ctf.md) |
+| Deep CTF | [Link](/posts/write-up/2020/deep-ctf/) |

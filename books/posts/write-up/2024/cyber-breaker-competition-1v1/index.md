@@ -6,7 +6,7 @@ Participated as nhoursofdoingnothing. Got 1st place out of 134 participants.
 
 | Category                                                                                                                 | Total Challenges |
 | ------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/cyber-breaker-competition-1v1/reverse-engineering.md) | 3                |
-| [Web Exploitation](https://kos0ng.gitbook.io/ctfs/write-up/2024/cyber-breaker-competition-1v1/web-exploitation.md)       | 1                |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2024/cyber-breaker-competition-1v1/cryptography.md)               | 4                |
-| [Binary Exploitation](https://kos0ng.gitbook.io/ctfs/write-up/2024/cyber-breaker-competition-1v1/binary-exploitation.md) | 1                |
+| [Reverse Engineering](/posts/write-up/2024/cyber-breaker-competition-1v1/reverse-engineering/) | 3                |
+| [Web Exploitation](/posts/write-up/2024/cyber-breaker-competition-1v1/web-exploitation/)       | 1                |
+| [Cryptography](/posts/write-up/2024/cyber-breaker-competition-1v1/cryptography/)               | 4                |
+| [Binary Exploitation](/posts/write-up/2024/cyber-breaker-competition-1v1/binary-exploitation/) | 1                |

@@ -6,5 +6,5 @@ Participated with Five Boys Cry. Got 13th place out of 628 teams.&#x20;
 
 | Category                                                                                                      | Solved (team) |
 | ------------------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/blackhat-mea-quals/reverse-engineering.md) | 3/3           |
-| [Forensic](https://kos0ng.gitbook.io/ctfs/write-up/2024/blackhat-mea-quals/forensic.md)                       | 2/2           |
+| [Reverse Engineering](/posts/write-up/2024/blackhat-mea-quals/reverse-engineering/) | 3/3           |
+| [Forensic](/posts/write-up/2024/blackhat-mea-quals/forensic/)                       | 2/2           |

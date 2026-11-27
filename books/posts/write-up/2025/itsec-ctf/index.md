@@ -6,6 +6,6 @@ Participated with Aseng Fan Club.
 
 | Category                                                                                             | Solved (team) |
 | ---------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2025/itsec-ctf/reverse-engineering.md) | 6/6           |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2025/itsec-ctf/cryptography.md)               | k/n           |
-| [Cloud](https://kos0ng.gitbook.io/ctfs/write-up/2025/itsec-ctf/cloud.md)                             | k/n           |
+| [Reverse Engineering](/posts/write-up/2025/itsec-ctf/reverse-engineering/) | 6/6           |
+| [Cryptography](/posts/write-up/2025/itsec-ctf/cryptography/)               | k/n           |
+| [Cloud](/posts/write-up/2025/itsec-ctf/cloud/)                             | k/n           |

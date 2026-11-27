@@ -6,4 +6,4 @@ Participated with SKSD.
 
 | Category                                                                                 | Solved (team) |
 | ---------------------------------------------------------------------------------------- | ------------- |
-| [Attack Defense](https://kos0ng.gitbook.io/ctfs/write-up/2025/saarctf/attack-defense.md) | n/n           |
+| [Attack Defense](/posts/write-up/2025/saarctf/attack-defense/) | n/n           |

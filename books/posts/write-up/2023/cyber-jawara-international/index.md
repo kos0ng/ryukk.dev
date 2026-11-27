@@ -6,7 +6,7 @@ Participated with Boys Who Cry. Got 2nd place.
 
 | Category                                                                                                              | Solved (team) |
 | --------------------------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2023/cyber-jawara-international/reverse-engineering.md) | 2/3           |
-| [Forensic](https://kos0ng.gitbook.io/ctfs/write-up/2023/cyber-jawara-international/forensic.md)                       | 1/3           |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2023/cyber-jawara-international/cryptography.md)               | 1/3           |
-| [Web Exploitation](https://kos0ng.gitbook.io/ctfs/write-up/2023/cyber-jawara-international/web-exploitation.md)       | 3/4           |
+| [Reverse Engineering](/posts/write-up/2023/cyber-jawara-international/reverse-engineering/) | 2/3           |
+| [Forensic](/posts/write-up/2023/cyber-jawara-international/forensic/)                       | 1/3           |
+| [Cryptography](/posts/write-up/2023/cyber-jawara-international/cryptography/)               | 1/3           |
+| [Web Exploitation](/posts/write-up/2023/cyber-jawara-international/web-exploitation/)       | 3/4           |

@@ -18,7 +18,6 @@ import sanitize from 'sanitize-html'
 
 const md = MarkdownIt({ html: true, linkify: false }).use(archiveMath)
 const labels = { posts: 'Posts', notes: 'Notes' }
-const books = { posts: 'ctfs', notes: 'notes' }
 const descriptions = {
   posts:
     'Explore CTF write-ups by year, then open a competition to find its challenges.',
@@ -50,18 +49,14 @@ function collect(section, dir = '') {
         title,
         source,
         url: `/${section}/${dir ? dir + '/' : ''}`,
-        origin: `https://kos0ng.gitbook.io/${books[section]}${dir ? '/' + dir : ''}`,
       })
     }
   }
 }
 Object.keys(labels).forEach((section) => collect(section))
-const byOrigin = new Map(pages.map((p) => [p.origin, p.url]))
 const byUrl = new Map(pages.map((p) => [p.url, p]))
-for (const [section, book] of Object.entries(books)) {
-  const url = `/${section}/`
-  byOrigin.set(`https://kos0ng.gitbook.io/${book}`, url)
-  byUrl.set(url, { title: labels[section] })
+for (const [section, title] of Object.entries(labels)) {
+  byUrl.set(`/${section}/`, { title })
 }
 const entries = (section) =>
   pages
@@ -71,18 +66,6 @@ const entries = (section) =>
         Number(p.dir.match(/(?:^|\/)(20\d\d)(?:\/|$)/)?.[1] || 0)
       return year(b) - year(a) || a.dir.localeCompare(b.dir)
     })
-function localLink(href, origin) {
-  try {
-    if (!href || href.startsWith('#') || href.startsWith('images/')) return href
-    // Curated challenge tables can link directly to a migrated post or note.
-    if (href.startsWith('/') && byUrl.has(href.split(/[?#]/, 1)[0])) return href
-    const u = new URL(href, origin)
-    const mapped = byOrigin.get(u.origin + u.pathname.replace(/\.md$|\/$/, ''))
-    return mapped ? mapped + u.search + u.hash : u.href
-  } catch {
-    return undefined
-  }
-}
 function article(p) {
   // GitBook's layout directives are not standard Markdown. Leave code fences untouched.
   let fence = ''
@@ -130,8 +113,7 @@ function article(p) {
     'free-play-495-points': 'flag-generator-4-solves',
   }
   function articleLink(href) {
-    if (!href.startsWith('#') || used.has(href.slice(1)))
-      return localLink(href, p.origin)
+    if (!href.startsWith('#') || used.has(href.slice(1))) return href
     const slug = href.slice(1)
     const compact = (id) => id.replace(/^id-/, '').replace(/[^a-z0-9_]/g, '')
     const matches = [...used].filter((id) => compact(id) === compact(slug))

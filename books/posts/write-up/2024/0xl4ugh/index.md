@@ -6,4 +6,4 @@
 
 | Category                                                                 | Solved (team) |
 | ------------------------------------------------------------------------ | ------------- |
-| [Mobile](https://kos0ng.gitbook.io/ctfs/write-up/2024/0xl4ugh/mobile.md) | 3/3           |
+| [Mobile](/posts/write-up/2024/0xl4ugh/mobile/) | 3/3           |

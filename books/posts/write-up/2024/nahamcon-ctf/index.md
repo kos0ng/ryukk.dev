@@ -6,11 +6,11 @@ Participated with HCS. Got 4th place out of 3859 teams.&#x20;
 
 | Category                                                                                                | Solved (team) |
 | ------------------------------------------------------------------------------------------------------- | ------------- |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2024/nahamcon-ctf/cryptography.md)               | k/n           |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/nahamcon-ctf/reverse-engineering.md) | k/n           |
-| [Malware](https://kos0ng.gitbook.io/ctfs/write-up/2024/nahamcon-ctf/malware.md)                         | k/n           |
-| [Misc](https://kos0ng.gitbook.io/ctfs/write-up/2024/nahamcon-ctf/misc.md)                               | k/n           |
-| [Mobile](https://kos0ng.gitbook.io/ctfs/write-up/2024/nahamcon-ctf/mobile.md)                           | k/n           |
-| [Scripting](https://kos0ng.gitbook.io/ctfs/write-up/2024/nahamcon-ctf/scripting.md)                     | k/n           |
-| [Web Exploitation](https://kos0ng.gitbook.io/ctfs/write-up/2024/nahamcon-ctf/web-exploitation.md)       | k/n           |
-| [Forensic](https://kos0ng.gitbook.io/ctfs/write-up/2024/nahamcon-ctf/forensic.md)                       | k/n           |
+| [Cryptography](/posts/write-up/2024/nahamcon-ctf/cryptography/)               | k/n           |
+| [Reverse Engineering](/posts/write-up/2024/nahamcon-ctf/reverse-engineering/) | k/n           |
+| [Malware](/posts/write-up/2024/nahamcon-ctf/malware/)                         | k/n           |
+| [Misc](/posts/write-up/2024/nahamcon-ctf/misc/)                               | k/n           |
+| [Mobile](/posts/write-up/2024/nahamcon-ctf/mobile/)                           | k/n           |
+| [Scripting](/posts/write-up/2024/nahamcon-ctf/scripting/)                     | k/n           |
+| [Web Exploitation](/posts/write-up/2024/nahamcon-ctf/web-exploitation/)       | k/n           |
+| [Forensic](/posts/write-up/2024/nahamcon-ctf/forensic/)                       | k/n           |

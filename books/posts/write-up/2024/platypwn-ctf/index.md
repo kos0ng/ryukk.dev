@@ -6,4 +6,4 @@ Participated with HCS. Got 2nd place out of 328 teams.&#x20;
 
 | Category                                                                                                | Solved (team) |
 | ------------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/platypwn-ctf/reverse-engineering.md) | 3/3           |
+| [Reverse Engineering](/posts/write-up/2024/platypwn-ctf/reverse-engineering/) | 3/3           |

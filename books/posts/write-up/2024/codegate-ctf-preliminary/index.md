@@ -6,4 +6,4 @@ Participated with SKSD. Got 17th place out of 220 teams.&#x20;
 
 | Category                                                                                                            | Solved (team) |
 | ------------------------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/codegate-ctf-preliminary/reverse-engineering.md) | 1/3           |
+| [Reverse Engineering](/posts/write-up/2024/codegate-ctf-preliminary/reverse-engineering/) | 1/3           |

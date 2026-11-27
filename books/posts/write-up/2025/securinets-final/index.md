@@ -6,4 +6,4 @@ Participated with PwnSec. Got 2nd place out of 11 teams.&#x20;
 
 | Category                                                                                                    | Solved (team) |
 | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2025/securinets-final/reverse-engineering.md) | 1/2           |
+| [Reverse Engineering](/posts/write-up/2025/securinets-final/reverse-engineering/) | 1/2           |

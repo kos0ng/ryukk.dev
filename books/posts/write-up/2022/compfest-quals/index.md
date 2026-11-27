@@ -6,5 +6,5 @@ Participated as Boys Who Cry. Got 1st place.
 
 | Category                                                                                                  | Solved (team) |
 | --------------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2022/compfest-quals/reverse-engineering.md) | 3/3           |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2022/compfest-quals/cryptography.md)               | 2/2           |
+| [Reverse Engineering](/posts/write-up/2022/compfest-quals/reverse-engineering/) | 3/3           |
+| [Cryptography](/posts/write-up/2022/compfest-quals/cryptography/)               | 2/2           |

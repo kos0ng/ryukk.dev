@@ -6,7 +6,7 @@ Participated with Men Who Cry. Got 1st place out of n teams.
 
 | Category                                                                                              | Solved |
 | ----------------------------------------------------------------------------------------------------- | ------ |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/intechfest/reverse-engineering.md) | 4/4    |
-| [Forensic](https://kos0ng.gitbook.io/ctfs/write-up/2024/intechfest/forensic.md)                       | 1/n    |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2024/intechfest/cryptography.md)               | 1/n    |
-| [Mobile](https://kos0ng.gitbook.io/ctfs/write-up/2024/intechfest/mobile.md)                           | 1/n    |
+| [Reverse Engineering](/posts/write-up/2024/intechfest/reverse-engineering/) | 4/4    |
+| [Forensic](/posts/write-up/2024/intechfest/forensic/)                       | 1/n    |
+| [Cryptography](/posts/write-up/2024/intechfest/cryptography/)               | 1/n    |
+| [Mobile](/posts/write-up/2024/intechfest/mobile/)                           | 1/n    |

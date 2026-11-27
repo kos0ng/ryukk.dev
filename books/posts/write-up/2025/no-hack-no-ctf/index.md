@@ -6,4 +6,4 @@ Participated with HCS. Got 1st place out of n teams.&#x20;
 
 | Category                                                                                    | Solved (team) |
 | ------------------------------------------------------------------------------------------- | ------------- |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2025/no-hack-no-ctf/cryptography.md) | 5/6           |
+| [Cryptography](/posts/write-up/2025/no-hack-no-ctf/cryptography/) | 5/6           |

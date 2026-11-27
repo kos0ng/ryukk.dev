@@ -6,4 +6,4 @@ Participated with SKSD. Got 3rd place out of n teams.&#x20;
 
 | Category                                                                         | Solved (team) |
 | -------------------------------------------------------------------------------- | ------------- |
-| [Malware](https://kos0ng.gitbook.io/ctfs/write-up/2025/sas-ctf-quals/malware.md) | 3/3           |
+| [Malware](/posts/write-up/2025/sas-ctf-quals/malware/) | 3/3           |

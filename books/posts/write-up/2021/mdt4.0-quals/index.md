@@ -6,5 +6,5 @@ Participated as Boys Who Cry. Got nth place.
 
 | Category                                                                                                | Solved (team) |
 | ------------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2021/mdt4.0-quals/reverse-engineering.md) | 2/2           |
-| [Cryptography](https://kos0ng.gitbook.io/ctfs/write-up/2021/mdt4.0-quals/cryptography.md)               | 1/n           |
+| [Reverse Engineering](/posts/write-up/2021/mdt4.0-quals/reverse-engineering/) | 2/2           |
+| [Cryptography](/posts/write-up/2021/mdt4.0-quals/cryptography/)               | 1/n           |

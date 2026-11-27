@@ -8,6 +8,7 @@ import subprocess
 from functools import cache
 from gitbook_math import restore_equations
 from gitbook_images import localize_images, save_image
+from gitbook_links import localize_book_links
 from gitbook_tables import retain_challenge_index
 import xml.etree.ElementTree as ET
 
@@ -52,7 +53,7 @@ def save(job):
         md = retain_challenge_index(md, path.read_text(encoding='utf8'), url)
     md = fix_images(md, url, load_html)
     md = localize_images(md, lambda src: save_image(src, path.parent))
-    path.write_text(md, encoding='utf8')
+    path.write_text(localize_book_links(md), encoding='utf8')
 
 
 if __name__ == '__main__':

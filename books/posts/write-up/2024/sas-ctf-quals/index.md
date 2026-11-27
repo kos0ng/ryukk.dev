@@ -6,4 +6,4 @@ Participated with Seven Boys Cry. Got 4th place out of 846 teams.&#x20;
 
 | Category                                                                                                 | Solved (team) |
 | -------------------------------------------------------------------------------------------------------- | ------------- |
-| [Reverse Engineering](https://kos0ng.gitbook.io/ctfs/write-up/2024/sas-ctf-quals/reverse-engineering.md) | 1/3           |
+| [Reverse Engineering](/posts/write-up/2024/sas-ctf-quals/reverse-engineering/) | 1/3           |
