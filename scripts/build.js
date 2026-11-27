@@ -60,6 +60,12 @@ for (const [section, book] of Object.entries(books)) {
 const entries = (section) =>
   pages
     .filter((p) => p.section === section && p.dir)
+    // Navigation only: keep the imported pages available at their original URLs.
+    .filter(
+      (p) =>
+        section !== 'posts' ||
+        (p.dir !== 'introduction' && !/^write-up\/20\d\d$/.test(p.dir))
+    )
     .sort((a, b) => {
       const year = (p) =>
         Number(p.dir.match(/(?:^|\/)(20\d\d)(?:\/|$)/)?.[1] || 0)
