@@ -193,7 +193,7 @@ function emit(url, title, body, section = '') {
     .map((k) => nav('/' + k + '/', labels[k], section === k))
     .join(
       ''
-    )}</nav></div></header><main id="main">${body}</main><footer><strong>kos0ng<span> // </span>ryukk.dev</strong><div>${profiles}</div></footer></body></html>`
+    )}</nav></div></header><main id="main"${section === 'posts' && url !== '/posts/' ? ' class="post-page"' : ''}>${body}</main><footer><strong>kos0ng<span> // </span>ryukk.dev</strong><div>${profiles}</div></footer></body></html>`
   const file = join('public', url, 'index.html')
   mkdirSync(dirname(file), { recursive: true })
   writeFileSync(file, html)

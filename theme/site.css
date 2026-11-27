@@ -323,6 +323,16 @@ article {
   margin: auto;
   overflow-wrap: anywhere;
 }
+.post-page article {
+  max-width: 58rem;
+  font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
+}
+.post-page article pre {
+  font-size: 0.9em;
+}
+.post-page article p {
+  max-width: 80ch;
+}
 article h1 {
   font-size: clamp(2.1rem, 5vw, 3.4rem);
   padding-bottom: 0.45em;
@@ -383,6 +393,9 @@ article h2 {
   text-underline-offset: 0.15em;
 }
 @media (min-width: 64rem) {
+  .post-page {
+    width: min(100% - 2.5rem, 78rem);
+  }
   article.with-toc {
     max-width: none;
   }
@@ -390,7 +403,7 @@ article h2 {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 15rem;
     grid-template-areas: 'body toc';
-    gap: 2rem;
+    column-gap: clamp(2rem, 10vw - 5rem, 3rem);
   }
   .article-body {
     grid-area: body;
