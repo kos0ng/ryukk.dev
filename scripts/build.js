@@ -25,6 +25,8 @@ const linkedin =
   'https://www.linkedin.com/in/achmad-zaenuri-dahlan-putra-51b063170/'
 const profiles = `<a href="${github}">GitHub ↗</a><a href="${linkedin}">LinkedIn ↗</a>`
 const esc = md.utils.escapeHtml
+const team = (name, id) => `<a href="https://ctftime.org/team/${id}">@${name}</a>`
+const affiliations = `I compete in CTFs with ${team('idek', 157039)}, ${team('SKSD', 211952)}, ${team('HCS', 70159)}, and ${team('PwnSec', 28797)}.`
 const pages = []
 function collect(section, dir = '') {
   for (const file of readdirSync(join('books', section, dir), {
@@ -222,7 +224,7 @@ function card(k, i) {
 emit(
   '/',
   'kos0ng’s field notes',
-  `<section class="hero"><div class="scene" aria-hidden="true"></div><div class="intro"><small>Personal Blog</small><h1>kos0ng<span>_</span></h1><p>CTF write-ups &amp; research notes by<br>Achmad Zaenuri Dahlan Putra.</p><div class="profiles">${profiles}</div></div></section><div class="section-title"><small>INDEX / 01</small><h2>Explore the archive</h2></div><div class="cards">${Object.keys(labels).map(card).join('')}</div>`
+  `<section class="hero"><div class="scene" aria-hidden="true"></div><div class="intro"><small>Personal Blog</small><h1>kos0ng<span>_</span></h1><p>Malware Researcher.</p><p class="affiliations">${affiliations}</p></div></section><div class="section-title"><small>INDEX / 01</small><h2>Explore the archive</h2></div><div class="cards">${Object.keys(labels).map(card).join('')}</div>`
 )
 for (const [section, label] of Object.entries(labels)) {
   const items = entries(section)

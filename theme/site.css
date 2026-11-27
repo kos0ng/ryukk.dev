@@ -31,7 +31,6 @@ footer {
 }
 .bar,
 footer,
-.profiles,
 .section-title,
 .card small,
 .crumb {
@@ -127,12 +126,14 @@ main {
   color: var(--text);
   margin: 1rem 0 1.4rem;
 }
-.profiles,
+.intro .affiliations {
+  max-width: 36ch;
+}
 footer div {
   display: flex;
   gap: 1rem;
 }
-.profiles a,
+.affiliations a,
 footer a,
 .crumb {
   font: 600 0.9rem/1.6 var(--mono);
