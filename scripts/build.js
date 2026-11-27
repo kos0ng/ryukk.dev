@@ -191,7 +191,7 @@ cpSync(new URL('../LICENSE', tokenTheme), 'public/highlight-js-LICENSE.txt')
 function emit(url, title, body, section = '') {
   const nav = (href, text, current) =>
     `<a href="${href}"${current ? ' aria-current="' + (href === url ? 'page' : 'location') + '"' : ''}>${text}</a>`
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#15161d"><title>${esc(title)} · ryukk.dev</title><link rel="icon" href="/bolt.svg"><link rel="stylesheet" href="/tokyo-night-dark.css"><link rel="stylesheet" href="/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="bar"><a class="brand" href="/"><img src="/bolt.svg" alt="" width="30" height="30"> ryukk<span>.dev</span></a><nav aria-label="Primary">${nav('/', 'Home', url === '/')}${Object.keys(
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#15161d"><title>${esc(title)} · ryukk.dev</title><link rel="icon" href="/bolt.svg"><link rel="stylesheet" href="/tokyo-night-dark.css"><link rel="stylesheet" href="/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="bar"><a class="brand" href="/"><img src="/zenitsu-face.svg" alt="" width="32" height="32"> ryukk<span>.dev</span></a><nav aria-label="Primary">${nav('/', 'Home', url === '/')}${Object.keys(
     labels
   )
     .map((k) => nav('/' + k + '/', labels[k], section === k))
