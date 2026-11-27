@@ -1,11 +1,21 @@
-# taniarascia.com
+# ryukk.dev
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/0a51d0e9-f611-4dd8-887f-fc1889e68540/deploy-status)](https://app.netlify.com/sites/tania/deploys)
+Achmad Zaenuri Dahlan Putra (kos0ng)’s CTF write-ups and security notebooks. The site builds static HTML from versioned Markdown, without a database or GitBook requests at build time.
 
-Tania's personal website running on Gatsby, React, and Node.js.
+## Local development
 
-**Note**: The source for this site was not created to be a template or theme, but for my own use. Feel free to take whatever inspiration from it that you want, but this code was not written with the intention of being cloned and deployed. As such, I do not provide support or guidance for doing that. I recommend using the [Gatsby Advanced Starter](https://github.com/vagr9k/gatsby-advanced-starter/) to set up a blog or an existing theme created for that purpose.
+Use Node 20+ and run `npm ci`, then `npm start`. The preview server uses port 8080 by default. Rebuild after edits with `npm run build`. Deploy the resulting `public/` directory; Netlify settings are included.
+
+After building, run `python3 scripts/check-site.py` to verify that every Markdown file has a published page and that all local links, images and heading references resolve.
+
+## Content
+
+- `books/posts/` mirrors the [CTF GitBook](https://kos0ng.gitbook.io/ctfs).
+- `books/shelves/` mirrors the [Notes GitBook](https://kos0ng.gitbook.io/notes).
+- Run `npm run import` from a networked machine with Python 3.9+ and curl to refresh Markdown from both page sitemaps. Review changes before publishing. It does not delete files for pages removed upstream.
+- The collection roots serve searchable indexes. Each book’s introduction and other Markdown pages retain their source paths and link back to GitBook. Images and downloads remain hosted at their original URLs.
+- `theme/` contains the pixel landscape, palette, typography and optional archive filter. The full archive is navigable without JavaScript.
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+The original site code was distributed under the [MIT License](LICENSE). Imported write-ups, images and linked materials retain their respective ownership.
