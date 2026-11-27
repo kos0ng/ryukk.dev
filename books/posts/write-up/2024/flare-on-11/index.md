@@ -11,16 +11,16 @@ Participated as ryuk. Got 23rd place in worldwide and 1st place in Indonesia. &#
 | Challenge | Topic |
 | --- | --- |
 | [Challenge #1 - frog](/posts/write-up/2024/flare-on-11/challenge-1-frog/) | Python, Pygame |
-| [Challenge #2 - checksum](https://services.google.com/fh/files/misc/flare-on11-challenge2-checksum.pdf "Official solution (PDF)") | Go, Checksum Validation |
-| [Challenge #3 - array](https://services.google.com/fh/files/misc/flare-on11-challenge3-aray.pdf "Official solution (PDF)") | YARA, File Reconstruction |
-| [Challenge #4 - Meme Maker 3000](https://services.google.com/fh/files/misc/flare-on11-challenge4-flare-meme-maker-3000.pdf "Official solution (PDF)") | JavaScript Obfuscation |
-| [Challenge #5 - sshd](https://services.google.com/fh/files/misc/flare-on11-challenge5-sshd.pdf "Official solution (PDF)") | Linux Forensics, SSH |
-| [Challenge #6 - bloke2](https://services.google.com/fh/files/misc/flare-on11-challenge6-bloke2.pdf "Official solution (PDF)") | Verilog, BLAKE2 |
-| [Challenge #7 - fullspeed](https://services.google.com/fh/files/misc/flare-on11-challenge7-fullspeed.pdf "Official solution (PDF)") | .NET Native AOT, ECDH |
-| [Challenge #8 - clearlyfake](https://services.google.com/fh/files/misc/flare-on11-challenge8-clearly-fake.pdf "Official solution (PDF)") | JavaScript, Blockchain, PowerShell |
-| [Challenge #9 - serpentine](https://services.google.com/fh/files/misc/flare-on11-challenge9-serpentine.pdf "Official solution (PDF)") | Windows Exceptions, Obfuscation |
-| [Challenge #10 - Catbert Ransomware](https://services.google.com/fh/files/misc/flare-on11-challenge10-catbert-ransomware.pdf "Official solution (PDF)") | UEFI, Ransomware |
+| [Challenge #2 - checksum](/posts/write-up/2024/flare-on-11/challenge-2-checksum/) | Go, Checksum Validation |
+| [Challenge #3 - aray](/posts/write-up/2024/flare-on-11/challenge-3-aray/) | YARA, File Reconstruction |
+| [Challenge #4 - FLARE Meme Maker 3000](/posts/write-up/2024/flare-on-11/challenge-4-flare-meme-maker-3000/) | JavaScript Obfuscation |
+| [Challenge #5 - sshd](/posts/write-up/2024/flare-on-11/challenge-5-sshd/) | Linux Forensics, SSH |
+| [Challenge #6 - bloke2](/posts/write-up/2024/flare-on-11/challenge-6-bloke2/) | Verilog, BLAKE2 |
+| [Challenge #7 - fullspeed](/posts/write-up/2024/flare-on-11/challenge-7-fullspeed/) | .NET Native AOT, ECDH |
+| [Challenge #8 - Clearly Fake](/posts/write-up/2024/flare-on-11/challenge-8-clearly-fake/) | JavaScript, Blockchain, PowerShell |
+| [Challenge #9 - serpentine](/posts/write-up/2024/flare-on-11/challenge-9-serpentine/) | Windows Exceptions, Obfuscation |
+| [Challenge #10 - Catbert Ransomware](/posts/write-up/2024/flare-on-11/challenge-10-catbert-ransomware/) | UEFI, Ransomware |
 
-*The PDF links go to the challenge authors’ official solutions.*
+Each challenge page links to the author’s official solution while the write-ups are pending.
 
 <!-- /challenge-index -->
