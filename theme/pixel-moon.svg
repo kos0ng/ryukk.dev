@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="150 10 72 72" shape-rendering="crispEdges">
+  <title>Golden pixel moon</title>
+  <!-- The two moon layers from the homepage landscape, without the sky. -->
+  <path fill="#d78237" d="M170 16h32v4h8v6h6v8h4v24h-4v8h-6v6h-8v4h-32v-4h-8v-6h-6v-8h-4V34h4v-8h6v-6h8z"/>
+  <path fill="#ffce56" d="M170 16h32v4h8v6h6v8h4v12h-68V34h4v-8h6v-6h8zM154 50h64v4h-64zm6 9h52v3h-52z"/>
+</svg>
