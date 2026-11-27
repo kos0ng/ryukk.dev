@@ -1,8 +1,10 @@
 # Flare-On 10
 
 {% hint style="info" %}
-Participated as ryuk. Got 99th place in worldwide and 1st place in Indonesia.&#x20;
+Participated as ryuk (listed as kosong in the Hall of Fame). Placed 99th worldwide and 1st in Indonesia.
 {% endhint %}
+
+[Official Hall of Fame](https://flare-on.com/2023.html) · [Official challenge solutions](https://cloud.google.com/blog/topics/threat-intelligence/flareon10-challenge-solutions)
 
 <figure><img src="images/c37fe7581e7ffbaf309f6d43.png" alt=""><figcaption></figcaption></figure>
 

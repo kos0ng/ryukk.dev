@@ -2,6 +2,7 @@
 
 | CTF Name            | Writeup                                                                |
 | ------------------- | ---------------------------------------------------------------------- |
+| Flare-On 9 | [Link](/posts/write-up/2022/flare-on-9/) |
 | Intechfest (ID)     | [Link](/posts/write-up/2022/intechfest/)     |
 | NCW Final (ID)      | [Link](/posts/write-up/2022/ncw-final/)      |
 | NCW Quals (ID)      | [Link](/posts/write-up/2022/ncw-quals/)      |
