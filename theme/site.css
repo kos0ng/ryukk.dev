@@ -323,8 +323,14 @@ article {
   margin: auto;
   overflow-wrap: anywhere;
 }
+/* One centered column for breadcrumbs, title, prose and code, with or
+   without an outline. The surrounding gutters are not part of its width. */
+main.article-page {
+  --reading-width: clamp(52rem, 64vw, 58rem);
+  width: min(100% - 2.5rem, var(--reading-width));
+}
 .article-page article {
-  max-width: 58rem;
+  max-width: none;
   font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
 }
 .article-page article pre {
@@ -395,18 +401,18 @@ article h2 {
   text-decoration: underline var(--gold);
   text-underline-offset: 0.15em;
 }
-@media (min-width: 64rem) {
-  .article-page {
-    width: min(100% - 2.5rem, 78rem);
-  }
-  article.with-toc {
-    max-width: none;
-  }
+@media screen and (min-width: 80rem) {
   .reading-layout {
+    /* Track one is the full article. Track two extends into the right
+       gutter, leaving a gap and at least 1.25rem at the viewport edge. */
+    --toc-gap: 1.5rem;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 15rem;
+    grid-template-columns: 100% min(
+        15rem,
+        calc(50vw - 50% - var(--toc-gap) - 1.25rem)
+      );
     grid-template-areas: 'body toc';
-    column-gap: clamp(2rem, 10vw - 5rem, 3rem);
+    column-gap: var(--toc-gap);
   }
   .article-body {
     grid-area: body;

@@ -49,11 +49,22 @@ function update() {
 function schedule() {
   if (!frame) frame = requestAnimationFrame(update)
 }
+// CSS decides whether there's room for a rail. Only apply the default on a
+// change of layout, so resizing within a layout respects the reader's toggle.
+let wasInRail
+function syncLayout() {
+  const inRail = getComputedStyle(toc).position === 'sticky'
+  if (inRail !== wasInRail) {
+    toc.open = inRail
+    wasInRail = inRail
+  }
+  schedule()
+}
 window.addEventListener('scroll', schedule, { passive: true })
-window.addEventListener('resize', schedule)
+window.addEventListener('resize', syncLayout)
 window.addEventListener('pageshow', schedule)
 window.addEventListener('hashchange', schedule)
 toc.addEventListener('toggle', schedule)
 // Late-loading figures and changed font metrics can move a heading without a scroll.
 new ResizeObserver(schedule).observe(document.querySelector('.article-body'))
-schedule()
+syncLayout()

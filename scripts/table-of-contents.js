@@ -47,5 +47,5 @@ export function tableOfContents(headings) {
   function list(nodes) {
     return `<ul>${nodes.map(({ id, label, children }) => `<li><a href="#${escapeHtml(id)}">${escapeHtml(label)}</a>${children.length ? list(children) : ''}</li>`).join('')}</ul>`
   }
-  return `<details class="article-toc" open><summary>Table of contents</summary><nav aria-label="Table of contents">${list(root.children)}</nav></details><script src="/reading-position.js" defer></script>`
+  return `<details class="article-toc"><summary>Table of contents</summary><nav aria-label="Table of contents">${list(root.children)}</nav></details><script src="/reading-position.js" defer></script>`
 }
