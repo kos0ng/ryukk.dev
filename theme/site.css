@@ -131,8 +131,7 @@ footer div {
 }
 .profiles a,
 footer a,
-.crumb,
-aside {
+.crumb {
   font: 600 0.9rem/1.6 var(--mono);
 }
 small,
@@ -308,8 +307,7 @@ footer {
 .crumb a {
   color: var(--muted);
 }
-article,
-aside {
+article {
   max-width: 52rem;
   margin: auto;
   overflow-wrap: anywhere;
@@ -370,11 +368,6 @@ td {
 }
 th {
   background: var(--panel);
-}
-aside {
-  margin: 3rem auto 0;
-  border-top: 1px solid var(--edge);
-  padding-top: 1rem;
 }
 .skip {
   position: absolute;
