@@ -1,3 +1,4 @@
+import { lockedArticle } from './locked-article.js'
 import {
   cpSync,
   existsSync,
@@ -234,9 +235,10 @@ for (const p of pages.filter((p) => p.dir)) {
     )
   const neighbors = siblings.get(p.url)
   const pager = siblingNav(neighbors, byUrl.get(neighbors?.parent)?.title, esc)
+  const protectedContent = lockedArticle(p)
   const images = join('books', p.section, p.dir, 'images')
   if (existsSync(images)) cpSync(images, join('public', p.url, 'images'), { recursive: true })
-  const { body, toc } = article(p)
+  const { body, toc } = protectedContent ?? article(p)
   const content = toc ? `<div class="reading-layout">${toc}<div class="article-body">${body}</div></div>` : body
   emit(
     p.url,

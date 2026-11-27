@@ -431,6 +431,42 @@ article h1 {
     text-align: start;
   }
 }
+.locked-note {
+  border: 1px solid var(--edge);
+  background: var(--panel);
+  padding: clamp(1rem, 4vw, 2rem);
+}
+.locked-note form {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.locked-note input,
+.locked-note button,
+.unlocked-note button {
+  padding: 0.6rem 0.9rem;
+  min-height: 44px;
+  font: inherit;
+}
+.locked-note input {
+  display: block;
+  margin-top: 0.25rem;
+  max-width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--muted);
+}
+.locked-note button, .unlocked-note button {
+  border: 1px solid var(--gold);
+  background: var(--bg);
+  color: var(--gold);
+  cursor: pointer;
+}
+.locked-note button:focus-visible, .unlocked-note button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
 .article-toc {
   margin: 0 0 1.5rem;
   padding: 0.85rem 1rem;
