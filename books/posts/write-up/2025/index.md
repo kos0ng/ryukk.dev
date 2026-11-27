@@ -2,6 +2,7 @@
 
 | CTF Name                                                                                                         | Categories (published)                      |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| [Flare-On 12](/posts/write-up/2025/flare-on-12/) | Reverse Engineering |
 | [Securinets Final](/posts/write-up/2025/securinets-final/)                             | Reverse Engineering                         |
 | [saarCTF](/posts/write-up/2025/saarctf/) - TBU                                         | Attack Defense                              |
 | [Securinets Quals](/posts/write-up/2025/securinets-quals/)                             | Reverse Engineering                         |
