@@ -1,6 +1,13 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Bubur Connoisseur (549 pts)</td><td><a href="#bubur-connoisseur-549-pts">Here</a></td></tr><tr><td>Not So Random (663 pts)</td><td><a href="#not-so-random-663-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: e8d1e17ccba4cc22 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Bubur Connoisseur (549 pts)](#bubur-connoisseur-549-pts) | AES-ECB, Block Substitution |
+| [Not So Random (663 pts)](#not-so-random-663-pts) | PRNG, Modular Roots |
+
+<!-- /challenge-index -->
 
 ## Bubur Connoisseur (549 pts)
 

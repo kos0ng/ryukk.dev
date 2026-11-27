@@ -1,6 +1,16 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>crac (475 pts)</td><td><a href="#crac-475-pts">Here</a></td></tr><tr><td>Waze (951 pts)</td><td><a href="#waze-951-pts">Here</a></td></tr><tr><td>goba (997 pts)</td><td><a href="#goba-997-pts">Here</a></td></tr><tr><td>Laser (1000 pts)</td><td><a href="https://kos0ng.gitbook.io/blog/research/2021/reverse-engineering-erlang-beam-file">Here</a></td></tr><tr><td>math (1000 pts)</td><td><a href="#math-1000-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 07ddd3809952a228 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [crac (475 pts)](#crac-475-pts) | CRC32, Incremental Validation |
+| [Waze (951 pts)](#waze-951-pts) | WebAssembly, Maze Solving |
+| [goba (997 pts)](#goba-997-pts) | Game Boy Advance, XOR |
+| [Laser (1000 pts)](/notes/research/2021/reverse-engineering-erlang-beam-file/) | Erlang, BEAM Bytecode |
+| [math (1000 pts)](#math-1000-pts) | Haskell, Polynomial Arithmetic |
+
+<!-- /challenge-index -->
 
 ## crac (475 pts)
 

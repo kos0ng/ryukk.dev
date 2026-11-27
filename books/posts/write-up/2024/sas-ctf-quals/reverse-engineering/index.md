@@ -1,6 +1,18 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>ebin (464 pts) 🥇</td><td><a href="#ebin-464-pts">Here</a></td></tr><tr><td>CK0P0 CTYXHET (497 pts)</td><td><a href="#ck0p0-ctyxhet-497-pts">Here</a></td></tr><tr><td>Napoleon (497 pts)</td><td>Here</td></tr><tr><td>Secret meringue recipe (n pts)</td><td>Here</td></tr><tr><td>Cloud Storage (n pts)</td><td>Here</td></tr></tbody></table>
+<!-- challenge-index: 464b72df300282d3 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [ebin (464 pts) 🥇](#ebin-464-pts) | PyInstaller, Custom Cipher |
+| [CK0P0 CTYXHET (497 pts)](#ck0p0-ctyxhet-497-pts) | WebAssembly, Z3 |
+| [Napoleon (497 pts)](#napoleon-497-pts) | Windows Driver Analysis |
+| Secret meringue recipe (n pts) | Reverse Engineering |
+| Cloud Storage (n pts) | Reverse Engineering |
+
+*Unlinked challenges do not have a published write-up here.*
+
+<!-- /challenge-index -->
 
 ## ebin (464 pts)
 

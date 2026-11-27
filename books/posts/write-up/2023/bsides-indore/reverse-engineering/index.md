@@ -1,8 +1,12 @@
 # Reverse Engineering
 
-| Challenge                    | Link                          |
-| ---------------------------- | ----------------------------- |
-| Flag Generator (4 solves) 🥈 | [Here](#free-play-495-points) |
+<!-- challenge-index: fc111c7b0dfd1cdd -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Flag Generator (4 solves) 🥈](#flag-generator-4-solves) | Key Search, Brute Force |
+
+<!-- /challenge-index -->
 
 ## Flag Generator (4 solves)
 

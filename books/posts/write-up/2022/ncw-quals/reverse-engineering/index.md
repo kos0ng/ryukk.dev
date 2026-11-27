@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Count the Flag but Easier (331 pts)🥇</td><td><a href="#count-the-flag-but-easier-331-pts">Here</a></td></tr><tr><td>Reinvent the Wheel (499 pts)🥇</td><td><a href="#reinvent-the-wheel-499-pts">Here</a></td></tr><tr><td>Flaggy Bird V2 (500 pts)🥇</td><td><a href="https://kos0ng.gitbook.io/blog/research/2022/cheating-game-built-with-wasm">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 1b269d67415a910e -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Count the Flag but Easier (331 pts)🥇](#count-the-flag-but-easier-331-pts) | Assembly, Control Flow |
+| [Reinvent the Wheel (499 pts)🥇](#reinvent-the-wheel-499-pts) | Anti-Debugging, GDB |
+| [Flaggy Bird V2 (500 pts)🥇](/notes/research/2022/cheating-game-built-with-wasm/) | Unity, WebAssembly |
+
+<!-- /challenge-index -->
 
 ## Count the Flag but Easier (331 pts)
 

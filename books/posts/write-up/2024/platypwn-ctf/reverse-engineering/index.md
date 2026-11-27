@@ -1,6 +1,12 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>PlatyProtect 64 (936 pts)</td><td><a href="#platyprotect-64-936-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 8ac647484147a893 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [PlatyProtect 64 (936 pts)](#platyprotect-64-936-pts) | Commodore 64, Cartridge Unpacking |
+
+<!-- /challenge-index -->
 
 ## PlatyProtect 64 (936 pts)
 

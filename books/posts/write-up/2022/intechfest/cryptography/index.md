@@ -1,6 +1,17 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>number (247 pts)</td><td><a href="#number-247-pts">Here</a></td></tr><tr><td>encryptor (409 pts)🥇</td><td><a href="#encryptor-409-pts">Here</a></td></tr><tr><td>valorand (490 pts)</td><td><a href="#valorand-490-pts">Here</a></td></tr><tr><td>Regulus (490 pts)</td><td><a href="#regulus-490-pts">Here</a></td></tr><tr><td>see are see(500 pts)🥇</td><td><a href="https://kos0ng.gitbook.io/blog/research/2022/cracking-crc32-with-forward-polynomial-constant">Here</a></td></tr><tr><td>prospero (500 pts)🥇</td><td><a href="https://kos0ng.gitbook.io/blog/research/2022/attacking-non-avalanche-aes-custom-aes-implementation">Here</a></td></tr></tbody></table>
+<!-- challenge-index: e481745d77ebad93 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [number (247 pts)](#number-247-pts) | Bytewise Brute Force |
+| [encryptor (409 pts)🥇](#encryptor-409-pts) | Byte Permutation, XOR |
+| [valorand (490 pts)](#valorand-490-pts) | MT19937, Gray Code, LCG |
+| [Regulus (490 pts)](#regulus-490-pts) | RSA, XOR Factorization |
+| [see are see(500 pts)🥇](/notes/research/2022/cracking-crc32-with-forward-polynomial-constant/) | CRC32, Polynomial Recovery |
+| [prospero (500 pts)🥇](/notes/research/2022/attacking-non-avalanche-aes-custom-aes-implementation/) | Custom AES, Avalanche Effect |
+
+<!-- /challenge-index -->
 
 ## number (247 pts)
 

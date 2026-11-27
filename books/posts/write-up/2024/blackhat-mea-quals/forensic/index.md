@@ -1,6 +1,12 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>NotFS (180 pts)</td><td><a href="#notfs-180-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 48efcb226dce99f4 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [NotFS (180 pts)](#notfs-180-pts) | Filesystem Forensics, File Carving |
+
+<!-- /challenge-index -->
 
 ## NotFS (180 pts)
 

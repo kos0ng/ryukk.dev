@@ -1,6 +1,13 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>5Head (700 pts)</td><td><a href="#id-5head-700-pts">Here</a></td></tr><tr><td>ResidentSleeper (700 pts)</td><td><a href="https://kos0ng.gitbook.io/blog/research/2021/reverse-engineering-approach-on-python-bytecode-with-development-version">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 3398bff515359af3 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [5Head (700 pts)](#5head-700-pts) | Self-Extracting Archive, JavaScript |
+| [ResidentSleeper (700 pts)](/notes/research/2021/reverse-engineering-approach-on-python-bytecode-with-development-version/) | CPython, Bytecode Disassembly |
+
+<!-- /challenge-index -->
 
 ## 5Head (700 pts)
 

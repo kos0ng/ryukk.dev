@@ -1,6 +1,17 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Secure Bank (100 pts)</td><td>Here</td></tr><tr><td>Phish Market Order Management (100 pts)</td><td>Here</td></tr><tr><td>TriForce Recon (100 pts)</td><td>Here</td></tr><tr><td>Funny (449 pts)</td><td><a href="#funny-449-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 11be072773fdcde9 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Secure Bank (100 pts)](https://github.com/intigriti/CTF/blob/main/2024/rev/SecureBank/solution/README.md "Official solution") | C, Two-Factor Authentication |
+| [Phish Market Order Management (100 pts)](https://github.com/intigriti/CTF/blob/main/2024/rev/PhishMarketOrderManagement/solution/README.md "Official solution") | Application Reversing, Access Control |
+| [TriForce Recon (100 pts)](https://github.com/intigriti/CTF/blob/main/2024/rev/TriForceRecon/solution/writeup.pdf "Official solution") | Cross-Platform Executables |
+| [Funny (449 pts)](#funny-449-pts) | CPython Bytecode, Marshal, AES |
+
+*Links to GitHub open the challenge authors’ official solutions.*
+
+<!-- /challenge-index -->
 
 ## Funny (449 pts)
 

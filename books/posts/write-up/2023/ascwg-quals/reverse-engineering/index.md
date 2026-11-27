@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="355">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Amber (600 pts)</td><td><a href="#amber-600-pts">Here</a></td></tr><tr><td>Awaken (900 pts)</td><td><a href="#awaken-900-pts">Here</a></td></tr><tr><td>Guess The Flag (900 pts)</td><td><a href="#guess-the-flag-900-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 8ddbefe5d6c9da8c -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Amber (600 pts)](#amber-600-pts) | Anti-Debugging, RC4 |
+| [Awaken (900 pts)](#awaken-900-pts) | Assembly, Bytewise Brute Force |
+| [Guess The Flag (900 pts)](#guess-the-flag-900-pts) | ELF Initialization, GDB |
+
+<!-- /challenge-index -->
 
 ## Amber (600 pts)
 

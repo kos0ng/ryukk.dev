@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Broken Shop 🏬 (320 pts)</td><td><a href="#broken-shop-320-pts">Here</a></td></tr><tr><td>isHeReact? (380 pts)</td><td><a href="#ishereact-380-pts">Here</a></td></tr><tr><td>Broken PM (400 pts)</td><td><a href="#broken-pm-400-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: cab2f16a7423021d -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Broken Shop 🏬 (320 pts)](#broken-shop-320-pts) | Windows Debugging, Game State |
+| [isHeReact? (380 pts)](#ishereact-380-pts) | React Native, JavaScript |
+| [Broken PM (400 pts)](#broken-pm-400-pts) | Android, Root Detection, Frida |
+
+<!-- /challenge-index -->
 
 ## Broken Shop 🏬 (320 pts)
 

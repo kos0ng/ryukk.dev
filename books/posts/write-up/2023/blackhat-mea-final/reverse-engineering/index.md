@@ -1,6 +1,10 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table>
+<!-- challenge-index: 755c4776c8708c97 -->
+
+*No challenges documented yet.*
+
+<!-- /challenge-index -->
 
 ## Challenge Name (n pts)
 

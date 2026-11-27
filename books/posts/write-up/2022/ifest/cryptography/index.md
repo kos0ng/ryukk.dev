@@ -1,6 +1,15 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Kata Pengantar (100 pts)</td><td><a href="#kata-pengantar-100-pts">Here</a></td></tr><tr><td>Kisinik Kripti Algoritem (223 pts)</td><td><a href="#kisinik-kripti-algoritem-223-pts">Here</a></td></tr><tr><td>Kepapasan (431 pts)</td><td><a href="#kepapasan-431-pts">Here</a></td></tr><tr><td>Rabun Genap (431 pts)</td><td><a href="#rabun-genap-431-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: f15d6dc73618dfa0 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Kata Pengantar (100 pts)](#kata-pengantar-100-pts) | Substitution Cipher |
+| [Kisinik Kripti Algoritem (223 pts)](#kisinik-kripti-algoritem-223-pts) | Chosen Plaintext, Substitution Cipher |
+| [Kepapasan (431 pts)](#kepapasan-431-pts) | AES, Meet-in-the-Middle |
+| [Rabun Genap (431 pts)](#rabun-genap-431-pts) | RSA, Modular Roots |
+
+<!-- /challenge-index -->
 
 ## Kata Pengantar (100 pts)
 

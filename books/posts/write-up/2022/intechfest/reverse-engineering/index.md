@@ -1,6 +1,16 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>fr00t (175 pts)</td><td><a href="#fr00t-175-pts">Here</a></td></tr><tr><td>snake code (247 pts)</td><td><a href="#snake-code-247-pts">Here</a></td></tr><tr><td>Lua (472 pts)</td><td><a href="#lua-472-pts">Here</a></td></tr><tr><td>go go go! (499 pts)🥇</td><td><a href="#go-go-go-499-pts">Here</a></td></tr><tr><td>Exposed (499 pts)🥇</td><td><a href="#exposed-499-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 52198b1cc6520eb8 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [fr00t (175 pts)](#fr00t-175-pts) | Stack Overflow, ELF |
+| [snake code (247 pts)](#snake-code-247-pts) | Python Bytecode, XOR |
+| [Lua (472 pts)](#lua-472-pts) | Lua Bytecode, Disassembly |
+| [go go go! (499 pts)🥇](#go-go-go-499-pts) | Known Plaintext, XOR |
+| [Exposed (499 pts)🥇](#exposed-499-pts) | .NET, ConfuserEx |
+
+<!-- /challenge-index -->
 
 ## fr00t (175 pts)
 

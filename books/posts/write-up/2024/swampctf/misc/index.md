@@ -1,6 +1,12 @@
 # Misc
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Lost Some Magic (92 pts)</td><td><a href="#lost-some-magic-92-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 94ffd36ae31b1044 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Lost Some Magic (92 pts)](#lost-some-magic-92-pts) | File Signatures, Nested Compression |
+
+<!-- /challenge-index -->
 
 ## Lost Some Magic (92 pts)
 

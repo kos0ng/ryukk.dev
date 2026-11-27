@@ -1,6 +1,13 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Jank File Encryptor (315 pts)</td><td><a href="#jank-file-encryptor-315-pts">Here</a></td></tr><tr><td>Copper Crypto (328 pts)</td><td><a href="#copper-crypto-328-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: e0fe5b9a70c7bdc6 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Jank File Encryptor (315 pts)](#jank-file-encryptor-315-pts) | LCG, Known Plaintext |
+| [Copper Crypto (328 pts)](#copper-crypto-328-pts) | RSA, Small Exponent |
+
+<!-- /challenge-index -->
 
 ## Jank File Encryptor (315 pts)
 

@@ -1,6 +1,13 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Riil Kh? (364 pts)</td><td><a href="#riil-kh-364-pts">Here</a></td></tr><tr><td>Syntek Hospital's Evidence (Part 1) (456 pts)</td><td><a href="#syntek-hospitals-evidence-part-1-456-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: ac2fa810e6fe3b6f -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Riil Kh? (364 pts)](#riil-kh-364-pts) | Email Forensics, HTTP Traffic |
+| [Syntek Hospital's Evidence (Part 1) (456 pts)](#syntek-hospitals-evidence-part-1-456-pts) | Windows Memory Forensics, C# |
+
+<!-- /challenge-index -->
 
 ## Riil Kh? (364 pts)
 

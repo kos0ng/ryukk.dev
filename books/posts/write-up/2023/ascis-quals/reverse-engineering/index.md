@@ -1,6 +1,13 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>WARMUP (244 pts)</td><td><a href="#warmup-244-pts">Here</a></td></tr><tr><td>OXYGEN (481 pts)</td><td><a href="#oxygen-481-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 96a2e99b873e9592 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [WARMUP (244 pts)](#warmup-244-pts) | RC4, XOR |
+| [OXYGEN (481 pts)](#oxygen-481-pts) | Binary Patching, Input Validation |
+
+<!-- /challenge-index -->
 
 ## WARMUP (244 pts)
 

@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>baby-asm (100 pts)</td><td><a href="#baby-asm-100-pts">Here</a></td></tr><tr><td>baby-vm (100 pts)</td><td><a href="#baby-vm-100-pts">Here</a></td></tr><tr><td>baby-crack (100 pts)</td><td><a href="#baby-crack-100-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 5280fcfcd9d95a33 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [baby-asm (100 pts)](#baby-asm-100-pts) | Runtime Code Generation, Assembly |
+| [baby-vm (100 pts)](#baby-vm-100-pts) | Custom VM, Bytecode |
+| [baby-crack (100 pts)](#baby-crack-100-pts) | Lua Bytecode, XOR |
+
+<!-- /challenge-index -->
 
 ## baby-asm (100 pts)
 

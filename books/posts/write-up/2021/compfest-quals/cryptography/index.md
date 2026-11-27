@@ -1,6 +1,14 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Snab? Yes, Snab (397 pts)</td><td><a href="#snab-yes-snab-397-pts">Here</a></td></tr><tr><td>Secure Channel (479 pts)</td><td><a href="#secure-channel-479-pts">Here</a></td></tr><tr><td>You AES Me Up (482 pts)</td><td><a href="#you-aes-me-up-482-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 1f0ae5b5e2112b17 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Snab? Yes, Snab (397 pts)](#snab-yes-snab-397-pts) | RSA, Shared Factors |
+| [Secure Channel (479 pts)](#secure-channel-479-pts) | AES, Key Search, Base85 |
+| [You AES Me Up (482 pts)](#you-aes-me-up-482-pts) | AES, IV Reuse |
+
+<!-- /challenge-index -->
 
 ## Snab? Yes, Snab (397 pts)
 

@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>What am I? (80 pts)</td><td><a href="#what-am-i-80-pts">Here</a></td></tr><tr><td>Can you break the armor? (180 pts)</td><td><a href="https://kos0ng.gitbook.io/blog/research/2023/reverse-engineering-pyarmor">Here</a></td></tr><tr><td>Light up the Server (320 pts)</td><td><a href="#light-up-the-server-320-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 46cb7033cf210053 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [What am I? (80 pts)](#what-am-i-80-pts) | PE Resources, DLL Analysis |
+| [Can you break the armor? (180 pts)](/notes/research/2024/reverse-engineering-application-protected-with-pyarmor/) | PyArmor, Python Bytecode |
+| [Light up the Server (320 pts)](#light-up-the-server-320-pts) | Lighttpd, Regular Expressions |
+
+<!-- /challenge-index -->
 
 ## What am I? (80 pts)
 

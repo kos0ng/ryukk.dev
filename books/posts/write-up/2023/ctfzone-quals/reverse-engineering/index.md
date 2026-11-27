@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>SharPON (n solves)</td><td><a href="#sharpon-n-solves">Here</a></td></tr><tr><td>nwJS (n solves)</td><td><a href="#nwjs-n-solves">Here</a></td></tr><tr><td>No Segfault (n solves) - upsolve</td><td><a href="#no-segfault-n-solves">Here</a></td></tr></tbody></table>
+<!-- challenge-index: be53da4856c9287c -->
+
+| Challenge | Topic |
+| --- | --- |
+| [SharPON (n solves)](#sharpon-n-solves) | Reverse Engineering |
+| [nwJS (n solves)](#nwjs-n-solves) | NW.js |
+| [No Segfault (n solves) - upsolve](#no-segfault-n-solves) | Reverse Engineering |
+
+<!-- /challenge-index -->
 
 ## SharPON (n solves)
 

@@ -1,6 +1,13 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>krotate (463 pts)</td><td><a href="#krotate-463-pts">Here</a></td></tr><tr><td>sat1sf1  (463 pts)</td><td><a href="#sat1sf1-463-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 3e6ff3b7ac0c743e -->
+
+| Challenge | Topic |
+| --- | --- |
+| [krotate (463 pts)](#krotate-463-pts) | Key Rotation, XOR |
+| [sat1sf1  (463 pts)](#sat1sf1-463-pts) | Bitwise Constraints, Z3 |
+
+<!-- /challenge-index -->
 
 ## krotate (463 pts)
 

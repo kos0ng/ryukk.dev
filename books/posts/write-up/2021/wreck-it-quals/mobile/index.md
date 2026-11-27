@@ -1,6 +1,13 @@
 # Mobile
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Ezhax</td><td><a href="#ezhax">Here</a></td></tr><tr><td>Otherxide</td><td><a href="#otherxide">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 954de2dfc24f3705 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Ezhax](#ezhax) | Android, AES |
+| [Otherxide](#otherxide) | JNI, AES, Base64 |
+
+<!-- /challenge-index -->
 
 ## Ezhax
 

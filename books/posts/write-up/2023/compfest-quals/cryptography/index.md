@@ -1,6 +1,14 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>choose exponent</td><td><a href="#choose-exponent">Here</a></td></tr><tr><td>CryptoVault</td><td><a href="#cryptovault">Here</a></td></tr><tr><td>Knapsack</td><td><a href="#knapsack">Here</a></td></tr></tbody></table>
+<!-- challenge-index: b0cf2632325957e7 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [choose exponent](#choose-exponent) | RSA, Small Exponent |
+| [CryptoVault](#cryptovault) | ECDSA, Signature Verification |
+| [Knapsack](#knapsack) | Knapsack, LLL |
+
+<!-- /challenge-index -->
 
 ## choose exponent
 

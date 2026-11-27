@@ -1,6 +1,15 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Conti (n pts) UPSOLVE</td><td><a href="#conti-n-pts">Here</a></td></tr><tr><td>Crackme (n pts)🥇</td><td><a href="#crackme-n-pts">Here</a></td></tr><tr><td>Fsteg (n pts) UPSOLVE</td><td><a href="#fsteg-n-pts">Here</a></td></tr><tr><td>Sanryu (n pts)🥈</td><td><a href="#sanryu-n-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: a77bf28204f4ffb4 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Conti (n pts) UPSOLVE](#conti-n-pts) | Reverse Engineering |
+| [Crackme (n pts)🥇](#crackme-n-pts) | Crackme |
+| [Fsteg (n pts) UPSOLVE](#fsteg-n-pts) | Reverse Engineering |
+| [Sanryu (n pts)🥈](#sanryu-n-pts) | Reverse Engineering |
+
+<!-- /challenge-index -->
 
 ## Conti (n pts)
 

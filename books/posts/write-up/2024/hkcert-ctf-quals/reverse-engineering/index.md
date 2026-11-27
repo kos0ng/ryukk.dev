@@ -1,6 +1,20 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Void (100 pts)</td><td><a href="#void-100-pts">Here</a></td></tr><tr><td>Yet another crackme (100 pts)</td><td><a href="#yet-another-crackme-100-pts">Here</a></td></tr><tr><td>Baby Cracker (100 pts)</td><td><a href="#baby-cracker-100-pts">Here</a></td></tr><tr><td>Cyp.ress (200 pts)</td><td><a href="#cyp.ress-200-pts">Here</a></td></tr><tr><td>Flag Checker (200 pts)</td><td><a href="#flag-checker-200-pts">Here</a></td></tr><tr><td>ISA 101 (200 pts)</td><td><a href="#isa-101-200-pts">Here</a></td></tr><tr><td>Morph (300 pts)</td><td><a href="#morph-300-pts">Here</a></td></tr><tr><td>Black Magic (400 pts) 🥇</td><td><a href="#black-magic-400-pts">Here</a></td></tr><tr><td>Bashed! (500 pts)</td><td><a href="#bashed-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: dce3b1f66bdfe656 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Void (100 pts)](#void-100-pts) | Whitespace, JavaScript |
+| [Yet another crackme (100 pts)](#yet-another-crackme-100-pts) | Xamarin, Android Assemblies |
+| [Baby Cracker (100 pts)](#baby-cracker-100-pts) | Constraint Solving, Z3 |
+| [Cyp.ress (200 pts)](#cypress-200-pts) | Python Bytecode, AES |
+| [Flag Checker (200 pts)](#flag-checker-200-pts) | Input Validation, Brute Force |
+| [ISA 101 (200 pts)](#isa-101-200-pts) | Custom ISA, System Calls |
+| [Morph (300 pts)](#morph-300-pts) | Code Decompression, Z3 |
+| [Black Magic (400 pts) 🥇](#black-magic-400-pts) | CPython Internals, Bytecode Analysis |
+| [Bashed! (500 pts)](#bashed-500-pts) | Bash Obfuscation, SHA-1 |
+
+<!-- /challenge-index -->
 
 ## Void (100 pts)
 

@@ -1,6 +1,13 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Familiar (100 pts)</td><td><a href="#familiar-100-pts">Here</a></td></tr><tr><td>Elysium (244 pts)</td><td><a href="#elysium-244-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 5a077ae5a34ffc0a -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Familiar (100 pts)](#familiar-100-pts) | Base32, Custom Alphabet |
+| [Elysium (244 pts)](#elysium-244-pts) | Elliptic Curves, Scalar Multiplication |
+
+<!-- /challenge-index -->
 
 ## Familiar (100 pts)
 

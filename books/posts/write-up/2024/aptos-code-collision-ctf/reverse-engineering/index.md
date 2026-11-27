@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Can You Revela Me (50 pts)</td><td><a href="#can-you-revela-me-50-pts">Here</a></td></tr><tr><td>Sage (212 pts) 🥉</td><td><a href="#sage-212-pts">Here</a></td></tr><tr><td>U Can't Touch This (372 pts) - UPSOLVE</td><td><a href="#u-cant-touch-this-372-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 12f9e951c7cc5ef8 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Can You Revela Me (50 pts)](#can-you-revela-me-50-pts) | Move Bytecode |
+| [Sage (212 pts) 🥉](#sage-212-pts) | Move, Bit-Vector Constraints |
+| [U Can't Touch This (372 pts) - UPSOLVE](#u-cant-touch-this-372-pts) | Move, Access Control |
+
+<!-- /challenge-index -->
 
 ## Can You Revela Me (50 pts)
 

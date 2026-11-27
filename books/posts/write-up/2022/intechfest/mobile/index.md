@@ -1,6 +1,17 @@
 # Mobile
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>flag (428 pts)</td><td><a href="#flag-428-pts">Here</a></td></tr><tr><td>OAT (500 pts)🥇</td><td><a href="#oat-500-pts">Here</a></td></tr><tr><td>Game #1 (500 pts)🥇</td><td><a href="#game-1-500-pts">Here</a></td></tr><tr><td>Game #2 (500 pts)🥇</td><td><a href="#game-2-500-pts">Here</a></td></tr><tr><td>Game #3 (500 pts)🥇</td><td><a href="#game-3-500-pts">Here</a></td></tr><tr><td>Game #4 (500 pts)🥇</td><td><a href="#game-4-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 583640fbc3691992 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [flag (428 pts)](#flag-428-pts) | Android Resources, Hash Cracking |
+| [OAT (500 pts)🥇](#oat-500-pts) | Android OAT, DEX Recovery |
+| [Game #1 (500 pts)🥇](#game-1-500-pts) | Android Native Libraries, ELF |
+| [Game #2 (500 pts)🥇](#game-2-500-pts) | Encrypted ELF Sections |
+| [Game #3 (500 pts)🥇](#game-3-500-pts) | XOR, Caesar Cipher |
+| [Game #4 (500 pts)🥇](#game-4-500-pts) | DEX Loading, RC4 |
+
+<!-- /challenge-index -->
 
 ## flag (428 pts)
 

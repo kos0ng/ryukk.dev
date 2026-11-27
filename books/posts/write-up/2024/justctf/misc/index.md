@@ -1,6 +1,12 @@
 # Misc
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>leaving soon (406 pts)</td><td><a href="#leaving-soon-406-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: efd0ab7f667f5838 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [leaving soon (406 pts)](#leaving-soon-406-pts) | Network Forensics, Video Reconstruction |
+
+<!-- /challenge-index -->
 
 ## leaving soon (406 pts)
 

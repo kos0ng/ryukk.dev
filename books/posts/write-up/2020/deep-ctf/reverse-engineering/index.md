@@ -1,6 +1,16 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Nested Rev (150 Pts)</td><td><a href="#nested-rev-150-pts">Here</a></td></tr><tr><td>SkipMe (200 Pts)</td><td><a href="#skipme-200-pts">Here</a></td></tr><tr><td>0xKEY (300 Pts)</td><td><a href="#id-0xkey-300-pts">Here</a></td></tr><tr><td>Down (300 Pts)</td><td><a href="#down-300-pts">Here</a></td></tr><tr><td>Wacha Wachin (500 Pts)</td><td><a href="#wacha-wachin-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 152c003c73f8397d -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Nested Rev (150 Pts)](#nested-rev-150-pts) | Symbolic Execution, angr |
+| [SkipMe (200 Pts)](#skipme-200-pts) | Environment Checks, CPUID |
+| [0xKEY (300 Pts)](#0xkey-300-pts) | Library Call Tracing, String Comparison |
+| [Down (300 Pts)](#down-300-pts) | Windows Debugging, Binary Patching |
+| [Wacha Wachin (500 Pts)](#wacha-wachin-500-pts) | ARM Assembly, Brute Force |
+
+<!-- /challenge-index -->
 
 ## Nested Rev (150 Pts)
 

@@ -1,6 +1,15 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>KeySharer (50 pts)</td><td><a href="#keysharer-50-pts">Here</a></td></tr><tr><td>Random RSA (50 pts)</td><td><a href="#random-rsa-50-pts">Here</a></td></tr><tr><td>Vigenere-CBC (50 pts)</td><td><a href="#vigenere-cbc-50-pts">Here</a></td></tr><tr><td>Choices (460 pts)</td><td><a href="#choices-460-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 1190b99367cf6232 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [KeySharer (50 pts)](#keysharer-50-pts) | Public-Key Exchange |
+| [Random RSA (50 pts)](#random-rsa-50-pts) | RSA, MT19937 |
+| [Vigenere-CBC (50 pts)](#vigenere-cbc-50-pts) | Vigenère, Cipher Block Chaining |
+| [Choices (460 pts)](#choices-460-pts) | Cryptography |
+
+<!-- /challenge-index -->
 
 ## KeySharer (50 pts)
 

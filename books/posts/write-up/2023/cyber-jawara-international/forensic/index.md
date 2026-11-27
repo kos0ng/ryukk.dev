@@ -1,6 +1,12 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Sequel (499 pts)</td><td><a href="#sequel-499-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 157a2582e25ec0e3 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Sequel (499 pts)](#sequel-499-pts) | SQL Injection, Log Analysis |
+
+<!-- /challenge-index -->
 
 ## Sequel (499 pts)
 

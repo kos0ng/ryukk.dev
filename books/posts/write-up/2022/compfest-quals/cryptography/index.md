@@ -1,6 +1,13 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Seems Familiar (n pts)</td><td><a href="#seems-familiar-500-pts">Here</a></td></tr><tr><td>3(3DES) (500 pts)🥇</td><td><a href="https://kos0ng.gitbook.io/blog/research/2022/partial-known-plaintext-attack-on-custom-3des">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 07c4ffa73363cd31 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Seems Familiar (n pts)](#seems-familiar-n-pts) | AES-ECB, Encryption Oracle |
+| [3(3DES) (500 pts)🥇](/notes/research/2022/partial-known-plaintext-attack-on-custom-3des/) | Custom 3DES, Known Plaintext |
+
+<!-- /challenge-index -->
 
 ## Seems Familiar (n pts)
 

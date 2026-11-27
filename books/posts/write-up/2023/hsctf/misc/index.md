@@ -1,9 +1,13 @@
 # Misc
 
-| Challenge                   | Link                               |
-| --------------------------- | ---------------------------------- |
-| fast-forward (26 solves)    | [Here](#fast-forward-26-solves)    |
-| fast-forward-v2 (22 solves) | [Here](#fast-forward-v2-22-solves) |
+<!-- challenge-index: 1a6cc5ebf063fd10 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [fast-forward (26 solves)](#fast-forward-26-solves) | Python Jail, Lambda Functions |
+| [fast-forward-v2 (22 solves)](#fast-forward-v2-22-solves) | Python Jail, Lambda Functions |
+
+<!-- /challenge-index -->
 
 ## fast-forward (26 solves)
 

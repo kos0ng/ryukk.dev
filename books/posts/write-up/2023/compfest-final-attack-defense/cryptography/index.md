@@ -1,6 +1,12 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>is_admin=True</td><td><a href="#is_admin-true">Here</a></td></tr></tbody></table>
+<!-- challenge-index: a2b0d286a9291083 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [is\_admin=True](#is_admintrue) | LCG, Discrete Logarithm |
+
+<!-- /challenge-index -->
 
 ## is\_admin=True
 

@@ -1,6 +1,13 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Baby RSA (100 pts)</td><td><a href="#baby-rsa-100-pts">Here</a></td></tr><tr><td>Learning but Errors (410 pts)</td><td><a href="#learning-but-errors-410-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 5ff5909e22073df6 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Baby RSA (100 pts)](#baby-rsa-100-pts) | RSA, Safe Primes |
+| [Learning but Errors (410 pts)](#learning-but-errors-410-pts) | Learning With Errors, Linear Algebra |
+
+<!-- /challenge-index -->
 
 ## Baby RSA (100 pts)
 

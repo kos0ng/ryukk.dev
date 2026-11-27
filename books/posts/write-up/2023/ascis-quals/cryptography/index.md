@@ -1,6 +1,12 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>WELCOME RSA (100 pts)</td><td><a href="#welcome-rsa-100-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: cac06acc4d1fba3b -->
+
+| Challenge | Topic |
+| --- | --- |
+| [WELCOME RSA (100 pts)](#welcome-rsa-100-pts) | RSA, Euler's Totient |
+
+<!-- /challenge-index -->
 
 ## WELCOME RSA (100 pts)
 

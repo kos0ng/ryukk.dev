@@ -1,6 +1,12 @@
 # Misc
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Super Mario 16 (50 pts)</td><td><a href="#super-mario-16-50-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: e8ce30d7b5848984 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Super Mario 16 (50 pts)](#super-mario-16-50-pts) | Move, Smart Contract Logic |
+
+<!-- /challenge-index -->
 
 ## Super Mario 16 (50 pts)
 

@@ -1,6 +1,15 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>hackedlol🥇</td><td><a href="#hackedlol">Here</a></td></tr><tr><td>KatVM🥇</td><td><a href="#katvm">Here</a></td></tr><tr><td>GoDroid 🥇</td><td><a href="#godroid">Here</a></td></tr><tr><td>Validator Machine🥇</td><td><a href="#validator-machine">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 84227fa9e957cb05 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [hackedlol🥇](#hackedlol) | Python Bytecode, XOR |
+| [KatVM🥇](#katvm) | Python Bytecode, Custom VM |
+| [GoDroid 🥇](#godroid) | Go, Android, Frida |
+| [Validator Machine🥇](#validator-machine) | GDB Scripting, Input Validation |
+
+<!-- /challenge-index -->
 
 ## hackedlol
 

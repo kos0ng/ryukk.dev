@@ -1,6 +1,12 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Secret Note (700 pts)</td><td><a href="#secret-note-700-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 4b635d31086311e6 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Secret Note (700 pts)](#secret-note-700-pts) | PDF Forensics, Embedded ZIP |
+
+<!-- /challenge-index -->
 
 ## Secret Note (700 pts)
 

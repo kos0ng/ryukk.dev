@@ -1,6 +1,12 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Notes Manager (113 pts)</td><td><a href="#notes-manager-113-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 2eff57a23f8d61b7 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Notes Manager (113 pts)](#notes-manager-113-pts) | Matrix Cipher, Known Plaintext |
+
+<!-- /challenge-index -->
 
 ## Notes Manager (113 pts)
 

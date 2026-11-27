@@ -1,6 +1,13 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Xorror (300 pts)</td><td><a href="#xorror-300-pts">Here</a></td></tr><tr><td>Buka Rekening (340 pts)</td><td><a href="#buka-rekening-340-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 430b9c25b89b51bc -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Xorror (300 pts)](#xorror-300-pts) | Bit Rotation, XOR |
+| [Buka Rekening (340 pts)](#buka-rekening-340-pts) | Modular Arithmetic, Factorization |
+
+<!-- /challenge-index -->
 
 ## Xorror (300 pts)
 

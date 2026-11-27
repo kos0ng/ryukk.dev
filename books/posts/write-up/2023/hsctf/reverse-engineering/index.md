@@ -1,9 +1,13 @@
 # Reverse Engineering
 
-| Challenge                    | Link                                |
-| ---------------------------- | ----------------------------------- |
-| 1125899906842622 (18 solves) | [Here](#1125899906842622-18-solves) |
-| re-cursed (4 solves) 🥇      | [Here](#re-cursed-4-solves)         |
+<!-- challenge-index: b65b5a1046cac9b7 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [1125899906842622 (18 solves)](#1125899906842622-18-solves) | Maze Solving, Depth-First Search |
+| [re-cursed (4 solves) 🥇](#re-cursed-4-solves) | ELF Unpacking, Constraint Solving |
+
+<!-- /challenge-index -->
 
 ## 1125899906842622 (18 solves)
 

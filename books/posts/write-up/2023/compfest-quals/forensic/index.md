@@ -1,6 +1,13 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>industrialspy</td><td><a href="#industrialspy">Here</a></td></tr><tr><td>E2EBleed</td><td><a href="#e2ebleed">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 2842c1e21824e033 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [industrialspy](#industrialspy) | Memory Forensics, Volatility |
+| [E2EBleed](#e2ebleed) | PCAP, RSA |
+
+<!-- /challenge-index -->
 
 ## industrialspy
 

@@ -1,6 +1,15 @@
 # Mobile
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Quiz (100 pts)</td><td>Here</td></tr><tr><td>Where's my APK? (499 pts) 🥉</td><td><a href="#wheres-my-apk-499-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: f7a416bb463999d1 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Quiz (100 pts)](https://github.com/intigriti/CTF/blob/main/2024/mobile/Quiz/solution/writeup%20(Mogfrat).pdf "Official solution") | Android APK, Quiz Validation |
+| [Where's my APK? (499 pts) 🥉](#wheres-my-apk-499-pts) | Android App Bundle, Flutter |
+
+*Links to GitHub open the challenge authors’ official solutions.*
+
+<!-- /challenge-index -->
 
 ## Where's my APK? (499 pts)
 

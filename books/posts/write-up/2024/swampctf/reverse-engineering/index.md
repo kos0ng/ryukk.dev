@@ -1,6 +1,15 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Beginner Rev (50 pts)</td><td><a href="#beginner-rev-50-pts">Here</a></td></tr><tr><td>ARMory (190 pts)</td><td><a href="#armory-190-pts">Here</a></td></tr><tr><td>Off The Hook (300 pts) 🥇</td><td><a href="#off-the-hook-300-pts">Here</a></td></tr><tr><td>McGuffin Hunt (500 pts) 🥇</td><td><a href="#mcguffin-hunt-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: db0146613d74ba33 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Beginner Rev (50 pts)](#beginner-rev-50-pts) | XOR, Known Constant |
+| [ARMory (190 pts)](#armory-190-pts) | ARM Assembly, Input Validation |
+| [Off The Hook (300 pts) 🥇](#off-the-hook-300-pts) | Android, Method Hooking |
+| [McGuffin Hunt (500 pts) 🥇](#mcguffin-hunt-500-pts) | TI Calculator, Game Reversing |
+
+<!-- /challenge-index -->
 
 ## Beginner Rev (50 pts)
 

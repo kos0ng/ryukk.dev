@@ -1,6 +1,14 @@
 # Cryptography
 
-<table><thead><tr><th width="355">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Perfect Encryption (300 pts)</td><td><a href="#perfect-encryption-300-pts">Here</a></td></tr><tr><td>Sign Hell (300 pts)</td><td><a href="#sign-hell-300-pts">Here</a></td></tr><tr><td>Power Times (600 pts)</td><td><a href="#power-times-600-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: ede218dc96757711 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Perfect Encryption (300 pts)](#perfect-encryption-300-pts) | Modular Equations, Discrete Logarithm |
+| [Sign Hell (300 pts)](#sign-hell-300-pts) | Signature Nonce Reuse |
+| [Power Times (600 pts)](#power-times-600-pts) | Discrete Logarithm, Smooth Primes |
+
+<!-- /challenge-index -->
 
 ### Perfect Encryption (300 pts)
 

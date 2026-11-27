@@ -1,6 +1,13 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>baby networking (496 pts)🥇</td><td><a href="#baby-networking-496-pts">Here</a></td></tr><tr><td>baby mips? (500 pts)🥇</td><td><a href="#baby-mips-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: ffa2184feadd1be5 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [baby networking (496 pts)🥇](#baby-networking-496-pts) | Custom Network Protocol, Key Recovery |
+| [baby mips? (500 pts)🥇](#baby-mips-500-pts) | MIPS64, QEMU |
+
+<!-- /challenge-index -->
 
 ## baby networking (496 pts)
 

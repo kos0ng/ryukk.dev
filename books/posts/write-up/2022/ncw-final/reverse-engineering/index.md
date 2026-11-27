@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>👦 You need to GO! John (500 pts)🥇</td><td><a href="#you-need-to-go-john-500-pts">Here</a></td></tr><tr><td>⚡ Ragnarok (500 pts)🥇</td><td><a href="#ragnarok-500-pts">Here</a></td></tr><tr><td>🎮 80's (500 pts)🥇</td><td><a href="https://kos0ng.gitbook.io/blog/research/2022/reverse-engineering-game-boy">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 19412b3314caf5b8 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [👦 You need to GO! John (500 pts)🥇](#you-need-to-go-john-500-pts) | Go, OTP Validation, Z3 |
+| [⚡ Ragnarok (500 pts)🥇](#ragnarok-500-pts) | Unpacking, VM, Z3 |
+| [🎮 80's (500 pts)🥇](/notes/research/2022/reverse-engineering-game-boy/) | Game Boy ROM, Emulation |
+
+<!-- /challenge-index -->
 
 ## 👦 You need to GO! John (500 pts)
 

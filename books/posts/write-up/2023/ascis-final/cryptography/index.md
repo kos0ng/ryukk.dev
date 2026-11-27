@@ -1,6 +1,10 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>??? (n pts)</td><td>Here</td></tr></tbody></table>
+<!-- challenge-index: c7d2b7cf9e09dc60 -->
+
+*No challenges documented yet.*
+
+<!-- /challenge-index -->
 
 ## ??? (n pts)
 

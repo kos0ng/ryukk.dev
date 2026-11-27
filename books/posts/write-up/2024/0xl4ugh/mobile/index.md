@@ -1,6 +1,14 @@
 # Mobile
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>MyVault (50 pts)</td><td><a href="#myvault-50-pts">Here</a></td></tr><tr><td>Brave (499 pts)</td><td><a href="#brave-499-pts">Here</a></td></tr><tr><td>Tracer (500 pts)</td><td><a href="#tracer-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: b49f5fec5ab03ee2 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [MyVault (50 pts)](#myvault-50-pts) | Android, AES, PIN Recovery |
+| [Brave (499 pts)](#brave-499-pts) | Android, Frida, Environment Checks |
+| [Tracer (500 pts)](#tracer-500-pts) | iOS, Firebase |
+
+<!-- /challenge-index -->
 
 ## MyVault (50 pts)
 

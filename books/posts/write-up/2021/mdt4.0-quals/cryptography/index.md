@@ -1,6 +1,12 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Baby Key (592 pts)</td><td><a href="#baby-key-592-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 2d555ddb451aa40e -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Baby Key (592 pts)](#baby-key-592-pts) | RSA, Wiener's Attack |
+
+<!-- /challenge-index -->
 
 ## Baby Key (592 pts)
 

@@ -1,6 +1,13 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>WASM ROLL (228 pts)🥇</td><td><a href="#wasm-roll-228-pts">Here</a></td></tr><tr><td>Takeshi's Castle (500 pts)🥇</td><td><a href="#takeshis-castle-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 3e27473959359a58 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [WASM ROLL (228 pts)🥇](#wasm-roll-228-pts) | WebAssembly, Decompilation |
+| [Takeshi's Castle (500 pts)🥇](#takeshis-castle-500-pts) | Anti-Debugging, Path Finding |
+
+<!-- /challenge-index -->
 
 ## WASM ROLL (228 pts)
 

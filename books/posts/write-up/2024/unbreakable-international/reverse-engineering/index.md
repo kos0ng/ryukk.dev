@@ -1,6 +1,12 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>wicked-game (457 pts)</td><td><a href="#wicked-game-457-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: afc223a668c214a6 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [wicked-game (457 pts)](#wicked-game-457-pts) | Android Game, Steganography |
+
+<!-- /challenge-index -->
 
 ## wicked-game (457 pts)
 

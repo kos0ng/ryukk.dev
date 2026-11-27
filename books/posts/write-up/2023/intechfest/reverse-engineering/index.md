@@ -1,6 +1,15 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>NFC (275 pts)🥇</td><td><a href="#nfc-275-pts">Here</a></td></tr><tr><td>32t8 (475 pts)🥇</td><td><a href="#id-32t8-475-pts">Here</a></td></tr><tr><td>NoJS (475 pts)🥇</td><td><a href="#nojs-475-pts">Here</a></td></tr><tr><td>VA (496 pts)🥇</td><td><a href="#va-496-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 3a4b15c37231a4a7 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [NFC (275 pts)🥇](#nfc-275-pts) | GDB Scripting, Bytewise Validation |
+| [32t8 (475 pts)🥇](#32t8-475-pts) | Boolean Circuits, Z3 |
+| [NoJS (475 pts)🥇](#nojs-475-pts) | Packaged JavaScript, Deobfuscation |
+| [VA (496 pts)🥇](#va-496-pts) | Windows Binaries, XOR |
+
+<!-- /challenge-index -->
 
 ## NFC (275 pts)
 

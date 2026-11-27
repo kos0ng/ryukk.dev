@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>DaijinVM (n solves)</td><td><a href="#daijinvm-n-solves">Here</a></td></tr><tr><td>Tomojiski (n solves) - upsolve</td><td><a href="#tomojiski-n-solves">Here</a></td></tr><tr><td>Navigator (2 solves)🥈</td><td><a href="#navigator-2-solves">Here</a></td></tr></tbody></table>
+<!-- challenge-index: faca80028c739fd4 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [DaijinVM (n solves)](#daijinvm-n-solves) | Custom VM |
+| [Tomojiski (n solves) - upsolve](#tomojiski-n-solves) | Reverse Engineering |
+| [Navigator (2 solves)🥈](#navigator2-solves) | Reverse Engineering |
+
+<!-- /challenge-index -->
 
 ## DaijinVM (n solves)
 

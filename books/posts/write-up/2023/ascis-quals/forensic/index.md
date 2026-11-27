@@ -1,6 +1,12 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>BABY_4 (484 pts)🥇</td><td><a href="#baby_4-484-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 4398836b911d0f8c -->
+
+| Challenge | Topic |
+| --- | --- |
+| [BABY\_4 (484 pts)🥇](#baby_4-484-pts) | Memory Dump Analysis |
+
+<!-- /challenge-index -->
 
 ## BABY\_4 (484 pts)
 

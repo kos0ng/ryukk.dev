@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Everlasting_Message (250 pts)</td><td><a href="#everlasting_message-250-pts">Here</a></td></tr><tr><td>prism_messenger (358 pts)</td><td><a href="#prism_messenger-358-pts">Here</a></td></tr><tr><td>LACUCARA_VM (805 pts)</td><td><a href="#lacucara_vm-805-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 41ce9f35c57b6d63 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Everlasting\_Message (250 pts)](#everlasting_message-250-pts) | Reverse Engineering |
+| [prism\_messenger (358 pts)](#prism_messenger-358-pts) | Reverse Engineering |
+| [LACUCARA\_VM (805 pts)](#lacucara_vm-805-pts) | Custom VM |
+
+<!-- /challenge-index -->
 
 ## Everlasting\_Message (250 pts)
 

@@ -1,6 +1,14 @@
 # Misc
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>(s)tri(pes)angle love (120 pts)</td><td><a href="#s-tri-pes-angle-love-120-pts">Here</a></td></tr><tr><td>Berhitung! (260 pts)</td><td><a href="#berhitung-260-pts">Here</a></td></tr><tr><td>One Time Credentials (380 pts)</td><td><a href="#one-time-credentials-380-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: f5f3d34a18339f35 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [(s)tri(pes)angle love (120 pts)](#stripesangle-love-120-pts) | OSINT, Instagram |
+| [Berhitung! (260 pts)](#berhitung-260-pts) | Depth-First Search, Matrices |
+| [One Time Credentials (380 pts)](#one-time-credentials-380-pts) | Smart Contracts, Web3 |
+
+<!-- /challenge-index -->
 
 ## (s)tri(pes)angle love (120 pts)
 

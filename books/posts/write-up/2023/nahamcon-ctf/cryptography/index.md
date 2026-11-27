@@ -1,12 +1,16 @@
 # Cryptography
 
-| Challenge                  | Link                              |
-| -------------------------- | --------------------------------- |
-| RSA Outro (n solves)       | [Here](#rsa-outro-n-solves)       |
-| Just One More (n solves)   | [Here](#just-one-more-n-solves)   |
-| ForgeMe 1 (n solves)       | [Here](#forgeme-1-n-solves)       |
-| ForgeMe 2 (n solves)       | [Here](#forgeme-2-n-solves)       |
-| Signed Jeopardy (n solves) | [Here](#signed-jeopardy-n-solves) |
+<!-- challenge-index: 0e9bee207bf7c0ad -->
+
+| Challenge | Topic |
+| --- | --- |
+| [RSA Outro (n solves)](#rsa-outro-n-solves) | RSA, Related Primes |
+| [Just One More (n solves)](#just-one-more-n-solves) | Constraint Solving, Z3 |
+| [ForgeMe 1 (n solves)](#forgeme-1-n-solves) | Hash Length Extension |
+| [ForgeMe 2 (n solves)](#forgeme-2-n-solves) | Hash Length Extension, Brute Force |
+| [Signed Jeopardy (n solves)](#signed-jeopardy-n-solves) | Signature Nonce Reuse |
+
+<!-- /challenge-index -->
 
 ## RSA Outro (n solves)
 

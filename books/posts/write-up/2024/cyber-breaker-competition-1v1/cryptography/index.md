@@ -1,6 +1,15 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>not-so-random (100 pts)</td><td><a href="#not-so-random-100-pts">Here</a></td></tr><tr><td>two-round-rsa (100 pts)</td><td><a href="#two-round-rsa-100-pts">Here</a></td></tr><tr><td>baby-prng (100 pts)</td><td><a href="#baby-prng-100-pts">Here</a></td></tr><tr><td>i-am-legend (100 pts)</td><td><a href="#i-am-legend-100-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: a1a6044f455b6a67 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [not-so-random (100 pts)](#not-so-random-100-pts) | AES, Weak PRNG Seed |
+| [two-round-rsa (100 pts)](#two-round-rsa-100-pts) | RSA, Related Primes |
+| [baby-prng (100 pts)](#baby-prng-100-pts) | LCG, Known Plaintext |
+| [i-am-legend (100 pts)](#i-am-legend-100-pts) | Quadratic Residues, Legendre Symbol |
+
+<!-- /challenge-index -->
 
 ## not-so-random (100 pts)
 

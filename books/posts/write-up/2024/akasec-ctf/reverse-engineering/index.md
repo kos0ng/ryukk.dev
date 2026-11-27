@@ -1,6 +1,18 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Paranoia (100 pts)</td><td><a href="#paranoia-100-pts">Here</a></td></tr><tr><td>Grip (100 pts)</td><td><a href="#grip-100-pts">Here</a></td></tr><tr><td>Sperm Rev (100 pts)</td><td><a href="#sperm-rev-100-pts">Here</a></td></tr><tr><td>Risks (205 pts)</td><td><a href="#risks-205-pts">Here</a></td></tr><tr><td>Packeta (460 pts)</td><td><a href="#packeta-460-pts">Here</a></td></tr><tr><td>Mips (477 pts)</td><td><a href="#mips-477-pts">Here</a></td></tr><tr><td>Orgalorg (498 pts)</td><td><a href="#orgalorg-498-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: dbb6ee9040db6d43 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Paranoia (100 pts)](#paranoia-100-pts) | Time-Based Seed, XOR |
+| [Grip (100 pts)](#grip-100-pts) | Runtime Code Generation, XOR |
+| [Sperm Rev (100 pts)](#sperm-rev-100-pts) | ELF Strings |
+| [Risks (205 pts)](#risks-205-pts) | RISC-V, Z3 |
+| [Packeta (460 pts)](#packeta-460-pts) | ELF Packing, RC4 |
+| [Mips (477 pts)](#mips-477-pts) | Nintendo 64, MIPS |
+| [Orgalorg (498 pts)](#orgalorg-498-pts) | Control Flow Obfuscation, GDB |
+
+<!-- /challenge-index -->
 
 ## Paranoia (100 pts)
 

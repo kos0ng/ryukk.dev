@@ -1,6 +1,12 @@
 # Misc
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Solar System (500 pts)🥇</td><td><a href="#solar-system-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: b58ff984751f77bf -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Solar System (500 pts)🥇](#solar-system-500-pts) | Solidity, Smart Contracts |
+
+<!-- /challenge-index -->
 
 ## Solar System (500 pts)
 

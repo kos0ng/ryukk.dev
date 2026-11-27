@@ -1,6 +1,12 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>rox (464 pts)</td><td><a href="#rox-464-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: b1f5870c15776146 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [rox (464 pts)](#rox-464-pts) | FreeBSD, Static Analysis |
+
+<!-- /challenge-index -->
 
 ## rox (464 pts)
 

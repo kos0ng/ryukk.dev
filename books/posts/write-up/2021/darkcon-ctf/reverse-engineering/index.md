@@ -1,6 +1,18 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Read</td><td><a href="#read">Here</a></td></tr><tr><td>Too Much</td><td><a href="#too-much">Here</a></td></tr><tr><td>ezpz</td><td><a href="#ezpz">Here</a></td></tr><tr><td>CyberDark0x01: ShitComp</td><td><a href="#cyberdark0x01-shitcomp">Here</a></td></tr><tr><td>CyberDark_0x02: Installer</td><td><a href="#cyberdark_0x02-installer">Here</a></td></tr><tr><td>(Not) Easy</td><td><a href="#not-easy">Here</a></td></tr><tr><td>fire in the androiddd</td><td><a href="#fire-in-the-androiddd">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 988a528b568c6ef6 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Read](#read) | Python Bytecode, Obfuscation |
+| [Too Much](#too-much) | Constraint Solving, Z3 |
+| [ezpz](#ezpz) | Android, Smali Patching |
+| [CyberDark0x01: ShitComp](#cyberdark0x01-shitcomp) | Custom Compression, Encryption |
+| [CyberDark\_0x02: Installer](#cyberdark_0x02-installer) | License Key Validation, Brute Force |
+| [(Not) Easy](#not-easy) | Modified XXTEA |
+| [fire in the androiddd](#fire-in-the-androiddd) | Android, Frida, XOR |
+
+<!-- /challenge-index -->
 
 ## Read
 

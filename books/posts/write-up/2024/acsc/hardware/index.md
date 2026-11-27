@@ -1,6 +1,15 @@
 # Hardware
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>An4lyz3_1t (50 pts)</td><td><a href="#an4lyz3_1t-50-pts">Here</a></td></tr><tr><td>Vault (150 pts)</td><td><a href="#vault-150-pts">Here</a></td></tr><tr><td>PWR_Tr4ce (200 pts)</td><td><a href="#pwr_tr4ce-200-pts">Here</a></td></tr><tr><td>picopico (200 pts)</td><td><a href="#picopico-200-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: bcc4bc8fc7642455 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [An4lyz3\_1t (50 pts)](#an4lyz3_1t-50-pts) | Logic Analyzer, Serial Decoding |
+| [Vault (150 pts)](#vault-150-pts) | Timing Side Channel |
+| [PWR\_Tr4ce (200 pts)](#pwr_tr4ce-200-pts) | AES, Power Analysis |
+| [picopico (200 pts)](#picopico-200-pts) | Raspberry Pi Pico, Firmware Analysis |
+
+<!-- /challenge-index -->
 
 ## An4lyz3\_1t (50 pts)
 

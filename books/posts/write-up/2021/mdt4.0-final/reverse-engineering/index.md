@@ -1,6 +1,13 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>WHOMEGALUL (663 pts)</td><td><a href="#whomegalul-663-pts">Here</a></td></tr><tr><td>WeirdChamp (691 pts)</td><td><a href="#weirdchamp-691-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 91dde098e940852e -->
+
+| Challenge | Topic |
+| --- | --- |
+| [WHOMEGALUL (663 pts)](#whomegalul-663-pts) | CRC32, Z3 |
+| [WeirdChamp (691 pts)](#weirdchamp-691-pts) | F#, .NET Decompilation |
+
+<!-- /challenge-index -->
 
 ## WHOMEGALUL (663 pts)
 

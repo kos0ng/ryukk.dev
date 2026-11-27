@@ -1,6 +1,12 @@
 # Mobile
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Hijacker (504 pts)</td><td><a href="#hijacker-504-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: f1f59a603710b5e1 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Hijacker (504 pts)](#hijacker-504-pts) | Android Overlay, PIN Entry |
+
+<!-- /challenge-index -->
 
 ## Hijacker (504 pts)
 

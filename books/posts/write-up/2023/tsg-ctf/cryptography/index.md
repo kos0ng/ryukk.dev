@@ -1,6 +1,13 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Unique Flag (109 pts)</td><td><a href="#unique-flag-109-pts">Here</a></td></tr><tr><td>Complicated Function (117 pts) UPSOLVE</td><td><a href="#complicated-function-117-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: d64f922fc6f72e3b -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Unique Flag (109 pts)](#unique-flag-109-pts) | RSA, Small Plaintext Space |
+| [Complicated Function (117 pts) UPSOLVE](#complicated-function-117-pts) | RSA, Binary Search |
+
+<!-- /challenge-index -->
 
 ## Unique Flag (109 pts)
 

@@ -1,6 +1,12 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Staged (1000 pts) 🥇</td><td><a href="#staged-1000-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 0353d0a5bb22d3d5 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Staged (1000 pts) 🥇](#staged-1000-pts) | QUIC, Staged Payload Analysis |
+
+<!-- /challenge-index -->
 
 ## Staged (1000 pts)
 

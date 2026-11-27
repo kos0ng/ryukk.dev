@@ -1,6 +1,15 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>dive in the lake (50 pts)</td><td><a href="#dive-in-the-lake-50-pts">Here</a></td></tr><tr><td>FUNTRAN (115 pts) UPSOLVE</td><td><a href="#funtran-50-pts">Here</a></td></tr><tr><td>TheGoodGod (264 pts)</td><td><a href="#thegoodgod-264-pts">Here</a></td></tr><tr><td>smolene's latest obsession (338 pts) UPSOLVE</td><td><a href="#smolenes-latest-obsession-338-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 8c69f8a91b6d3010 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [dive in the lake (50 pts)](#dive-in-the-lake-50-pts) | LLVM IR, Constraint Solving |
+| [FUNTRAN (115 pts) UPSOLVE](#funtran-50-pts) | Fortran, Numerical Integration |
+| [TheGoodGod (264 pts)](#thegoodgod-264-pts) | Control Flow Obfuscation, GDB |
+| [smolene's latest obsession (338 pts) UPSOLVE](#smolenes-latest-obsession-338-pts) | Forth, Stack Interpreter |
+
+<!-- /challenge-index -->
 
 ## dive in the lake (50 pts)
 

@@ -1,6 +1,14 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>sabeb64 (331 pts)</td><td><a href="#sabeb64-331-pts">Here</a></td></tr><tr><td>Cakemath (451 pts)</td><td><a href="#cakemath-451-pts">Here</a></td></tr><tr><td>Turmoil (491 pts)</td><td><a href="#turmoil-491-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 5a03450c66192a3e -->
+
+| Challenge | Topic |
+| --- | --- |
+| [sabeb64 (331 pts)](#sabeb64-331-pts) | Custom Base64, Brute Force |
+| [Cakemath (451 pts)](#cakemath-451-pts) | Quadratic Residues, Jacobi Symbol |
+| [Turmoil (491 pts)](#turmoil-491-pts) | MT19937, RSA Factors |
+
+<!-- /challenge-index -->
 
 ## sabeb64 (331 pts)
 

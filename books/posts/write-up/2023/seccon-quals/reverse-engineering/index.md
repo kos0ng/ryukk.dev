@@ -1,6 +1,16 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>jumpout (84 pts)</td><td><a href="#jumpout-84-pts">Here</a></td></tr><tr><td>Sickle (106 pts)</td><td><a href="#sickle-106-pts">Here</a></td></tr><tr><td>Perfect Blu (135 pts)</td><td><a href="#perfect-blu-135-pts">Here</a></td></tr><tr><td>optinimize (152 pts)</td><td><a href="#optinimize-152-pts">Here</a></td></tr><tr><td>xuyao (176 pts)</td><td><a href="#xuyao-176-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 38cf69a249c6cff0 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [jumpout (84 pts)](#jumpout-84-pts) | Control Flow Obfuscation, XOR |
+| [Sickle (106 pts)](#sickle-106-pts) | Python Pickle, Disassembly |
+| [Perfect Blu (135 pts)](#perfect-blu-135-pts) | Blu-ray Bytecode |
+| [optinimize (152 pts)](#optinimize-152-pts) | Nim, Big Integer Arithmetic |
+| [xuyao (176 pts)](#xuyao-176-pts) | Custom Block Cipher |
+
+<!-- /challenge-index -->
 
 <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNxDUjcOM7l4q0gGpsJbA%2Fimage.png?alt=media&amp;token=0e75603a-7d39-4274-9bbe-f0de77306d45" alt=""><figcaption></figcaption></figure>
 

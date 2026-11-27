@@ -1,6 +1,12 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Nintendo (484 pts)</td><td><a href="#nintendo-484-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: d2330ae1ca084d52 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Nintendo (484 pts)](#nintendo-484-pts) | Animated PNG, Pixel Steganography |
+
+<!-- /challenge-index -->
 
 ## Nintendo (484 pts)
 

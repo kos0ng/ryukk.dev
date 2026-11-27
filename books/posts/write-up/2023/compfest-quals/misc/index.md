@@ -1,6 +1,12 @@
 # Misc
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>sharing is caring🥇</td><td><a href="#sharing-is-caring">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 1b29c461a8fc9354 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [sharing is caring🥇](#sharing-is-caring) | BitTorrent, SHA-1 |
+
+<!-- /challenge-index -->
 
 ## sharing is caring
 

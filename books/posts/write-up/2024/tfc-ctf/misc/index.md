@@ -1,6 +1,12 @@
 # Misc
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Santa's Little Helper (463 pts)</td><td><a href="#santas-little-helper-463-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 83a07147d1361aac -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Santa's Little Helper (463 pts)](#santas-little-helper-463-pts) | ELF, Size-Constrained Binaries |
+
+<!-- /challenge-index -->
 
 ## Santa's Little Helper (463 pts)
 

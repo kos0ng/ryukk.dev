@@ -1,6 +1,13 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Yggdarsil (656 Pts)</td><td><a href="#yggdarsil-656-pts">Here</a></td></tr><tr><td>Goliath (699 Pts)</td><td><a href="#goliath-699-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 151205b873585046 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Yggdarsil (656 Pts)](#yggdarsil-656-pts) | Rust, Mach-O, Elm |
+| [Goliath (699 Pts)](#goliath-699-pts) | Rust, Self-Modifying Code |
+
+<!-- /challenge-index -->
 
 ## Yggdarsil (656 Pts)
 

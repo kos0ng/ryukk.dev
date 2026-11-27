@@ -1,6 +1,12 @@
 # Steganography
 
-<table><thead><tr><th width="355">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Ancient Scrawls (409 pts) 🥈</td><td><a href="#ancient-scrawls-409-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: e2b6546dd666cf40 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Ancient Scrawls (409 pts) 🥈](#ancient-scrawls-409-pts) | Animated GIF, Mouse Trajectories |
+
+<!-- /challenge-index -->
 
 ## Ancient Scrawls (409 pts)
 

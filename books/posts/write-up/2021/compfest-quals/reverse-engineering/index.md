@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Binary Pin (454 pts)</td><td><a href="#binary-pin-454-pts">Here</a></td></tr><tr><td>Magical Mystery Club (482 pts)</td><td><a href="#magical-mystery-club-482-pts">Here</a></td></tr><tr><td>Pave The Way (494 pts)🥇</td><td><a href="#pave-the-way-494-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 0e40c8f74dfe6437 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Binary Pin (454 pts)](#binary-pin-454-pts) | Java Bytecode, PIN Validation |
+| [Magical Mystery Club (482 pts)](#magical-mystery-club-482-pts) | GDB, Bytewise Validation |
+| [Pave The Way (494 pts)🥇](#pave-the-way-494-pts) | Java, Class Loading |
+
+<!-- /challenge-index -->
 
 ## Binary Pin (454 pts)
 

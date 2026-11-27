@@ -1,6 +1,14 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>VWA-WAZUH: The Spectator (100 pts)</td><td><a href="#vwa-wazuh-the-spectator-100-pts">Here</a></td></tr><tr><td>VWA-WAZUH: The Overseer (436 pts)</td><td><a href="#vwa-wazuh-the-overseer-100-pts">Here</a></td></tr><tr><td>Breached (496 pts)🥈</td><td><a href="https://kos0ng.gitbook.io/blog/research/2023/analyzing-cve-2021-22204-based-on-network-traffic-pcap-file">Here</a></td></tr></tbody></table>
+<!-- challenge-index: fcfd4afdd6165579 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [VWA-WAZUH: The Spectator (100 pts)](#vwa-wazuh-the-spectator-100-pts) | Wazuh, Log Analysis |
+| [VWA-WAZUH: The Overseer (436 pts)](#vwa-wazuh-the-overseer-100-pts) | Wazuh, Template Injection |
+| [Breached (496 pts)🥈](/notes/research/2023/analyzing-cve-2021-22204-based-on-network-traffic-pcap-file/) | PCAP, TLS Decryption |
+
+<!-- /challenge-index -->
 
 ## VWA-WAZUH: The Spectator (100 pts)
 

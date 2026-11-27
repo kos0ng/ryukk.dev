@@ -1,6 +1,15 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Logging (100 pts)</td><td>Here</td></tr><tr><td>The Puzzled Protocol (495 pts)</td><td><a href="#the-puzzled-protocol-495-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: dbb28ed38f1570b9 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Logging (100 pts)](https://github.com/intigriti/CTF/blob/main/2024/forensics/Logging/solution/README.md "Official solution") | SQL Log Analysis |
+| [The Puzzled Protocol (495 pts)](#the-puzzled-protocol-495-pts) | PCAP, Protocol Decoding |
+
+*Links to GitHub open the challenge authors’ official solutions.*
+
+<!-- /challenge-index -->
 
 ## The Puzzled Protocol (495 pts)
 

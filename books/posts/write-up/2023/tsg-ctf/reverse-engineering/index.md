@@ -1,6 +1,18 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>beginners_rev_2023 (189 pts)</td><td><a href="#beginners_rev_2023-189-pts">Here</a></td></tr><tr><td>T the weakest (215 pts)</td><td><a href="#t-the-weakest-215-pts">Here</a></td></tr><tr><td>Conduit (470 pts) UPSOLVE</td><td><a href="#conduit-470-pts">Here</a></td></tr><tr><td>Natural Flag Processing 2 (470 pts) UPSOLVE</td><td><a href="#natural-flag-processing-2-470-pts">Here</a></td></tr><tr><td>Nets (500 pts) UPSOLVE</td><td><a href="#nets-500-pts">Here</a></td></tr><tr><td>mimetic_cycle (500 pts) UPSOLVE</td><td><a href="#mimetic_cycle-500-pts">Here</a></td></tr><tr><td>Frictionless (500 pts) UPSOLVE</td><td><a href="#frictionless-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: eb2a97ee1d5de2d8 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [beginners\_rev\_2023 (189 pts)](#beginners_rev_2023-189-pts) | XOR Shift, Gray Code |
+| [T the weakest (215 pts)](#t-the-weakest-215-pts) | GDB Scripting, Control Flow |
+| [Conduit (470 pts) UPSOLVE](#conduit-470-pts) | Go, Regex Bytecode |
+| [Natural Flag Processing 2 (470 pts) UPSOLVE](#natural-flag-processing-2-470-pts) | Transformer Models, Attention |
+| [Nets (500 pts) UPSOLVE](#nets-500-pts) | Reverse Engineering |
+| [mimetic\_cycle (500 pts) UPSOLVE](#mimetic_cycle-500-pts) | PowerShell Obfuscation |
+| [Frictionless (500 pts) UPSOLVE](#frictionless-500-pts) | Reverse Engineering |
+
+<!-- /challenge-index -->
 
 ## beginners\_rev\_2023 (189 pts)
 

@@ -1,10 +1,14 @@
 # Cryptography
 
-| Challenge           | Link                       |
-| ------------------- | -------------------------- |
-| Casino (101 solves) | [Here](#casino-101-solves) |
-| Spring (48 solves)  | [Here](#spring-48-solves)  |
-| Order (46 solves)   | [Here](#order-46-solves)   |
+<!-- challenge-index: 02056b60e857e618 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Casino (101 solves)](#casino-101-solves) | Nonce Control, Ciphertext Malleability |
+| [Spring (48 solves)](#spring-48-solves) | Java PRNG, Image Recovery |
+| [Order (46 solves)](#order-46-solves) | Multiplicative Order, Euler's Theorem |
+
+<!-- /challenge-index -->
 
 ## Casino (101 solves)
 

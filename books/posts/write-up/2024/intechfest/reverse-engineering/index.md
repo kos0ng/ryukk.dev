@@ -1,6 +1,15 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Branches (260 pts) 🥇</td><td><a href="#branches-260-pts">Here</a></td></tr><tr><td>Serial (390 pts) 🥇</td><td><a href="#serial-390-pts">Here</a></td></tr><tr><td>Box (623 pts) 🥇</td><td><a href="#box-623-pts">Here</a></td></tr><tr><td>Standard (1000 pts) 🥇</td><td><a href="#standard-1000-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: dcc25569b21d8a8d -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Branches (260 pts) 🥇](#branches-260-pts) | x86 Assembly, Branch Offsets |
+| [Serial (390 pts) 🥇](#serial-390-pts) | .NET, Serial Validation |
+| [Box (623 pts) 🥇](#box-623-pts) | Unity, IL2CPP |
+| [Standard (1000 pts) 🥇](#standard-1000-pts) | C++, STL Algorithms |
+
+<!-- /challenge-index -->
 
 ## Branches (260 pts)
 

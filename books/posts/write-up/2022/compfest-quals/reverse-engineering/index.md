@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>baby JaSon adler (500 pts)🥇</td><td><a href="#baby-jason-adler-500-pts">Here</a></td></tr><tr><td>PrivNotes (500 pts)🥇</td><td><a href="#privnotes-500-pts">Here</a></td></tr><tr><td>Lisandro martineZ (500 pts)🥇</td><td><a href="#lisandro-martinez-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 19834009452ee414 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [baby JaSon adler (500 pts)🥇](#baby-jason-adler-500-pts) | JavaScript, Deobfuscation |
+| [PrivNotes (500 pts)🥇](#privnotes-500-pts) | Flutter, APK Reversing |
+| [Lisandro martineZ (500 pts)🥇](#lisandro-martinez-500-pts) | LZ78, Python Bytecode |
+
+<!-- /challenge-index -->
 
 ## baby JaSon adler (500 pts)
 

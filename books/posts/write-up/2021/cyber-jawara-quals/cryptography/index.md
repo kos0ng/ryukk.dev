@@ -1,6 +1,12 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Shuvvler (300 pts)</td><td><a href="#shuvvler-300-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 7ee43f52371060ab -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Shuvvler (300 pts)](#shuvvler-300-pts) | Substitution Cipher, Key Cycles |
+
+<!-- /challenge-index -->
 
 ## Shuvvler (300 pts)
 

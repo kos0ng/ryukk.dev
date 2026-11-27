@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Stealer (110 pts)</td><td><a href="#stealer-110-pts">Here</a></td></tr><tr><td>RD What Now? (180pts)</td><td><a href="#rd-what-now-180pts">Here</a></td></tr><tr><td>Broken Authentication (280 pts)</td><td><a href="#broken-authentication-280-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: d048126f6aa21a62 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Stealer (110 pts)](#stealer-110-pts) | .NET, Malware Deobfuscation |
+| [RD What Now? (180pts)](#rd-what-now-180pts) | R Serialization, Z3 |
+| [Broken Authentication (280 pts)](#broken-authentication-280-pts) | Windows DLL, RC4 |
+
+<!-- /challenge-index -->
 
 ## Stealer (110 pts)
 

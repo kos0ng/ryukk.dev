@@ -1,6 +1,17 @@
 # Mobile
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>baby-jni (139 pts)🥈</td><td><a href="#baby-jni-139-pts">Here</a></td></tr><tr><td>Intention (400 pts)</td><td><a href="#intention-400-pts">Here</a></td></tr><tr><td>Image Converter (484 pts)</td><td><a href="#image-converter-484-pts">Here</a></td></tr><tr><td>OTA (todo)</td><td>Here</td></tr></tbody></table>
+<!-- challenge-index: d9e4d7dfc36ccecc -->
+
+| Challenge | Topic |
+| --- | --- |
+| [baby-jni (139 pts)🥈](#baby-jni-139-pts) | Android JNI, Memory Inspection |
+| [Intention (400 pts)](#intention-400-pts) | Android Intents |
+| [Image Converter (484 pts)](#image-converter-484-pts) | Android Intents, Shared Preferences |
+| OTA (todo) | Mobile Security |
+
+*Unlinked challenges do not have a published write-up here.*
+
+<!-- /challenge-index -->
 
 ## baby-jni (139 pts)
 

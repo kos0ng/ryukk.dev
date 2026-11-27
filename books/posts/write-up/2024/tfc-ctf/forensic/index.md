@@ -1,6 +1,12 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>SM WHAT?! (360 pts)</td><td><a href="#sm-what-360-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: d14161e778493736 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [SM WHAT?! (360 pts)](#sm-what-360-pts) | Windows Event Logs, SMB |
+
+<!-- /challenge-index -->
 
 ## SM WHAT?! (360 pts)
 

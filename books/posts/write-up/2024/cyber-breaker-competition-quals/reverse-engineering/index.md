@@ -1,6 +1,12 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Hades Gate (350 pts)</td><td><a href="#hades-gate-350-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 82d46ed5286a05f8 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Hades Gate (350 pts)](#hades-gate-350-pts) | Go, HTTP Authentication |
+
+<!-- /challenge-index -->
 
 ## Hades Gate (350 pts)
 

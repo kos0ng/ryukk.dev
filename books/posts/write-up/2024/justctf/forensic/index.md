@@ -1,6 +1,13 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Baby SoC (256 pts) 🥈</td><td><a href="#baby-soc-256-pts">Here</a></td></tr><tr><td>Budget SoC (363 pts) 🥈</td><td><a href="#budget-soc-363-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 76be55351a64aad6 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Baby SoC (256 pts) 🥈](#baby-soc-256-pts) | Flash Dump, Firmware Analysis |
+| [Budget SoC (363 pts) 🥈](#budget-soc-363-pts) | Flash Dump, AES |
+
+<!-- /challenge-index -->
 
 ## Baby SoC (256 pts)
 

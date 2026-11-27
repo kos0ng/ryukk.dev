@@ -1,6 +1,13 @@
 # Network
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>sums-up (282 pts)</td><td><a href="#sums-up-282-pts">Here</a></td></tr><tr><td>secure-communications (450 pts)</td><td><a href="#secure-communications-450-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: c9a4c809a743b422 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [sums-up (282 pts)](#sums-up-282-pts) | PCAP, Checksum Steganography |
+| [secure-communications (450 pts)](#secure-communications-450-pts) | TLS Decryption, Key Logs |
+
+<!-- /challenge-index -->
 
 ## sums-up (282 pts)
 

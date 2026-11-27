@@ -1,6 +1,20 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Signal (50 pts)</td><td>Here</td></tr><tr><td>License (50pts)</td><td>Here</td></tr><tr><td>Brave Traveler (191 pts)</td><td>Here</td></tr><tr><td>Virtual Rev (360 pts)</td><td>Here</td></tr><tr><td>x8 (360 pts)</td><td>Here</td></tr><tr><td>Functional (476 pts) 🥇</td><td><a href="#functional-476-pts">Here</a></td></tr><tr><td>Mcknight (487 pts) 🥈</td><td><a href="#mcknight-487-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: fa79005cbbfe9784 -->
+
+| Challenge | Topic |
+| --- | --- |
+| Signal (50 pts) | Reverse Engineering |
+| License (50pts) | Reverse Engineering |
+| Brave Traveler (191 pts) | Reverse Engineering |
+| Virtual Rev (360 pts) | Reverse Engineering |
+| x8 (360 pts) | Reverse Engineering |
+| [Functional (476 pts) 🥇](#functional-476-pts) | Haskell, GDB |
+| [Mcknight (487 pts) 🥈](#mcknight-487-pts) | PyArmor, Python Bytecode |
+
+*Unlinked challenges do not have a published write-up here.*
+
+<!-- /challenge-index -->
 
 ## Functional (476 pts)
 

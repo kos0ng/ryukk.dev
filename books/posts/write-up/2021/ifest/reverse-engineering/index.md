@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Sanity-check (57 pts)</td><td><a href="#sanity-check-57-pts">Here</a></td></tr><tr><td>lumine's-license (120 pts)🥇</td><td><a href="#lumines-license-120-pts">Here</a></td></tr><tr><td>lumine's-license-revenge (120 pts)🥇</td><td><a href="#lumines-license-revenge-120-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 8a98aa5e57e4f4c0 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Sanity-check (57 pts)](#sanity-check-57-pts) | Symbolic Execution, angr |
+| [lumine's-license (120 pts)🥇](#lumines-license-120-pts) | Go, CRC Tables |
+| [lumine's-license-revenge (120 pts)🥇](#lumines-license-revenge-120-pts) | Anti-Debugging, Shared Libraries |
+
+<!-- /challenge-index -->
 
 ## Sanity-check (57 pts)
 

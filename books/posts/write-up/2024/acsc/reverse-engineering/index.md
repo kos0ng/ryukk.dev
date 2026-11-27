@@ -1,6 +1,15 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>compyled (100 pts)</td><td><a href="#compyled-50-pts">Here</a></td></tr><tr><td>YaraReTa (250 pts)🥇</td><td><a href="#yarareta-250-pts">Here</a></td></tr><tr><td>Command Runner (250 pts)</td><td><a href="#command-runner-250-pts">Here</a></td></tr><tr><td>Sneaky VEH (400 pts)</td><td><a href="#sneaky-veh-400-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 2b83037a921d225b -->
+
+| Challenge | Topic |
+| --- | --- |
+| [compyled (100 pts)](#compyled-50-pts) | CPython Bytecode |
+| [YaraReTa (250 pts)🥇](#yarareta-250-pts) | YARA Bytecode, Custom VM |
+| [Command Runner (250 pts)](#command-runner-250-pts) | PNG Chunks, CRC32 |
+| [Sneaky VEH (400 pts)](#sneaky-veh-400-pts) | Windows Exception Handling, Z3 |
+
+<!-- /challenge-index -->
 
 ## compyled (50 pts)
 

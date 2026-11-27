@@ -1,6 +1,13 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Foreign (499 pts)</td><td><a href="#foreign-244-pts">Here</a></td></tr><tr><td>Centifd (500 pts) 🥇</td><td><a href="#centifd-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 7f3c2423e76f517e -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Foreign (499 pts)](#foreign-244-pts) | AArch64, Assembly |
+| [Centifd (500 pts) 🥇](#centifd-500-pts) | UPX, Anti-Debugging |
+
+<!-- /challenge-index -->
 
 ## Foreign (244 pts)
 

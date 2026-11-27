@@ -1,8 +1,12 @@
 # Cryptography
 
-| Challenge                         | Link                                  |
-| --------------------------------- | ------------------------------------- |
-| My\_beloved\_LCG.py (3 solves) 🥈 | [Here](#my_beloved_lcg.py-495-points) |
+<!-- challenge-index: 6193bbff42b15b4f -->
+
+| Challenge | Topic |
+| --- | --- |
+| [My\_beloved\_LCG.py (3 solves) 🥈](#my_beloved_lcgpy-3-solves) | Truncated LCG, Lattices |
+
+<!-- /challenge-index -->
 
 ## My\_beloved\_LCG.py (3 solves)
 

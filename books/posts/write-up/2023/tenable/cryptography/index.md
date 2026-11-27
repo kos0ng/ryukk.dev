@@ -1,6 +1,13 @@
 # Cryptography
 
-<table><thead><tr><th width="355">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>PseudoRandom (328 pts)</td><td><a href="#pseudorandom-328-pts">Here</a></td></tr><tr><td>Quantum Crypto (444 pts)</td><td><a href="#quantum-crypto-444-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 82c9f2904dfd6f88 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [PseudoRandom (328 pts)](#pseudorandom-328-pts) | Time-Based Seed, AES |
+| [Quantum Crypto (444 pts)](#quantum-crypto-444-pts) | Quantum Key Distribution, AES |
+
+<!-- /challenge-index -->
 
 ## PseudoRandom (328 pts)
 

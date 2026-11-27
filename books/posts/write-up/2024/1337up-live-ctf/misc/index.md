@@ -1,6 +1,12 @@
 # Misc
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Monkey's Paw (384 pts)</td><td><a href="#monkeys-paw-384-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 33592a7ebbd7564f -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Monkey's Paw (384 pts)](#monkeys-paw-384-pts) | Python Jail |
+
+<!-- /challenge-index -->
 
 ## Monkey's Paw (384 pts)
 

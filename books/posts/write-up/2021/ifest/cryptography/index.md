@@ -1,6 +1,16 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Simple (38 pts)</td><td><a href="#simple-38-pts">Here</a></td></tr><tr><td>xor (38 pts)</td><td><a href="#xor-38-pts">Here</a></td></tr><tr><td>symmetric (101 pts)</td><td><a href="#symmetric-101-pts">Here</a></td></tr><tr><td>Blok barat (105 pts)</td><td><a href="#blok-barat-105-pts">Here</a></td></tr><tr><td>Whining (109 pts)</td><td><a href="#whining-109-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: e2ffa4d26b995cd4 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Simple (38 pts)](#simple-38-pts) | RSA, Private Key Decryption |
+| [xor (38 pts)](#xor-38-pts) | XOR, Base64 |
+| [symmetric (101 pts)](#symmetric-101-pts) | Character Substitution, Brute Force |
+| [Blok barat (105 pts)](#blok-barat-105-pts) | AES, Partial Key Recovery |
+| [Whining (109 pts)](#whining-109-pts) | RSA, Wiener's Attack |
+
+<!-- /challenge-index -->
 
 ## Simple (38 pts)
 

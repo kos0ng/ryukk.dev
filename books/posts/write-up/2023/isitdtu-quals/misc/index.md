@@ -1,6 +1,15 @@
 # Misc
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Famous girl (100 pts)</td><td>Here</td></tr><tr><td>Ransomware (100 pts)</td><td>Here</td></tr></tbody></table>
+<!-- challenge-index: 143f5ef80c2d7788 -->
+
+| Challenge | Topic |
+| --- | --- |
+| Famous girl (100 pts) | Miscellaneous |
+| Ransomware (100 pts) | Ransomware |
+
+*Unlinked challenges do not have a published write-up here.*
+
+<!-- /challenge-index -->
 
 ## ? (? pts)
 

@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Star (201 pts) 🥇</td><td><a href="#star-201-pts">Here</a></td></tr><tr><td>Just TV (326 pts) 🥈</td><td><a href="#just-tv-326-pts">Here</a></td></tr><tr><td>Cursed Protocol (500 pts)</td><td><a href="#cursed-protocol-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: c63bdce605b66730 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Star (201 pts) 🥇](#star-201-pts) | ELF, Command Parsing |
+| [Just TV (326 pts) 🥈](#just-tv-326-pts) | MHEG, Interactive TV |
+| [Cursed Protocol (500 pts)](#cursed-protocol-500-pts) | IoT Protocol Analysis |
+
+<!-- /challenge-index -->
 
 ## Star (201 pts)
 

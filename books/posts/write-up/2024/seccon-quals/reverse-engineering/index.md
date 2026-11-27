@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>F is for Flag</td><td><a href="#f-is-for-flag">Here</a></td></tr><tr><td>Jump</td><td><a href="#jump">Here</a></td></tr><tr><td>Reaction</td><td><a href="#reaction">Here</a></td></tr></tbody></table>
+<!-- challenge-index: f8b2e00200a00dfa -->
+
+| Challenge | Topic |
+| --- | --- |
+| [F is for Flag](#f-is-for-flag) | C++ Lambdas, Custom Cipher |
+| [Jump](#jump) | AArch64, Input Validation |
+| [Reaction](#reaction) | MT19937, Game State Reconstruction |
+
+<!-- /challenge-index -->
 
 ## F is for Flag
 

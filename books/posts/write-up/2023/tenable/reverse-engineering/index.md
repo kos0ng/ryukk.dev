@@ -1,6 +1,13 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Braggart (469 pts)</td><td><a href="https://hyggehalcyon.gitbook.io/page/ctfs/2023/tenable-ctf-2023/pwn-braggart">Here</a></td></tr><tr><td>Brick Breaker (473 pts) 🥇</td><td><a href="#brick-breaker-473-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 36cccea0ea5bdccc -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Braggart (469 pts)](https://hyggehalcyon.gitbook.io/page/ctfs/2023/tenable-ctf-2023/pwn-braggart) | Binary Exploitation |
+| [Brick Breaker (473 pts) 🥇](#brick-breaker-473-pts) | Nintendo DS, ROM Analysis |
+
+<!-- /challenge-index -->
 
 ## Brick Breaker (473 pts)
 

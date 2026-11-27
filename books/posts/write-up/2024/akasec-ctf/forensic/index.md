@@ -1,6 +1,16 @@
 # Forensic
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Portugal (100 pts)</td><td><a href="#portugal-100-pts">Here</a></td></tr><tr><td>Sussy (100 pts)</td><td><a href="#sussy-100-pts">Here</a></td></tr><tr><td>saveme (100 pts)</td><td><a href="#saveme-100-pts">Here</a></td></tr><tr><td>Sharing is Not Caring (257 pts)</td><td><a href="#sharing-is-not-caring-257-pts">Here</a></td></tr><tr><td>Snooz (436 pts)</td><td><a href="#snooz-436-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: a3ba57f81b8fdb20 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Portugal (100 pts)](#portugal-100-pts) | Windows Memory Forensics, Browser Artifacts |
+| [Sussy (100 pts)](#sussy-100-pts) | DNS Tunneling, Archive Recovery |
+| [saveme (100 pts)](#saveme-100-pts) | Office Documents, .NET Ransomware |
+| [Sharing is Not Caring (257 pts)](#sharing-is-not-caring-257-pts) | Disk Forensics, Network Traffic |
+| [Snooz (436 pts)](#snooz-436-pts) | Memory Forensics, PCAP, AES |
+
+<!-- /challenge-index -->
 
 ## Portugal (100 pts)
 

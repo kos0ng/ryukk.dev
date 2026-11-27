@@ -1,8 +1,12 @@
 # Reverse Engineering
 
-| Challenge              | Link                          |
-| ---------------------- | ----------------------------- |
-| Free Play (495 points) | [Here](#free-play-495-points) |
+<!-- challenge-index: cc1dc8f711a796c5 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Free Play (495 points)](#free-play-495-points) | WebAssembly, AES |
+
+<!-- /challenge-index -->
 
 ## Free Play (495 points)
 

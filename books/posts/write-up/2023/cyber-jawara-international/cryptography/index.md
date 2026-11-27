@@ -1,6 +1,12 @@
 # Cryptography
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Oreo (495 pts)</td><td><a href="#oreo-495-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 74e47d8ebf00f32e -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Oreo (495 pts)](#oreo-495-pts) | RSA, Structured Primes |
+
+<!-- /challenge-index -->
 
 ## Oreo (495 pts)
 

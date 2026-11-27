@@ -1,6 +1,15 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>Help Maxine (364 pts)</td><td><a href="#help-maxine-364-pts">Here</a></td></tr><tr><td>Count the Flag (400 pts)</td><td><a href="#count-the-flag-400-pts">Here</a></td></tr><tr><td>MaskManGem (500 pts)🥇</td><td><a href="#maskmangem-500-pts">Here</a></td></tr><tr><td>5P Authenticator (500 pts)🥇</td><td><a href="#id-5p-authenticator-500-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 7a39fcdec0fc71d8 -->
+
+| Challenge | Topic |
+| --- | --- |
+| [Help Maxine (364 pts)](#help-maxine-364-pts) | Python Obfuscation, Fernet, XOR |
+| [Count the Flag (400 pts)](#count-the-flag-400-pts) | Incremental Input Validation |
+| [MaskManGem (500 pts)🥇](#maskmangem-500-pts) | PyInstaller, AES-CTR |
+| [5P Authenticator (500 pts)🥇](#5p-authenticator-500-pts) | Go, License Validation |
+
+<!-- /challenge-index -->
 
 ## Help Maxine (364 pts)
 

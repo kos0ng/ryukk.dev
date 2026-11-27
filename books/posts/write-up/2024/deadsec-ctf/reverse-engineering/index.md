@@ -1,6 +1,14 @@
 # Reverse Engineering
 
-<table><thead><tr><th width="347">Challenge</th><th>Link</th></tr></thead><tbody><tr><td>JavaCPScript (210 pts)</td><td><a href="#javacpscript-210-pts">Here</a></td></tr><tr><td>FlagChecker (430 pts)🥇</td><td><a href="#flagchecker-430-pts">Here</a></td></tr><tr><td>No Math Rev (480 pts)</td><td><a href="#no-math-rev-480-pts">Here</a></td></tr></tbody></table>
+<!-- challenge-index: 946cf61a7ecd7dbf -->
+
+| Challenge | Topic |
+| --- | --- |
+| [JavaCPScript (210 pts)](#javacpscript-210-pts) | JavaScript, Threads, Recursion |
+| [FlagChecker (430 pts)🥇](#flagchecker-430-pts) | PyInstaller, Anti-Debugging |
+| [No Math Rev (480 pts)](#no-math-rev-480-pts) | Reverse Engineering |
+
+<!-- /challenge-index -->
 
 ## JavaCPScript (210 pts)&#x20;
 
