@@ -7,6 +7,7 @@ from urllib.parse import urlparse, parse_qs
 import subprocess
 from functools import cache
 from gitbook_math import restore_equations
+from gitbook_tables import retain_challenge_index
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1] / 'books'
@@ -46,6 +47,8 @@ def save(job):
         return get(url)
 
     md = restore_equations(md, load_html, url)
+    if path.exists():
+        md = retain_challenge_index(md, path.read_text(encoding='utf8'), url)
     path.write_text(fix_images(md, url, load_html), encoding='utf8')
 
 

@@ -16,6 +16,12 @@ After building, run `python3 scripts/check-site.py` to verify that every Markdow
 - The collection roots serve searchable indexes. Each book’s introduction and other Markdown pages retain their source paths. Images and downloads remain hosted at their original URLs.
 - `theme/` contains the pixel landscape, palette, typography and optional archive filter. The full archive is navigable without JavaScript. Language-tagged code blocks are highlighted at build time with Highlight.js and its Tokyo Night Dark theme; unlabelled or unsupported languages stay plain text.
 
+## Challenge indexes
+
+Use `Challenge | Topic`: link the challenge name (including points and medals) to its heading, a migrated article, or a verified external solution. Use short topic labels from the write-up; an undocumented technique is not a reason to guess. Leave the name as plain text when there is no known destination.
+
+For indexes converted from GitBook’s `Challenge | Link` format, edit the Markdown between the `challenge-index` comments. The fingerprint identifies the **old upstream table**, not the edited one. On refresh the importer keeps the curated block and imports the rest of the page normally. If the upstream table changes, it stops on that page for manual reconciliation rather than dropping local topics or new challenges.
+
 ## Writing equations
 
 Use `$x_i$` or `\(x_i\)` for inline math. Put display equations between `$$` lines, `\[...\]`, or in a fenced `math` block. For multiple rows, use a `gathered` or `aligned` environment. KaTeX renders HTML and accessible MathML during the build; styles and fonts are served locally, with no browser JavaScript required. Invalid TeX stops the build and identifies the affected page. On import, display equations are recovered from GitBook’s original TeX annotations rather than its Markdown-escaped version.

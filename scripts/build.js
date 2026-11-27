@@ -71,6 +71,8 @@ const entries = (section) =>
 function localLink(href, origin) {
   try {
     if (!href || href.startsWith('#')) return href
+    // Curated challenge tables can link directly to a migrated post or note.
+    if (href.startsWith('/') && byUrl.has(href.split(/[?#]/, 1)[0])) return href
     const u = new URL(href, origin)
     const mapped = byOrigin.get(u.origin + u.pathname.replace(/\.md$|\/$/, ''))
     return mapped ? mapped + u.search + u.hash : u.href
