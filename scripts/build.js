@@ -225,8 +225,9 @@ function emit(url, title, body, section = '') {
     )
   }
 }
+const archives = Object.fromEntries(Object.keys(labels).map((k) => [k, archiveTree(entries(k), esc)]))
 function card(k, i) {
-  return `<a class="card" href="/${k}/"><small>VOLUME 0${i + 1} <b>↗</b></small><h3>${labels[k]}</h3><p>${descriptions[k]}</p><strong>${entries(k).length} entries →</strong></a>`
+  return `<a class="card" href="/${k}/"><small>VOLUME 0${i + 1} <b>↗</b></small><h3>${labels[k]}</h3><p>${descriptions[k]}</p><strong>${archives[k].count} entries →</strong></a>`
 }
 emit(
   '/',
@@ -234,12 +235,11 @@ emit(
   `<section class="hero"><div class="scene" aria-hidden="true"></div><div class="intro"><small>Personal Blog</small><h1>kos0ng<span>_</span></h1><p>Malware Researcher.</p><p class="affiliations">${affiliations}</p></div></section><div class="section-title"><small>INDEX / 01</small><h2>Explore the archive</h2></div><div class="cards">${Object.keys(labels).map(card).join('')}</div>`
 )
 for (const [section, label] of Object.entries(labels)) {
-  const items = entries(section)
-  const archive = archiveTree(items, esc)
+  const archive = archives[section]
   emit(
     `/${section}/`,
     label,
-    `<small>FIELD ARCHIVE / ${section === 'posts' ? '01' : '02'}</small><h1>${label}</h1><p>${descriptions[section]}</p><label class="filter" hidden>Filter ${label.toLowerCase()}<input type="search" placeholder="Type a year, title or topic…" aria-controls="entries"></label><p id="count" aria-live="polite">${items.length} entries</p>${archive}<script src="/tree-filter.js" defer></script>`,
+    `<small>FIELD ARCHIVE / ${section === 'posts' ? '01' : '02'}</small><h1>${label}</h1><p>${descriptions[section]}</p><label class="filter" hidden>Filter ${label.toLowerCase()}<input type="search" placeholder="Type a year, title or topic…" aria-controls="entries"></label><p id="count" aria-live="polite">${archive.count} entries</p>${archive.html}<script src="/tree-filter.js" defer></script>`,
     section
   )
 }

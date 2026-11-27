@@ -290,6 +290,13 @@ footer {
   outline: 3px solid var(--gold);
   outline-offset: -3px;
 }
+.archive-tree .event-result {
+  margin: 0 0.8rem 0.7rem clamp(0.65rem, 2vw, 1.7rem);
+  padding: 0.4rem 0.75rem;
+  border-left: 2px solid var(--gold);
+  color: var(--muted);
+  font-size: 0.94rem;
+}
 .tree-page {
   text-decoration: none;
 }
