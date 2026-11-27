@@ -482,6 +482,15 @@ article h1 {
   overflow-y: auto;
   margin-top: 0.65rem;
 }
+/* Hide the TOC scrollbar, not its scrolling. Keep the system control in high-contrast mode. */
+@media (forced-colors: none) {
+  .article-toc nav {
+    scrollbar-width: none;
+  }
+  .article-toc nav::-webkit-scrollbar {
+    display: none;
+  }
+}
 .article-toc ul {
   margin: 0;
   padding: 0;
