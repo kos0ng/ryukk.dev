@@ -51,6 +51,12 @@ function participationNote(source) {
   return text === '-' ? '' : text
 }
 
+// The reader pager follows the same order as the expanded archive folders.
+export function compareArchiveTitles(a, b) {
+  if (/^20\d\d$/.test(a) && /^20\d\d$/.test(b)) return Number(b) - Number(a)
+  return a.localeCompare(b, 'en', { numeric: true })
+}
+
 export function archiveTree(pages, esc) {
   const groups = new Map()
   for (const page of pages) {
@@ -70,11 +76,9 @@ export function archiveTree(pages, esc) {
   }
 
   function render(node, path, open = false, eventContext = '') {
-    const children = [...node.children.values()].sort((a, b) => {
-      if (/^20\d\d$/.test(a.label) && /^20\d\d$/.test(b.label))
-        return Number(b.label) - Number(a.label)
-      return a.label.localeCompare(b.label, 'en', { numeric: true })
-    })
+    const children = [...node.children.values()].sort((a, b) =>
+      compareArchiveTitles(a.label, b.label)
+    )
     const page = node.page
     const key = [...path, node.label]
     const eventFolder =

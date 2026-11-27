@@ -11,6 +11,7 @@ import { archiveTree, isArchiveEntry } from './archive-tree.js'
 import { highlightCode } from './highlight-code.js'
 import { archiveMath, mathSlots } from './math.js'
 import { indexHeadings, tableOfContents } from './table-of-contents.js'
+import { indexSiblings, siblingNav } from './sibling-navigation.js'
 import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 
@@ -233,6 +234,7 @@ for (const [section, label] of Object.entries(labels)) {
     section
   )
 }
+const siblings = indexSiblings(pages)
 for (const p of pages.filter((p) => p.dir)) {
   const parts = p.dir.split('/')
   const crumbs = [
@@ -246,12 +248,14 @@ for (const p of pages.filter((p) => p.dir)) {
       (url) =>
         `<a href="${url}">${esc(url === `/${p.section}/` ? labels[p.section] : byUrl.get(url).title)}</a>`
     )
+  const neighbors = siblings.get(p.url)
+  const pager = siblingNav(neighbors, byUrl.get(neighbors?.parent)?.title, esc)
   const { body, toc } = article(p)
   const content = toc ? `<div class="reading-layout">${toc}<div class="article-body">${body}</div></div>` : body
   emit(
     p.url,
     p.title,
-    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article${toc ? ' class="with-toc"' : ''}><h1>${esc(p.title)}</h1>${content}</article>`,
+    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article${toc ? ' class="with-toc"' : ''}><h1>${esc(p.title)}</h1>${content}</article>${pager}`,
     p.section
   )
 }

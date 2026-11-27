@@ -386,6 +386,56 @@ article h1 {
 .article-page article :is(h2, h3, h4) + :is(p, ul, ol, pre, blockquote) {
   margin-block-start: 0;
 }
+/* Adjacent pages belong to the reading column, not the TOC rail. */
+.sibling-nav {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--edge);
+}
+.sibling-nav p {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.sibling-nav > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.sibling-nav a {
+  display: grid;
+  align-content: start;
+  gap: 0.3rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--edge);
+  background: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.sibling-direction {
+  color: var(--gold);
+  font: 600 0.85rem/1.5 var(--mono);
+}
+.sibling-nav a[rel='next'] {
+  grid-column: 2;
+  text-align: end;
+}
+.sibling-nav a:is(:hover, :focus-visible) {
+  border-color: var(--gold);
+}
+.sibling-nav a:is(:hover, :focus-visible) strong {
+  text-decoration: underline;
+}
+@media (max-width: 36rem) {
+  .sibling-nav > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sibling-nav a[rel='next'] {
+    grid-column: 1;
+    text-align: start;
+  }
+}
 .article-toc {
   margin: 0 0 1.5rem;
   padding: 0.85rem 1rem;
@@ -456,6 +506,7 @@ article h1 {
   }
 }
 @media print {
+  .sibling-nav,
   .article-toc {
     display: none;
   }
