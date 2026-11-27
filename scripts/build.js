@@ -10,14 +10,10 @@ import {
 } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { archiveTree, isArchiveEntry } from './archive-tree.js'
-import { highlightCode } from './highlight-code.js'
-import { archiveMath, mathSlots } from './math.js'
-import { indexHeadings, tableOfContents } from './table-of-contents.js'
+import { article } from './article.js'
 import { indexSiblings, siblingNav } from './sibling-navigation.js'
-import MarkdownIt from 'markdown-it'
-import sanitize from 'sanitize-html'
+import { escapeHtml as esc } from 'markdown-it/lib/common/utils.mjs'
 
-const md = MarkdownIt({ html: true, linkify: false }).use(archiveMath)
 const labels = { posts: 'Posts', notes: 'Notes' }
 const descriptions = {
   posts:
@@ -28,7 +24,6 @@ const github = 'https://github.com/kos0ng'
 const twitter = 'https://x.com/_ryuk12345'
 const newTab = 'target="_blank" rel="noopener noreferrer" title="Opens in a new tab"'
 const profiles = `<a href="${github}" ${newTab}>GitHub ↗</a><a href="${twitter}" ${newTab}>Twitter ↗</a>`
-const esc = md.utils.escapeHtml
 const team = (name, id) => `<a href="https://ctftime.org/team/${id}" ${newTab}>${name}</a>`
 const affiliations = `CTFs with ${team('idek', 157039)}, ${team('SKSD', 211952)}, ${team('HCS', 70159)}, and ${team('PwnSec', 28797)}.`
 const pages = []
@@ -67,98 +62,6 @@ const entries = (section) =>
         Number(p.dir.match(/(?:^|\/)(20\d\d)(?:\/|$)/)?.[1] || 0)
       return year(b) - year(a) || a.dir.localeCompare(b.dir)
     })
-function article(p) {
-  // GitBook's layout directives are not standard Markdown. Leave code fences untouched.
-  let fence = ''
-  const markdown = p.source
-    .split('\n')
-    .map((line) => {
-      const marker = line.match(/^\s*(`{3,}|~{3,})/)?.[1]
-      if (marker && !fence) {
-        fence = marker
-        return line
-      }
-      if (fence) {
-        if (marker?.startsWith(fence) && line.trim() === marker) fence = ''
-        return line
-      }
-      const directive = line.match(/^\s*\{% (\w+)(.*?) %\}\s*$/)
-      if (!directive) return line
-      const [, name, attrs] = directive
-      if (name === 'embed')
-        return (
-          attrs
-            .match(/url="<?(https?:[^">]+)>?"/)?.[1]
-            ?.replace(/^(.+)$/, '<$1>') || ''
-        )
-      if (name === 'code' || name === 'tab')
-        return (
-          attrs.match(/title="([^"]+)"/)?.[1]?.replace(/^(.+)$/, '**$1**\n') ||
-          ''
-        )
-      return ''
-    })
-    .join('\n')
-    .replace(/^# .+\n/m, '')
-  const env = { math: mathSlots(p.url) }
-  const tokens = md.parse(markdown, env)
-  const { ids: used, headings } = indexHeadings(tokens)
-  // A handful of source TOCs still point at older challenge titles/scores.
-  // Only rewrite a fragment when its original target is absent on this page.
-  const oldTargets = {
-    'fcaas-0-solve': 'fcaas',
-    'seems-familiar-500-pts': 'seems-familiar-n-pts',
-    'verifier-460-pts-mechacore-inventory': 'mechacore-inventory',
-    'my_beloved_lcg.py-495-points': 'my_beloved_lcgpy-3-solves',
-    'free-play-495-points': 'flag-generator-4-solves',
-  }
-  function articleLink(href) {
-    if (!href.startsWith('#') || used.has(href.slice(1))) return href
-    const slug = href.slice(1)
-    const compact = (id) => id.replace(/^id-/, '').replace(/[^a-z0-9_]/g, '')
-    const matches = [...used].filter((id) => compact(id) === compact(slug))
-    if (matches.length === 1) return '#' + matches[0]
-    return used.has(oldTargets[slug]) ? '#' + oldTargets[slug] : href
-  }
-  const safe = sanitize(md.renderer.render(tokens, md.options, env), {
-    allowedTags: [
-      ...sanitize.defaults.allowedTags,
-      'img',
-      'details',
-      'summary',
-      'mark',
-      'del',
-      'kbd',
-      'sup',
-      'sub',
-    ],
-    allowedAttributes: {
-      a: ['href', 'id', 'name'],
-      img: ['src', 'alt', 'loading'],
-      code: ['class'],
-      h2: ['id'],
-      h3: ['id'],
-      h4: ['id'],
-      h5: ['id'],
-      h6: ['id'],
-      ol: ['start'],
-    },
-    transformTags: {
-      a: (tagName, a) => ({
-        tagName,
-        attribs: {
-          ...a,
-          ...(a.href ? { href: articleLink(a.href) || '' } : {}),
-        },
-      }),
-      img: sanitize.simpleTransform('img', { loading: 'lazy' }),
-    },
-  })
-  return {
-    body: env.math.restore(highlightCode(safe)),
-    toc: tableOfContents(headings),
-  }
-}
 rmSync('public', { recursive: true, force: true })
 cpSync('theme', 'public', { recursive: true })
 const tokenTheme = new URL(
