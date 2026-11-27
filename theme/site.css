@@ -351,7 +351,31 @@ pre {
   tab-size: 4;
 }
 code {
+  font-family: var(--mono);
   color: #ffe1a0;
+}
+article pre {
+  background: #1a1b26;
+  color: #c0caf5;
+  border-color: #414868;
+  border-left: 3px solid #7aa2f7;
+}
+article pre > code {
+  color: inherit;
+}
+article pre[data-language]::before {
+  content: attr(data-language);
+  display: block;
+  margin-bottom: 0.65rem;
+  color: #7dcfff;
+  font: 700 0.72rem/1.4 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+/* Raise the contrast of Tokyo Night's muted tokens on the dark panel. */
+article pre .hljs-comment,
+article pre .hljs-meta {
+  color: #919bc1;
 }
 blockquote {
   margin-inline: 0;

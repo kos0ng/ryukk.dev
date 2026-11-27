@@ -8,6 +8,7 @@ import {
 } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { archiveTree, isArchiveEntry } from './archive-tree.js'
+import { highlightCode } from './highlight-code.js'
 import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 
@@ -182,10 +183,15 @@ function article(p) {
 }
 rmSync('public', { recursive: true, force: true })
 cpSync('theme', 'public', { recursive: true })
+const tokenTheme = new URL(
+  import.meta.resolve('highlight.js/styles/tokyo-night-dark.css')
+)
+cpSync(tokenTheme, 'public/tokyo-night-dark.css')
+cpSync(new URL('../LICENSE', tokenTheme), 'public/highlight-js-LICENSE.txt')
 function emit(url, title, body, section = '') {
   const nav = (href, text, current) =>
     `<a href="${href}"${current ? ' aria-current="' + (href === url ? 'page' : 'location') + '"' : ''}>${text}</a>`
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#15161d"><title>${esc(title)} · ryukk.dev</title><link rel="icon" href="/bolt.svg"><link rel="stylesheet" href="/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="bar"><a class="brand" href="/"><img src="/bolt.svg" alt="" width="30" height="30"> ryukk<span>.dev</span></a><nav aria-label="Primary">${nav('/', 'Home', url === '/')}${Object.keys(
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#15161d"><title>${esc(title)} · ryukk.dev</title><link rel="icon" href="/bolt.svg"><link rel="stylesheet" href="/tokyo-night-dark.css"><link rel="stylesheet" href="/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="bar"><a class="brand" href="/"><img src="/bolt.svg" alt="" width="30" height="30"> ryukk<span>.dev</span></a><nav aria-label="Primary">${nav('/', 'Home', url === '/')}${Object.keys(
     labels
   )
     .map((k) => nav('/' + k + '/', labels[k], section === k))
@@ -244,7 +250,7 @@ for (const p of pages.filter((p) => p.dir)) {
   emit(
     p.url,
     p.title,
-    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article><small>${labels[p.section].toUpperCase()} / FIELD NOTES</small><h1>${esc(p.title)}</h1>${article(p)}</article>`,
+    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article><small>${labels[p.section].toUpperCase()} / FIELD NOTES</small><h1>${esc(p.title)}</h1>${highlightCode(article(p))}</article>`,
     p.section
   )
 }
