@@ -251,7 +251,7 @@ for (const p of pages.filter((p) => p.dir)) {
   emit(
     p.url,
     p.title,
-    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article${toc ? ' class="with-toc"' : ''}><small>${labels[p.section].toUpperCase()} / FIELD NOTES</small><h1>${esc(p.title)}</h1>${content}</article>`,
+    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article${toc ? ' class="with-toc"' : ''}><h1>${esc(p.title)}</h1>${content}</article>`,
     p.section
   )
 }
