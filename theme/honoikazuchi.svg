@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <title>Shichi no Kata: Honoikazuchi no Kami — flaming thunder dragon</title>
+  <path fill="#20202c" d="M4 0h24v2h2v2h2v24h-2v2h-2v2H4v-2H2v-2H0V4h2V2h2z"/>
+  <!-- A flame mane trailing behind a horned dragon in profile. -->
+  <path fill="#f27c38" d="m2 4 12 5-4-7 12 8-1-7 5 9-8 8H8l3-5-9 1 6-5z"/>
+  <!-- Its neck breaks into a single lightning strike. -->
+  <path fill="#ffca50" d="m2 29 9-11H6l8-7-5-4 9 3 5-7v7l4 3v2l4 1v4h-7l-4-3-5 4h4z"/>
+  <!-- Pale brow, eye, and one fang, large enough to survive at tab size. -->
+  <path fill="#fff3be" d="m14 12 8-6-2 5 6 2h-8l-9 6zM25 19h4l-4 4z"/>
+  <path fill="#302035" d="M21 13h4v2h-2zM28 16h2v2h-2z"/>
+</svg>
