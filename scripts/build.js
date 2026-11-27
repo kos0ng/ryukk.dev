@@ -222,7 +222,7 @@ function card(k, i) {
 emit(
   '/',
   'kos0ng’s field notes',
-  `<section class="hero"><div class="scene" aria-hidden="true"></div><div class="intro"><small>⚡ &nbsp; SECURITY FIELD ARCHIVE</small><h1>kos0ng<span>_</span></h1><p>CTF write-ups &amp; research notes by<br>Achmad Zaenuri Dahlan Putra.</p><div class="profiles">${profiles}</div></div></section><div class="section-title"><small>INDEX / 01</small><h2>Explore the archive</h2></div><div class="cards">${Object.keys(labels).map(card).join('')}</div>`
+  `<section class="hero"><div class="scene" aria-hidden="true"></div><div class="intro"><small>Personal Blog</small><h1>kos0ng<span>_</span></h1><p>CTF write-ups &amp; research notes by<br>Achmad Zaenuri Dahlan Putra.</p><div class="profiles">${profiles}</div></div></section><div class="section-title"><small>INDEX / 01</small><h2>Explore the archive</h2></div><div class="cards">${Object.keys(labels).map(card).join('')}</div>`
 )
 for (const [section, label] of Object.entries(labels)) {
   const items = entries(section)
