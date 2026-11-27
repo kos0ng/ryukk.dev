@@ -5,6 +5,8 @@ const sectionNames = new Map([
   ['write-up', 'Write-ups'],
   ['ctf-author', 'Authored challenges'],
   ['lifetime-ctf', 'Lifetime CTF'],
+  ['hack-the-box', 'Hack The Box'],
+  ['reverse-engineering', 'Reverse Engineering'],
 ])
 
 function branch(label) {
@@ -18,9 +20,17 @@ function child(parent, key, label) {
 
 const calendarPath = /^(?:write-up|research)\/(20\d\d)(?:\/|$)/
 
+// Keep these navigation pages published for bookmarks, but treat them as
+// folders in the archive instead of adding an Overview link inside each.
+const folderOnly = new Set([
+  'introduction',
+  'lifetime-ctf/hack-the-box',
+  'lifetime-ctf/hack-the-box/reverse-engineering',
+])
+
 export function isArchiveEntry({ dir }) {
   const isYearOverview = calendarPath.test(dir) && dir.split('/').length === 2
-  return dir && dir !== 'introduction' && !isYearOverview
+  return dir && !folderOnly.has(dir) && !isYearOverview
 }
 
 export function archiveTree(pages, esc) {
