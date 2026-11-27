@@ -1,1 +1,1 @@
-# MaskGram (protected)
+# Malware Analysis: MaskGram Stealer (protected)
