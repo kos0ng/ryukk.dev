@@ -1,4 +1,4 @@
-import { escapeHtml } from 'markdown-it/lib/common/utils.mjs'
+import { renderOutline } from '../theme/outline.js'
 
 // Assign the anchor and collect its label in one pass, so duplicate section
 // names (e.g. “Solution”) always link to the right occurrence.
@@ -35,17 +35,6 @@ export function indexHeadings(tokens) {
 }
 
 export function tableOfContents(headings) {
-  if (!headings.length) return ''
-  const root = { level: 0, children: [] }
-  const parents = [root]
-  for (const heading of headings) {
-    while (parents.at(-1).level >= heading.level) parents.pop()
-    const node = { ...heading, children: [] }
-    parents.at(-1).children.push(node)
-    parents.push(node)
-  }
-  function list(nodes) {
-    return `<ul>${nodes.map(({ id, label, children }) => `<li><a href="#${escapeHtml(id)}">${escapeHtml(label)}</a>${children.length ? list(children) : ''}</li>`).join('')}</ul>`
-  }
-  return `<details class="article-toc"><summary>Table of contents</summary><nav aria-label="Table of contents">${list(root.children)}</nav></details><script src="/reading-position.js" defer></script>`
+  const outline = renderOutline(headings)
+  return outline && outline + '<script type="module" src="/reading-position.js"></script>'
 }

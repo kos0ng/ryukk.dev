@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import MarkdownIt from 'markdown-it'
+import { renderOutline } from '../theme/outline.js'
 import { indexHeadings, tableOfContents } from '../scripts/table-of-contents.js'
 
 const md = MarkdownIt()
@@ -25,6 +26,12 @@ test('the post outline uses the same unique anchors as the rendered headings', (
     /<h3 id="solution-1">Solution<\/h3>/
   )
   assert.doesNotMatch(html, /Detail|Not a heading|Title/)
+})
+
+test('decrypted heading labels are escaped and only opaque section IDs go into links', () => {
+  const html = renderOutline([{ level: 2, id: 'private-section-1', label: 'A <tag> & "quote"' }])
+  assert.match(html, /href="#private-section-1">A &lt;tag&gt; &amp; &quot;quote&quot;<\/a>/)
+  assert.doesNotMatch(html, /<tag>|<script/)
 })
 
 test('accept skipped heading levels and omit an empty outline', () => {

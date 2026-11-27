@@ -1,4 +1,5 @@
 import { unseal } from './note-crypto.js'
+import { mountPrivateOutline } from './private-outline.js'
 
 const gate = document.querySelector('.locked-note')
 const form = gate.querySelector('form')
@@ -10,10 +11,13 @@ const body = panel.querySelector('.private-body')
 const title = gate.closest('article').querySelector('h1')
 const lockButton = panel.querySelector('button')
 let ciphertext
+let removeOutline
 let generation = 0
 
 function lock() {
   generation++
+  removeOutline?.()
+  removeOutline = undefined
   body.replaceChildren()
   input.value = ''
   panel.hidden = true
@@ -53,7 +57,9 @@ form.addEventListener('submit', async event => {
     body.innerHTML = html
     gate.hidden = title.hidden = true
     panel.hidden = false
+    removeOutline = mountPrivateOutline(body)
     lockButton.focus()
+    if (/^#private-section-\d+$/.test(location.hash)) body.querySelector(location.hash)?.scrollIntoView()
   } catch {
     if (attempt !== generation) return
     status.textContent = ciphertext ? 'Could not unlock. Check the password and try again.' : 'Could not load the encrypted note. Please try again.'

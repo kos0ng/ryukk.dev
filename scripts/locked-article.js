@@ -17,6 +17,6 @@ export function lockedArticle(page) {
 <button type="submit">Unlock note</button></form>
 <p role="status" aria-live="polite"></p>
 <noscript>Enable JavaScript to decrypt this note in your browser.</noscript></section>
-<div class="unlocked-note" hidden><button type="button">Lock note</button><div class="private-body"></div></div>
+<div class="unlocked-note" hidden><button type="button">Lock note</button><div><div class="private-body article-body"></div></div></div>
 <script type="module" src="/unlock-note.js"></script>` }
 }
