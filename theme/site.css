@@ -344,12 +344,29 @@ article h1 {
   padding-bottom: 0.45em;
   border-bottom: 2px solid var(--gold);
 }
-article h2,
-article h3 {
-  margin-top: 1.8em;
+.article-page article :is(h2, h3, h4) {
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.25;
+  scroll-margin-top: 1rem;
 }
-article h2 {
-  font-size: 1.8rem;
+.article-page article h2 {
+  margin-block: clamp(2.75rem, 6vw, 4rem) 0.75rem;
+  border-top: 1px solid var(--edge);
+  padding-top: 0.75em;
+  font-size: clamp(1.65rem, 3vw, 2rem);
+}
+.article-page article h3 {
+  margin-block: 2rem 0.55rem;
+  font-size: 1.35em;
+}
+.article-page article h4 {
+  margin-block: 1.5rem 0.4rem;
+  font-size: 1.08em;
+}
+/* Let the heading set the gap to its content, not the paragraph's default margin. */
+.article-page article :is(h2, h3, h4) + :is(p, ul, ol, pre, blockquote) {
+  margin-block-start: 0;
 }
 .article-toc {
   margin: 0 0 1.5rem;
@@ -393,13 +410,6 @@ article h2 {
 }
 .article-toc a:focus-visible {
   outline-offset: -2px;
-}
-.article-body :is(h2, h3, h4) {
-  scroll-margin-top: 1rem;
-}
-.article-body :is(h2, h3, h4):target {
-  text-decoration: underline var(--gold);
-  text-underline-offset: 0.15em;
 }
 @media screen and (min-width: 80rem) {
   .reading-layout {
