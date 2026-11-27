@@ -12,7 +12,7 @@ import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 
 const md = MarkdownIt({ html: true, linkify: false })
-const labels = { posts: 'Posts', shelves: 'Shelves' }
+const labels = { posts: 'Posts', shelves: 'Notes' }
 const books = { posts: 'ctfs', shelves: 'notes' }
 const descriptions = {
   posts:
