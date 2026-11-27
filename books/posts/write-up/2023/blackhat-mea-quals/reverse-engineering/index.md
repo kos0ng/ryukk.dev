@@ -5,7 +5,7 @@
 | Challenge | Topic |
 | --- | --- |
 | [What am I? (80 pts)](#what-am-i-80-pts) | PE Resources, DLL Analysis |
-| [Can you break the armor? (180 pts)](/notes/research/2024/reverse-engineering-application-protected-with-pyarmor/) | PyArmor, Python Bytecode |
+| [Can you break the armor? (180 pts)](/notes/research/2024/reverse-engineering-protected-python-application-with-pyarmor/) | PyArmor, Python Bytecode |
 | [Light up the Server (320 pts)](#light-up-the-server-320-pts) | Lighttpd, Regular Expressions |
 
 <!-- /challenge-index -->

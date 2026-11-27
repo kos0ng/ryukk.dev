@@ -36,6 +36,9 @@ redirects = {
     public / section / 'introduction/index.html': target
     for section, target in [('posts', '/posts/'), ('notes', '/notes/'), ('shelves', '/notes/')]
 }
+for section in ('notes', 'shelves'):
+    old = public / section / 'research/2024/reverse-engineering-application-protected-with-pyarmor/index.html'
+    redirects[old] = '/notes/research/2024/reverse-engineering-protected-python-application-with-pyarmor/'
 for note in expected:
     if note.is_relative_to(public / 'notes'):
         alias = public / 'shelves' / note.relative_to(public / 'notes')

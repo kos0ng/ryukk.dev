@@ -195,6 +195,10 @@ function redirect(from, to, label) {
 redirect('/posts/introduction/', '/posts/', 'Posts')
 redirect('/notes/introduction/', '/notes/', 'Notes')
 redirect('/shelves/introduction/', '/notes/', 'Notes')
+for (const section of ['notes', 'shelves']) {
+  redirect(`/${section}/research/2024/reverse-engineering-application-protected-with-pyarmor/`,
+    '/notes/research/2024/reverse-engineering-protected-python-application-with-pyarmor/', 'the updated article')
+}
 
 const archives = Object.fromEntries(Object.keys(labels).map((k) => [k, archiveTree(entries(k), esc)]))
 function card(k, i) {

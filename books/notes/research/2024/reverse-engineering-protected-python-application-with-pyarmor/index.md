@@ -1,23 +1,14 @@
-# Reverse Engineering Application Protected with Pyarmor
+# Reverse Engineering Protected Python Application   ̶w̶i̶t̶h̶ ̶P̶y̶a̶r̶m̶o̶r̶
 
-Study case pyarmor obfuscation on windows, linux, and macos environment
+Study case protection on windows, linux, and macOS environment
 
 ## Preface
 
-I decided to write about my approach to analyzing application protected with pyarmor. The interesting fact is i've encountered many application protected with pyarmor in windows, linux, macos and i analyze all of them with different approach.&#x20;
+In this post, i want to share my approach to analyzing protected python applications. Over time, I have encountered many such applications across Windows, Linux, and macOS. Each experience led me to try different methods and techniques to better understand how these applications work and how they can be analyzed.
 
 ## Approaches
 
-| Technique                                | Study Case                                                                                                                    |
-| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| **Stomping Python Builtin Function**     | [TFCCTF 2024 - McKnight](#study-case-tfcctf-2024-mcknight)                                                                    |
-|                                          | [BlackHat MEA 2023 - Can you break the armor?](#study-case-blackhat-mea-2023-can-you-break-the-armor)                         |
-|                                          | [Further Exploration #1](#further-exploration-1)                                                                              |
-|                                          | [Further Exploration #2](#further-exploration-2)                                                                              |
-| **Injecting Python Code during Runtime** | [Flare-On 9 - Challenge 11, Utilizing PyInjector (Windows)](#study-case-flare-on-9-challenge-11-utilizing-pyinjector-windows) |
-|                                          | XXXXX, Utilizing PyInjector (Linux)                                                                                           |
-| **Modifying Python Executable**          | [TFCCTF 2024 - McKnight, Dumping Object Code](#study-case-tfcctf-2024-mcknight-dumping-object-code)                           |
-|                                          | [TFCCTF 2024 - McKnight, Tracing OP\_CODE](#study-case-tfcctf-2024-mcknight-tracing-op_code)                                  |
+<table><thead><tr><th width="186.87109375">Approach</th><th width="187">Protection</th><th>Platform</th><th>Study Case</th></tr></thead><tbody><tr><td><strong>Monkey Patching Python Function</strong></td><td>PyArmor</td><td>Linux</td><td><a href="#study-case-tfcctf-2024-mcknight">TFCCTF 2024 - McKnight</a></td></tr><tr><td></td><td>PyArmor</td><td>Linux</td><td><a href="#study-case-blackhat-mea-2023-can-you-break-the-armor">BlackHat MEA 2023 - Can you break the armor?</a></td></tr><tr><td></td><td>PyArmor</td><td>Windows</td><td><a href="#testing-on-windows">Testing on Windows</a></td></tr><tr><td></td><td>PyArmor</td><td>macOS</td><td><a href="#testing-on-macos">Testing on macOS</a></td></tr><tr><td></td><td>PyArmor</td><td>*</td><td><a href="#further-exploration-1">Further Exploration #1</a></td></tr><tr><td></td><td>PyArmor</td><td>*</td><td><a href="#further-exploration-2">Further Exploration #2</a></td></tr><tr><td></td><td>PyArmor</td><td>*</td><td><a href="#further-exploration-3">Further Exploration #3</a></td></tr><tr><td><strong>Injecting Python Code to Running Process</strong></td><td>Custom</td><td>Windows</td><td><a href="/posts/write-up/2024/sas-ctf-quals/reverse-engineering/#ebin-464-pts">SAS CTF Quals 2024 - Ebin, Utilizing PyInjector</a></td></tr><tr><td></td><td>PyArmor (Partially Static)</td><td>Windows</td><td><a href="/posts/write-up/2025/securinets-final/reverse-engineering/#ezpyracy-380-pts">Securinets Final 2025 - Ezpiracy, Utilizing PyInjector</a></td></tr><tr><td></td><td>PyArmor</td><td>Windows</td><td><a href="/posts/write-up/2025/sas-ctf-quals/malware/#music-speed-changer">SAS CTF Quals 2025 - Music Speed Changer, Utilizing PyInjector</a></td></tr><tr><td></td><td>PyArmor</td><td>Linux/macOS</td><td><a href="#testing-on-linux">Testing on Linux</a></td></tr><tr><td><strong>Modifying Python Executable</strong></td><td>Custom</td><td>Linux</td><td><a href="/posts/write-up/2024/hkcert-ctf-quals/reverse-engineering/#black-magic-400-pts">HKCERT Quals 2024 - Black Magic, Tracing Opcode</a></td></tr><tr><td></td><td>Custom</td><td>Linux</td><td><a href="/posts/write-up/2024/acsc/reverse-engineering/#compyled-50-pts">ACSC 2024 - compyled, Tracing Opcode</a></td></tr><tr><td></td><td>PyArmor</td><td>Linux</td><td>TFCCTF 2024 - McKnight, Dumping Object Code (LD_PRELOAD)</td></tr><tr><td></td><td>-</td><td>Windows</td><td>Testing on Windows</td></tr><tr><td></td><td>-</td><td>macOS</td><td>Testing on macOS</td></tr></tbody></table>
 
 ### Stomping Python Builtin Function
 
@@ -201,39 +192,320 @@ exec(code)
         112 <255>                  192
 ```
 
-We got output above and it still looks like protected by pyarmor. Until this step we know that direct disassembly will be fail, lets try another approach by enumerating available attribute in python function.
+We got output above and it still looks like protected by pyarmor. But until this step, we know that "print" function is executed, which is most likely done in the main function. So we know that function calc\_line and hash is not being called, but main most likely yes. Then how can we go to main function?&#x20;
+
+We can utilize frame, let's see following example
+
+* frame\_1 -> frame\_2 -> frame\_3 -> print
+
+Basically above example is a call stack, because we overwrite print function, we can go to the previous frame but at first we need to get the current frame first, which is the modified print.
 
 ```python
-import pprint
-import dis
-
 def print(x):
     pprint.pp("[X] Injected")
-    pprint.pp(calc_line.__code__.co_varnames)
-    pprint.pp(calc_line.__code__.co_names)
-
-code = open('/home/kosong/ctf/tfc/re/mcknight/hasher.py','rb').read()
-exec(code)
+    pprint.pp(list(sys._current_frames().values()))
 ```
 
-<figure><img src="images/b86d2d4fb26c6f90c83c6a86.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6bba5b0f250dedb7d7d863bb.png" alt=""><figcaption></figcaption></figure>
+
+We can see that there is only one frame and it is pointed to file runner.py and function print. Now let's go to previous frame.
 
 ```python
-import pprint
-import dis
-
 def print(x):
     pprint.pp("[X] Injected")
-    pprint.pp(calc_line.__code__.co_consts)
-    pprint.pp(hash.__code__.co_consts)
-
-code = open('/home/kosong/ctf/tfc/re/mcknight/hasher.py','rb').read()
-exec(code)
+    pprint.pp(list(sys._current_frames().values())[0].f_back)
 ```
 
-<figure><img src="images/894b9fc3215e4393445528bf.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4a16c83c4575466c2e97bf72.png" alt=""><figcaption></figcaption></figure>
 
-If the code is not much complex we can do educated guess to know the algorithm. For example we know that there is loop in the code and there is usage of coeffs variable.
+Now it pointed to frozen hasher, which is pyarmor protected code. Now let's try to dump the code.
+
+```python
+def print(x):
+    pprint.pp("[X] Injected")
+    pprint.pp(dis.dis(list(sys._current_frames().values())[0].f_back.f_code))
+```
+
+<figure><img src="images/6d4cbc713fe8617596f617ca.png" alt=""><figcaption></figcaption></figure>
+
+```python
+ 1           0 JUMP_ABSOLUTE            9 (to 18)
+              2 NOP
+              4 NOP
+        >>    6 POP_BLOCK
+
+  2           8 LOAD_GLOBAL             20 (__armor_exit__)
+             10 CALL_FUNCTION            0
+             12 POP_TOP
+             14 RETURN_VALUE
+
+  4          16 NOP
+        >>   18 LOAD_GLOBAL             19 (__armor_enter__)
+
+  6          20 CALL_FUNCTION            0
+             22 POP_TOP
+             24 NOP
+             26 NOP
+
+  8          28 NOP
+             30 SETUP_FINALLY           82 (to 196)
+             32 LOAD_CONST               0 (0)
+             34 LOAD_CONST               1 (None)
+
+ 18          36 IMPORT_NAME              0 (sys)
+             38 STORE_NAME               0 (sys)
+             40 LOAD_CONST               0 (0)
+             42 LOAD_CONST               1 (None)
+
+ 21          44 IMPORT_NAME              1 (lzma)
+             46 STORE_NAME               1 (lzma)
+             48 LOAD_CONST               2 (17)
+             50 STORE_NAME               2 (FLAG_LEN)
+
+ 29          52 BUILD_LIST               0
+             54 LOAD_CONST               3 ((203, 99, 1, 219, 19, 54, 46, 170, 180, 120, 22, 249, 236, 87, 27, 223, 81, 252, 232, 66, 241, 61, 235, 40, 217, 74, 145, 196, 7, 131, 75, 56, 105, 134, 48, 49, 149, 127, 73, 65, 70, 45, 53, 121, 198, 193, 207, 138, 32, 0, 132, 122, 10, 210, 189, 44, 164, 25, 166, 195, 5, 47, 157, 20, 119, 247, 199, 97, 152, 14, 148, 124, 123, 36, 30, 76, 58, 192, 110, 178, 175, 202, 155, 23, 50, 168, 156, 106, 84, 186, 197, 95, 140, 79, 43, 15, 244, 125, 205, 3, 234, 212, 13, 182, 233, 255, 71, 163, 254, 150, 26, 90, 33, 109, 183, 37, 92, 248, 167, 9, 173, 91, 107, 133, 253, 88, 31, 220, 153, 83, 55, 141, 62, 101, 28, 242, 112, 52, 89, 6, 17, 135, 211, 181, 39, 208, 209, 85, 158, 69, 137, 229, 93, 231, 226, 41, 114, 42, 215, 108, 68, 77, 18, 177, 246, 191, 64, 86, 190, 218, 102, 185, 160, 142, 172, 171, 237, 238, 245, 59, 146, 213, 151, 113, 139, 144, 230, 143, 98, 8, 194, 29, 221, 115, 34, 82, 11, 57, 78, 214, 12, 80, 251, 111, 184, 162, 224, 201, 4, 206, 204, 227, 38, 169, 130, 67, 116,128, 35, 187, 51, 216, 126, 96, 147, 72, 100, 174, 103, 118, 239, 161, 188, 129, 240, 222, 16, 24, 243, 228, 165, 2, 200, 225, 104, 60, 21, 159, 117, 94, 176, 154, 250, 63, 179, 136))
+             56 LIST_EXTEND              1
+             58 STORE_NAME               3 (nums)
+
+ 50          60 LOAD_CONST               4 (<code object generator at 0x7f391d272d90, file "<frozen hasher>", line 8>)
+             62 LOAD_CONST               5 ('generator')
+             64 MAKE_FUNCTION            0
+             66 STORE_NAME               4 (generator)
+
+115          68 LOAD_NAME                4 (generator)
+             70 LOAD_NAME                2 (FLAG_LEN)
+             72 CALL_FUNCTION            1
+
+116          74 STORE_NAME               5 (coeffs)
+             76 LOAD_CONST               6 (<code object calc_line at 0x7f391d272e40, file "<frozen hasher>", line 21>)
+             78 LOAD_CONST               7 ('calc_line')
+             80 MAKE_FUNCTION            0
+
+117          82 STORE_NAME               6 (calc_line)
+             84 LOAD_CONST               8 (<code object hash at 0x7f391d272ef0, file "<frozen hasher>", line 29>)
+             86 LOAD_CONST               9 ('hash')
+             88 MAKE_FUNCTION            0
+             90 STORE_NAME               7 (hash)
+             92 LOAD_CONST              10 (<code object protect_pytransform at 0x7f391d290240, file "<frozen hasher>", line 50>)
+             94 LOAD_CONST              11 ('protect_pytransform')
+
+118          96 MAKE_FUNCTION            0
+             98 STORE_NAME               8 (protect_pytransform)
+            100 LOAD_NAME                8 (protect_pytransform)
+            102 CALL_FUNCTION            0
+
+119         104 POP_TOP
+            106 LOAD_NAME                9 (__name__)
+            108 LOAD_CONST              12 ('__main__')
+            110 COMPARE_OP               2 (==)
+            112 POP_JUMP_IF_FALSE       96 (to 192)
+
+120         114 LOAD_NAME               10 (len)
+            116 LOAD_NAME                0 (sys)
+            118 LOAD_ATTR               11 (argv)
+            120 CALL_FUNCTION            1
+            122 LOAD_CONST              13 (2)
+
+121         124 COMPARE_OP               3 (!=)
+            126 POP_JUMP_IF_FALSE       73 (to 146)
+            128 LOAD_NAME               12 (print)
+            130 LOAD_CONST              14 ('Usage: python3 hasher.py <password>')
+            132 CALL_FUNCTION            1
+
+122         134 POP_TOP
+            136 LOAD_NAME                0 (sys)
+            138 LOAD_METHOD             13 (exit)
+            140 LOAD_CONST              15 (1)
+            142 CALL_METHOD              1
+            144 POP_TOP
+        >>  146 LOAD_NAME                0 (sys)
+
+123         148 LOAD_ATTR               11 (argv)
+            150 LOAD_CONST              15 (1)
+            152 BINARY_SUBSCR
+            154 STORE_NAME              14 (password)
+            156 LOAD_NAME               15 (open)
+            158 LOAD_CONST              16 ('flag.tfc')
+
+116         160 LOAD_CONST              17 ('wb')
+            162 CALL_FUNCTION            2
+            164 STORE_NAME              16 (f)
+            166 LOAD_NAME               16 (f)
+            168 LOAD_METHOD             17 (write)
+            170 LOAD_NAME                7 (hash)
+            172 LOAD_NAME               14 (password)
+            174 CALL_FUNCTION            1
+            176 CALL_METHOD              1
+            178 POP_TOP
+            180 LOAD_NAME               16 (f)
+            182 LOAD_METHOD             18 (close)
+            184 CALL_METHOD              0
+            186 POP_TOP
+            188 LOAD_CONST               1 (None)
+            190 JUMP_ABSOLUTE            3 (to 6)
+        >>  192 LOAD_CONST               1 (None)
+            194 JUMP_ABSOLUTE            3 (to 6)
+        >>  196 LOAD_GLOBAL             20 (__armor_exit__)
+            198 CALL_FUNCTION            0
+            200 POP_TOP
+            202 RERAISE                  0
+            204 RETURN_VALUE
+            206 NOP
+            208 NOP
+            210 NOP
+            212 JUMP_IF_NOT_EXC_MATCH   122 (to 244)
+            214 BINARY_TRUE_DIVIDE
+            216 <150>                    1
+            218 <216>                  222
+            220 <208>                  255
+            222 LIST_TO_TUPLE
+```
+
+We can see the code now! how it can be? because in pyarmor they implement runtime obfuscation, the function will be encrypted before and after called. But in this case we inspect it "during" the call. You can see following image from pyarmor site for overview of how its runtime obfuscation works
+
+<figure><img src="images/2189540954e80d244c2b46e5.png" alt=""><figcaption></figcaption></figure>
+
+Now we've the disassembly for main function, next how can we inpsect other function's code? We can see that in main function there is import of lzma function but it never called in main function. So probably it called in hasher/calc\_line/generator function. Using the same idea we can do exactly same approach, so let's try to modify the lzma code and go to previous frame and dump the disassembly code.&#x20;
+
+In this case, because we don't know that function is called, so we can do trial and error by putting some debug string on each function in lzma. I found that compress function is called by the hasher.py, so let's dump the code.
+
+```python
+def compress(data, format=FORMAT_XZ, check=-1, preset=None, filters=None):
+    """Compress a block of data.
+
+    Refer to LZMACompressor's docstring for a description of the
+    optional arguments *format*, *check*, *preset* and *filters*.
+
+    For incremental compression, use an LZMACompressor instead.
+    """
+    import dis
+    import sys
+    dis.dis(list(sys._current_frames().values())[0].f_back.f_code)
+
+    comp = LZMACompressor(format, check, preset, filters)
+    return comp.compress(data) + comp.flush()
+```
+
+<figure><img src="images/e54809aeb85c410657dc87a2.png" alt=""><figcaption></figcaption></figure>
+
+We've code for hasher now but we still have one function left which is calc\_line. From the disassembly code of hasher and main function, looks like calc\_line never call print or lzma function, now how can we dump it?
+
+Let's try to inspect the argument used by calc\_line first.
+
+```
+def print(x):
+    pprint.pp("[X] Injected")
+    co = calc_line.__code__
+    posonly = co.co_posonlyargcount
+    argcount = co.co_argcount
+    varnames = co.co_varnames
+    poskw_names = varnames[posonly:argcount]
+    pprint.pp(poskw_names)
+```
+
+<figure><img src="images/9640787d4cb8c109157298eb.png" alt=""><figcaption></figcaption></figure>
+
+So the defined argument for calc\_line is k, password. Through hash disassembly we know that password has "bytes" as its data type. Previously we've been trying to overwrite function called by the obfuscated code which are print and compress. Now the question is, what function should we overwrite?&#x20;
+
+Let's inspect bytes type data.
+
+```python
+>>> data = b"testing"
+>>> dir(data)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'center', 'count', 'decode', 'endswith', 'expandtabs', 'find', 'fromhex', 'hex', 'index', 'isalnum', 'isalpha', 'isascii', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'removeprefix', 'removesuffix', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+```
+
+We see that there are many attribute in format `__<name>__`, in python we called them as magic method. One of the interesting method or function is \_\_getitem\_\_, which is the function used to get value by its index. For example as following
+
+```python
+>>> data.__getitem__(0)
+116
+>>> data[0]
+116
+```
+
+What is \_\_getitem\_\_ ? From following [reference](https://www.geeksforgeeks.org/python/__getitem__-in-python/) we know that \_\_getitem\_\_ called when we try to access element from an object. So if we can modify password variable to use our defined class, then we can go inside the calc\_line function with assumption that password are accessed in format of password\[i] because password has bytes as its original data type.&#x20;
+
+But the problem is we can't overwrite \_\_getitem\_\_ function...
+
+But in python there is a [proxy object](https://refactoring.guru/design-patterns/proxy/python/example), basically we can create a class that wrap an existing object and then we can intercept some builtin function by defining builtin function in the wrap proxy class (because it actually like creating new class so no limitation on defining builtin function such as \_\_getitem\_\_ and so on). Following is the flow of the idea
+
+* Execute given code, then use garbage collector to find target function objects from previous run
+  * We must changes it from using exec to runpy to make it behave like the original run of hasher.py
+* Patch the global name calc\_line to a wrapper that converts password into a proxy object
+  * The proxy implements its own `__len__` and `__getitem__`
+  * Every time the original calc\_line executes password\[i], the proxy’s \_\_getitem\_\_ runs and then we can dump the current executing frame and disassemble bytecode by using the original approach.
+* To execute calc\_line with the patched password we can easily do it by calling the "hash" function again
+
+```python
+import gc
+import sys
+import types
+import runpy
+import dis
+
+FOUND = False
+
+class BytesProxy:
+    def __init__(self, b):
+        self._b = b
+
+    def __len__(self):
+        return len(self._b)
+
+    def __getitem__(self, i):
+        dump_func("calc_line")
+        v = self._b[i]
+        return v
+
+
+def dump_func(target):
+    global FOUND
+    if FOUND:
+        return
+    f = list(sys._current_frames().values())[0]
+    while f:
+        if f.f_code.co_filename == "<frozen hasher>":
+            if f.f_code.co_name == target:
+                break
+        f = f.f_back
+
+    FOUND = True
+    dis.dis(f.f_code)
+
+def find_func(target_name):
+    for obj in gc.get_objects():
+        if isinstance(obj, types.FunctionType):
+            co = getattr(obj, "__code__", None)
+            if co and co.co_filename == "<frozen hasher>":
+                if target_name and co.co_name == target_name:
+                    return obj
+
+PATH = "/home/kosong/ctf/tfc/mcknight/dist/hasher.py"
+PW = sys.argv[1]
+runpy.run_path(PATH, run_name="__main__")
+
+hash_fn = find_func("hash")
+
+tmp_global = hash_fn.__globals__
+
+calc_line_obj = tmp_global["calc_line"]
+calc_line_ori = calc_line_obj
+
+def calc_line_wrapper(k, password, func_ori=calc_line_ori):
+    if not isinstance(password, BytesProxy):
+        password = BytesProxy(password)
+    return func_ori(k, password)
+
+tmp_global["calc_line"] = calc_line_wrapper
+tmp_global["hash"](PW)
+```
+
+<figure><img src="images/fe04539bb744366c39f995a1.png" alt=""><figcaption></figcaption></figure>
+
+From image above we can see that we've sucessfully disassemble the calc\_line function!
+
+Another approach that we can do is doing blackbox analysis by analyzing input output. If the code is not much complex we can do educated guess to know the algorithm. For example we know that there is loop in the code and there is usage of coeffs variable.
 
 ```python
 import pprint
@@ -340,7 +612,7 @@ exec(code)
 
 <figure><img src="images/bdf37a192ac14927cee55267.png" alt=""><figcaption></figcaption></figure>
 
-So looks like there is inner function inside main function, lets try to disassembly those inner functions.
+So looks like in this case there are many nested function inside main function, lets try to disassembly those nested functions.
 
 ```python
 import pprint
@@ -357,7 +629,7 @@ exec(code)
 
 <figure><img src="images/8808907858bb03c22a3b7fc9.png" alt=""><figcaption></figcaption></figure>
 
-Looks like it successfully disassembled, lets loop all the code object.
+Looks like it successfully disassembled, that's mean that nested function inside main function in this case are not "obfuscated" although the main function is obfuscated, lets loop all the code object in co\_consts.
 
 ```python
 import pprint
@@ -378,11 +650,61 @@ exec(code)
 
 <figure><img src="images/64829e7c9727487a8fce1a28.png" alt=""><figcaption></figcaption></figure>
 
-Nice, looks like until this step we've been successfully got the flag by disassembling inner function by looking at the constants.&#x20;
+Nice, looks like until this step we've been successfully got the flag by disassembling nested function by looking at the constants.&#x20;
+
+#### Testing on Windows
+
+Is it this approach works on windows? yes it works. Let's try simple program protected by PyArmor
+
+<figure><img src="images/df33f7870825d42a6dc2f25b.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="images/b793f31b760217821a9900be.png" alt=""><figcaption></figcaption></figure>
+
+Then just create a script to replace python function as following
+
+```python
+import pprint
+import dis
+import sys
+
+def print(x):
+    pprint.pp("[X] Injected")
+    pprint.pp(dis.dis(list(sys._current_frames().values())[0].f_back.f_code))
+
+code = open('challenge.py','rb').read()
+exec(code)
+```
+
+And we would see the disassembled code
+
+<figure><img src="images/96ed60dddec3e79bd784ae37.png" alt=""><figcaption></figcaption></figure>
+
+#### Testing on macOS
+
+Is it this approach works on macOS? yes it works. Let's use the same code and obfuscate it with pyarmor on macOS.
+
+<figure><img src="images/174d04de9ee7ff07c4b80748.png" alt=""><figcaption></figcaption></figure>
+
+Create the same runner.py code
+
+```python
+import pprint
+import dis
+import sys
+
+def print(x):
+    pprint.pp("[X] Injected")
+    pprint.pp(dis.dis(list(sys._current_frames().values())[0].f_back.f_code))
+
+code = open('challenge.py','rb').read()
+exec(code)
+```
+
+<figure><img src="images/031fc05827e132722799afa2.png" alt=""><figcaption></figcaption></figure>
 
 #### Further Exploration #1
 
-Because we managed to get inside the protected code we can use the unpacker with `method 2` from this [repository](https://github.com/Svenskithesource/PyArmor-Unpacker/tree/main). If we directly run the code it will failed, but by looking at the structure we can slightly modified the code so it will work with our runner.py
+Running `method 2` directly from PyArmor-Unpacker will be failed, but because we managed to get inside the protected code we can combine it with unpacker `method 2` from this [PyArmor-Unpacker](https://github.com/Svenskithesource/PyArmor-Unpacker/tree/main). By looking at the structure we can slightly modified the code so it will work with our runner.py
 
 ```python
 import pprint
@@ -908,31 +1230,113 @@ def protect_pytransform():
 
 #### Further Exploration #2
 
-After taking a look on method 3, this approach basically did the same approach with method 3 but by utilizing builtin function called by the protected code instead of hooking marshal.loads using sysaudit.
+After taking a look on method 3, this approach basically did the same approach with method 3 but by utilizing builtin function called by the protected code instead of hooking `marshal.loads` using `sysaudit` (sys.addaudithook). Looking at usage of sysaudit actually we can utilize it also as a helper for this approach, for example in context of tracing which libraries are imported or even which functions are imported.
+
+```python
+import os
+import runpy
+import sys
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python3 tracer.py target.py args")
+        exit()
+
+    target = os.path.abspath(sys.argv[1])
+    target_argv = [target] + sys.argv[2:]
+
+    fd = os.open("audit.log", os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o644)
+
+    def hook(event, args):
+        if event.startswith(("import", "exec", "compile")):
+            line = f"{event} {args!r}\n".encode()
+            os.write(fd, line)
+
+    sys.addaudithook(hook)
+    sys.argv = target_argv
+    try:
+        runpy.run_path(target, run_name="__main__")
+    finally:
+        os.close(fd)
+```
+
+<figure><img src="images/163ff372f0abe5306e77946c.png" alt=""><figcaption></figcaption></figure>
+
+From image above we can see that there is no direct reference of "compress" function from lzma.py, basically because lzma.compress is high level but at least we know what libraries are imported.&#x20;
+
+Looking at existing library, i found [py-spy](https://github.com/benfred/py-spy) which can be used to do this idea. So we can change the idea of "trying" all functions from imported library to finding specific function then only modify it.
+
+```bash
+sudo py-spy record --format speedscope -o profile.speedscope.json -- /usr/bin/python3.10 hasher.py 123
+```
+
+We got following output
+
+```json
+{"$schema":"https://www.speedscope.app/file-format-schema.json","profiles":[{"type":"sampled","name":"Thread 80562 \"MainThread\"","unit":"seconds","startValue":0.0,"endValue":0.25,"samples":[[3,2,1,0],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[3,2,6,5,4],[10,9,8,7],[10,9,8],[10,13,12,11],[10,13,12,11],[10,13,12,11],[10,13,12,11],[10,13,12,11],[10,13,12,11],[10,13,12,11],[10,13,12,11],[10,13,12,11],[10,13,12,11]],"weights":[0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01]}],"shared":{"frames":[{"name":"_load_library","file":"/home/kosong/ctf/tfc/mcknight/dist/pytransform/__init__.py","line":332,"col":null},{"name":"pyarmor_init","file":"/home/kosong/ctf/tfc/mcknight/dist/pytransform/__init__.py","line":355,"col":null},{"name":"pyarmor_runtime","file":"/home/kosong/ctf/tfc/mcknight/dist/pytransform/__init__.py","line":364,"col":null},{"name":"<module>","file":"/home/kosong/ctf/tfc/mcknight/dist/hasher.py","line":2,"col":null},{"name":"init_pytransform","file":"/home/kosong/ctf/tfc/mcknight/dist/pytransform/__init__.py","line":76,"col":null},{"name":"wrap","file":"/home/kosong/ctf/tfc/mcknight/dist/pytransform/__init__.py","line":58,"col":null},{"name":"pyarmor_init","file":"/home/kosong/ctf/tfc/mcknight/dist/pytransform/__init__.py","line":356,"col":null},{"name":"check_lib_pytransform","file":"<frozen hasher>","line":96,"col":null},{"name":"protect_pytransform","file":"<frozen hasher>","line":112,"col":null},{"name":"<module>","file":"<frozen hasher>","line":118,"col":null},{"name":"<module>","file":"/home/kosong/ctf/tfc/mcknight/dist/hasher.py","line":3,"col":null},{"name":"compress","file":"/usr/lib/python3.10/lzma.py","line":327,"col":null},{"name":"hash","file":"<frozen hasher>","line":48,"col":null},{"name":"<module>","file":"<frozen hasher>","line":116,"col":null}]},"activeProfileIndex":null,"exporter":"py-spy@0.4.1","name":"py-spy profile"}
+```
+
+Then just use speedscope to visualize those json and we can see that compress function from lzma.py is called!
+
+<figure><img src="images/138b6b345f0c969ecc7216eb.png" alt=""><figcaption></figcaption></figure>
+
+#### Further Exploration #3
+
+Instead of changing the injected code every time we want to do update, actually we can spawn python interactive using pdb. For example as following
+
+```python
+import pprint
+import pdb
+
+def print(x):
+    pprint.pp("[X] Injected")
+    pdb.set_trace()
+
+code = open('/home/kosong/ctf/tfc/mcknight/dist/hasher.py','rb').read()
+exec(code)
+```
+
+Then we can just inspect the code at runtime.
+
+<figure><img src="images/95b3e70635d4b5198291a42c.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="images/5373cdd7ff4356c3a97940aa.png" alt=""><figcaption></figcaption></figure>
 
 ### Injecting Python Code during Runtime
 
-* Tested on: Windows
+#### Testing on Linux
 
-#### Study Case: Flare-On 9 - Challenge 11, Utilizing PyInjector (Windows)
+Run the target code, then grep pid of that process.
 
-For this approach we can use method 2 from this [repository](https://github.com/Svenskithesource/PyArmor-Unpacker/tree/main). &#x20;
+<figure><img src="images/6fb477cfdd88d5e123fa1efa.png" alt=""><figcaption></figcaption></figure>
 
-#### Study Case: XXXXX, Utilizing PyInjector (Linux)
+<figure><img src="images/a9935f8efa7c691916dea924.png" alt=""><figcaption></figcaption></figure>
 
-#### Study Case: XXXXX, Utilizing PyInjector (MacOS x64)
+In this case, we will use tool named [hypno](https://github.com/kmaork/hypno).&#x20;
 
-#### Study Case: XXXXX, Utilizing PyInjector (MacOS aarch64)
+```python
+from hypno import inject_py
 
-**---To Be Updated---**
+pid = 79481
+python_code = """
+import dis,sys;dis.dis(list(sys._current_frames().values())[0].f_back.f_code)
+"""
+inject_py(pid, python_code)
+```
+
+<figure><img src="images/b65aa517b176bb5061c26627.png" alt=""><figcaption></figcaption></figure>
+
+Then the injected code output will show in the running process, as we can see in image above that we've successfully disassembled the code. In README.md from hypno repository we can see that hypno also support macOS environment, so the same approach would be work for analyzing protected python apps in macOS.
 
 ### Modifying Python Executable
 
 * Tested on: Linux
 
-#### Study Case: TFCCTF 2024 - McKnight, Dumping Object Code
+#### Study Case: TFCCTF 2024 - McKnight, Tracing Opcode
 
-#### Study Case: TFCCTF 2024 - McKnight, Tracing OP\_CODE
+**---To Be Updated---**
+
+#### Study Case: TFCCTF 2024 - McKnight, Dumping Object Code
 
 **---To Be Updated---**
 
@@ -943,4 +1347,4 @@ For this approach we can use method 2 from this [repository](https://github.com/
 ## References
 
 * <https://github.com/Svenskithesource/PyArmor-Unpacker/tree/main>
-* <https://github.com/levanvn/FLARE-ON9-Chal11_Unpacking-Pyarmor?tab=readme-ov-file>
+* [https://github.com/levanvn/FLARE-ON9-Chal11\_Unpacking-Pyarmor](https://github.com/levanvn/FLARE-ON9-Chal11_Unpacking-Pyarmor?tab=readme-ov-file)

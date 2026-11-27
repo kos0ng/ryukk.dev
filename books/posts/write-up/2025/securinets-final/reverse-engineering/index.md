@@ -21,7 +21,7 @@ Extract using this [code](https://github.com/extremecoders-re/pyinstxtractor/blo
 At first i tried well known method using <https://github.com/Svenskithesource/PyArmor-Unpacker/tree/main> but it failed, so i decided to reopening some notes I made in the past regarding pyarmor, because i've been solving several pyarmor challenges in past and also created a pyarmor challenge in past.
 
 * [malware](/posts/write-up/2025/sas-ctf-quals/malware/#music-speed-changer)
-* [reverse engineering application protected with pyarmor](/notes/research/2024/reverse-engineering-application-protected-with-pyarmor/#study-case-tfcctf-2024-mcknight)
+* [reverse engineering application protected with pyarmor](/notes/research/2024/reverse-engineering-protected-python-application-with-pyarmor/#study-case-tfcctf-2024-mcknight)
 
 I decided to use the same approach like the first link i show above, so using `pyinjector` to spawn `python shell`. Finding the main frame manually then we can do some enumeration and actually we can do disassembly for the running function. E.g
 
