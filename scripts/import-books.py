@@ -65,9 +65,9 @@ if __name__ == '__main__':
             slug = loc.text.removeprefix(base).strip('/')
             if not re.fullmatch(r'[a-zA-Z0-9_./-]*', slug) or '..' in slug.split('/'):
                 raise ValueError(loc.text)
-            # GitBook lists each landing page at the bare book URL, but
-            # serves its Markdown at introduction.md (see llms.txt).
-            slug = slug or 'introduction'
+            # Both legacy introductions now redirect to the collection indexes.
+            if slug in ('', 'introduction'):
+                continue
             jobs.append((base + '/' + slug, ROOT / section / slug / 'index.md'))
     with ThreadPoolExecutor(8) as pool:
         list(pool.map(save, jobs))

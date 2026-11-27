@@ -6,6 +6,24 @@
   NODE_VERSION = "22"
 
 [[redirects]]
+  from = "/posts/introduction"
+  to = "/posts/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/notes/introduction"
+  to = "/notes/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shelves/introduction"
+  to = "/notes/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/shelves"
   to = "/notes/"
   status = 301

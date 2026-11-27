@@ -184,21 +184,19 @@ function emit(url, title, body, section = '') {
   const file = join('public', url, 'index.html')
   mkdirSync(dirname(file), { recursive: true })
   writeFileSync(file, html)
-  // Netlify serves HTTP redirects. Keep old bookmarks working on plain static
-  // hosts and the local preview too, including search parameters and anchors.
-  if (section === 'notes') {
-    const alias = join(
-      'public',
-      url.replace(/^\/notes\//, '/shelves/'),
-      'index.html'
-    )
-    mkdirSync(dirname(alias), { recursive: true })
-    writeFileSync(
-      alias,
-      `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved to Notes</title><meta name="robots" content="noindex"><link rel="canonical" href="${esc(url)}"><script>location.replace(document.querySelector('[rel=canonical]').href + location.search + location.hash)</script><meta http-equiv="refresh" content="0;url=${esc(url)}"></head><body><a href="${esc(url)}">Continue to Notes</a></body></html>`
-    )
-  }
+  if (section === 'notes') redirect(url.replace(/^\/notes\//, '/shelves/'), url, 'Notes')
 }
+
+// Static hosts (including GitHub Pages) need a real file at each old URL.
+function redirect(from, to, label) {
+  const file = join('public', from, 'index.html')
+  mkdirSync(dirname(file), { recursive: true })
+  writeFileSync(file, `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved to ${label}</title><meta name="robots" content="noindex"><link rel="canonical" href="${esc(to)}"><script>location.replace(document.querySelector('[rel=canonical]').href + location.search + location.hash)</script><meta http-equiv="refresh" content="0;url=${esc(to)}"></head><body><a href="${esc(to)}">Continue to ${label}</a></body></html>`)
+}
+redirect('/posts/introduction/', '/posts/', 'Posts')
+redirect('/notes/introduction/', '/notes/', 'Notes')
+redirect('/shelves/introduction/', '/notes/', 'Notes')
+
 const archives = Object.fromEntries(Object.keys(labels).map((k) => [k, archiveTree(entries(k), esc)]))
 function card(k, i) {
   return `<a class="card" href="/${k}/"><small>VOLUME 0${i + 1} <b>↗</b></small><h3>${labels[k]}</h3><p>${descriptions[k]}</p><strong>${archives[k].count} entries →</strong></a>`

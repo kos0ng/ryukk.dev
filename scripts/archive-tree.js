@@ -25,7 +25,6 @@ const calendarPath = /^(?:write-up|research)\/(20\d\d)(?:\/|$)/
 // Keep these navigation pages published for bookmarks, but treat them as
 // folders in the archive instead of adding an Overview link inside each.
 const folderOnly = new Set([
-  'introduction',
   'lifetime-ctf/hack-the-box',
   'lifetime-ctf/hack-the-box/reverse-engineering',
 ])
