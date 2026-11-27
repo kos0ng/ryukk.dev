@@ -35,5 +35,5 @@ test('renders a named navigation landmark with only the available direction and 
   assert.match(html, /<nav class="sibling-nav" aria-label="More in A &quot;folder&quot;">/)
   assert.match(html, /rel="next" href="\/notes\/2025\/entry\/"/)
   assert.match(html, /Next.*<strong>A &amp; B<\/strong>/)
-  assert.doesNotMatch(html, /Previous|rel="prev"/)
+  assert.doesNotMatch(html, /Previous|rel="prev"|>More in /)
 })

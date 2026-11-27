@@ -27,5 +27,5 @@ export function siblingNav(neighbors, parentTitle, esc) {
   const link = (page, rel, direction) => page
     ? `<a rel="${rel}" href="${esc(page.url)}"><span class="sibling-direction">${direction}</span><strong>${esc(page.title)}</strong></a>`
     : ''
-  return `<nav class="sibling-nav" aria-label="${label}"><p>${label}</p><div>${link(neighbors.prev, 'prev', '<span aria-hidden="true">← </span>Previous')}${link(neighbors.next, 'next', 'Next<span aria-hidden="true"> →</span>')}</div></nav>`
+  return `<nav class="sibling-nav" aria-label="${label}"><div>${link(neighbors.prev, 'prev', '<span aria-hidden="true">← </span>Previous')}${link(neighbors.next, 'next', 'Next<span aria-hidden="true"> →</span>')}</div></nav>`
 }

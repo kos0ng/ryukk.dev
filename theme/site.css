@@ -392,11 +392,6 @@ article h1 {
   padding-top: 1.25rem;
   border-top: 1px solid var(--edge);
 }
-.sibling-nav p {
-  margin: 0 0 0.75rem;
-  color: var(--muted);
-  font-weight: 600;
-}
 .sibling-nav > div {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
