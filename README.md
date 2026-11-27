@@ -1,6 +1,6 @@
 # ryukk.dev
 
-Achmad Zaenuri Dahlan Putra (kos0ng)’s CTF write-ups and security notebooks. The site builds static HTML from versioned Markdown, without a database or GitBook requests at build time.
+kos0ng’s CTF write-ups and security notebooks. The site builds static HTML from versioned Markdown, without a database or GitBook requests at build time.
 
 ## Local development
 
