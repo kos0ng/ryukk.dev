@@ -22,7 +22,7 @@ Care to test your luck?
 
 So we need money >= 1000000000 to get the flag. Since we can control nonce and hex we can manipulate the plaintext during the decryption process.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FyBGSTqsGp9QiXvSz8iWk%2Fimage.png?alt=media&amp;token=274e0127-837a-4fac-a61d-fdfc938bfbb7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/765f255b84cbb04189c9c765.png" alt=""><figcaption></figcaption></figure>
 
 To modify the money (plaintext) which is 0.0, we can use scientific notation to get big number with only 3 bytes values. To modify the money (plaintext) which is 0.0, we can use scientific notation to get big number with only 3 bytes value. Here is the detail of process
 
@@ -90,7 +90,7 @@ flag()
 r.interactive()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fra3X2x8zlYDaXSnu3F7b%2Fimage.png?alt=media&amp;token=f53e0b94-9882-4e5d-9267-0c7e2db036a2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/204bb89d6c893eb58191c039.png" alt=""><figcaption></figcaption></figure>
 
 Flag : flag{you're\_ready\_for\_vegas\_now}
 
@@ -220,7 +220,7 @@ g.write(png)
 g.close()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FRNmH0VrekYU90AzA31H3%2Fflag.png?alt=media&amp;token=61b2b3c2-4112-49cf-8fb5-037850282345" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/eb75059956ba37847ca07e08.png" alt=""><figcaption></figcaption></figure>
 
 Flag : flag{the\_season\_of\_lies}
 

@@ -70,7 +70,7 @@ for i in range(len(f)):
 print(result)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/jXvWje_78e8ABEp-SsSbi9ePlmWWA7Cpoz9eznmV8WKud0JszxsixmpAh-vKNhfbtsNlcAZHUY2bEQ2_tYssJluIZqo7fUCc3fKsDcFJOEin7Wz7M9jIUFAxfvhV99pIbs3a0RB4vkvlBP23qNDWQdg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/70bf0431fb5862657e2763e3.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST15{b1G\_brr41nz\_us1ng\_c0d3\_4s\_k3y\_8d7113ecc1}
 
@@ -273,7 +273,7 @@ for i in range(64):
 print(''.join(inp))
 ```
 
-![](https://lh7-us.googleusercontent.com/oUXdYttubN2l0E-SMFqKX6WOvqWHY8O4udn2t_iO5D3azaYcGOAyQ7qqjxLjudWiE4k1jclCpnmIoBsK9Zqs47ZUc6OOk_6zdM3MUC9WkN7lJFlu1hWnLytjsSAQnmar7k4m51pzEyBJv3U0CPo9qbI)
+![](images/e36f149d4b0bffdc8dcfac48.png)
 
 Sedikit perbaikan pada format flag dan dapat flag
 
@@ -289,17 +289,17 @@ Flag : COMPFEST15{r3Ad1ng\_byt3C0de\_c4n\_b3\_r3ally\_H4rd\_y0u\_kNow}
 
 Diberikan file apk
 
-<figure><img src="https://lh7-us.googleusercontent.com/BD0_FTM00242tKhNr6wtkG2SpdV4PNsLF1ppaOG6q5yuRRBCXgS2TWq1997TCcAI4I1NXO1c6u0SvHH434-EgQcOOHqcWhB-ILTfM-hDDJrcs-8HvdkKxazGp6GSUmVJNdDb_kcAyypCcf-HARwy8-g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fa6c246f9a50f82d057a63ca.png" alt=""><figcaption></figcaption></figure>
 
 Input yang kita masukkan pada aplikasi akan dibandingkan dengan string sepanjang 100 digit atau kalau diubah ke bytes sebesar 50 bytes. Dari analisis didapatkan bahwa hasil enkripsi dari input panjangnya sama dengan input. Proses enkripsi dilakukan di libgojni.so, pada fungsi utils\_Encrypt dilakukan pemanggilan fungsi utils\_F terlebih dahulu.
 
-<figure><img src="https://lh7-us.googleusercontent.com/kNeBKqk0SDiRr1pdv8c3BtkQn4Ma2egzTbg4iyYKXmDRUvw6G44Oa2XUORyzU2J7gDIi8aQ4WpdDDmerYVH4ZoX_ONOWJZuRLQJWGeHoo7tAupjHJ7Swzw0ssD6rPuaFPWPTAlchN9E-qzvDh6vtqPE" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6a6edf2ae1f4c96089f2bd65.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/CRkmbrSjDqs-bf1rxhi-bUspohJzApYZM5x6SWrGFD1uWlpxG41DMl4jSrMftiBbnApENqUQeK_SuscXJGkHEFRzKqKrhw6xB1DGUbqwF7IjdjyhKPU_-RAMm3Dz4NTdI8Ra84PSCaR0XnOdA0STa9A" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2b4c88534e8ed110164ff16c.png" alt=""><figcaption></figcaption></figure>
 
 Dari hasil percobaan pada golang (compile - decompile) diketahui bahwa nilai seednya adalah 0 (register x1 pada address 0xd0bc8). Selanjutnya dilakukan generate nilai random dengan randInt dan menggunakan nilai v9 sebagai argument yang mana nilai v9 terakhir adalah panjang dari input. Nilai dari v9 akan dilakukan decrement pada setiap looping.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/0H0LEtdD4x3ZcdBY5gg3V5xOYM0ikiEcXN5zhcS-BzlRyK7Lm9wUUwUrdas7YNPeGGeswj-D5zRcO2jzjIR9a6gzyE8GBkyG_ImVvWz_8Puu95_Gf8u_YpNSfGgBMLOffFVUHYPlDlYCZ-9hotSWn7c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7856447df2173bf0fea1db83.png" alt=""><figcaption></figcaption></figure>
 
 Pada saat percobaan dengan frida didapatkan perubahan satu byte pada input hanya berdampak pada satu byte pada nilai enkripsi dengan panjang yang sama. Hal tersebut menandakan bahwa terdapat pengacakan index pada input. Dengan adanya nilai yang digenerate sesuai dengan maximal index maka kami asumsikan bahwa nilai random yang digenerate akan digunakan sebagai index. Dari hasil percobaan dengan frida didapatkan bahwa asumsi tersebut benar. Selanjutnya dari hasil generate 50 nilai random terdapat nilai random yang sama dan jika digunakan sebagai index maka tidak invertible jika kita ingin mendapatkan input aslinya, dengan beberapa analisis dan percobaan didapatkan bahwa input yang telah dipetakan akan dihapus sehingga ada perubahan index nantinya
 
@@ -317,7 +317,7 @@ Result = “df”
 
 v85 kemungkinan adalah nilai yang sudah dipetakan dan dixor dengan suatu nilai yang kami tidak tahu gimana memanggil fungsinya. Tapi karena sudah mengetahui flow sebagian besar, bagian xor bisa di reverse saja untuk mendapatkan nilai xornya.
 
-<figure><img src="https://lh7-us.googleusercontent.com/y1dHLIMV-kniHjR65ZNtPVfdNgI3RtXDUeUumatnt6xxyR1RnludihumKdwuXDVrQHYFbPsegOI9Qk48q3rGyOD4cYcK6Q879eKWQAl-N9geBhpiitHxWmbWJZ6D1xxbNpX9DDUUOpsnioOPpCdNCgY" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/55f1c797bedcdea5aa9a84fe.png" alt=""><figcaption></figcaption></figure>
 
 Berikut solver yang kami gunakan. Dapatkan nilai untuk leak key dan pemetaan (sekaligus memastikan nilai xor static)
 
@@ -336,7 +336,7 @@ Java.perform(function x() {
 });
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/2gq9Ygid9x7ItO64f-9AnawDH_S9HxLpeackj7tcG_K4Q0s4q3LKxvuuKHJ54w8oGlWGy-rEt8-L48NKynm_tDelV7GKZpuZt93Vb2yMR39lZc3z_FSe7JVT6stBgxXU-OXRsbachuH5ub2jhMMp8rA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7eb5a03b28296792e31d8d37.png" alt=""><figcaption></figcaption></figure>
 
 Dapatkan nilai random yang merupakan index
 
@@ -397,7 +397,7 @@ print(''.join(map(chr,flag)))
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/tEroHNg5xsLfV9NjsWaZ2OYYADUIFswzZ7dpubHXCBIxpX6id59jIGs_Fql57EQEjxOQppcMv6QQ97DPkiEdBJy0b0CKbW_6mvnaZ3ILu9AQqx5oqLmJfIFCs4pRyb3-GHz_O_1MBr_69YteDE86OC0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0529046457e7e35d7c4e14b6.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST15{doot\_doola\_doot\_doo\_5bd89375a2941192b618eb4536ad6b}
 
@@ -411,11 +411,11 @@ Flag : COMPFEST15{doot\_doola\_doot\_doo\_5bd89375a2941192b618eb4536ad6b}
 
 Diberikan file elf 64 bit. Berikut potongan kode fungsi pertama yang dipanggil untuk mengecek input kita
 
-<figure><img src="https://lh7-us.googleusercontent.com/d7hjZw5qa4ofmKaQ3Zk5_sINS7WkKxls_8hXp7HwHoJ-xVD3InjdBoftKU4pasUpcm8_UgFCZqFjUl8EAzdS1ZfyGkTylM02kV50G7Z-eCUgCXEFAe9NZVd-g0WfJyv9lUVZvxsTYgsTMZUiXBn7-Bg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7843166cc832e8e6d11f93b7.png" alt=""><figcaption></figcaption></figure>
 
 Step in pada salah satu fungsi pengecekan, contoh pada pemanggilan fungsi di address 0x023C89A.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/31tTCW13Xk5MRZ4dVfxkthaWLaK1NS1H_O9uMqohZ0JCbkftUwvtcQW1R9v0lcsym7_gt_dylLgEGrDTOUERyQzNpfOaw-EeLCKt8whd4_cxO7d_EwK9yKcK35LldjI5kaXRHUMU4wnK2zs65nuPAT8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0e1a03f536118972785e74de.png" alt=""><figcaption></figcaption></figure>
 
 Fungsi terakhir yang dipanggil akan seperti gambar diatas. Step out dua kali dan cek pada assembly, maka akan ada dua perbandingan yaitu nilai r14 dan r15 yang didapat dari lzcnt dan tzcnt. Jadi intinya lzcnt dan tzcnt menghitung null bytes pada lsb dan msb
 
@@ -447,19 +447,19 @@ result = 100001
 
 Karena terdapat bextr untuk 1 bit dan nilainya pasti, maka kita bisa reverse validasi flag dengan hanya memanfaatkan bextr 0x10\* saja. Pada proses pengerjaan, kami mendapat 2 kali fake flag sebelum akhirnya dapat flag asli. Untuk mendapatkan flag asli pertama kita perlu mengetahui dimana perubahan pada program
 
-<figure><img src="https://lh7-us.googleusercontent.com/hR9w0tta_hSbmKHVM9DPEhpLwz66n2dNhTz4TwCPyagnN9gKaiWe5ZjBG6-pqMG52wZF5dmX8tUHQalQf8HMxa1xvVhKbZzxazK34KFniGZs3iY4BxsXxi7WkSfOZMZSCshoLsiNzPLG_VVnGEV4UFY" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/868935e9336f860cdd0c829c.png" alt=""><figcaption></figcaption></figure>
 
 Pada address 0x023C89A terdapat cross reference dari sub\_23CCD5. Fungsi tersebut memiliki cross reference dari .init\_array yang mana artinya dipanggil sebelum main.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/vJHv7DbEst0m7xAWHkE7kM_6TlF9j-29DJPzFv0djeh2c2geJO_GOLvMz6llOURytk0hGyn2BBp1k8yvh7kmWiT-pRYMGRsFKCqJ_MzRJyliYolbjvu8rlDEmuxl0CB1J9BWKCIFyHchSFdYhf0QeXo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3e82d57f57e83fc5e4ccfe69.png" alt=""><figcaption></figcaption></figure>
 
 Pada salah satu instruksi terdapat pemanggilan fungsi yang nilai addressnya disimpan pada register. Selanjutnya lakukan breakpoint dan debug pada address tersebut.
 
-<figure><img src="https://lh7-us.googleusercontent.com/zdkR8h6vGgwXMhAYJU4fcQ13jE99YUM4shzzuLNIJoHUkSvE0Jz_V6pmFRjR4aJ68ZQ_5xF7LjpUvMxjf4M5nrLhxi16GpkVsDEmWUlpMOxbvu9EWq6GBM3KHvx7y5dCsUEsPqCaZZOPC5C-pCXq5Lw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f90373e5bfbabc69a317d704.png" alt=""><figcaption></figcaption></figure>
 
 Fungsi tersebut ternyata melakukan pemanggilan syscall dengan rax = 0x65 yang mana itu merupakan nilai untuk ptrace
 
-<figure><img src="https://lh7-us.googleusercontent.com/TrB2hSAlwzTYnqgjFqJO8Fr4xXrew-Aa-epoAoiMhbyDMr9RIb5qV3nklScSdApOfi9gFpvUWpbZRr2__uvB6llHQXSZwjsraW1-cPaktkarKli7IUVMTnr-LHDMnb06I-AQyCq0EPjiFQq8RAEMXZk" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0dbef575079c5d22b4a51417.png" alt=""><figcaption></figcaption></figure>
 
 Jadi pemanggilan fungsi tersebut tujuannya adalah untuk melakukan pengecekan terhadap debugging/anti debugging dan pada langkah tersebutlah dilakukan perubahan flow/pemanggilan fungsi yang seharusnya. Jadi langkah yang kami lakukan adalah melakukan perubahan terhadap nilai eax yang dibandingkan menjadi 0 lalu melakukan reverse terhadap validasi flag (dengan appropch yang disampaikan sebelumnya, bextr dengan r10d == 0x10\*) untuk mendapatkan flagnya. Untuk sampai ke instruksi validasi dengan hasil extract bit 0x10\* dilakukan step in secara terus menerus sampai ketemu instruksi tersebut. Berikut solver yang kami gunakan
 
@@ -524,6 +524,6 @@ SolverEquation()
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/kDZHkLh9AoIDgKHNLD_2cvSkydTcI-JaQN40tMz-KDCKMgIrsH2YrWEVkKOorfizoTPY9faclWin7_iywyqKuTNdEsG_0c3zxI9TpqEl3lP5wLWusLiNOheOPubt2HuKn76m54c-F4NQyGMTEf9WuAU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6bdad95f5e3dcaffda63b2a7.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST15{sup3r\_l0ng\_fL46\_5o\_7hAT\_YOu\_w0nT\_Be\_a3le\_t0\_s0LvE\_1t\_m4nuALLy\_w3ll\_tecHnicaLly\_u\_c4n\_bU7\_s1mpL3\_gdb\_scRipt1n9\_1s\_aLL\_You\_n33D\_a95dff5469}

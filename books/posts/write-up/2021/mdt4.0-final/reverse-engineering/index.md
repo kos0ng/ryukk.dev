@@ -134,7 +134,7 @@ print(res)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/KW3_bQyonC_3udls4skxrBwiOW7Sv0z9Z6oHUDNrjAm7Sq1gC2IK9OzgF1N_cPftA0lsnMf-qPQHy3MX15jVMP_Cxe7CCGk2cLhI8TuXCEGo1HgyrduESoOxpLQAiaItUZGmPvEYzy4BymCoJJWL4g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6d260cb381437f960e00fd07.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya bruteforce, disini kami menggunakan pypy untuk mempercepat proses bruteforce
 
@@ -158,7 +158,7 @@ print ''.join(res)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/cWb_GPqCySiLw14WX7dcZtgB209YT1_qwI6yUhtJpjEBTeAXtrcbAVLSvRgnhAS7xq8E-ANPn70adBKQ_l29X7_e1ZqzkM4jTP06kFo4N_QO8TXNvXlmovfbAQEEHpLAvn34AHPiM7IJL8kUVXRX1w" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/466be20fc8952eb74dceb225.png" alt=""><figcaption></figcaption></figure>
 
 Untuk mendapatkan flag disini kami lakukan write saja ke memory&#x20;
 
@@ -186,7 +186,7 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/wTj4fcHd99Exmp3MvXleuRMkxdr7ZD5_XYJ19lEMxJqackZvJho72fz067wxXTx3KSbxTOaqtz5yqcKMmsqFV2v7ObEtAQeWaBPKuljBQ-ednjA2mCcwtcqh8zwqnk5TOYeYPEF0XpfTVEn-XZCpiw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/44efcfcc1de60ac432ff3f33.png" alt=""><figcaption></figcaption></figure>
 
 Flag : MDT4.0{700fc9fb1e75a6e9af24041d0ca0e205f4719a4f}
 
@@ -200,49 +200,49 @@ Flag : MDT4.0{700fc9fb1e75a6e9af24041d0ca0e205f4719a4f}
 
 Diberikan file exe yang cukup berat, dibuat dengan F# . Disini kami menggunakan dnspy untuk melakukan decompile terhadap file exe tersebut
 
-<figure><img src="https://lh7-us.googleusercontent.com/RkcjiRPxbx-pgRlXixoydKrq5FnEi0ufGKdjFr6xHwDw6sbpknHbsiNxJjk1yQFWLu3Ssc8lw_faidbTc8FlNGX1ePotPB0esHMXQNj1hxkRlgo7ViflKwvUeOvIdxQt4g1E6gfyZG2HwW9Id_Fhiw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7beb3a09b4a57b3421c91539.jpg" alt=""><figcaption></figcaption></figure>
 
 Tentunya setelah menunggu cukup lama akhirnya kami mendapatkan full source codenya , berikut untuk full source codenya&#x20;
 
 Disini kami kesulitan karena tidak dapat menjalankan filenya namun setelah kami analisis ternyata pada setiap function yang didefinisikan terdapat pemanggilan fungsi print , yang melakukan print “L” . Karena saat kami lihat terdapat tail head , seperti 2 mata koin , dan ada print huruf “L” maka kami simpulkan bahwa L bermakna LOSE , dan ada fungsi yang melakukan print “W” yang bermakna WIN . Jadi kami coba cari fungsi yang melakukan print “W” , dan ternyata ADA.
 
-<figure><img src="https://lh7-us.googleusercontent.com/5L9sZgAdxZxVOJHB4Ur9FXtYan7LBP4L6FAe5k5CyRqzMKka7DQ41_STPJgTrat53PYCwq5z2Q0ClWT0usEXUrOMm181DG3xeKP9WOw0Q4DYnECJt5rZzNLDXuy6PCXQbho8fbrn4aFq3f-r9TTbDw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/474b757ad68d851a2e7795b6.png" alt=""><figcaption></figcaption></figure>
 
 Karena diawal terlihat bahwa fungsi ini melakukan pemanggilan fungsi lain secara rekursif maka disini kami sama saja dengan melakukan rekursif secara reverse ( dari child ke parent ). Disini kami mendapatkan keseluruhan flagnya secara manual :) . Tinggal search search aja untuk nama fungsinya
 
-<figure><img src="https://lh7-us.googleusercontent.com/KKr6Hr4LwcX5SEQHZLvPTLnnnnpPxfgBJguKYbeBbKRREgBzbbj46fyNtvZKK9gMPBDvLsczXNwdyrAo2u3i4eBDZ6sw5rR5YqOAJtMKeDt2BzJxklZvdcRMvC3IMLjYkD4YigPFN-dwciMPnIGPRw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b6ab865f7187a3cb8a492e84.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/BBf_iuC58jUQVsvlFBXewdIy6zrsjtI2NXet9W2m7zyJY2dZXQJM_4kDgOEYAfdaO489Oa0VDzlq1nHcxKI5sVzuSz1MG2UpnovW3phoQFGSQOLOsK5g5sD8L6IjsVDnpcU32a1f4ZtwffHRnQeOuw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/78357d47c979fce92e4045ac.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/iV9IeXKrylKXFRt_wPp0EEnDydhTf0kANLVpRMQdIESaBs0_8zXGHD6MYjz-4Hy3eeKsp98fkQ9gDLT8SLUkFroMJpmvck_GjqdckmRJ8-G9VMb-Mid6s-YhivlgOxl8SXFdwF0ijAx24YVZKkChXA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6a53f95839bf492775246dd1.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/kS6HQdJD_cevlh2sGSbu16cp3hmrzEOFJx7Fc8aOUM4TenGkF4FhPPmcRDBnf8KVuNqo_6uKOyyMWxfNU3u5XfDpqd9rCcqXu_UWI7U_V1_hv5TPlN7nJj26WH81fDeOZnbSP3U33mxfal4UjVeO3g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f9ab2e2cc16f6aeb648d41f9.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/4z54sIB-vuzdwVsaVUwPsSJvmf6mLYYbQqurJQYWOko1oTzdnI5dPf0DYwnmLq4J7JtUM4BmeImmVOHLaWr26RVg6JYQu3c-eYqJZdTbyaIx2ilyGWTN1MfuyK9mYkm7cBXOQkbmr7wVPClST3U-SQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8565890ab6ab379d5fa933e1.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/1W3CAikYp8HWEyRFYA5P1jSsC1NjEftsZauPQuR9v9XzqQOy33nBK6klK92FMdZ2qXziZ4RhV_GwfAq4kHvMhh9Ww34Lw-DYcz7WCNPWM3XO9ysb1eUAVnF-JU55vIwxi_8ft9LaTl1C3IA5NgLoRg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3467aaaaf6784c2d917e8980.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/qO7QLoabHkO2XuKj-zmTXXy5Rq_jsOHh6YnTPN_RYcTgK1uWU3blKU53mcMfWiVzf4Zy5UB5-Lp6il6GGi-sMh-AZiJXI0y2rnGnGSEo-FEwQNFDZAwUVcCNyQ3vJR3MyyzGVC0AHCBTepcUajEeSg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9d0202837a901b350e65af0e.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/VwKGBDZIs1IOSnq2IpLBZErlVAAm2h6U6nGSscMXmLFMP-LHpJQTVNHlMRsHt6osM2UFQ4cwmo_i7x3WD18DckRCSX9q5yqflTXJra3b00SHiAOydX7KyfXH6UsE7FidVtn7VxgRIykiEXi57GQxEQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fcf25656b302c7d96ea1cfbd.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/XjbJ0an3VeIxmuJog_PWrkWX2HhB-Y25X94bku5HiKTD4_pavQ0GuL5SHVq8OtGM5METRXTGAstNJgsRPQyeelNCXGINNiRFKhNQxgVWB-V94RlbgL0gZM2YLoqmvqdeMDAgPYx_TzLxPAqmUdKZlQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/add338a9cdd4e2979ee2d3f3.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/1R61Wzod5ZvuEShawuoMy5kCSBbnR99b14KPnG4QpczjlC8llB4BurTZT3IAn259xNDF1oVIvXhZWHGaEY9RpnijeqB941UHbx6VoyGKlVhKHhwHy4eyv1mfpDSfe4F_Te_6Z4GdmmMSjc0YDHNNRQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/79f7d91dd2b46656a6cdb14f.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/mPfNTc0ZZCay9PStfQreDwWXIo0bFD4kWK7T9aXaKM95_uc3Bd8CcgrB8X0gN8F85HLd4SYOjmsIC_thXXDzigpHqARNsLy9PKeScbgDNd2NjZ5O9_ZL_bYHshWifY3fzjoaOir2tKlEZJWp3hkOVg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7413d21a4af230e79ee23297.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/oiEZ-pMpIkoBy9vay44N0nI8sWM1kh5kDlw_mDmJnJp_Jni-feTX2VqcrzjxMBrZLw1BWyRV9vyFCbtPjrh_MibLtBamPqiQ0VA5utxndyLUvyaSBawVXYDVl-lqBu3dSj_nzFGkWSPJM3Eed3znuQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cb8c368ce5de3ccf925e3722.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/QGTrX8NLBItUBtuzLDuM3qDgBDdbd-xMKUOTIENYkQ4TDX5bIu3YOHLO6Z7O-A7NvS1uyrcKOicn9tfzI7OkxllQ4LNe4rRevyg552V3H2sDZsCIIdB6tbmwxhEo9wY2YYFqk08kzqcRvEBoN8p5lQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/19e5920ae671643fe77bcb9e.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/wGY2zlnzv2fdHS3_73Dbu_tqGIJbjXAw0thXRSf-B79fxeLWcvlnXrvlPHBT9Wo0CxORvwDHvDSSwO70-WS-ejVbadVI6pWNLxxwmQGAwLFjW0565sVKUEiTPiwV_Jmg889S0g13KTRwemmktdK55w" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/12d3a8352ed066dede8c090b.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/jkoBr9VDGBV2pWWTDVT47FlfC1zd9bCBkLVnhvfobgmACHXHbWFPM6zqdG8vl_6-WXFhgoE9Enm2HhkFN2cmtjWp5UpfxIWuzfE8KLQ6OIWwmxm1uaU6EIvAbfC5ZRRAzDN5FoIsGcHcRbrw6HoJXg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f6ee7ec7c436aa5a80cb346c.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/RIxYWXRSSRKM9l3oNCbs4YyA_7yO20bsjN_RTLN8cWshMIYS0sRG_FedmV3vEZlLcxHyyL8H65lMGUXBcPOxpeIytXtc_pigYUErHyMx7FbrgRhexRx2-kLJIvfIb03ACBYra7Jadx3fYqOwBJ89nA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d030d1acffafb1eef4c09e32.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/-f8EB7-Wm1cnwBtVoSt7p-1LTrKHGNRPWAaNr8A6P_DJb3pltzdCLX-k8ASJa0JzmJjpemWwe3cxnhccwANACJF2WxL-wmizDjSVnON2wja-qP0ci_2MtFNv2v1RpqjlfK6uwoMtimxopXiU3KYcDQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/04a7a8a33e3f41ba167287de.png" alt=""><figcaption></figcaption></figure>
 
 Kemudian tinggal gabungkan dari bawah ke atas atau atas ke bawah lalu reverse dan diapatkan flagnya.
 

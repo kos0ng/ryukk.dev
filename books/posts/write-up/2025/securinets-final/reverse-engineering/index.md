@@ -12,11 +12,11 @@
 
 Given PE32+ executable, decompile it using IDA. Through strings we can see that this executable compiled with `PyInstaller`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FzQEaq6BBLZR18OcpRVJ5%2Fimage.png?alt=media&amp;token=c33983ef-71e1-410a-b28e-cedb9e2befbf" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4e7dece7f0bf0384b049415e.png" alt=""><figcaption></figcaption></figure>
 
 Extract using this [code](https://github.com/extremecoders-re/pyinstxtractor/blob/master/pyinstxtractor.py) , then we will see there is a .pyc file of the challenge. Using `pylingual` we can see that the decompiled result shows that the code is protected using `pyarmor`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FiDPcgiz0ZaZ0LYs5Noqm%2Fimage.png?alt=media&amp;token=4641386b-d6e8-48f6-a024-19f4445d417a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/aeb70dbb0072c19010e7348f.png" alt=""><figcaption></figcaption></figure>
 
 At first i tried well known method using <https://github.com/Svenskithesource/PyArmor-Unpacker/tree/main> but it failed, so i decided to reopening some notes I made in the past regarding pyarmor, because i've been solving several pyarmor challenges in past and also created a pyarmor challenge in past.
 
@@ -29,11 +29,11 @@ I decided to use the same approach like the first link i show above, so using `p
 import dis;dis.dis(list(sys._current_frames().values())[1].f_code)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FqFmvhl91XZ9N1gNKNqpy%2Fimage.png?alt=media&amp;token=7d5079a9-6154-428e-99a8-181e7ab32aa8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/179e17ec419e482b4d803a20.png" alt=""><figcaption></figcaption></figure>
 
 But we can't extract all function because most of functions are stay encrypted. If you look at code above, we can see that there is a call to a function named `C_ENTER_CO_OBJECT_INDEX`, we can utilize that to decrypt the encrypted functions and the constant passed to that function can be obtained also from `co_consts`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FuanePhDP9TUsl0UEL23n%2Fimage.png?alt=media&amp;token=e03cbaac-c9a8-4492-9475-935b0a57ec5c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/97a36ede28923f7f444bc0a6.png" alt=""><figcaption></figcaption></figure>
 
 Okay now we just need to create a recursive function to decrypt all pyarmor packed modules and then dump the `pyc` file.&#x20;
 
@@ -113,7 +113,7 @@ dump_frame_to_pyc(target_frame, "dumped_frame.pyc")
 # dis.dis(target_frame)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvEHekPLwzxIoWjka8ag7%2Fimage.png?alt=media&amp;token=0abd1786-422d-4f4f-b2f6-fc35d1e120c4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cfe880a6d29c63b036fc18d9.png" alt=""><figcaption></figcaption></figure>
 
 Next, we have several options with the pyc file&#x20;
 
@@ -238,7 +238,7 @@ So basically the first part of defeating pyarmor protection is quite useless, si
 
 After we send input, breakpoint will hit and we can start debugging the DLL.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fq2fogENuPerQFE2Q953I%2Fimage.png?alt=media&amp;token=ce13b061-b780-402a-803d-395ce09de00b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/635fab264ab36e7e8ff792be.png" alt=""><figcaption></figcaption></figure>
 
 This program validate our license in format `BLOCK1-BLOCK2-BLOCK3-BLOCK4`. Validation is done by checking each block and relation for each block which is tied with username. Given username is `SecuriNets`, so our objective is to generate a valid license for username `SecuriNets`.
 
@@ -380,7 +380,7 @@ print(f"Serial: {serial}")
 
 Last, input serial to the program (GUI or reconstructed python script) to validate it.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZIkmpc8roySl0Yjm2lPg%2Fimage.png?alt=media&amp;token=0600e738-1062-4782-9fe5-d57b4555b074" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ef4d9be2b516fb347bdb7df2.png" alt=""><figcaption></figcaption></figure>
 
 Flag: Securinets{00E7-I4IX-7353-0W11}
 
@@ -394,7 +394,7 @@ Flag: Securinets{00E7-I4IX-7353-0W11}
 
 Given PE32 executable, open it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fmbmn3LA4FppSmBnx5FF2%2Fimage.png?alt=media&amp;token=c3105672-af1f-46eb-8093-2459f30e0c14" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/593dffc4c90988eeb1f840a0.png" alt=""><figcaption></figcaption></figure>
 
 Through main function we can see that the program is packed, i don't know what kind of packer but I have seen similar packers several times so breakpoint at following `jmp eax` and the next instruction will be the real instruction.
 
@@ -404,23 +404,23 @@ HEADER:00400250 jmp     eax
 
 During breakpoint on jmp eax, we can force IDA to reanalyze to make us easier to check the unpacked codes (or you can dump the the unpacked PE using scylla on x32dbg). If we continue the the process we'll see a GUI application and an input form as shown below
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVTU0wUZX5OZcH45FQtJ0%2Fimage.png?alt=media&amp;token=e658e4e6-fce1-4e17-bf01-d47ab3ded7fe" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0a4753dcb15b9956ecfb479f.png" alt=""><figcaption></figcaption></figure>
 
 #### Input Conversion
 
 So the first idea that came to my mind is setting up breakpoint at function that parse user input and i found that it is `user32_GetDlgItemTextA` . From microsoft documentation we know that the third argument will be the variable that store the value. So looking at the third argument in the end of `GetDlgItemTextA` function will show the value parsed. &#x20;
 
-<div align="center" data-full-width="false"><figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FWPbewWamrdZbNb6VMqCc%2Fimage.png?alt=media&amp;token=0aac31c2-f01f-4b48-b0a2-26ab23b56b23" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="center" data-full-width="false"><figure><img src="images/c00666081c9dddf9c446fece.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-<div align="center"><figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FMB7IIJHufKrmC89gY0Al%2Fimage.png?alt=media&amp;token=f9636ff6-ce42-450b-b399-9a94890fbae4" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="center"><figure><img src="images/0b32adaf00bf8911816ee9a1.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 There are two value returned from `GetDlgItemTextA` , first one is static value which is `mov[edem+20h+var_9]eax` and the second one is our input. Let's setup hardware breakpoint on our input.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEghG7YaMtAf3MVLTNQlv%2Fimage.png?alt=media&amp;token=78d46b5a-a1af-4697-b979-18a9d7682a92" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e3660bf89f6bf7bb44f415de.png" alt=""><figcaption></figcaption></figure>
 
 At first i tried to follow process above that process our input but in the end it does nothing to our input, then in the next hardware breakpoint we will see the actual code.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FWiFmq5ol8ExD9TvP6IuG%2Fimage.png?alt=media&amp;token=058fc4cc-32e7-4631-ba23-3c97d6acd832" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a5c0977ba66f239d1a2754bb.png" alt=""><figcaption></figcaption></figure>
 
 `sub_408680` basically do conversion as following
 
@@ -447,7 +447,7 @@ debug059:02725BE8 dd 263h ; value
 
 Return from function `sub_408680` (`sub_4087D0`) is the core process of this program, it does calculation and validation. To validate this assumption, i tried to modify the return for random input to 1 and now the program popup a message.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fc1Uy4L9eH9a9AWYpHsvV%2Fimage.png?alt=media&amp;token=e69ded82-7ab8-4366-9335-ff775da095cb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c970d979f9a1112d10b03f23.png" alt=""><figcaption></figcaption></figure>
 
 Okay now we can narrowing our focus to this function.
 
@@ -472,11 +472,11 @@ In the end of function we can see some constant, through searching and validatin
 
 * input (72 bytes) -> output (16 bytes)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FH7IgOiP4izwinVD7rqRm%2Fimage.png?alt=media&amp;token=ee685d90-f938-42a0-8454-fdc9cba02920" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3482f5bdf1740a91f91421a5.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FtphXzNrHx8wMXVoodpCl%2Fimage.png?alt=media&amp;token=3038ea72-72f4-4177-aab4-c5dae84dcefd" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/03f1dcc3d33e21f5b50407d4.png" alt="" width="375"><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F0ogrs3MFgTjHrw73zzl3%2Fimage.png?alt=media&amp;token=effebb12-0f00-4fe3-a7ae-441a1efa9f3e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/aa10d43bfd1a7569289e4ee9.png" alt=""><figcaption></figcaption></figure>
 
 #### Big Integer Conversion
 
@@ -586,7 +586,7 @@ With my limited knowledge of cryptography i tried to understand this stripped, n
 
 At first, i tried to ask GPT to determine each function in this block but it failed and it can only show generic information about it. At least now i know that it is `polynomial` things (although some functions are misinterpreted).
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIG3ofk44hZ9lXNg3YGbq%2Fimage.png?alt=media&amp;token=76c659b8-7104-4fe7-865f-8b72a802361a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f6668270adfa32426a56d108.png" alt=""><figcaption></figcaption></figure>
 
 Until this step we know that the process as following
 
@@ -1014,9 +1014,9 @@ seg022:00411852 mov     [esi+0Ch], ecx
 
 * If we set breakpoint on `[esi+4]`, `[esi+8]`, or `[esi+0xc]` we can see how the prepared values processed
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfE28YKK2Y2iu5vvGqHXN%2Fimage.png?alt=media&amp;token=a0dc0835-3866-4841-9367-c2f9bd07d76f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/eee036eec89e213c8f270acf.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGMY3EUF1MdZjJVDtyolv%2Fimage.png?alt=media&amp;token=a11da6ae-f537-49df-841d-ab763c631b4b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fd10c1600796921d7715cef2.png" alt=""><figcaption></figcaption></figure>
 
 We can see that our input processed with value `[0x3FFFFFFB, 3]` which is same as `0xfffffffb`. If we check the operation (subtraction) and the function result we can see that the subtraction is part of `modulo` operation and this whole function do modulo to our doubled values. Let's rewrite our code.
 
@@ -1277,7 +1277,7 @@ out = pe.poly_mod(pe.poly_mul(poly_A, poly_B), poly_M)
 print(out == poly_C)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FsBKulsZcvfx5Pzc7wn2s%2Fimage.png?alt=media&amp;token=25d53bfa-2a7a-403a-a523-1f5a1bd5f085" alt="" width="371"><figcaption></figcaption></figure>
+<figure><img src="images/9f37ae4d5d6cce1fdc8b8080.png" alt="" width="371"><figcaption></figcaption></figure>
 
 Do the same approach for rest function and following is my final `check` function.
 
@@ -1523,7 +1523,7 @@ X2, Y2, Z2 = compute_plaintext(plaintext)
 print(compute_hash([X2, Y2, Z2]) == "9792731806F56A8C43502F51B3DDAF8D") # AB hash from executable
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FFtT54SxLYt8oXTuAisgW%2Fimage.png?alt=media&amp;token=84e751b4-c25e-4882-88fc-b8811c1d3530" alt="" width="349"><figcaption></figcaption></figure>
+<figure><img src="images/3408b8d2f1f4f7e6bf7f51fb.png" alt="" width="349"><figcaption></figcaption></figure>
 
 Until this step we've successfully recovered the whole `check` function.
 
@@ -1721,13 +1721,13 @@ except Exception as e:
     print(f"[-] Error finding roots: {e}")
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F2Rs9o2M6W8xOkVvnogKv%2Fimage.png?alt=media&amp;token=ab44929d-8ac0-4e23-8b18-737d368035c2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f7cf5e7c96f269c6eab9e3ab.png" alt=""><figcaption></figcaption></figure>
 
 Trying the input with the executable we can ensure that it shows the same hash value which means it is correct.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F1DnXlYlA4bpPOsihVacE%2Fimage.png?alt=media&amp;token=f604cea3-fc11-4506-b615-3cd62d5ffdf3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0149cf79264a3d45b2cf3503.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQ0PUPe25jcmVpDYscr37%2Fimage.png?alt=media&amp;token=13886126-3bab-487a-82bc-4332169add8a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f9a9f04124ada03b83ca59d8.png" alt=""><figcaption></figcaption></figure>
 
 Talking with the author and he confirms that the input is intended to be varies as long as it is valid input then it will be one of valid flag. Besides that we also can generate bunch of valid flag, because we already know the order and n value.
 
@@ -1772,8 +1772,8 @@ for k in range(100000):
         break
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FzZVhnJxI93pwtHwfUIAL%2Fimage.png?alt=media&amp;token=6a1d9e32-8851-4230-b3f3-4a57c69d47a0" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/71bf00aa9cb4ab3e66c04d90.png" alt="" width="375"><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fzzx6j7uoE5JPVPjunyeV%2Fimage.png?alt=media&amp;token=fac84ab7-17de-44c1-bff7-d188edb89fee" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2c688c08225f71b0af2d1fdd.png" alt=""><figcaption></figcaption></figure>
 
 &#x20;Flag: Securinets{\<valid\_input>}

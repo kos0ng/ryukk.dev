@@ -100,7 +100,7 @@ d = inverse(e, phi)
 print(long_to_bytes(pow(ct, d, n)))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FscIw6mteLVfL9odatmsA%2Fimage.png?alt=media&amp;token=cb34e05d-02a9-42a1-9d87-55fa83fd7f58" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b0961530fbc133458d59b26e.png" alt=""><figcaption></figcaption></figure>
 
 Flag : EPFL{w0w\_s0\_much\_r4nd000o0oo0om}
 

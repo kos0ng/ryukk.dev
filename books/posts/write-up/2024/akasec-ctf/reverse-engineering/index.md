@@ -69,7 +69,7 @@ for i in range(current, current-10, -1):
 r.interactive()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FbKFIQpZ3rpMXEflV0sk6%2Fimage.png?alt=media&amp;token=9b67c896-2f91-4b3a-b037-b43283892dc4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bbb0040ff2cf730acf316c7f.png" alt=""><figcaption></figcaption></figure>
 
 Flag: akasec{n0t\_t00\_m4ny\_br41nc3lls\_l3ft}
 
@@ -249,7 +249,7 @@ for i in ct:
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fm6CsSSBoUQvWyj1hrRsA%2Fimage.png?alt=media&amp;token=fb78dc2a-e722-4ad2-8a07-43d887187884" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/46ef569560475cd99deda0eb.png" alt=""><figcaption></figcaption></figure>
 
 Flag: akasec{sh1tty\_p4ck3d\_b1n4ry}
 
@@ -267,7 +267,7 @@ Author: **Pengolian**
 
 Given ELF 64 bit, open it using IDA. Nothing useful in available function, check on strings.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FH2sVqiOMIQrp9AXKA98N%2Fimage.png?alt=media&amp;token=d382cd6a-6a2a-4c3d-99ad-c4c19c228b4a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/96ee4573ab158d262bb994c6.png" alt=""><figcaption></figcaption></figure>
 
 Flag: AKASEC{strings\_b35t\_t00l\_1n\_r3v3r5e\_eng1n33r1ng}
 
@@ -590,7 +590,7 @@ for i in inp:
 print(flag_bytes)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOQPH7YORKya8tc7rHPPb%2Fimage.png?alt=media&amp;token=ee694c6b-800a-49d3-9d13-4e7968936123" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/997d8d77268a94aee5bfacaa.png" alt=""><figcaption></figcaption></figure>
 
 Flag: akasec{1n\_my\_b4g\_0n3\_s3c0nd\_0n3}
 
@@ -761,7 +761,7 @@ From above code we can confirm that byte\_5020 used as the key for rc4 function.
 pie b 0x1CC6
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fs4hVAjqByvP6FTApAajV%2Fimage.png?alt=media&amp;token=8eabb0ba-32e1-46bb-8bdb-9c3242f19f0c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3ca496859292dd10b54349ac.png" alt=""><figcaption></figcaption></figure>
 
 ```
 gef➤  x/32bx 0x00007ffff7fb8060
@@ -773,7 +773,7 @@ gef➤  x/32bx 0x00007ffff7fb8060
 
 The ciphertext values start with 0x4d75. Check on flag binary to findout on which section those ciphertext.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5ETISjVQYnHse5nTXA3v%2Fimage.png?alt=media&amp;token=abcfd5b4-0385-4c4c-aaea-bc79a1ec26ce" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f400ee0cbc0c340b95eb1106.png" alt=""><figcaption></figcaption></figure>
 
 From image above we can confirm that the ciphertext section is on .text section. To get the valid key we can do bruteforce and validate manually which plaintext consist of valid assembly instruciton because the first ciphertext is the start function. Below is my script
 
@@ -803,9 +803,9 @@ for i in range(500):
 
 For the comparison we can use the standard start function, such as from packeta file.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FUyejm8A5kxvmZ01egFW3%2Fimage.png?alt=media&amp;token=8eb77429-e18b-46cd-a9dd-7e6a519035d8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ef55f1cf51689a0c169d804b.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FbZs5iSDQAIt3bzqssIBR%2Fimage.png?alt=media&amp;token=41fb7a09-c0e6-46a2-ac6c-3692b41e42d2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/761f11ee14543a77ec6783e1.png" alt=""><figcaption></figcaption></figure>
 
 So i == 127 looks like the correct value because it result valid assembly like standard start function. To get the rest plaintext we can debug the program and set the value for the (current\_time % 500).
 
@@ -813,11 +813,11 @@ So i == 127 looks like the correct value because it result valid assembly like s
 pie b 0x1d49
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FF5BHZfXLyhgSEMDThKgh%2Fimage.png?alt=media&amp;token=cf5c8b72-ca56-4f00-af8c-24ec6b48628a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4aee5420583f13fefe862163.png" alt=""><figcaption></figcaption></figure>
 
 Continue the process then run the new generated ELF named new.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGmrCSscSnlMdjjaIXNFz%2Fimage.png?alt=media&amp;token=0c970deb-6d2f-4d5e-a5df-246cb602065b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c2d9d4038614392c2f1791a5.png" alt=""><figcaption></figcaption></figure>
 
 Flag: AKASEC{h4lf\_p4ck\_h4lf\_7h3\_fl46}
 
@@ -835,19 +835,19 @@ Author: **miyako**
 
 Given Nintendo 64 ROM image. During the competition i found good [reference](https://blog.quantumlyconfused.com/ctf/2022/05/22/nsec2022-n64/) about nintedo 64 reverse engineering. From the description we know that we can run the rom using [ares](https://ares-emu.net/). In this case i install the emulator on ubuntu. To load the rom we can click Load -> Nintendo -> Nintendo 64.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOkYe7dqtdR6QC4fIN2jC%2Fimage.png?alt=media&amp;token=a53d5f4b-39de-4509-8440-c750ee78afb3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1a2f6b1d7b04a09aca419807.png" alt=""><figcaption></figcaption></figure>
 
 Setup the input mapping by click Settings -> Input.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgK2PeT3YaqasiJzAy6EP%2Fimage.png?alt=media&amp;token=b8c4945f-bb90-4c41-9941-c7c2cf9c9281" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e0c82cc987f88f2b541a3797.png" alt=""><figcaption></figcaption></figure>
 
 Press some random button and it will reflected on screen, to submit the button we can press enter button (start).
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGpdMXcswrVatbPbp6wUD%2Fimage.png?alt=media&amp;token=fab16241-9629-4bbe-85c6-478c59ef04fe" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/16d7c9e297153fecfbcc8f6e.png" alt=""><figcaption></figcaption></figure>
 
 Next, we need to decompile the rom. I use ghidra with [N64LoaderWV](https://github.com/zeroKilo/N64LoaderWV) plugin to do that.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fduf80M6WQd1OLJCykzlz%2Fimage.png?alt=media&amp;token=794ae25f-d69f-4207-ad04-99470a9e7f9e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2f99c4a7ca3acba80754be78.png" alt=""><figcaption></figcaption></figure>
 
 Searching for "wrong" string then we will found the validation program.
 
@@ -907,7 +907,7 @@ From above code we got some information
 
 Now we need to get the valid input mapping, one of the way to do that is by debugging. Click Settings -> Debug then enable debugging with below options.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVSknIAZRZlHAyOrceVvT%2Fimage.png?alt=media&amp;token=884be369-b92e-4b6e-9fac-bd16f61f44df" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6ab66d68048cedc056525e49.png" alt=""><figcaption></figcaption></figure>
 
 After that, use gdb-multiarch to connect to gdb server.
 
@@ -918,7 +918,7 @@ set endian big
 x/20i 0x8000b4e0
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FLUZ0qNyPYFMfWJ1zfQbt%2Fimage.png?alt=media&amp;token=fa5bb55e-32cd-4549-86dd-c14df9cf8f83" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cfe2771b883fbdb3a4920bd5.png" alt=""><figcaption></figcaption></figure>
 
 Then breakpoint at 0x8000b53c.
 
@@ -929,7 +929,7 @@ c
 
 Press up button (for example), then the breakpoint will be hitten. Look at v0 register to know the mapped value for up button.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FL3W2twwz9QQzQmwA3Sre%2Fimage.png?alt=media&amp;token=a4dadc97-c20c-47c5-ad41-57e6751fdb58" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cd364fcee1a7b6a64e71cc3b.png" alt=""><figcaption></figcaption></figure>
 
 Do the same thing until got all mapped input then create script to get the reflected input on screen.
 
@@ -959,7 +959,7 @@ for i in target_button:
 print(button)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6cxKF9O2mlWgAwZoBdit%2Fimage.png?alt=media&amp;token=8814b61e-5976-458c-8098-2117224b4c98" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f22439739e268eef68b12327.png" alt=""><figcaption></figcaption></figure>
 
 Flag: akasec{m1ps\_1s\_c00l\_l0l}
 
@@ -2153,6 +2153,6 @@ r.send(payload)
 r.interactive()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQbVGumtwm7G6B9ljGVww%2Fimage.png?alt=media&amp;token=83a2dd83-89dd-4ede-bd55-9770ca78517b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/62c20fda97e8689a6f0acc8c.png" alt=""><figcaption></figcaption></figure>
 
 Flag: AKASEC{Orgalor6\_1n\_d1sgu1s3\_as\_d4em0n\_p3ngu1n}

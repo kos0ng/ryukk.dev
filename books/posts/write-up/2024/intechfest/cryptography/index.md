@@ -92,6 +92,6 @@ for i in mat:
 print(flag)
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXe4DPUxCIu5NH8Iy1LPFwXVPPTzTNdBwNii6VqrVxDqGpPiw92LuE6O4QOv_km-OhLSGyWgjvgL38-r5Ebk3GnqgQQkvTaX0yuSpUdbPaD03Pvb0AitR7dDWenQ1VQ-rhq1_tpdUuNE_63TrM41l_ub318S?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/56118048e625d9be47192926.png" alt=""><figcaption></figcaption></figure>
 
 Flag: INTECHFEST{y3t\_4n0th3r\_m4tr1x\_ch4ll\_bu7\_wr1tt3n\_1n\_j4v4}

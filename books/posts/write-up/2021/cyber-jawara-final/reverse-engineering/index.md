@@ -19,21 +19,21 @@
 
 Diberikan file mach-o , jadi kami coba jalankan terlebih dahulu menggunakan vm mac-os.
 
-<figure><img src="https://lh7-us.googleusercontent.com/Gm5zQkCbZoVwkog_2CG4bRl8aeo8YTZWT-LaO1-DZXbg3reE1MGhqTXfcVaDtLgl6jOJi4Yu5-o0ZJjwZfEm9H4y0gDZHz86MTpebvfMPzqf0g3UllyB1C20VGcpC_hxKtEFsjqc57wde8SvUUiuHg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6d8a9cae7aad0744b7a03bce.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya kita coba lakukan decompile terhadap file tersebut.
 
-<figure><img src="https://lh7-us.googleusercontent.com/9VYf2s2YFE-mmVE4F84s1SX1AC0tTGLY9tOSLdBE4_zvd2E9cwlrEzpVj414SmfH3SlP0Gd5IJcEnBYnGEoJc5iLOceFzPo2GJ1APqD4jSsrmPsq00wceFY-EfZPZeRfDWow9IuDuSs1C1weEMK19Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2e91db439de02487a367c566.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat bahwa program tersebut dibuat menggunakan rust , pada fungsi main terdapat fungsi untuk memanggil webview , jadi bisa kita simpulkan dari hasil eksekusi dan static analysis bahwa program tersebut melakukan load terhadap web. Ada 2 kemungkinan disini , web bisa online atau di store di program itu sendiri, jadi lakukan string untuk melihat string apa aja yang disimpan oleh program.
 
-<figure><img src="https://lh7-us.googleusercontent.com/n6g5Yai_qAwTR3P6kWhphHauNigdKlwFY-6Ea9yEISLVW_kHSpvWHhNJZlDL_Hl7RHrrIUbPfwC0AVeN4s6k8X5oft-mZZ_11M55d769LG5R3jD2KCyFr68J9hUDGw10Pn0mDTx77z0KYx-u3farzw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6f6779c68b9041884b70410a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/Gu1yKdnO-sUpBZCZ5UuQxKjGJ5ojBOHAdnM9ulgOpEWm8e_RtWYB5x3r3hzkSItPMl29CTtDu7tRkh6WPbVfVG_JxajJX5BJstbg6A5z66Q90FSWWYHSVYcavYZ7h9PDYzuaNGG98QXZ1awwEYHs9Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0aae5956a4e8c6b306172bbe.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat terdapat kode html ,lakukan search pada “Incorrect!”
 
-<figure><img src="https://lh7-us.googleusercontent.com/VRld9XvPv7cSMnbJkFABHmJL4tRoHHYwTTLzRi41fzYOdybwW_udLMxMvgoNNokjiFP6QHacgPOtR4Kbj1Jvui6XwCs0cBTBWWcOlq4tHvawiKBqEYeKzVVXtsaYz-MngeNfuXCyJ-k32Cu3E2b1-Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d36eddbd0d0e4eaf5873725c.png" alt=""><figcaption></figcaption></figure>
 
 Dapat dilihat pada potongan kode diatas bahwa terdapat pengecekan terhadap hasil encrypt dari input kita.
 
@@ -53,13 +53,13 @@ var $author$project$Main$doEncrypt = F3(
 
 Fungsi tersebut menjalankan fungsi billstclair$elm\_crypto\_string$Crypto$Strings$encrypt dan salah satu argumen juga menjalankan suatu fungsi $elm$random$Random$initialSeed. Jadi tinggal search aja untuk kedua fungsi tersebut dan didapatkan informasi bahwa kode tersebut dibuat menggunakan elm-lang dan fungsi encrypt diambil dari salah satu library yang ada pada elm-lang
 
-<figure><img src="https://lh7-us.googleusercontent.com/g9AXFGkpshQZZlTAsRq8sYmNO9glPofol1GAu_qSdFkCDZRSrAAh5WK2z7jPu7_585a9G-fhN6JKlIS1L5OhpyIGgjM3QOUarLwiZVIHQTwCFIUFSvTUev9_Ih095skC8LFW5q5XjNmzNyVvs26ZfA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a3f957a0eee6d197d4fe372f.png" alt=""><figcaption></figcaption></figure>
 
 Lakukan install terhadap elm-lang dan juga librarynya , lalu coba fungsinya ( lakukan encrypt decrypt ).
 
-<figure><img src="https://lh7-us.googleusercontent.com/7kLtnqpzXv-6ABV9xy50pgtFCNt1iow0nATQ35DgJmfyBhGI0IxbMIMPgGp0pjl19uckO8s2mg2jTc92RTFj_2iyOyqx1UZk6fEdf6e2ad0RqiqynoQDdtHraHdkCADkSgA_-Ty36LEPCrtsrmc5Ww" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ab73aaf021c38d280d8a9463.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/cvAteemhIZoE5kKBEi5JOMEpp4mmz22NVDj6xQvBCM1ZlR72M2TT66PPd-KKW_vM9jwe_4Irj2ClXW6kKKfsdEX166ksgZcen4SnWtygAu8nHbKGL5oE5t7WlLNTSM4ToqmqFQfLv32nfSZiKLsbXg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6e1284e40f366f1391d8576a.png" alt=""><figcaption></figcaption></figure>
 
 Karena sudah bisa encrypt decrypt maka kita coba lakukan decrypt terhadap ct yang dibandingkan dengan hasil encrypt input kita.
 
@@ -70,7 +70,7 @@ var $author$project$Main$ct = 'LUYEOHmRZ4iocP3J67VJ5Cg6WENfuCS6B5BXeqBjMtARkE7d8
 
 Karena sudah memiliki key dan ct maka lakukan decrypt
 
-<figure><img src="https://lh7-us.googleusercontent.com/d9u6uQTYnDhbCO6AhuERx7gOEqRE02A2sB1urMBxRgUfLYGitoAFI9lwAb4in9ps-RmehYWSMXN3MQoL6Udhbjk8237kk_1iJr7Z-8NYb-Wlj7GrEsJp2N2QLCle9neWvpmKD2aisyAFntw0cNXVvQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a84c46cc28ce936e6861e93d.png" alt=""><figcaption></figcaption></figure>
 
 Flag : CJ2021{a\_delightful\_flag\_for\_reliable\_reverser}
 
@@ -84,33 +84,33 @@ Flag : CJ2021{a\_delightful\_flag\_for\_reliable\_reverser}
 
 Diberikan file ELF 64-bit , kalau diliat dari strings program tersebut dibuat menggunakan rust
 
-<figure><img src="https://lh7-us.googleusercontent.com/hA6J7Bv-AryuZOq7qozp0NrUhZnhQNen21_5AeHzYO25ZIaGFcsIYEC1g0s6p7H6A9foVJPHMTkXd-3bs5ug-bVhSqUKs5VgI71rxocNzjcoaBXeoYw57wwMdiFMEp7P8pCwA12ndsN5IrA_601yow" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/11ae4d32948a6d1499d599e7.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya kita coba jalankan file tersebut dan ada yang aneh , yaitu keluar encrypted tapi telat ( sepertinya program lain ) dan hasil md5sum berubah
 
-<figure><img src="https://lh7-us.googleusercontent.com/uU7uBTVziHqA4lJLf7-PfRcUg963CJgrWauvWb7FkktutbLLmx1ZQaxXSSXm1uuGFifglTIkweAE6WY4FgmZcDHxtGKA3MLmM9xLwr1m3BaG4HkFMTTuKKf79NKU9LzEYIautkIB-GNa5aMgahjf4Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9608ef49751d79776e70db0c.png" alt=""><figcaption></figcaption></figure>
 
 Maka dari itu kami coba lakukan static analysis dan dynamic analysis.&#x20;
 
 Pertama kita tahu bahwa goliath berubah , berarti terdapat open terhadap file goliath . Dapat dipastikan ketika kita ubah nama filenya maka akan error
 
-<figure><img src="https://lh7-us.googleusercontent.com/_pjULowQcjke58KgaUWsX5UWoKmRy9xqd2bMLfL9-pPHA1lmZYC8ARrB4Cgt2UaMurDDkaVFgN411w7-CdbGN7b9ScOmrNwaXMDA6XrqnLN3Ayd8B0P9oxZuMDk7QlGiWFu0Sli_8qj9PZOoLheBFQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5c88e0197329ca40d5d886d6.png" alt=""><figcaption></figcaption></figure>
 
 Cek fungsi open dan liat reference terhadap fungsi tersebut
 
-<figure><img src="https://lh7-us.googleusercontent.com/irUzJlr_IR66tr2pyBPARymh0JIwvie3wAauBgOg4RiaegDTquOJu4yNrHg37t9jpLCVVzTnJkM32QwmC9y90eiucLmo4pKQk9b0TLcH_2BIEOwUOWBpnCnY5DLinw0WqMfWhNquQCk44XNGRTRDmA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a0f9d0e7f3db818fa57a919c.png" alt=""><figcaption></figcaption></figure>
 
 Hanya dipanggil difungsi main dan sepertinya bisa kita skip
 
-<figure><img src="https://lh7-us.googleusercontent.com/RSO42PDjxrxhNXVMBTzp9yFtc2DvY_ZO5h0J1z1bdyift2-Qrc4EuWlCrflNF8UwLtJe9fl7t_2ERvXSdJvXkzmSP_SQfdHvAQNCsOfd38at-98b3sCNqSIRzYgAEZPGYoA0HrSkjd37_Te28BfMGw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2a814950de96ab8969a09596.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya cek fungsi open64
 
-<figure><img src="https://lh7-us.googleusercontent.com/38uNlluwMPjnHafZJ2NWncRW_MynGeoOxemewYX3zgMsnjbXdrHsDjQxIv_a4qH-J7Mc7KmkqbIygRErJJzHdZx8pnbEf6lqw_jp_km9oY6cfMXn_RjNUE2YsX0HbwMSeEUBBHCdxVxYfiI90wQ9OQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4fc982f84fb5b7153ad916d4.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat bahwa dipanggil oleh beberapa fungsi , jadi kita keep informasi ini. Berdasarkan informasi sebelumnya kita ketahui bahwa ada perubahan terhadap file dengan nama goliath , jadi kita search string goliath.
 
-<figure><img src="https://lh7-us.googleusercontent.com/gNsTnbKP48iTRf7KQqwg-8z04ejMecW9ZkF_biNTrpC9Hhfk7KIDVvWyvuVUeoqJYrJ2k9dj3f8aj47WGGd9e-j_KfxKclKqQTLQpa8gtqe46mGUQGKKr9P6NnQw_2ZBiZok_jALv3cn6NbMErB6_g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dcaff93b91b87db307d35e7f.png" alt=""><figcaption></figcaption></figure>
 
 Didapatkan string goliath juga diload di fungsi sub\_8CAC , maka selanjutnya analisis fungsi sub\_8CAC.
 
@@ -135,19 +135,19 @@ Num Type       Disp Enb Address        What
 
 Jadi untuk fungsi ptrace kita bypass , caranya adalah dengan mengubah nilai ecx menjadi 6
 
-<figure><img src="https://lh7-us.googleusercontent.com/fh8XtUUUTUJFn8XGeLbUSZLORcZyxe4FKJD2-dd3jJNpWgMKY3xsDNoovwGR-7YvrwJH7IXmavHZTAaNA_Py9O5iQFtle0tGPCINe-dibmz46T1-A-Sh6mSl8qmXIhq2PhmBIzh53UoK8SkLBv3eXQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d61a09c669e2b1daba4996c4.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya akan dilakukan xor value yang ada dimemory $rbp+$rdi dan $r14+$rbx
 
-<figure><img src="https://lh7-us.googleusercontent.com/8d1T4os1mkBABpyhB-7MruVcnP4VnjLxRpXYMAUf69ijdj5PuhYtUKSaN0wVQZ6hn5Kryi0he8QHph7zWMkmgojC3lIYmC2t3-WhdazD1EbdRJG7648J3_QanVDYnJ9dTUk4cAwCUZKXI_lgSA42Cg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/58b16b2df9478430e1495977.png" alt=""><figcaption></figcaption></figure>
 
 Jadi kita lakukan dump terhadap nilai pada address tersebut, adapun untuk panjangnya kita ketahui dari perbandingan nilai rbx dan r12
 
-<figure><img src="https://lh7-us.googleusercontent.com/5VXgnMJ8_ErKvph1ijK_c770Re2b7XyEFhv-2TEtPcn2cviKbmnF8_GOJryC3Ckr7aNF1NSxgvYTw4qpUfj1XQ4-d2ADzEC5BE5sMxtN5FmXfcu2Iag3_bEbxAV3RiWNhg7LZ2qXJ1OJqKVSLUX8BQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ec7056f40f97d0acb54ec607.png" alt=""><figcaption></figcaption></figure>
 
 Berikut untuk dumpnya
 
-<figure><img src="https://lh7-us.googleusercontent.com/ZeXujHvUYenOimZ2LE23aIr0Bj3EMCixqYtEoEF6UoNsH7xMqK8YbRFDWhnkXsoFnNtwoh-cI9QSgI1hsR8Fop-u6fLUXvgJus08mdmuLxDKsstyVbuDG8H95Xi1t6mX3u2yagRmtJtUuwH75uuvuw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/84268da54eeb4aef8d894b83.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya tinggal lakukan xor dan cek hasil dari xor tersebut.
 
@@ -161,19 +161,19 @@ for i in range(len(f)):
 q.write(bytes(res))
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/-ntxS0pO_kzpTZBycQLtZryNSi_zSMhf-E1T5RKORLl7Ec7glDaesKLPSECCsd22TrbsRa2KGm91kD3NE9hMX70ffn-vAk6eS0VGZhbfeXOWkGfVVoRjLuM1Whih-FzLSKrB1ogwtfwx9vLDCGvJvQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3ddd06b628de05c85c8cd951.png" alt=""><figcaption></figcaption></figure>
 
 Ternyata file gzip , jadi ubah extensi jadi gz lalu lakukan extract.
 
-![](https://lh7-us.googleusercontent.com/LNilCoT68dstla9aUFjTAMIcthv10W5y9SgzS3l_6LV46u1Boj6TemTrDvksI6M7dR2PVX60RSdDt__Iv-BJAI9zBmkm561Prxo-Z7mDuDeWwvp3qqXA7mFP5toEXMusD2URQLSQo1RAMVcWr4OSjA)
+![](images/54fccafbc12824a15d18e8f8.png)
 
 Didapatkan file out yang merupakan file ELF64 bit
 
-<figure><img src="https://lh7-us.googleusercontent.com/g7U00SMT02FWDbuVT3qKgbMwSvHkl3ifWGd5DGoaGzqlLANj46v6QBnhWmL-yrJMtQhiPu1pTYCxi_Q7GLpG-g_gj5jxKUM2th0z2dwjdSswT983uFlKGCVsCDS93h9KoWfgk4DDNlz9lfYhnhrHPA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/23147111b9757ea3543a2716.png" alt=""><figcaption></figcaption></figure>
 
 Yang mana ketika kita jalankan akan menghasilkan output seperti yang diawal tadi&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/i80-YZHOMVEsL5lR58VERpB5MsiLnyOnmqLdCOzdNmAXQV66GBVT1WR6QFkmx7qklM9RV508vYANEw2d-djxOzxYfLhuuWOEgLXS4APmPiFtOx7tNUrQrGEFR5XGwjTTStVzsQhfakLq6vDQCWKQIA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4d7a9ec00f1f93dde1bc5a94.png" alt=""><figcaption></figcaption></figure>
 
 Jadi selanjutnya langsung decompile file tersebut
 
@@ -248,12 +248,12 @@ void __cdecl main_main()
 
 Terlihat bahwa program melakukan request terhadap suatu gist lalu melakukan sha256 dan enkripsi aes. Karena terlihat terdapat format flag maka kemungkinan yang di encrypt adalah flag , jadi lakukan breakpoint pada pemanggilan fungsi main\_Ase256 agar tahu value dari argumentnya (flag).
 
-<figure><img src="https://lh7-us.googleusercontent.com/Fpm1mULzP-YgjBOqmuU6DXHvc1abTWN1g1nqUAjZ_6zofWWuh-RRTkQ7RJKSsSPe1AxAYvafv7e-CIEc5ucFPG4wcg_oT45OoJADLbmczU4BNuMDYgrjRrP3_-0ixeU2CnyHCyEd5re9a5KNOwnjUw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4f11c9c357c7c827ec85f8fe.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/YHNQEBz62S3PjkYbK5NjqWhMpDXH1PqfTV9-w28aqXho5K5kKc4haIzy0Xa2aYNU2fODcTHukxDHj22T322NigvMo-fJCBRoLyBJyUNw_a_m73tYuK6NdbNey37nYBEl7m7IrWjpy5_DrfBweOstRw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f123f257e6799cab251ddc5f.png" alt=""><figcaption></figcaption></figure>
 
 Adapun berikut breakpoint yang kami set sebelumnya untuk melakukan analisis pada binary tersebut
 
-<figure><img src="https://lh7-us.googleusercontent.com/KMmnj_QenKAh38U8un2UeoiNnSZ3MNQZF25T5cpVkR_l--LrdXOXCSMwChzMHVibDproqGS09AXf6Dx9mjtx7TEBGKH9HxtWwBW4BpiQjcK1I9dqVdPJmHLfCTS-yIckENcWlZhNv4-7wN2bX1SQ9Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e24c88286bf9913f5de5f79b.png" alt=""><figcaption></figcaption></figure>
 
 Flag : CJ2021{eaca9080fa4c6a8bca426dc205e73d96a5e5814fdef8aa7ef0f219c6ba761fb3}

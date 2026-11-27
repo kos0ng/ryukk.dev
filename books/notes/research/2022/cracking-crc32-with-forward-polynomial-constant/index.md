@@ -131,7 +131,7 @@ It can be seen that the code above implements the crc32 hash, but the crc32 tabl
 
 &#x20;To get the polynomial we use the naive method, namely bruteforce because 32 bits is not too much. Here's the code for bruteforce
 
-<figure><img src="https://lh7-us.googleusercontent.com/HbFHceEVxWU86wfoLdNVa0sPe_wl8IfS1F1qO9EM_uYrlp-GxwSObm-fBgCeF8l8I8GhL8MJ7HCGpJMqc0BxmQdxruIhKsOUL2jZFJY59T547dSuwWhVzihGUJICc3kEaA9TVzDEUfCgiDFIIa7bp4c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7213669830ab7f47543d9c47.png" alt=""><figcaption></figcaption></figure>
 
 A valid value was obtained, which is 0xd34db33f
 
@@ -174,11 +174,11 @@ if (bit) bigint_xor(checksum, &crc->poly);
 
 So just do the reverse binary value for the seed obtained, then it can be used in CRC as reverse mode.
 
-<figure><img src="https://lh7-us.googleusercontent.com/_ifUmoe6D1kLQovVKMtyYWsH80jqigEzZKMDvp5pGNhaHjiQkI4Jy6OlBMcPzRaVHYc5RGX7I5U4CRuCwR8_OoA1lRGHg-u3_VKOHT4brUv9B1bVcncOKiq9KaeU8nFn719VV34Ot1AqAvjsH0_OFpA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f67eb717052a93d10b75eeee.png" alt=""><figcaption></figcaption></figure>
 
 Because the value of the level is not checked, so just add a random value so that all values from the input are included in the utf-8 encoding.
 
-<figure><img src="https://lh7-us.googleusercontent.com/_0RRdx1Mlnav6LChKyBLwuTpO5AplRzG4qDPHg99-AtTdqnVawtNP6xp38kUSS4W3v3lEzcxP3p7_cjsTWDxjfvJn0_evxtRbePrde6HEjUEuK3kyRPituRQXWodQf9fTGUAP-DZw8eyC8du8gamL2M" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d9023bc90ca869fd6556f65e.png" alt=""><figcaption></figcaption></figure>
 
 Finally, just send the value that has a collision
 
@@ -259,6 +259,6 @@ r.sendline(b"2")
 r.interactive()
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/lkx8VAdd1ZTFgXnpYpcdmKRdQUXyuG72E0wZkptMqngh_ebOhQqcYYn1_DHp51gNTPLa_Ci5bzsKJ8QOFSWeNn7h7NYfe3uh5Q74XNldx_0xCU-M4VetU81c19Toor9jQcYJE3sjg-jp9rV6KeRhCeE" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2515e37a6419f15b36f3f5e4.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{crc\_s00\_w3ak\_lma000000000}

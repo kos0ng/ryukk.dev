@@ -61,7 +61,7 @@ public class MainActivity extends m {
 
 Looking at MainActivity, we can see that there is a read process for file "vault.env" on cache directory. After that there is a call to function c with editTextOTP as argument. editTextOTP is input field which is OTP on main screen when we open the APK.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZbq23q6msjcTRhv9jiTL%2Fimage.png?alt=media&amp;token=651ab934-6bf2-4842-b62f-1a6be2cb6464" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/91a9b98935eb136be3c9ff52.png" alt="" width="375"><figcaption></figcaption></figure>
 
 {% code title="i/c.java" %}
 
@@ -139,7 +139,7 @@ adb pull /data/data/com.tarek.myvault/cache/vault.enc
 
 After getting the file, since we dont know the valid OTP we can bruteforce it locally.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FTYe3NmsmZXXB2XcDVJvz%2Fimage.png?alt=media&amp;token=cbac1f0f-16bc-4a16-a298-7ce01f92c53e" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/1c04f2239949b10b789a4b25.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Length of OTP is 4, so we can just bruteforce it and validate if there is flag format then print it.
 
@@ -163,7 +163,7 @@ for i in product(list_char, repeat=4):
 		break
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FrwiLlhBEjQDuqo1bjOvE%2Fimage.png?alt=media&amp;token=a90ba7d6-bd2b-4635-90a5-68d73ad40bba" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/57e32155e39923f1725178e1.png" alt=""><figcaption></figcaption></figure>
 
 Flag :  0xL4ugh{Y0u\_Ar3\_FoRceR\_Like\_A\_H0uRc3}
 
@@ -177,7 +177,7 @@ Only brave players can win :)
 
 At first, i installed the APK on emulator, then opened it
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwOXWcnJktQ9xTtSys7Yh%2Fimage.png?alt=media&amp;token=06b62424-4589-43b4-8f1b-a5aa9d9dfc3b" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/39eb2d86bf29a08c59f6bdbe.png" alt="" width="375"><figcaption></figcaption></figure>
 
 As we can see on image above, when i try to open it on emulator it show toast with text "Bad env". So lets try to decompile it using jadx-gui.
 
@@ -420,19 +420,19 @@ apktool d brave.apk
 
 Change string value for each "Bad env"
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FaC3R5pdiI1x5gCignMsO%2Fimage.png?alt=media&amp;token=f3c05216-1e4e-485b-acb7-35790061fea2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1b37bdc30979046198a9dffd.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FWMM00WQC2i9vZfD4BJgE%2Fimage.png?alt=media&amp;token=c0e603fe-9fd9-4d0a-8022-b1fa43a6838b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b7944680419afbe9de3a100e.png" alt=""><figcaption></figcaption></figure>
 
 During the recompilation process, we will facing issue like image below
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FefHNj9w21nmvScH6ePi5%2Fimage.png?alt=media&amp;token=b0eeaa1d-3797-49d6-91f9-741efe45d5d7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c3a5c9c1fd65a8b7a408826e.png" alt=""><figcaption></figcaption></figure>
 
 To fix this issue, we can replace all @android value in colors.xml with @\*android based on this [reference](https://github.com/iBotPeaches/Apktool/issues/810#issuecomment-315260259). After that just recompile and it will be successful.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FrYZuVedpvzlFWjTFj3cj%2Fimage.png?alt=media&amp;token=d8b37dca-159b-446c-b138-74f396e9213c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0609b8b17cf9f9dccd4c5ee3.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fi6dECv5Z4j4iLI6nueGG%2Fimage.png?alt=media&amp;token=91b77a70-0e62-48e8-8727-51a1073dfa0c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fd79cbd1fa3c85aba1352a76.png" alt=""><figcaption></figcaption></figure>
 
 Sign the APK using uber-apk-signer using command below and then install the signed version (brave-aligned-debugSigned.apk).
 
@@ -461,15 +461,15 @@ setImmediate(changesValue);
 
 {% endcode %}
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fbz0EmEYNlYpt7qVDXLXl%2Fimage.png?alt=media&amp;token=672c0b4e-8809-4d8d-9e49-9bf49cc328da" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/b8230cd7e7239b2ddf253bb1.png" alt="" width="375"><figcaption></figcaption></figure>
 
 From image above, we can conclude that there is another "checking", searching in decompiled directory from apktool we found there is "Bad Env" string on library.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FU6BvfUD3alaNcFNnTcEO%2Fimage.png?alt=media&amp;token=f8d65b66-a2a6-4d47-a6ed-f0513701b9c6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fe2adb0f5fd878c9ab78cf1c.png" alt=""><figcaption></figcaption></figure>
 
 Since my emulator use aarch64, i will patch library on arm64-v8a directory. In this case we can use decompiler like ghidra or ida to decompile then patch the function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FCzzwHgnEculoa8bey9ap%2Fimage.png?alt=media&amp;token=e2614210-4725-4a8b-a1b7-114ba4ac0cad" alt="" width="375"><figcaption><p>Search "Bad Env" string</p></figcaption></figure>
+<figure><img src="images/ad984ddc3ad713d0ecf96abf.png" alt="" width="375"><figcaption><p>Search "Bad Env" string</p></figcaption></figure>
 
 Check the call reference, we will get into Java\_com\_tarek\_brave\_MainActivity\_brave function.
 
@@ -526,16 +526,12 @@ We can see that there is checking of rooted device and frida. To bypass this i i
 * isDeviceRooted
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNNDMYJVb1HCy5P7lamLd%2Fimage.png?alt=media&amp;token=79955d41-9ec2-4a68-8d06-067ad5d174d7" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/64ca7bf8f0f3273462641473.png" alt=""><figcaption></figcaption></figure>
 
   * My emulator has access to /system/xbin/su and there is possibility that it has access to another related root binary. To bypass this, the easy way is just make the comparation invalid, for example changing from CMP W0, #0 to CMP W0, #4
   *
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FkJzz85P2fJcOezaxbKBE%2Fimage.png?alt=media&amp;token=ba6fcd12-8ceb-4e36-9636-fc8a38a3029b" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/58f9b8ca7006ea3b588a2406.png" alt=""><figcaption></figcaption></figure>
 
   * `1F 10 00 71 E0 17 9F 1A FD 7B C1 A8 C0 03 5F D6`
 * Frida check
@@ -543,17 +539,15 @@ We can see that there is checking of rooted device and frida. To bypass this i i
   * It only check string frida, to bypass this we just need to change "frida" to any random string that doesn't exist for example "fridb"
   *
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOL24IzChOlCPCkHiPzqN%2Fimage.png?alt=media&amp;token=3200b3a4-5313-46b2-a486-a1b101058f8f" alt="" width="375"><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/f877499faaae93bc00102e60.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Recompile the APK and run the frida again, we will get valid text which is "are you brave?". In this case we don't need to bypass the brave return, since it failed to detect rooted device and frida after we patch the library.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FoLfU9QOBYgVnIbdbSklI%2Fimage.png?alt=media&amp;token=66cdaf14-d63c-4b63-9722-c4531e76f977" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9bdec4e0eb632661382341b3.png" alt=""><figcaption></figcaption></figure>
 
 From the MainActivity, there is some process of string initialization. To check that our flow is correct, we can try to dump the string builder process
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNWjeMNXn3oLkLruXiPIw%2Fimage.png?alt=media&amp;token=15c5ac3b-507c-402d-9ab6-7c5bddf7584e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8193535c37c6294274697f0f.png" alt=""><figcaption></figcaption></figure>
 
 {% code title="change\_ret.js" %}
 
@@ -600,17 +594,17 @@ setImmediate(changesValue);
 
 {% endcode %}
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FTMKJWEFLsE0CoFNT5v6S%2Fimage.png?alt=media&amp;token=a6cfb586-ed29-4289-b8d2-1b275c5c4031" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a6c7b55ba26cb0bc8f360bfc.png" alt=""><figcaption></figcaption></figure>
 
 As we can see, that there is /Flag access through firebase and from the string builder we can also get the firebase endpoint.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGu538SxppDQxfUaov4CA%2Fimage.png?alt=media&amp;token=4d3fb791-4c12-4ca9-a10f-8ae05275232f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/02572f0e6e68c8379f7556f4.png" alt=""><figcaption></figcaption></figure>
 
 Author said that it is intended that /Flag is permission denied, since we are on the correct flow so basically the APK step has been done. Next step is doing exploitation on firebase. Searching firebase endpoint on decompiled directory, we found below information
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FUCEs2Bbigihjwptjb310%2Fimage.png?alt=media&amp;token=91ea2c9f-4f51-40d9-9f99-6bbefab55ac1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/abe8385cc229694194b1300b.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfxHqGB4Ru5rM2OQ59D2s%2Fimage.png?alt=media&amp;token=577b1e55-360b-4279-a164-55fef3a2dde0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d1b49b29ddae8b88b64d2c69.png" alt=""><figcaption></figcaption></figure>
 
 Actually, in this case all of the data required to access firebase database written on strings.xml. By using those data, i tried to access the firebase database.&#x20;
 
@@ -627,7 +621,7 @@ Actually, in this case all of the data required to access firebase database writ
 
 To get the flag, using those data we just need to signin anonymously based on this [reference](https://firebase.google.com/docs/auth/web/anonymous-auth).&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FmRrQzsVHcrZm5x30ZI0O%2Fimage.png?alt=media&amp;token=f7772d15-e02e-41c9-91d0-4fa30a4c26ac" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6b79c0f12b62f4356c9c4d4d.png" alt=""><figcaption></figcaption></figure>
 
 Flag : 0xL4ugh{Ohhh!\_F3n\_t3s\_t1c!}
 
@@ -641,15 +635,15 @@ Believe me, just think out of the box XxXDdd
 
 ipa file basically like apk, we can rename it to .zip then unzip it.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F1sqd7SYYhvLe3I4jfUTO%2Fimage.png?alt=media&amp;token=23266d7c-802c-49c1-bb6b-ab67163d6054" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9af50d713a7bc38201f9ebfe.png" alt=""><figcaption></figcaption></figure>
 
 Because 2 challenges before are related to firebase, in this challenge i tried to search firebase string just to make sure that maybe this challenge related to firebase also.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FypSAuUaKcNOUgcxu8BSs%2Fimage.png?alt=media&amp;token=256b9230-4f6b-4ec7-b520-0059a8e32f74" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e6ef7c7712ce5a9a21763a2b.png" alt=""><figcaption></figcaption></figure>
 
 From image above, we can see that there is firebase string inside tracer file which is the main binary of the application. On the same directory, there is GoogleService-Info.plist file and when i tried to search about it i [found](https://firebase.google.com/docs/ios/setup?hl=en) that the file is related to firebase account. Opening the plist file using xcode i got below information
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FjhNQQaNWfV5766ZoWTHh%2Fimage.png?alt=media&amp;token=1b2e8f1f-ced1-408d-93ff-46d5f4ae6768" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4bf6f3b317e54b937cf6b4d7.png" alt=""><figcaption></figcaption></figure>
 
 We know that storage bucket URL moslty also project id. So the next step is trying to access firebase project through URL. One of the well known firebase vulnerability is publicly access .json endpoint, so trying that endpoint we got the flag
 
@@ -657,6 +651,6 @@ We know that storage bucket URL moslty also project id. So the next step is tryi
 https://ios-83c2f-default-rtdb.firebaseio.com/.json
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FmcOMyA5HyV3ozIqAfK02%2Fimage.png?alt=media&amp;token=28f77996-3461-4b76-9789-088590a6fe38" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f7843954f5c26cc9ba50b758.png" alt=""><figcaption></figcaption></figure>
 
 Flag : 0xL4ugh{J4st\_f0r\_w3rm\_Up\_XXxDD}

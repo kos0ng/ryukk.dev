@@ -8,13 +8,13 @@ The FLARE team is now enthusiastic about Google products and services but we sus
 
 In this case i tried to run the APK in my emulator with SDK version 33.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIr6Tghxxy9kmRTm2oe1P%2Fimage.png?alt=media&amp;token=6033102c-7ae6-4621-aba1-747885db53a5" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/929b8e272b04fa0cf33b3b95.png" alt=""><figcaption></figcaption></figure>
 
 From image above, we can see that the APK is a game like space war. Decompiling the APK we will see some class inside com.secure.itsonfire package&#x20;
 
 &#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQWKgzXvYOPbs1z4q8FDA%2Fimage.png?alt=media&amp;token=3d5e5dbe-b42b-4ade-aa42-f367483e362c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/724655961be186ce3467e765.png" alt=""><figcaption></figcaption></figure>
 
 Most of the class related to the game, but there is suspicious class named PostByWeb
 
@@ -79,7 +79,7 @@ public class PostByWeb extends Thread {
 
 PostByWeb function send a request to HTTP server and when we trace the call of PostByWeb function we will see the class that called it which is MessageWorker
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPTdyeMljqQFg26llFke7%2Fimage.png?alt=media&amp;token=aac45807-322e-4399-bf09-41e61cec8148" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4b5d357baf4e15067c86d67b.png" alt=""><figcaption></figcaption></figure>
 
 ```java
 package com.secure.itsonfire;
@@ -169,7 +169,7 @@ public final class MessageWorker extends FirebaseMessagingService {
 
 As we can see that PostByWeb parameter is String str = getString(R.string.c2) + token; . So next step is looking at R.string.c2 value on strings.xml
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgrMX2tUvMnVU5rLojjOA%2Fimage.png?alt=media&amp;token=b6a7b49e-83b5-422d-a29c-3261088c04b3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/53fc62d3a7fa724eb5aeddf1.png" alt=""><figcaption></figcaption></figure>
 
 Most of the code are obfuscated but the string name on strings.xml are not. Searching for  any suspicious string name on strings.xml i found below suspicious string
 
@@ -179,11 +179,11 @@ Most of the code are obfuscated but the string name on strings.xml are not. Sear
 
 Based on the string name, it looks like data requirement to implement encryption using AES CBC on java. Find the function that use those string i got below class
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FP6wOr53lxPA01OjxIuHs%2Fimage.png?alt=media&amp;token=b0fc4a1a-9d18-4418-a8b9-eb217842e463" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/03a1d0fdb7fe201d85511997.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FnuNVv3reGNW9bmKt2wa0%2Fimage.png?alt=media&amp;token=b04a01aa-e10c-4244-b61e-b48d77429efc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3353d9b3057761f53cfb8c3a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fv6kcBIzgSmWStkhjjSvw%2Fimage.png?alt=media&amp;token=bf0705e7-b9b2-459f-bb5a-9d2b5fc23209" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/140eebf0e31c919edb4292d1.png" alt=""><figcaption></figcaption></figure>
 
 * R.string.alg -> f/b.java
 * R.string.key -> com/secure/itsonfire/MessageWorker.java
@@ -385,9 +385,7 @@ In this case, without doing dynamic analysis we can get all values needed to do 
   * it call [openRawResource](https://developer.android.com/guide/topics/resources/providing-resources) , so the location of raw file located in res/raw
   *
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FaDw98HBaDXyLCbyNpdQn%2Fimage.png?alt=media&amp;token=cdd34bed-10c8-4dfe-a961-2bf3947098cd" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/e68d0644bf5e408eebbd7e30.png" alt=""><figcaption></figcaption></figure>
 
 So, the final step is rewriting the decrypt function in Java then decrypt the raw resource.&#x20;
 
@@ -459,8 +457,8 @@ class Coba{
 }
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FkqLiFxMHqdH6KttA4hoX%2Fimage.png?alt=media&amp;token=7bd5437e-893e-4fcf-9be8-92f1a6c008d0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/22eb752eba79f07cbd808384.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F04ri1jqklW4e5bO0Kv2M%2Ftest.png?alt=media&amp;token=f60140d5-0113-4be0-bdea-b37d4c3b123a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/57fffcb3ad911b8e68a60ce5.png" alt=""><figcaption></figcaption></figure>
 
 Flag : <Y0Ur3_0N_F1r3_K33P_601N6@flare-on.com>

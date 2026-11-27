@@ -28,17 +28,17 @@ Given access to URL <https://c09-void.hkcert24.pwnable.hk/>, take a look on the 
 
 &#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Ff3ZcmphiqudvlyV5EL5h%2Fimage.png?alt=media&amp;token=1bcc2f5d-7f0a-414a-97e8-28a467a778e6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/96e8955ceff03566bbfe1ba4.png" alt=""><figcaption></figcaption></figure>
 
 Looks like there are a bunch of whitespace and we see some readable code in the end of the HTML
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FW8cEuT9zNqpUqX85oQ5I%2Fimage.png?alt=media&amp;token=ef450f1f-9ae6-4d80-8c78-8b15aaec57b2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/53568d4655a338d3563edaab.png" alt=""><figcaption></figcaption></figure>
 
 We can see that there is eval(f) in the end, so my assumption is it will exec the javascript code. To get the executed code we can try to change eval to console.log then take a look on console browser.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGdTnVb1Ok2UJwnO3WMO0%2Fimage.png?alt=media&amp;token=a74b66c3-b82f-4c3b-8ff6-b4515ad211ef" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8105dd0e15959a8fb9c1c4da.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F9DoNOGWRbV3EOk7yt1h7%2Fimage.png?alt=media&amp;token=86441cf3-f4ef-4702-93d7-5fb9b63b8d38" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6c6423df240e09317baf0993.png" alt=""><figcaption></figcaption></figure>
 
 Flag: hkcert24{j4v4scr1p7\_1s\_n0w\_alm0s7\_y3t\_4n0th3r\_wh173sp4c3\_pr09r4mm1n9\_l4ngu4g3}
 
@@ -52,17 +52,17 @@ Yet another crackme. To begin, download the attachment and install it on your an
 
 Given APK file, decopmile it using JADX-GUI.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FCrhIEborU0HQUMeXgf0I%2Fimage.png?alt=media&amp;token=32736471-896e-465c-a882-2db0c6c4a443" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dd8164a08c4758b4e2d508e6.png" alt=""><figcaption></figcaption></figure>
 
 Looking at the directory structure we found "xamarin", so i assume that it use xamarin as the tech stack. In directory resources from JADX-GUI export, i found that there is assemblies directory that we can utilize to get the Xamarin DLL. Tool that i used to do the unpack is <https://github.com/jakev/pyxamstore>.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F61u1lXItvAUrp8cX2wqg%2Fimage.png?alt=media&amp;token=18919070-f690-45e5-acf8-5431746788aa" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8c856a49ce5ffd608c250f22.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGtUjjVoOXtrAPyaLwv7m%2Fimage.png?alt=media&amp;token=7d4f8c72-d0d5-46d7-ba64-75b4e9e81070" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4be30f48613713e03fc0d579.png" alt=""><figcaption></figcaption></figure>
 
 Through the out directory we found that there is CrackMe.dll, open it using dnspy.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F2mI3RlcoaFMsjyDKpcN1%2Fimage.png?alt=media&amp;token=6582aba7-c34c-4264-8f97-4fb5273c7ad3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/67b2df9924bb1dd15763ceaf.png" alt=""><figcaption></figcaption></figure>
 
 In MainPage class there is function onCounterClicked that will call checkFlag function. If the return True it will shows correct flag, so lets take a look on checkFlag function.
 
@@ -193,7 +193,7 @@ for i in tmp:
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FAyRQqz5tguGk5bzczzFH%2Fimage.png?alt=media&amp;token=320fb241-4455-4f51-b40f-e85f62b42036" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cda3ecd6539e2f8f5c27ce62.png" alt=""><figcaption></figcaption></figure>
 
 Flag: hkcert24{f0r3v3r\_r3m3mb3r\_x4m4r1n\_2024-5-1}
 
@@ -209,7 +209,7 @@ For experience player, this is just a simple crackme, not worth your attention, 
 
 Given ELF file, open it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F4V9sn6WQPMK0EXpw2IT1%2Fimage.png?alt=media&amp;token=304dc7c4-f582-46e0-ac8c-8ab53cc669e1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ee6f8d5bafcc904f29ddfe9f.png" alt=""><figcaption></figcaption></figure>
 
 We can see that there is two validation. First validation is by using arithmetic operator (addition and multiplication) and the second validation is using logic operator (xor). The details of each validation are as follows
 
@@ -273,7 +273,7 @@ for model in all_smt(s, haystack):
     print(flag + tmp_flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJoYZ1K5UgmX6ZrwTcv4r%2Fimage.png?alt=media&amp;token=95d11d40-5ef8-4e26-b776-136d0c57fe84" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/833fa982a46f0462dbfeccbb.png" alt=""><figcaption></figcaption></figure>
 
 There are so many valid solution but we still able to guess the actual one.
 
@@ -504,7 +504,7 @@ sser.cpython-312.pyc (Python 3.12)
 
 The algorithm is not complex, so we can easility understand it. The program tried to send nonce to the server then the nonce will be used as the base value for generating key and iv same as in  client side. The generated key and iv will be used to do encryption with AES MODE\_CFB and in the end the ciphertext will be validated with the value from server. So the easy way we can hook the data in request function and AES function.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNNLUXZRr3a3lorTHZ6Ts%2Fimage.png?alt=media&amp;token=ebc58bf3-bc48-476c-a694-06d47dcf4ff7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fdc7fdc6cf530c7cb103eb5e.png" alt=""><figcaption></figcaption></figure>
 
 First, modify code in requests library to printout the ciphertext (flag)
 
@@ -534,7 +534,7 @@ Second, modufy code in AES to dump the key and iv
     return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
 </code></pre>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZ9fLuIAwabo378YoIrSN%2Fimage.png?alt=media&amp;token=6e228fc6-c65e-48f7-942a-d178410e74ba" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7211d47edd6226c326398a76.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 from Crypto.Cipher import AES
@@ -546,7 +546,7 @@ cipher = AES.new(key, AES.MODE_CFB, iv)
 print(cipher.decrypt(ct))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FS6c6xVKXZU80gj2Ry5lH%2Fimage.png?alt=media&amp;token=7843045c-0e7c-4ee1-a879-7febfbaf443c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4982f4d7ada08675e143b6e5.png" alt=""><figcaption></figcaption></figure>
 
 Flag: hkcert24{y0u\_c4n\_h00k\_func710ns\_t0\_35c4p3\_fr0m\_r3v3r5e\_3n9e3r1n9}
 
@@ -560,27 +560,27 @@ Wonton noodles are called 'small minced', rice is called 'handsome', so what was
 
 Given ELF file, open it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgfI2lPIWuGXxd0LBokso%2Fimage.png?alt=media&amp;token=76b0ea8a-edb3-4ebd-82d0-f83875f1b2aa" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/69f4eaff361843ac5a797901.png" alt=""><figcaption></figcaption></figure>
 
 Another flag checker, the algorithm should be in sub\_1392.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FaW45GoIXDRVJQme77rpw%2Fimage.png?alt=media&amp;token=8f54a08a-a713-4346-845c-d65f0992c5a2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/90a8392dd03264d9b687c601.png" alt=""><figcaption></figcaption></figure>
 
 The important function is on sub\_12EF, because it will process our input then the return value will be processed by modulo then comparation. Lets take a look on sub\_12EF
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7XeNuxKlfu1j9GuAJWUy%2Fimage.png?alt=media&amp;token=c626a7b2-ea9e-4bb0-a7b5-e7e2451b4e00" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5545d77b31b4e9e32bab63eb.png" alt=""><figcaption></figcaption></figure>
 
 It looks like multiplication function, we can validate it by changing the argument during debugging.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FpCMIPgrxA3SmCmdsdkdn%2Fimage.png?alt=media&amp;token=43e02b86-d4a7-46df-aab8-9b6794e78707" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b8b6461b8060f1c9c7576ff0.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQHRG28EtqhCESci0EZbN%2Fimage.png?alt=media&amp;token=55d2ded7-0217-4b0d-a410-c2158f742eee" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ae716cb170dbd6b27610c19a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F9u2t2CWS0foMP9LYMflS%2Fimage.png?alt=media&amp;token=6747bf73-c569-46dc-924e-2847cdeb61b5" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/af9cefcaa09356b587e9ef27.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgSCQmXOwn1tNUdChJ57H%2Fimage.png?alt=media&amp;token=eddef4ab-92cc-4525-8c1c-b53b1ba689bb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6923921a995c4a68e2aa2cb3.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwetGs7zKCMPzWsUtp46b%2Fimage.png?alt=media&amp;token=b3687b1b-20fa-4041-beab-0ab28fff4af2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ba21a08eb671c59f3e603449.png" alt=""><figcaption></figcaption></figure>
 
 Now we know the logic, the next step just recreate the algorithm then brute it. Because it is only 4 bytes so it will not take long times to do bruteforce.
 
@@ -610,7 +610,7 @@ for i in tqdm.tqdm(product(string.printable[:-6], repeat=4)):
 print(b''.join(flag))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FzV7HTVcA0mYQQLflzG38%2Fimage.png?alt=media&amp;token=21c10c18-7753-4abe-a860-3701b7a1fc30" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/acddd47caa3a102fed44ef0d.png" alt=""><figcaption></figcaption></figure>
 
 Flag: hkcert24{51mpl3\_l1n34r\_c0n6ru3nc35\_50lv3d\_w17h\_cr7\_65894851}
 
@@ -635,23 +635,23 @@ Check out the ISH fullchain series after this!
 
 Given custom asm file, open it using text editor. We can use the playground to debug the program
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGBERrYVmFiXinCcrRyeo%2Fimage.png?alt=media&amp;token=c36d8e39-f9b5-4706-b251-8ee8e156fe65" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a3ae7fc3758f0d1697d8a392.png" alt=""><figcaption></figcaption></figure>
 
 The objective of this challenge is executing flag binary. From the syscall table, we know which one the instruction that receive our input.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FI49itwxPZ87Y0ZgBegrz%2Fimage.png?alt=media&amp;token=110c7fe5-d305-4642-a32d-5eb010b59469" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/68ec119347bf980793882298.png" alt=""><figcaption></figcaption></figure>
 
 Set breakpoint on 87 (after syscall input), then analyze until XOR instruction that processed our input.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FYF68OVIAGMbc2V5JVnfh%2Fimage.png?alt=media&amp;token=40a3eeb5-9e2e-4e03-864f-fcddfb6354ad" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4cb850def194ce601334cf71.png" alt=""><figcaption></figcaption></figure>
 
 From the debugger we can see that our input (stored at R6) will be xored with R7. R7 values originated from R5, lets take a look on value on R5
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FsT8saMss03dXDHQsShhV%2Fimage.png?alt=media&amp;token=3ce0f669-c523-4c97-b8da-b6e39ef20496" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f3d4668a9a6e0e7fbab23da7.png" alt=""><figcaption></figcaption></figure>
 
 We can also see those values in push instruction on the assembly.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Finzzvy6IarAacfZ7Tezs%2Fimage.png?alt=media&amp;token=51acc8e3-66e1-4192-b621-d4980d9ec25a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9e85aa66bcfef7e2ad7597b0.png" alt=""><figcaption></figcaption></figure>
 
 So our input will be xored with those static keys and then will be executed as a command. To generate valid command we just need to do the xor with those static keys, below is our script to generate the valid commands.
 
@@ -669,9 +669,9 @@ command = b"ls\x00\x00"
 print(xor(command, key[:len(command)]).hex())
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FjjqDGzZcHHhUH3j4WgDv%2Fimage.png?alt=media&amp;token=9fdbac96-6001-4b89-891f-aab4964be4b3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3ca8539e21ecf2f74945a13e.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FK5pG7t6kqi6YtoUjVRG5%2Fimage.png?alt=media&amp;token=85c16d27-3372-48b5-927f-101fb82fc096" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/63b3adb4b4becdb1c21d2933.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 from Crypto.Util.number import *
@@ -687,9 +687,9 @@ command = b"exec printflag_19876bc2\x00"
 print(xor(command, key[:len(command)]).hex())
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FRW2hjJf2yTGgOlKbBXlz%2Fimage.png?alt=media&amp;token=9272e166-6ba2-471b-a2f3-2e41fde4afc9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0cb8a4983d3d6adcfa0cee7f.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FbmUT3fAYcuUbsrof2cHJ%2Fimage.png?alt=media&amp;token=8bd439cf-8253-4058-aade-23e8b9323159" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5fa5179502e12b7fe11a4a97.png" alt=""><figcaption></figcaption></figure>
 
 Flag: hkcert24{x0r\_1n\_isa\_r04d\_t0\_fullch41n!!!}
 
@@ -703,15 +703,15 @@ Binary sometimes mixed together, just like fried rice or bibimbap.
 
 Given ELF file, open it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fo1zLJhkwuW9hU4xJEYAx%2Fimage.png?alt=media&amp;token=39f557f7-e02f-43b0-8db0-62633c5f9824" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/68c3c60f944d4fbebe52141e.png" alt=""><figcaption></figcaption></figure>
 
 From code above we can see that there is decompress function and verify\_\* function. Lets take a look on decompress function
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fmjz4Wz1er4bUyUt54eDv%2Fimage.png?alt=media&amp;token=1ebce0b7-9c78-4a87-bf37-a4c3944d6373" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/db7a9ef4e51088737ee52abb.png" alt=""><figcaption></figcaption></figure>
 
 Then take a look on verify\_0 function
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F8O6pKh3TNThIiCggjEPZ%2Fimage.png?alt=media&amp;token=28915cf0-995a-4522-8e25-9136967612e1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c6e3b1d9270f0bce672d4b5e.png" alt=""><figcaption></figcaption></figure>
 
 So decompress function will do xor with key and size based on the argument. After the function has been decompressed it will be called to verify our input. Lets try to apply decryption to verify\_0 to take a look on the logic of input validation.
 
@@ -764,7 +764,7 @@ while addr < 0x000000000025BC4B:
 print(final_arr)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJtf5oqYLF5XbHMGOEUVy%2Fimage.png?alt=media&amp;token=9d452f25-9c8e-4370-b7d8-0d1407e9f070" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/268453340b2e4b2191b0708d.png" alt=""><figcaption></figcaption></figure>
 
 The verify function validate several index of our input and looks like there is a pattern that we can use to dump all the constraints. Below is the flow to dump all constraints
 
@@ -847,7 +847,7 @@ print(final_arr)
 
 After that put the output to z3 format
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FMLUXznAtBjnATYMfju3r%2Fimage.png?alt=media&amp;token=cf67df92-429a-4f66-a8f4-c59bebf9fa6b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f4cd2ac6179154b47969097a.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 from z3 import *
@@ -886,7 +886,7 @@ for i in inp:
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FFktjNBDhhZ6XzWyP4HfY%2Fimage.png?alt=media&amp;token=8399f76b-6261-4a34-9367-57c00dd71b3c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/39d8eeaf52b77e32c0651e9e.png" alt=""><figcaption></figcaption></figure>
 
 Flag: hkcert24{s3lf\_m0d1fy1ng\_c0d3\_th0\_th15\_i5\_n0T\_A\_m4lw4r3}
 
@@ -902,11 +902,11 @@ Many language contains some black magic within. To those python expert: do you r
 
 Given pyc file with the environment (docker). At first i tried to decompile using pycdc and it failed.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F1OGs3RWnooAr1AIOazWj%2Fimage.png?alt=media&amp;token=f288a9fb-60d3-425c-96d2-89a8fc1cf2c9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d4ae84e1c7e53dd825f67260.png" alt=""><figcaption></figcaption></figure>
 
 Next, i tried to do disasm using pycdas and it works!
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FWY1co9C19HrmfEw0ChH3%2Fimage.png?alt=media&amp;token=7abf9754-ca1a-45d3-87cf-71ca3fa68d7f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8eb6390974bbfa6c91423264.png" alt=""><figcaption></figcaption></figure>
 
 We can see that it has around 10k lines of code and it would be painful if we just do it statically. During the competition i've an idea to do dump information from several opcode that will be executed. During the competition i did several modification until i found the opcode that give much information.&#x20;
 
@@ -962,7 +962,7 @@ TARGET(STORE_DEREF) {
 ------SNIPPET------
 </code></pre>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FelWHDIRR1bT9uezvjUEL%2Fimage.png?alt=media&amp;token=ad5caf89-65f6-4f7b-acde-48a247d67a14" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d80f175b2a6aab201ac407f1.png" alt=""><figcaption></figcaption></figure>
 
 We see some pattern, string 'input' generated from locals that has been converted to a string such as index 18 == i, index 4 == n, and etc.
 
@@ -1113,7 +1113,7 @@ There are several operation such as + and <<. So lets dump the pyobject again.
 ----------------------
 </code></pre>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPCjZ435cVbr95Hbphghh%2Fimage.png?alt=media&amp;token=53624064-f092-4ea5-abc4-7deffd402f16" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4f84619449722e839620a32b.png" alt=""><figcaption></figcaption></figure>
 
 The first BINARY\_SUBSCR result is 'i' and there are 5 operations before the BINARY\_SUBSCR. 4 operations shift left and one operation addition. So we can conclude that 3 is shiftleft and 0 is addition. Now lets examine how value 1 generated.
 
@@ -1148,26 +1148,20 @@ Now we can parse the opcode with this information, but there are another two pro
   * there is pattern to generate value 0 like below
     \*
 
-    ```
-    <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fdc9w6XpN5P6JgwAJgRe5%2Fimage.png?alt=media&amp;token=b2eb4dd0-4fe0-439e-a0fc-8ee02b997517" alt=""><figcaption></figcaption></figure>
-    ```
+    <figure><img src="images/24196d3d96d61a22813c8842.png" alt=""><figcaption></figcaption></figure>
 
     * So i put identifier/new line as BINARY\_OP (??) in the dumped opcode
   * there is pattern to generate value 1 like below
     \*
 
-    ```
-    <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FAO1YP9TOhShTu3VsuC01%2Fimage.png?alt=media&amp;token=a46566e4-e11c-49ef-bb1c-de725cafd7eb" alt=""><figcaption></figcaption></figure>
-    ```
+    <figure><img src="images/e47835816d6b45bfae84c28e.png" alt=""><figcaption></figcaption></figure>
 
     * So i put identifier/new line as BINARY\_OP (?) in the dumped opcode
   * Not all values derived from locals()
     * Some of the opcode contains UNARY\_NOT instruction before FORMAT\_VALUE which means that the value will be derived from "True"
       \*
 
-      ```
-      <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7cMZNfX877xOdGE75j7S%2Fimage.png?alt=media&amp;token=342d3464-0ca7-419d-a34c-ed7d6baebb71" alt=""><figcaption></figcaption></figure>
-      ```
+      <figure><img src="images/fcdacf8fca60073e1d7e4a7c.png" alt=""><figcaption></figcaption></figure>
     * If there is no UNARY\_NOT so the value will be derived from "False"
 
 Lets solve the first issue which is printout the locals, change the run.sh in the src directory to below code
@@ -1185,7 +1179,7 @@ input()
 print(locals())
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FiXPIQPpREezUaYEzcrYb%2Fimage.png?alt=media&amp;token=36d03ae8-7466-4d49-9850-4f731b01a83c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6649e7ee39992cba229c42c5.png" alt=""><figcaption></figcaption></figure>
 
 Now we have the locals(), change the \_\_file\_\_ value to /app/src/a.pyc and change SourceFileLoader to SourcelessFileLoader. Then create a parser and got the flag
 
@@ -1371,7 +1365,7 @@ if [[ "$GALF" -ne 0 ]]; then echo ❤️; else echo 💔; fi
 
 To trace the actual code, we can utilize -x argument in bash.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FYLPV4H1XDqxRvsyv7ihq%2Fimage.png?alt=media&amp;token=cc862f27-12b8-49d1-975c-9e96b4090c03" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1346d6856071236f4d2cae60.png" alt=""><figcaption></figcaption></figure>
 
 So the code actually did the process like below
 
@@ -1379,7 +1373,7 @@ So the code actually did the process like below
 
 We can validate it also through sending multiple different flags.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6hv4mWqkHOIlOOuNBp5d%2Fimage.png?alt=media&amp;token=e4aa8307-fe8c-41d5-ad6b-22095f75afad" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ada9adafa1d999fbbda00372.png" alt=""><figcaption></figcaption></figure>
 
 \*above dump is output from the solver script (so ignore the wget because it has been patched to always return true"
 

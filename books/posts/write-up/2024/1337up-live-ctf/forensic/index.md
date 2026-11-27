@@ -25,11 +25,11 @@ Flags are fragmented, scattered in disguise, The real one’s elusive, behind la
 
 Given PCAP file, open it using wireshark. At first frame, we can see some suspicious data
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FM8k1XrGXwfWttlPPOYES%2Fimage.png?alt=media&amp;token=f63ef6bd-8260-4873-b341-80012cb2674a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bc3f9b3942c2334ebec763ad.png" alt=""><figcaption></figcaption></figure>
 
 It looks like different with the others.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FLBsVSCtwHX2rFP5g5tAJ%2Fimage.png?alt=media&amp;token=a2059b95-f2d9-4e00-82a4-7d66ce5cf0a2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a5fb37951326591a479520ed.png" alt=""><figcaption></figcaption></figure>
 
 After knowing this information, i tried to filter only packet that consist "Data" string.
 
@@ -37,7 +37,7 @@ After knowing this information, i tried to filter only packet that consist "Data
 frame contains "Data"
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6cJwIfwjY19KxoW4Euq9%2Fimage.png?alt=media&amp;token=42a04736-6bd8-4e17-a7c8-7bc9df853c7f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d562f95cdeb323238afe36f9.png" alt=""><figcaption></figcaption></figure>
 
 Copying all the values now left only guessing part. Lets decode the base64 ciphertext
 
@@ -60,7 +60,7 @@ for i in arr:
 	print(dec(i))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FeMU3vMLcvLEZQw6OoHlJ%2Fimage.png?alt=media&amp;token=f6c8e55e-72de-448c-8d2f-daa30b26b65d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d9d89d2a704636563041d734.png" alt=""><figcaption></figcaption></figure>
 
 All the values consist of byte like \xc3,\xc2, etc. We know that it can be caused by the process of encoding of char in python. So lets convert it to the actual values.
 
@@ -87,7 +87,7 @@ for i in arr:
 	print(dec(i))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fr6Qga23oan7NyyoEPba0%2Fimage.png?alt=media&amp;token=15b2759f-2cff-435a-ad95-4f89442d4de6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cb0f9833d0316f9fd28f6640.png" alt=""><figcaption></figcaption></figure>
 
 Continue the guessing,  we know the format flag which is "INTIGRITI{", lets do some known operation such as xor, sub, add, etc.
 
@@ -118,7 +118,7 @@ for i in arr:
 	break
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FD6oVXnHXz0Hl7undy4Ht%2Fimage.png?alt=media&amp;token=5fedc79a-3f6d-48c0-b988-4e3f59090d31" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f0745319fb680f28d01c7eac.png" alt=""><figcaption></figcaption></figure>
 
 Uh, look suspicious. Looks like we found the valid key and valid operation. Lets implement the algorithm for all values.
 
@@ -147,6 +147,6 @@ for i in arr:
 	print(bytes(dec(i)))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHMSfFX3RMRvfncDqHIjb%2Fimage.png?alt=media&amp;token=91d22534-7031-46c8-a28b-6680cc8a6cb4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1d11b28691df5aaa3d4ef03b.png" alt=""><figcaption></figcaption></figure>
 
 Flag: INTIGRITI{MODBUS\_OV3RRID3\_DNP3\_3SC4P3\_T3RM1N4L\_C0NTR0L}

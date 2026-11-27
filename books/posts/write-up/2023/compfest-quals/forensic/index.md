@@ -23,7 +23,7 @@ Diberikan memdump, gunakan volatility untuk melihat proses yang ada.&#x20;
 python3 vol.py -f ~/ctf/compfest/industrial/lyubov_20230712.mem windows.pslist
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/ajFqJ5YTmS1FbVa_rahaLOEzenpmypOLmngUYD4sXJTiqmt8nTK62rw7X7XJiQAQt2IggGwKJE5inX4PjxhrldydP9n4ExNsqp4OEIFwkWnTA4bKFwYU5zN6Y3C7KQ-t2ssJ2598ezY4JE4BNYMEUQ8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/090452ed93a8aca808d7f847.png" alt=""><figcaption></figcaption></figure>
 
 Karena pada saat mengerjakan sudah ada 2 hint dan 1 hint menunjukkan mspaint.exe jadi lakukan dump untuk proses mspaint.exe.
 
@@ -33,15 +33,15 @@ python3 vol.py -f ~/ctf/compfest/industrial/lyubov_20230712.mem -o ./compfest_du
 
 Dari referensi berikut <https://ctftime.org/writeup/23198> diketahui bahwa kita bisa load hasil dump dengan gimp (open as raw). Selanjutnya untuk offset kita gunakan offset pada hint 1 dan tinggal bruteforce width saja (manual). Disini kami coba-coba untuk mengubah image type menjadi RGB Alpha dan akhirnya nemu yang pas yaitu dengan width 1020.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/Aik7MrPNpcUj4IISdN4WMZJRhQuBIfnlNOFg2uM0f-x-Lne2yEi_qvy-ioGeR5EP4HGiOltSKbj7Cw7lOc0m8MRqcNXWYT3hMS1k-gxDJ25WZC77r9ksPK-9yVU7bE4lmS0XuM59vq_JNat41GOHpvk" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7de22002324a6db46b4272ba.png" alt=""><figcaption></figcaption></figure>
 
 Karena warnanya sedikit aneh, kami coba geser offset dan dapat yang pas&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/xQInjaVcYGSuBNPo_B-bu3jCG3EbaRT5IZMI8Q9hw6VD6zOp4ElNONAmE14EtkWXnnSJe8XfNUqXPe5c77t7dyN8nwxwmAgDWWlVI3gYtBYyfGr4hkLW6BbeIYGrIwEFRsYnLa3O7p1J8w4k-TlUtGI" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/97a8e5e4d18245033f397568.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya tinggal rotate aja gambarnya dan dapat flag
 
-<figure><img src="https://lh7-us.googleusercontent.com/GTRyrlRzutmk_zV7ih-rm_4kOBSdXeP2-G35aawLQH3epMaiSLwjUV0w6Q9A3MtdE2zod9u3IdqZCSd5HulBFKsXjaCUAv51rGW9FSFXlVNc_AlV-yTJ9r68v7rS4RyCk4cMU1rdd6O0My6BObhJL4A" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/304609229a07f27415d147b6.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST15{m0D3rn\_D4y\_5p1es\_cb06cc3651}
 
@@ -55,15 +55,15 @@ Flag : COMPFEST15{m0D3rn\_D4y\_5p1es\_cb06cc3651}
 
 Diberikan file pcap dan source code suatu website, informasi dari salah satu anggota tim kami ada enkripsi di frontend. Dengan informasi tersebut, langkah paling mudah adalah lakukan deploy dan debug javascript di front end.
 
-<figure><img src="https://lh7-us.googleusercontent.com/y5Tb5PHZfD0_OnkyZoLTheweVPI8k_CoVq_TbltyJhsAht1mYNVaRdN9PmHD9F9pkNQRIXKfE-D8W7LeoDVrnBPgmD-AEP-lIOQxhlu11svYyWOiqT_l4PzyvHPBfrWpdogFCMN906Td3oNlxWFzi-Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ef138b7f90dc6dd5e1ecc7ed.png" alt=""><figcaption></figcaption></figure>
 
 Lakukan debug pada beberapa baris kode diatas dan diketahui bahwa kode tersebut merupakan kode dari algoritma RSA. Selanjutnya lakukan pencarian terhadap faktor dari modulus dan nilai modulusnya pada traffic yang ada. Didapatkan type init mengirim nilai modulus dan prime digenerate pada endpoint /prime/{length}. Selanjutnya buka file pcap, sempat stuck karena tidak bisa baca data websocket (masked) namun ternyata wireshark sudah menyediakannya pada bagian Line-based text data.
 
-<figure><img src="https://lh7-us.googleusercontent.com/zGFfEua63fl-uY5Kb85Mcd9g72NTskftHWFweTrM19KGGrQZcYWHhJm_7rT4uT3MMAqUmhEAmzod6DI42gJEpdF1cBmA3j29XngM2q2rouY_ougwPwIBD6ApsOOFyqLYYPpxHzhBZg-Kdn2uDRI2o-M" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3a8cda7cfe185f114cdc45ad.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/tzQ_r55-Bdltz0SFxRDdiF7PtIhxDAQxSXaF9_wIw-FoLnusyPhwl9Ih2wTV7pixcJMR-x12tKXvt9A2fgHv7j4kXt9575_GnsZ9dUi2bevNJUyUVsSK8xT78sl1ACqgH02z_fkvxzi2rMKmKmqGlz4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/41fbc57ed9e43a1366d3b07a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/ie0IFoh1y0qu8HBw46ZEkLJrioRRP6aAyVeS-q-obreahuDcGQqw33GgNbrGOhVcrZQ_Dh1i1E01VRE890sh5AjB9HZXdjQ43OW1sJ7EffErgTZQD3OthCMNkLLVrmrJauWMMouNu9mMEZvXQf7eF9g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/834c50f161059772cccf5861.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya tinggal dapatkan semua data dan dapat flag
 
@@ -91,6 +91,6 @@ for i in data:
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/QbHr72Vo289zdy8MEIKxHyMbrX5SVoYy9BcNy0SsaXQUHoptQqqqGn5qeFRgESzIB-Gk5a1S3LXdGp4Ud95--eyzFyPu4AiVXSc9yKdbN2wDYNqgUaAz_cfV-I1PaxfrvJRbmg1Ah5zKlBB4d7n5R7E" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c388f8acacacfbb0289025b7.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST15{tH4T5\_n0T\_H0w\_y0u\_3XchAnGe\_KeYS!!}

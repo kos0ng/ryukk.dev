@@ -18,25 +18,25 @@
 
 <br>
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfXdksWwlfYOoY9H5cT_u48kKyvRgU7viYqPMQv1in9QW46MhBJgP3VKFQmGOqc6Zgn4S2QeQ8WNvlqJQzYSnZ9b_bN3TzznvaKxi6EKXgpzKiDcxMZNFS-gdDbGe7xZQficbYt9SPBznAzOn0dnNvX9J9A?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/eedb29e60bca7135f1a28a83.png" alt=""><figcaption></figcaption></figure>
 
 Diberikan file pcap dan isinya adalah QUIC protocol, di awal saya mencoba mencari referensi untuk melakukan crack terhadap enkripsinya dengan asumsi menggunakan parameter yang lemah dan berakhir tidak menemukan apa-apa. Karena sudah menyerah, tiba-tiba kepikiran untuk ls -la dan ternyata ada .ssl.log
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXf-J8ZptQTa91nAOgNnjvRA3GaJF7cLakSgSI5KnFnGNXlV3wrkpwMOaT3rnTDX52Y32aCmAEtIuepmpJHxLSimJWPy5q320c_S20f5mXwzeggtoDk2YvD5j74A7faPsbRKGGCSt6K8yCGHfZzn0_G63wqv?key=K_FOmU9t8UMYPP2CCSzl6g)
+![](images/08f67042ba47735c04c1db05.png)
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcRhoZqqDtWSmINceV8qSBcEazplPKTcolv4z2x-6XhgyS6Cv0BNNtfZKqfsyGKj7LQGDt-FYx8phWEEV5JA-6RSIqOOgHNlWS7VceRxaIMsGpdGgpjinF0R-g-G2ckAsLDQpbK0KkqgZxmgb8iU5T48N9T?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7e0fe07d6f47f6ead21f3e6f.png" alt=""><figcaption></figcaption></figure>
 
 Lanjut analisis dengan load ssl.log pada preferences>protocols>tls>pms log filename
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfj4O9HfToMxIrCYhNlfKTRBfftkiavRf1g3LAZC2slEBt3Xs9DE7JLrHtbDv6rp77zKi29ndahEgBoTNs59WaHf9g0LJb0IQehfy9XoQdlJFPsd4PH28PtuNSeHRtv2HloFNQW0GfQL5nULmsB6z-Xk4c?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/933bca3d2467b09e9cda8c52.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya adalah melakukan analisis terhadap HTTP3
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeu4rZVACb5Dt1JDLk-3-YGYcV0gINASzYlEGXhC6oBHRS5RjRb3pEYZaRxQrfJMKcBv_MXmJfMoP68Qg0SsYoAqsam4e4V52nL2CqDphIwDsm5GjEG74bjH3DhoUTAefLwEdxgQMCdYYTDCHRllEvAK6BL?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d0670b27f2da33182c37f878.png" alt=""><figcaption></figcaption></figure>
 
 Pada frame ke 10 bisa dilihat terdapat request stream dan pada header terdapat path dan range, range mengindikasikan bytes range yang didownload, semisal 0-1024 maka 1024 bytes pertama akan didownload.&#x20;
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc5nefGtI0PjKXDyIcxG8UCCkUhE9rG2-Q_7UZ_2zJFZ3bnbdxrWc3m0hAi6makncbuoSV5un4pfDhk4_VgqOm__zqGAmdDqUjEJBxPg3pgRk9N3cKIoNCxUES_L75E9kQ7CO20o9OEexk4UVZdQ4UedkJ_?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/680240066d60edb56f071756.png" alt=""><figcaption></figcaption></figure>
 
 Pada frame ke 13 bisa dilihat terdapat response yang mengindikasikan pemberian data untuk byte 4608-4655 dari file/data yang direquest. Jadi disini kita mengetahui bahwa terdapat proses download secara partial yang dilakukan oleh client. Idenya adalah melakukan parsing untuk semua yang didownload dan menggabungkannya. Namun ada beberapa masalah dalam melakukannya
 
@@ -48,9 +48,7 @@ Pada frame ke 13 bisa dilihat terdapat response yang mengindikasikan pemberian d
 * Hasil export dari wireshark ke json bermasalah
 * *
 
-  ```
-  <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeI7KAdWuxPtqsYR2qKSmuvmEInuIidSpqUGAsDs6zDXsawM6pPkXGZ7aZjD1pvkfpXjrWBfrkafU2ReaS0fQ1e5R3xZ_3frcMygPh4hkTRg7bFfgpliBSd_ccnh47k3YH0RS0DKczokxs8RO_0DevuuysV?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/cd22ffb7f621d0bd5c31cb13.png" alt=""><figcaption></figcaption></figure>
 
   * http3.headers.header (key sama), jadi kalau diload sebagai json akan diambil nilai yang paling terakhir di python
 
@@ -277,11 +275,11 @@ for i in d:
 
 Semua file yang didump terlihat sebagai valid ELF file
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdNx9Kxt436sKnZMZvbLEhO_eGwXa2M5x6w-NK_f-Ts7qconF9ldgWkHC8eqE52b3T82rb7LdDinxhBJGBcyd_dcnwpVQs3APCOMJMDTnx8m7fbDABFwXnOrqZNfa0M7eOGYvShp-ZKu0IHyFUINrVNwrtj?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/880fc5e5ab78a3701543670e.png" alt=""><figcaption></figcaption></figure>
 
 Lakukan analisis terhadap salah satu file yaitu 0AL893Ky
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcPWgVO5JtvkeFvOyLX2P0RSDdXm5JDSkSKaNCJpC6uwS24weGEFbUM2yqGCyK-imSt6HyoYLTXO0pL5k7Z7VYTaLhw6oRMOxsT_O9Za0pO0MSzxfikcFT0iPuU5zbggGy6yJl90mWoEw6g2APrm5QstUHG?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/76d11e247f61df6a5636df30.png" alt=""><figcaption></figcaption></figure>
 
 Dari hasil disasm terlihat bahwa elf tersebut diobfuscate, dari debugging diketahui bahwa elf tersebut akan melakukan xor untuk pada instruksi setelahnya dan kemudian mengubah xor key berdasarkan nilai yang dixor sebelumnya (ditambah). Setelah itu juga step yang sama (diobfuscate 2 kali) dan terakhir akan dijalankan execve dengan syscall. Disini kami melakukan otomasi untuk dump command yang dijalankan melalui execve
 
@@ -408,11 +406,11 @@ for i in out:
 print(list_cmd)
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfOeF1HuK6X51Tr4Xcc7CYvKy7F59MDLfpssY8NBzWks9GXqysch7kDkyTv1EAPGgM5iO5H3oHmchXnjPvYUWnW9SlLyUm5wd-F6ex77lapvNkpd9Y_xMEk9vR_p6MoiYMntKzww4yREhIBGSzO33pwpHo?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5b8d9d7c7fee3571cfc504ca.png" alt=""><figcaption></figcaption></figure>
 
 Dapat dilihat bahwa command yang dijalankan adalah seperti ./KXPrUXBemVsOs0EJ1gi1 JW8ib6vSJzoCJL0Q3zuYIPDRaWEeAqfL92FebTGQAq7TaWDNH60RAqfil2FxvVDGDg8 nF2dfmWkaEKs7D9A8pMqUt6VvJb3uHIliCxgOGzPhZBwy1YNQoLeRXT5r0j4cS OY6kSmMw4poq0xEF7RcLbUVhAeznilTI.ZRCf6nVAF9uWOgt1x3MjkGEYzpalBNKi yang mana KXPrUXBemVsOs0EJ1gi1 merupakan file elf yang kita dump juga. Lakukan decompile untuk KXPrUXBemVsOs0EJ1gi1 dengan IDA
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfAzBjaHHXFMXUwF_v1FUi8jmOnq34xbc9uf5s9U-kkkOOs5nJzp3yIgYoqLJOjMf3lEeu4SXS57LO4U8LPbbHG8p4yNZbZFy_7cGipdTQtKh_hjdIsoLMX-WCWBm4Kziz-MySF9K2HmKXPGHzRx_EN-cuH?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/393904664934f4b0b665d1cc.png" alt=""><figcaption></figcaption></figure>
 
 * Fungsi e
 * * Base64 encode dengan custom charset (2nd arg)
@@ -527,8 +525,8 @@ out.write(bytes(flag_arr))
 
 terakhir tinggal unzstd saja
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeNRHbm3kxvPuaYmMRaocjTgYv_K7glXGe-pQkE6jm6bQm0WG4mCfqvC53RnY2UOpZyVn6fIBOwpy56FkToIT0s930fzNm3W7XXbhE8j7pWrKh9QsOiQp9-qG4_fAFYnp34MXeYKopAyCaFEvuVr1D4aXtL?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fea8fb3b7b7912c49bd59837.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf58YNYzmOcB63c4qrtfizjJA0N5Xv_zt-HRK3VIJbR4h_CFTuD9k4I4ncYCFHpUu9MVXzkSl8dtX9FkQiXQxnBDEFbe___poaG7wJToALWEMbDbbnF6HhKLw1WW1d5ym0UowjnJR0vOY1lzQuZUgpoCK6W?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8800a3aca936ef5532d99a36.png" alt=""><figcaption></figcaption></figure>
 
 Flag: INTECHFEST{dyn4mic\_4nalys1s\_with\_4\_cert4in\_twist\_huh\_368bebc9bb}

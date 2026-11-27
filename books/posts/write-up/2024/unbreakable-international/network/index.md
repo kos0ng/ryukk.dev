@@ -19,15 +19,15 @@ Our SOC analysts saw some strange DNS traffic. Wanted you to figure out what was
 
 Given PCAP file, open it using wireshark. Looking at each packet i found suspicious printable characters.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FDxh07iHhlSsirOUDDSyg%2Fimage.png?alt=media&amp;token=733db8f1-3710-409c-8cb0-1928e4dcac2c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0340b54a5c39151a6f0f99be.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FhW5zry03p8xOFNeP4nUl%2Fimage.png?alt=media&amp;token=bf344772-09ab-41a5-a126-e279f95c175c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f9e68fdaa1839f690f5f7356.png" alt=""><figcaption></figcaption></figure>
 
 If we go to next packet we will see printable character at the same location. Those printable character are stored at Checksum identifier on each packet. To simplify the process, i apply checksum as column then export the packets.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fd7kfq0NRXCHbVPG66oBi%2Fimage.png?alt=media&amp;token=456ac37a-4b04-421c-8bfa-30c7a0c424f0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b92159e2aef8e92911d9dfd9.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FcGzHv8H8skimRwSImX9m%2Fimage.png?alt=media&amp;token=f323a869-8b51-460c-a431-f367c07b81e2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3561d4fdab51157bade09fba.png" alt=""><figcaption></figcaption></figure>
 
 Last, just create simple script to get the checksum value.
 
@@ -44,7 +44,7 @@ for i in f.split("\n"):
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FnB0qHKW0u6aLvWeEoOoh%2Fimage.png?alt=media&amp;token=8e9013c4-5ee8-4138-adc9-58202aa2f14e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c3d39cb7a8a78e6162bddf08.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ctf{4cp\_4nd\_4dp\_ch3cksum5\_4r3\_3v1l\_pr00v3\_m3\_wr0ng\_jhunidr}
 
@@ -62,44 +62,44 @@ Flag Format: CTF{sha256}
 
 Given PCAP file, open it using wireshark. We can see that there are TLS/HTTPS packets and HTTP packets.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FlryjpaPdSgEdPebKcjlX%2Fimage.png?alt=media&amp;token=5aa4b2e0-78ee-4867-ba38-816b7ea599fc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b2796fb89e52b3b5e9905df9.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOJRMr2ayyosO1SMMdDhd%2Fimage.png?alt=media&amp;token=17f9b80f-02f1-4784-b61a-914ae679f567" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/591a3d2445757f735f57894d.png" alt=""><figcaption></figcaption></figure>
 
 Lets take a look on one of HTTP request
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FcMAvTC0zOaVd6B6I7BSd%2Fimage.png?alt=media&amp;token=81013eb6-b42b-480a-866c-ab9ff50cf38f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8b4c71cd547f50a5aca5c720.png" alt=""><figcaption></figcaption></figure>
 
 From HTTP request above we can see that it switch the protocol to websocket and we can see websocket packet on the same TCP stream.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FrvQ4YLkoguieELiLP0Jk%2Fimage.png?alt=media&amp;token=a669f588-2403-4f81-9b1f-78f4be1ef860" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e2a587bb90a967149e9dcb06.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNIK1a6Ervq7n6W4jjFcE%2Fimage.png?alt=media&amp;token=c37de935-8b92-440f-860f-7137d764eb66" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cf1827cc7807d7bebda0ce6f.png" alt=""><figcaption></figcaption></figure>
 
 Sorting the packet, i tried to inspect packet based on its kind.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FUn7b0XWTbrfLmmPD6GcF%2Fimage.png?alt=media&amp;token=edc78a26-3ecc-4c35-98ce-6a7846269e26" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/897fd431a2dc9d2a802aea8c.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FbECv2jDssE05D9GZzKir%2Fimage.png?alt=media&amp;token=1257f0d5-f617-40b8-9c8f-3e0ca96dd5ff" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2999dc3509bf9e3bd4c0d7c1.png" alt=""><figcaption></figcaption></figure>
 
 There are two interesting data, private key and ssl-keys log. At first i tried to add private key but nothing happen.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FtLo3JR5SkKFvPatAaiwC%2Fimage.png?alt=media&amp;token=d0665077-fe4b-472f-aba6-014957efd645" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/20461db71187a8c67c69a717.png" alt=""><figcaption></figcaption></figure>
 
 So the next step is try to add ssl-keys.log to Preferences > Protocols > TLS > (Pre)-Master-Secret log filename.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5lOT9TSFrNoW72dG3E6k%2Fimage.png?alt=media&amp;token=15571231-806b-48a8-8882-78ec2e8253de" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fabcfeba79b731386e4f55de.png" alt=""><figcaption></figcaption></figure>
 
 Take a look on recorded packets again, there are some TLS packets decrypted and there is one packet (frame 1631) that consist of another part of the ssl-keys.log.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfGhA7GH8LOf9jW8sHX8B%2Fimage.png?alt=media&amp;token=c9497308-1fae-491a-b8c3-843eb8143862" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e7653021bd48562bcade2f76.png" alt=""><figcaption></figcaption></figure>
 
 Next, combine that data and store on new file (new-keys.log). After that change the (Pre)-Master-Secret log to the new new-keys.log
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FoElW042hoRbSsXq2q0Tx%2Fimage.png?alt=media&amp;token=b2db4795-5253-4044-86db-d4cfcb625511" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7aac097b88e18c70a6560e6c.png" alt=""><figcaption></figcaption></figure>
 
 Inspecting each packet again and you'll see flag at frame 557.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNZKHyivvZ2t9SQMtXlIr%2Fimage.png?alt=media&amp;token=6684a5e2-628b-4ab4-abf5-33253d3a9a99" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/63f81ed95a3f16332a9407ee.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CTF{ec4a9fda046b09e2dce095f772262c766a857ac041c9cf3745cdd2a76a8b5819}

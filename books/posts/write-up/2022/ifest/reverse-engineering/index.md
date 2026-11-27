@@ -21,7 +21,7 @@
 
 Diberikan source code sebagai berikut
 
-<figure><img src="https://lh7-us.googleusercontent.com/U5IpI02AltySpEyeqquKo8gozq4g8Og1Uhm06MPLAydY_qSNhB5yVEHO10qKOptZ-Bxg5K8kBw-DkxoEpIbOgHLPhHQB5r7xBO3aStzbTOFX5VkzBH2kxx1kruQs6hrLTsG3EdVQxIvcIAaJMqqS8H4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5ae87a21645756e52a470dd2.png" alt=""><figcaption></figcaption></figure>
 
 Ubah exec menjadi print untuk mendapatkan source code yang dieksekusi. Lakukan deobfuscate manual dengan mengubah nama obfuscated functionnya, berikut hasilnya
 
@@ -105,9 +105,9 @@ for i in range(1,257):
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/AfA_bH1y7kt64nyH7VQzqk_IPiyPreJDmJGtlVR_SPGsPS5mnUzkGEWMcBSVVhMZKCFmnUGPQNlYWkz6wO5wEx0apqjTmtEQxiozphQk9heSdI9Em42uh0Aqu3Sg2tgkWfDYqLz3XGL8ED-8y_hyRUo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bfab9fd75082cbf5da85a9a9.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/ep9GaLH6y4TPEuPQ0kUm_kmSYW2CZfYMcmODQQq-EOrYd3SBEvb1bOwVHfJUo_xTAQtVLXOhF2uAi7GpwuGfu5I5MLMKwmJE-kezeehX7gnPDCvjpVc-qwznpkr32h0A4tJVdPwfD3Aly3SVn1_SS6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8ef37edc2b3572fc755d106a.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST22{it5\_th3\_ups1d3\_d0wN}
 
@@ -121,11 +121,11 @@ Flag : IFEST22{it5\_th3\_ups1d3\_d0wN}
 
 Diberikan executable
 
-<figure><img src="https://lh7-us.googleusercontent.com/CISNOiYUutHDFKdLY6rgArzPcwDB2NCArRKGNB4bBZwSL9-9z0i5Mg8hfSaKA1DOn0Az5u16v33OZpXa0lJJCxSfrxkax0X1etR54L5jeNJ2R-wJKTful_PVs7oeTXXWYsJy9VjA9JeO1jz2MWQg9hc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6a400fb6b475824e764f3d21.png" alt=""><figcaption></figcaption></figure>
 
 Jadi validasi sebenarnya ada pada potongan kode yang kami blok. Berikut salah satu contoh potongan kode validasinya
 
-<figure><img src="https://lh7-us.googleusercontent.com/ChCws4HA8b78PlNwbobYHsbV9JozsMEm3rhiJE7RVfsZ3F3xrm3kM_UfA2a9PxXL82nu8c3ecX4v7eTdiR3QsHEnsg4CS07KLzZwdCT-I_hrnYvqbvh25SFmTNRY8Dqe8Gt4xDkCXIFhlUYGxi2qaqU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cc25c9c92215c3c8f35fb9ab.png" alt=""><figcaption></figcaption></figure>
 
 Entah kenapa z3 error, namun karena value per index nya urut, jika index ke i diketahui maka i+1 bisa didapatkan dimana i>=0 . Jadi tinggal brute per byte dngan validasi manual. Berikut solvernya
 
@@ -220,9 +220,9 @@ for i in a1:
 print(flag)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/raoKCyGhqlfOS5EiQysHEZoPiM64ocI5yd6J2nCpHKiBQAPKBrHrurvb4YTsRrtoO1vb9NzsT41JqP9QOV49ubCJlt27XE74fVjcqaz2JdEf2g46UsGVMAxRE3ASWVpwYBa4kQWJYngbXRG4rTjiFGo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0e1ae93b7da333d0d5caf699.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/LPmVcNIF0eyXgssBLebblRXZv1faSFDIDTKshc3iofPniXimCiifovbKpHQ2v9gtzYw5yixszciDAT9WFojSy9Ya3m_2dwQhVAjFMLcnd8hPHjWro5j0Imp4VQTthN9krMKGcQwNtDqVfNKFigKzojo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ede027fe560a65d20a0556ca.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST22{NluVCPPa\_H0hO}
 
@@ -236,7 +236,7 @@ Flag : IFEST22{NluVCPPa\_H0hO}
 
 Diberikan executable yang dicompile menggunakan pyinstaller. Lakukan decompile dengan <https://github.com/extremecoders-re/pyinstxtractor/blob/master/pyinstxtractor.py> . Disini python saya build dari source code untuk 3.8.9&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/xei5YdmOD_aFlV6mcCPWTGZ7tNph3mp-4mkNYS2jh77hDOtJpkWCMVeYtaoUnEnrwEequ_YH-rfb9Hx85ryD3HAY9r2x7VAFqSjSrlL_3me-V8Tqo5gaDsv8fiaUeRAnwlASLhURvHWobYWO7hDYfPs" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/36655b47392bc6a0f37ab4e4.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya tinggal jalankan file py dan dapat hasil extractnya. Sempat terjebak mengira bahwa array congratuliaions lah flagnya tapi salah. Jadinya cari lagi ternyata ada di fungsi secret\_func. Namun aneh hasil pyz encrypted, mencari referensi menemukan <https://github.com/extremecoders-re/pyinstxtractor/wiki/Frequently-Asked-Questions#are-encrypted-pyz-archives-supported> . Jadi tinggal ikuti saja caranya , berikut script decrypt yang kami gunakan
 
@@ -278,11 +278,11 @@ outf.close()
 
 Selanjutnya tinggal decompile file secret.pyc
 
-<figure><img src="https://lh7-us.googleusercontent.com/oAWDDoqWh-x1jmqSa_bPe_axnS7mneSXB5pvKziqIeq806zrPhERjZnFizBIAp63HaXH_EFs59QJYXGhqinfk1ZzYnsMffu84XmaKEbXZNIZEvSbyI02MEGdKyNZLDYEYSQZgW-MJLISnTaAnXMHD24" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8c306ca4836de873a739bc96.png" alt=""><figcaption></figcaption></figure>
 
 Jalankan dapat flag
 
-<figure><img src="https://lh7-us.googleusercontent.com/k8fzdp5IcMV4Tnny9SzIMH75F2vp3KgJxjnm3Yy6kwj6weGi2iAjJjex00ophn-LvSYCgc4bEt-uvrlRr1zW44d7pABRxH34XOhtzhxPjtQsjRvW1v-hRA92X4KlA1sgY3LSg-LJ36d7k_aVQisO5iA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7504e2ec7732731459024db3.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST22{mAsm4n\_sEnan9\_1stri\_tEnanG}
 
@@ -296,9 +296,9 @@ Flag : IFEST22{mAsm4n\_sEnan9\_1stri\_tEnanG}
 
 Executable golang. Mudahnya lakukan debugging, coba bypass setiap pengecekan
 
-<figure><img src="https://lh7-us.googleusercontent.com/betx3-PJ8jjmY60ftN1ZMmWB6_p6ODjAdv8S1tTRPUHK0xKKmpo4sU9OvKSognAZfaO1YDJGz9AaK5J_6KL3dzNxdHLReVCbl8FIzuc0kUSlBCb-yZhF-_NTOjBQUU7TaAaWhkYpPNFCemlH8eIZRXY" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/352dfc09dace050de5a6dc88.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/ixG4j1eGigz1BYr2U4aYqGhoCdfluc_0bt_q1RBbinr0VJVI0DZO5AZab4R5ubagu2TLD8iKw27CRiaOmdEFFVLLDq5V-nHfMoX2BU3vm9zpK_r6gjJF63tPI6uVXAwUKfa4wocoXZ6Z0WygtG8HbPA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/62a646912ff28ac165707593.png" alt=""><figcaption></figcaption></figure>
 
 Contohnya ubah nilai rax menjadi 0x41 pada saat pc ada pada instruksi tersebut. Setelah bypass semua ternyata dapat format flag
 
@@ -314,7 +314,7 @@ IFEST22{93n3r4t3_input3_input4_input5}
 
 Selanjutnya tinggal cari input 3 4 5 saja.
 
-<figure><img src="https://lh7-us.googleusercontent.com/om6Z44sgzA34-l9Wy64zP4VXtsQNbpLA_cpyDQf9mbAqyHIThqhIu2V3WeARHyk1p7U7WRn3F__Xar7rMgBSbLawP4gCbvcJU3rKiVHIDxvT4Gn-mweYU8z4RI6kS3CdWVvU2Rrlou4tOD-YXZQjWaM" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9e6d23088e5e5edb8d8a1c33.png" alt=""><figcaption></figcaption></figure>
 
 Kurang lebih hanya aritmatika biasa. Berikut solvernya
 
@@ -334,6 +334,6 @@ inp5 = (main_VALUE_5//2) - main_VALUE_4 - main_VALUE_4_ext - main_VALUE_5_ext + 
 print(inp3,inp4,inp5)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/m14FQPo5rymvFoO7d4Verv4HA2x33GVFUZteeJJ4iIiYBfXpK2A3CebvULNxxVCjJPSL-ADOUxGOpRUOjQteyBgE5Jj8k9rAc6QXUWs99QEs7SGsLa07DI29cPSGvBCOtUmWHkX1NZhkHjIP66x_h20" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7462e1669a132eb76a5318cd.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST22{93n3r4t3\_4000200070\_1000200050\_2000400010}

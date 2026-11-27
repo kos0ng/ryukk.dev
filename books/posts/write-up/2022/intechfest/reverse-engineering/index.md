@@ -22,11 +22,11 @@
 
 Diberikan file ELF, kami membukanya menggunakann IDA.
 
-<figure><img src="https://lh7-us.googleusercontent.com/54p_URSV3ai4H9XCpLkL5psub79pebc9CiI_nh5I-p2iGOTv6d3Ap2VG4hZOBTsK-0UXCj0T0gogw2qRLNjDYKOPuEPGWx16QxPS4G7z7PAqglVpVf4Ilz-7AZD4KkQHb0faB3Vg13ym8JbQXiVPR6E" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e78832de93ea5e23392b7898.png" alt=""><figcaption></figcaption></figure>
 
 Intinya kita harus mengubah variable v6 menjadi true dan harus memiliki balance yang melebihi harga flag. Bugnya ada pada fungsi sub\_805FCA0 atau pada saat input nama
 
-<figure><img src="https://lh7-us.googleusercontent.com/ZHTxMDA5d1augWAT8-oJNUuVGS7YFt64UikBk4BqAgEX4_3_vTnZDxlXBUWdn6rt-ux15KbO2_hrn7Ta5v_t2GHehfkNTw9wxQE6pUx5GwoJxS2VrxHSy-JN0zbaNDwG5DwxqEj6mMPe6lDIPgiMMWY" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/808a351fdcc079d7464e8127.png" alt=""><figcaption></figcaption></figure>
 
 Ini lebih ke pwn, jadi tinggal buat payload untuk overwrite local variable balance ebp-C  dan v6 ebp-1C. Berikut solver yang kami gunakan
 
@@ -57,7 +57,7 @@ r.interactive()
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/EPiscZMTGhJKG-2T_FnS-gTbSe45P6HXqY-UxMSSWRCv6OfExCPM8o8xM9AhvfGv_zb4sVVl_ghPLi-x_320YT3qzIp4wVWO_aQqH6mmgdhDaEkHIa7eG7AkacALI1Ih9vbiGNU72t9Iu4CoOwhednw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/06ab75e72b7b184074f36342.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{int3g3r\_0v3rfl00w\_s000\_bas111c}
 
@@ -118,7 +118,7 @@ for i in a:
 print(flag)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/KZw6m3avtc6-lZNAAGyR7hgKEySwghTpGjCIvFA8mXG92W6xslKrxEo7895AKXU1KDt5COYJP8imGY15MpcG7yqa6WsQMpvsqtk_-X_nw_hx_YcrmEpDsF7YDjlG0fMxXnD-Cg93_b0RQef7F_y5yrM" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6bacc6347c88bb310cb40b50.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{d0nt\_u\_l0vE\_4NaLyZinG\_pYc}
 
@@ -132,11 +132,11 @@ Flag : itf{d0nt\_u\_l0vE\_4NaLyZinG\_pYc}
 
 Diberikan file luac&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/dfN0T8D59uyCtWdR5jn6UGqH1XGFoGNfz0d4qceNf0nNAvFprnBWH9X76yS_udUkqmnlCJOTXLFQco_FUQEd-vf7LS5Fu9U4WtTA-wi8Z4Jw5_z8LssKaqTDye8Jcv4Y518DGtGE4jmg8hLZ6rqKVeo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/09326092eabcfb8900b87254.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat versinya 5.2 , jadi kita bisa gunakan luadec dan compile manual dengan versi 5.2 (<https://github.com/viruscamp/luadec>) . Ketika di decompile mendapatkan segmentation fault, kita coba disassembly lalu mendapatkan nama fungsinya. Kemudian kita coba decompile specific functionnya.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/VlHrWiZ6Mcb-TN4iX_i4EcbWNUCoQM5L-5PbUFPtR1TNTCCbc0ZySTfVWSfxwXxTqDzrDJuFMJous0lVm7liKvPB4MfPqGHo0aEEz5pin7WbuEgKpXuEznRKQaNdovYJbygTNeiMPBNJ-FUVfu-HkYg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d490ff42e9c85485115f663f.png" alt=""><figcaption></figcaption></figure>
 
 Fungsinya cukup simple , jadi selanjutnya tinggal kita reverse saja. Berikut solver yang kami gunakan
 
@@ -154,7 +154,7 @@ for i in range(0,len(a),2):
 print(flag)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/jo9jCIje16RMKfc5J6siFk8hgiQnMHD3xxtYTlFc1erPWGCy_qobj0LNkj3B8sF3HceBjtCrDw3vrP4Lev-FRoD-_L_JBDOHG2fHnmA4-4t1i7BaZmO6KTc424u0pLcV7UcDXRNSkfuD-eAAhyLk7Xs" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f64e4feeb5903f5cfee56e09.png" alt=""><figcaption></figcaption></figure>
 
 ## go go go! (499 pts)
 
@@ -166,15 +166,15 @@ print(flag)
 
 Diberikan file ELF, kita buka menggunakan IDA
 
-<figure><img src="https://lh7-us.googleusercontent.com/hfkErAsayXrBMt0whp2SBPpYxaHj_wpxF5iHf9zrYH86yh4-ozqaPR34c2daoDNgW2pHsvFhTUjV8zUCIIW00_4CqCakCYfjiRCqw48nMxD8IyDcvVNHGKA3WC9uYRnQtMaZgePra_b-Sy7bfI_GLkI" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a50c8ba14663a92c0387453c.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat ada fungsi yang menghasilkan nilai random. Jadi kita coba debug untuk mengetahui prosesnya
 
-<figure><img src="https://lh7-us.googleusercontent.com/8hxrQXK2uCWXJt7iRuR2B6pUjIm3IdzZJN_bytUai37ExD4w3MKxBjzZDjLL2XQUO7xdcI_7kBfLGOtLQZjSwCvGvEnIp6pzW6N9FT7HEL1dn9gmBVx9BV0xUuIhyXQD00hc0q8aORJM8V30-1BUWPo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4b2cf7a7f2d925ed7971a3c9.png" alt=""><figcaption></figcaption></figure>
 
 0x69 (i) di tambah dengan random value yaitu 0x54
 
-<figure><img src="https://lh7-us.googleusercontent.com/4sSfPENNRE0lqJWHRMah6_HyDl0BR54eJcYnelIlIKFSJoYnbwJPGXCzFqsgERfLR8Jv8DCuty8MjQDNAky1w2m7Z5ybgJM7uEwNiUQoclUxoLhwu1Gz9ZhGTTPIpSWYKMqAPUzFrSmlkW7JxEkmUwI" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4b644e4b310c313fbd5060aa.png" alt=""><figcaption></figcaption></figure>
 
 Kemudian hasil jumlah tadi di xor dengan 0x34 (random value) . Karena kita tahu format flag jadi kita bisa mencari possibility value yang digunakan untuk operasi xor dan add. Kemudian possibility nilai tersebut tinggal di operasikan ke ciphertext dan validasi flag yang mungkin secara manual. Berikut solver yang kami gunakan
 
@@ -211,7 +211,7 @@ for i in poss_key:
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/AgFHeqonA2tUdD7N1i2YZGFmMP4TgBBvSp18-LtMKmd_wSohW_pStP7RNPJS9uxfRp6WwH57YFzvuFrVD-9g0z-OFDTuKwOpA-tBymMW_jU764OqVsOAM8PVwQCW1Uz_CuLr8bFvLJa88IyenJt6O4U" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/136c8e69cf85f342797f04db.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{Here's\_some\_choccy\_milk\_cz\_you\_are\_3P1CCC}
 
@@ -225,17 +225,17 @@ Flag : itf{Here's\_some\_choccy\_milk\_cz\_you\_are\_3P1CCC}
 
 Diberikan file PE. Terlihat bahwa executable tersebut dibuat dengan c# .  Selanjutnya decompile dengan dnSpy. Terlihat bahwa program diobfuscate menggunakan confuserex. Jadi tinggal deobfuscate saja. Set breakpoint pada pemanggilan fungsi gchandle.Free().&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/82t8R3rzsIAjxbUmStAtSqSn3KfYWoCEpAdD79MC1mxPnve5Cjij_Fb9qEnGudxXI08BvV2K9msD5zb_y9OeCmdsBa3MtAYSfl3G3zadxs3GAek5ofCAVW7BcVB4aYQBapEh_NQ40VY1b-w_qLq8UTE" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c70f9c6e8818f65239dcba11.png" alt=""><figcaption></figcaption></figure>
 
 Kemudian dump module koi yang merupakan executable aslinya.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/cuzs5hB37HTw8TPw4vOxXnOmO0bLSHwP5ZR2F2hq8SaInutkrX8Y_Q7DYxqpPagUjdQU4upTYnXRAj4SOLk2VrAPiWrjN3SqgxVp91Y_vKjTO4QUWhWKcYboS-QnFUBNfNLnEyVccvdxuTiahbu7rP0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ce46e3042b051f0575bbceee.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya buka file koi tersebut dan terlihat kode program aslinya
 
-<figure><img src="https://lh7-us.googleusercontent.com/MX5ywZ1jWwzuNrA5GcLg2l3XS8b1Zjs22Q4Tr6zhr36Sc1mNXJG7qiJDBrj5XCwGdhGPuJjK1PYErAbv1fjQJGxl4cHWCPND7KUx2kcHH5mMhlpw-_7D-lnlhLXsz52EHJhi_JkWVc0LwUF2PDb6I9s" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5fde4d83e776df24a37daff4.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/E8PjwbO2Rv0BIlYp8EMhzBm71Dlunq6dvjygTHi_95QOfY3dOqM8SEd6qJ0DMANDS6aZx9hltYwtqG18J0ygnj8RiKrOSPBaB5o33CWfSUsZb3f6pAE8LVy5alrxnvI6094lGLcnX4SZzt97Ytpz4NU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/974414afdd1b2125a495cc0b.png" alt=""><figcaption></figcaption></figure>
 
 Terakhir tinggal reverse saja. Intinya value pada config.txt di xor dimana untuk valuenya (nilai setelah koma) didecode hex namun untuk keynya(nilai sebelum koma) tidak. Setelah mendapat key tinggal xor dengan isi dari setiap file. Berikut solver yang kami gunakan
 
@@ -279,12 +279,12 @@ for i in list_files:
     g.close()
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/pEpvWOhtA4BHXZOkdHefL89ZCxFMqb5XeSTIUybEvg7RNnp_1nsdF6iJhigHGG5KxINUb_GaJchj5lMncYt8U7_Yu-lA7f_D9OsNzzuhTg-AH-_SaW4W1aA1ZjwsGCTEogMnc9kIkwncFESqTz9e5oY" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/07f1e1926ea990f5ebb5dbcd.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/AOSKUILsbaXJ4L-CMiGZ5fiipj0LNGq-vXf1FOIRkTBmino41P5j2SQDZZWxSXfS5f_M7yNW3z2sLdMQIZvC5lGwmWFFvhI5JbfjYp1f6I96MorYuNz1WWnTezcWyJxUmLjiifNtiOxhvhH-Lqebvd8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e3d213d8db5d0882f76babbd.png" alt=""><figcaption></figcaption></figure>
 
 Kemudian tinggal satukan gambarnya dan dapat flag
 
-<figure><img src="https://lh7-us.googleusercontent.com/AQRyayssFM9A3eKWMsuRIqerIpM-WOpIoUIotTQDWBnA8LB2_BLDQ7G8XnSc1DjR_jae8nebXr1d1ZvYAVSHfL9OuPPI5wKh6Ld_pH7gLprKaw0Djgx-tYhx2Y4jaqR-UWRTjl0KQvDfoTM5NAikcao" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6415e266ac2cb0c89375e17c.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{exp0s3d\_keys\_are\_dang3rous}

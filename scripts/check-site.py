@@ -1,6 +1,7 @@
 """Offline migration integrity check. Run after npm run build."""
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 from urllib.parse import urljoin, urlsplit, unquote
 
 
@@ -9,12 +10,17 @@ class Page(HTMLParser):
         super().__init__()
         self.ids = set()
         self.links = []
+        self.resources = []
         self.feed(path.read_text(encoding='utf8'))
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if 'id' in attrs:
             self.ids.add(attrs['id'])
+        if 'src' in attrs:
+            self.resources.append(attrs['src'])
+        if tag == 'link' and set(attrs.get('rel', '').split()) & {'icon', 'stylesheet', 'preload'}:
+            self.resources.append(attrs['href'])
         for key in ('href', 'src'):
             if key in attrs:
                 self.links.append(attrs[key])
@@ -37,9 +43,19 @@ for note in list(expected):
 if expected != pages.keys():
     raise SystemExit(f'Page inventory mismatch: {expected.symmetric_difference(pages)}')
 errors = []
-for path, page in pages.items():
+# Outbound references are fine; resources required to render a page must ship
+# with it. Include CSS dependencies (hero artwork, web fonts and KaTeX fonts).
+checks = [(p, page.links, page.resources) for p, page in pages.items()]
+for css in public.rglob('*.css'):
+    urls = [s.strip().strip('\"\'') for s in re.findall(r'url\(([^)]+)\)', css.read_text())]
+    checks.append((css, urls, urls))
+for path, links, resources in checks:
     base = '/' + path.relative_to(public).as_posix()
-    for link in page.links:
+    for resource in resources:
+        u = urlsplit(resource)
+        if u.netloc or (u.scheme and u.scheme != 'data'):
+            errors.append(f'{path}: external render resource {resource}')
+    for link in links:
         u = urlsplit(urljoin(base, link))
         if u.netloc or u.scheme:
             continue

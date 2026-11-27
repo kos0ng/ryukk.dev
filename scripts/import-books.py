@@ -7,6 +7,7 @@ from urllib.parse import urlparse, parse_qs
 import subprocess
 from functools import cache
 from gitbook_math import restore_equations
+from gitbook_images import localize_images, save_image
 from gitbook_tables import retain_challenge_index
 import xml.etree.ElementTree as ET
 
@@ -49,7 +50,9 @@ def save(job):
     md = restore_equations(md, load_html, url)
     if path.exists():
         md = retain_challenge_index(md, path.read_text(encoding='utf8'), url)
-    path.write_text(fix_images(md, url, load_html), encoding='utf8')
+    md = fix_images(md, url, load_html)
+    md = localize_images(md, lambda src: save_image(src, path.parent))
+    path.write_text(md, encoding='utf8')
 
 
 if __name__ == '__main__':

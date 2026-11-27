@@ -12,7 +12,7 @@
 
 <!-- /challenge-index -->
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNxDUjcOM7l4q0gGpsJbA%2Fimage.png?alt=media&amp;token=0e75603a-7d39-4274-9bbe-f0de77306d45" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1c0d8d807111f9f14cc0054b.png" alt=""><figcaption></figcaption></figure>
 
 ## jumpout (84 pts)
 
@@ -24,41 +24,41 @@ Sequential execution
 
 Given ELF 64 bit, decompile with IDA
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FXLIp5t1EGu3ThhraXyag%2Fimage.png?alt=media&amp;token=772a0812-1b83-4a95-ace4-8ffe7e4ed981" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d5504c9f379df683d4bcdeae.png" alt=""><figcaption></figcaption></figure>
 
 Basically the program receive input then it will validate the input. In this case we can't directly see the algorithm since the program call the function by jumping to some address. So, to get the correct algorithm one of the way we can do is debugging. Run the program then press ctrl+c
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwOBR6QojNb6l9zrnpBkH%2Fimage.png?alt=media&amp;token=59314a99-9316-4f08-add5-b276fda89b03" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9eb45f821b5641687bd0a130.png" alt=""><figcaption></figcaption></figure>
 
 Use bt command to see the backtrace
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FaA4h8lPV4lPWKFNGuXsA%2Fimage.png?alt=media&amp;token=9cea9b07-18b4-4941-818c-95da503be491" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1d9b60518d385d4e8d4cbc75.png" alt=""><figcaption></figcaption></figure>
 
 Set breakpoint on 0x555555555203 then run again the program
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVLTUrNvUIqhNL0YguQwT%2Fimage.png?alt=media&amp;token=a8d3fb8f-4693-4714-989a-cba2a79736ce" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4b4861b316e16bf047f39048.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5GcqiP6sWdA16k3qNJrX%2Fimage.png?alt=media&amp;token=5f172f10-7dfe-4dc9-ac08-9c20b909c7ba" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/86d34f025cd8fbd52091e36f.png" alt=""><figcaption></figcaption></figure>
 
 Set hardware breakpoint on address that store our input. Then continue
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FywtmWoxncHKnxRSXCZrP%2Fimage.png?alt=media&amp;token=8d893cf6-0190-404c-934e-f280b4c4a37d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b2b70537212e01f879f5f725.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FMizdKok2lRviGl1ojEkG%2Fimage.png?alt=media&amp;token=65d3f68a-2eaf-4bba-9d0a-b829efb8ae1d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e2192dc1df29cd324f0749b6.png" alt=""><figcaption></figcaption></figure>
 
 So our input length should be 0x1d . Set breakpoint on 0x5555555554f4 then rerun the program with input that has length 0x1d . Step in to next instruction until found interesting instruction such as xoring our value with index (0x555555555453) and with static value 0x55 (0x55555555543b)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwxAljeMCdu5nVn64NiXj%2Fimage.png?alt=media&amp;token=73bf890a-751e-414f-b959-b07b3f5af7e5" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f0588f0822bbd7fa1bb2892c.png" alt=""><figcaption></figcaption></figure>
 
 &#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIDTZEdKVg196TMUGHDrh%2Fimage.png?alt=media&amp;token=e825bb29-d2ae-4cdb-82f1-4b2b9df517a5" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2bb63c07e6c19751962b7a51.png" alt=""><figcaption></figcaption></figure>
 
 After calculated the input program will xored again with value on 0x55555555540b. r9d register filled with value from address on $r10+$rdi with $rdi == index.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FWvJgXq80LSb6NyVztdrN%2Fimage.png?alt=media&amp;token=57f7d685-6850-4b3b-abe6-3b612ca9dfc1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2965a1b309d7571754ac93b0.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FsFIG4WclOja8Dz7KfqR1%2Fimage.png?alt=media&amp;token=17cec32e-f0f5-4c61-9ce2-4a8ac9efed3a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/05e89ac6990867693c2de1c2.png" alt=""><figcaption></figcaption></figure>
 
 Dump the values using command below
 
@@ -66,11 +66,11 @@ Dump the values using command below
 print-format --length 0x1d --bitlen 8 $r10
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fk2LnZpfny1FUKY7qDwUr%2Fimage.png?alt=media&amp;token=81a6636e-04f2-41d5-bd6a-e45a8766b5be" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e205f1c8c075046a2871e716.png" alt=""><figcaption></figcaption></figure>
 
 Continue the flow we will see instruction that compare our calculated input on 0x55555555557c . Dump the values then write script to get the flag, since the program only do xor so we can directly implement the same process to get the actual input (flag)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FCN3CZO5MckaRwwjPNH9d%2Fimage.png?alt=media&amp;token=3131afe7-8a9d-4e5e-a437-ef09541a7f22" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8c7ba2089d36d943491b1fce.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 buf1 = [0xf6, 0xf5, 0x31, 0xc8, 0x81, 0x15, 0x14, 0x68, 0xf6, 0x35, 0xe5, 0x3e, 0x82, 0x9, 0xca, 0xf1, 0x8a, 0xa9, 0xdf, 0xdf, 0x33, 0x2a, 0x6d, 0x81, 0xf5, 0xa6, 0x85, 0xdf, 0x17]
@@ -94,19 +94,19 @@ Pickle infected with COVID-19
 
 Given python script that load pickle data (serialized payload). Actually i've tried pickle reverse engineering challenge on [LACTF](https://github.com/kos0ng/ctf-writeups/tree/c8cccc9005f68ac3cc15c23f2c3cdee75ab60568/solver/2023/lactf/re/snek). We can decompile pickle data using fickling <https://github.com/trailofbits/fickling>. But somehow in this case we can't decompile the data and got error.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FzO7JigJb3AkTMryoODsD%2Fimage.png?alt=media&amp;token=0eebb5e6-3492-46fc-a66a-28a3a740cf38" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/be954b7bda08710ce45126d9.png" alt=""><figcaption></figcaption></figure>
 
 To know the next decompiled code, i rewrite the library and add some line of code to skip the error and continue the decompile process. Open the source code, in my machine the code stored in `/Users/kosong/.pyenv/versions/3.11.2/lib/python3.11/site-packages/fickling/pickle.py`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FYwAVaxC21aZ2Y5Bv1myj%2Fimage.png?alt=media&amp;token=9de3d9db-0376-4bb0-8460-8cd6f8e04e81" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/af610026a94d976b59f2222f.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F0iRHh9cr6yUpIyav5M02%2Fimage.png?alt=media&amp;token=9fd71f62-a5b1-491f-8773-3405c3855fa0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f5612a8d0cae4d48c9cba17a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F8XDnjnd34LjltKVUv0Qr%2Fimage.png?alt=media&amp;token=5b3dba60-b22c-4cf8-bf03-c366570d638c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/283776185cb0836959d70d92.png" alt=""><figcaption></figcaption></figure>
 
 So i add new variable `tmp_val` to store all pushed object and when there is error caused by pop from empty stack i just pop some random object from fake stack (tmp\_val). Run the fickling again and we will get pseudocode of pickle data.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Ft6vT8K2cfc1ZsGW0XIpS%2Fimage.png?alt=media&amp;token=10405dee-026c-48bf-b5ab-e5b0f947a08b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c3b763d12545542567d62abc.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 _var0 = input('FLAG> ')
@@ -190,7 +190,7 @@ d = inverse(65537, p-1)
 print(long_to_bytes(pow(ct[0], d, p)))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fy4JLa6qwXWdGIVVEneqs%2Fimage.png?alt=media&amp;token=e49b933a-8218-447c-875c-3f4f58a1be76" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/90e37f2c771da2ae54ad87f2.png" alt=""><figcaption></figcaption></figure>
 
 We can't get the correct output, so the next step i do is replacing the builtins pow to know the actual value processed by the pow function. Here is the flow i used
 
@@ -213,7 +213,7 @@ f = io.BytesIO(payload)
 res = pickle.load(f)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fl5lo3ErZoezpww5qI7OY%2Fimage.png?alt=media&amp;token=d6f90e89-d6df-4ef9-b246-1fdd83beb73c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9dfdcc191962ce404224fd4c.png" alt=""><figcaption></figcaption></figure>
 
 Value processed on pow is 5982845580366531443 and our input should be 4774451407313060418 so there is algorithm that process our input. Using previous information i try to xor the processed value on pow with actual "BBBBBBBB" value and got 1244422970072434993. Xoring our decrypted output from RSA before, we got the part of flag.
 
@@ -221,11 +221,11 @@ Value processed on pow is 5982845580366531443 and our input should be 4774451407
 print(long_to_bytes(pow(ct[0], d, p) ^ 1244422970072434993)[::-1])
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FqA6IlBlRfXMqBbSPm8nQ%2Fimage.png?alt=media&amp;token=d4da3af8-ad22-4de0-b4b6-484efb2d4e99" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e9ef559da386ec64ca677b6c.png" alt=""><figcaption></figcaption></figure>
 
 Decrypting the next value using the same flow and value we got invalid output. So there is something wrong with the static value (xor part). Through previous output (from nice.py), we can analyze what is the actual xor value.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEW5WSe26yyQgb9ITzEwr%2Fimage.png?alt=media&amp;token=2b531b01-2fc1-4e4b-bae2-92bcd4ddcdd2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/32c007506aa8ed8a5504b74e.png" alt=""><figcaption></figcaption></figure>
 
 So basically the actual xor value for next process is the ciphertext value from RSA. Using this information i write the script to get the whole flag
 
@@ -263,21 +263,21 @@ No, I'm real!
 
 Given ISO file, open it using VLC media viewer
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FDqn3u6m1v9aN23kgHVE9%2Fimage.png?alt=media&amp;token=5591e0a6-9188-410e-80c4-20466ee4770a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/09c7466b43e93f0001d14613.png" alt=""><figcaption></figcaption></figure>
 
 So basically the program is flag checker and we can click on screen to give input. To get the code behind that ISO we try to findout what tools can be used. Then we found <https://bdedit.pel.hu/> . Double click on ISO will automatically mounted it on windows. Load the mounted ISO on BDedit
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FglibL5wR1AcGkCrUxP4p%2Fimage.png?alt=media&amp;token=1fc3ac33-7d27-472e-a183-7ebcddbcfada" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/434129d3d4023ac2a67cddc1.png" alt=""><figcaption></figcaption></figure>
 
 Exploring the tools, we found out one of the way to get the logic. Click on CLIPINF tab then choose sequence under zzzzz.clpi then click "Read". After that double click on Stream Type IG on ProgramInfo.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVewD2PvcxGGfU5mY2mTS%2Fimage.png?alt=media&amp;token=9740cbbd-3dbc-4f08-b3db-3294c5b8fd8f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/41f2fccf501e9d787b6d08ec.png" alt=""><figcaption></figcaption></figure>
 
 We can see that there are many ID and all of the ID represent object on program for example button.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOZdmQswDveDBu3Y0tzk3%2Fimage.png?alt=media&amp;token=c2a403e8-4093-4e04-85c4-18f14786386b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/59c854fb7ab6d31766db6127.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FF8v3XFKnavwO7keTsS0n%2Fimage.png?alt=media&amp;token=c735e20a-8f73-4aab-b4e7-bf5a5bc29d0f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/01ac6b9c0cc8a6c47d389663.png" alt=""><figcaption></figcaption></figure>
 
 Deeping dive into each value on each id we get some valuable information like on table below
 
@@ -290,7 +290,7 @@ Deeping dive into each value on each id we get some valuable information like on
 
 Looking at Command Line value we got something weird, one of the object has different call object. For 00000.clpi , ID 21 has different value. Since we know the layout of virtual keyboard we can determine which object on ID 21.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FUqsiF0EyYA8sIfCPXuh8%2Fimage.png?alt=media&amp;token=2c909333-942e-4ab8-85c0-7faae329185e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/eabebf7efb6b165349db91ad.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 list_y = [413, 543, 672, 802]
@@ -309,7 +309,7 @@ for i in list_y:
 print(dicti[672][453])
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEC1s5zSwq3EwXpdVHYQR%2Fimage.png?alt=media&amp;token=00a5c1d5-64dd-4181-b065-8311f0f08317" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8a9cf2e32adff434dca8fa16.png" alt=""><figcaption></figcaption></figure>
 
 Output from above code is S and looks like legit since we know the flag format is SECCON{}. So the next step we do is writing script to automatically parsing which button that has different call object and translate it to keyboard layout. We can using find function to validate which file that really contains opcode.
 
@@ -323,7 +323,7 @@ print(f.index(y_val))
 print(f.index(obj))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FK7rzUbpOG0IpZapVLrxh%2Fimage.png?alt=media&amp;token=00e634bc-93b7-42bd-9110-09880aa1fa37" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6ce9e3c1472929f0774632bb.png" alt=""><figcaption></figcaption></figure>
 
 Okay, now last step just implement parsing for all \*m2ts file, get different call object, and translate it. Here my implementation in python
 
@@ -391,7 +391,7 @@ for num in range(90):
 print(flaggg)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOihBHzhW7YBlL40WgK6m%2Fimage.png?alt=media&amp;token=1f1f91e9-f013-492b-a407-24cecd7d1871" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2386d0430063855331bd2d2f.png" alt=""><figcaption></figcaption></figure>
 
 Looks like there is missing one character on 5EL part, during the competition i just validate it manually by using BDedit to find out which object that different and i found that the missing part should be `85EL`
 
@@ -842,6 +842,6 @@ for x in range(0,25):
 print(flagg)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZm3BrOxrX9nNU2ft6tQ7%2Fimage.png?alt=media&amp;token=d92d2a66-0608-4beb-9d25-24f2145de545" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b4b195826121ae0f543410fc.png" alt=""><figcaption></figcaption></figure>
 
 Flag : SECCON{x86\_he2\_zhuan1\_you3\_zi4\_jie2\_ma3\_de\_hun4he2}

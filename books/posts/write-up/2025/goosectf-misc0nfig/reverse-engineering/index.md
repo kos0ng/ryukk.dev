@@ -12,7 +12,7 @@ Our good friends at Interrupt Labs have made this challenge.
 
 Decompile the wasm file using Ghidra. Looks at export and we can see unlock function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fif2jsINiSAFjsfQiKz8S%2Fimage.png?alt=media&amp;token=29903347-31a5-4665-bd81-ab011f54e824" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/14df3596c6457f01e1a76cee.png" alt=""><figcaption></figcaption></figure>
 
 pbVar2\[0] is our input and pbVar2\[0x100] and pbVar2\[0x200] are static values. So we can easily get the flag by xoring those static values. We can see those static values through chrome debuggger.
 
@@ -28,7 +28,7 @@ Flag:
 
 Given ELF 64 bit, decompile using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FBNP5Cei09zJ6UCOSRwOw%2Fimage.png?alt=media&amp;token=ec11f0fc-92a5-4be8-9a9f-e65538570c19" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/65aa49872bae10e0bd62fd98.png" alt=""><figcaption></figcaption></figure>
 
 From code above we can see that the hash and encrypt function are executed to generate the ciphertext that will be processed with our input. So we can said that ciphertext is static value and we can focus to the next step. The next encrypt process is reverseable, the idea is the core of encryption is on input\[j + v24] ^= ciphertext\[j] so we need to get the exact same ciphertext\[j] like the encrypt process.  Because ciphertext\[j+1] is chained with input\[j] that has been xored and we know those value we can easily write the solver. Following is my solver
 
@@ -86,19 +86,19 @@ Can you guess my lucky number?
 
 Given ELF 64-bit file, decompile it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FG3OgqJ2Lz9Jy7VxBA1mM%2Fimage.png?alt=media&amp;token=d77344cf-06f2-4f89-ae12-9d8720e7a08b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2f5e81cf3c99eda75e36d7d0.png" alt=""><figcaption></figcaption></figure>
 
 Main function basically set a handler for segmentation fault and then call funky function. In main there is no something that likely will trigger segfault error but if we take a look on funky function we gonna see something suspicious.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQmO5r6fMK1NaxRzyLjQu%2Fimage.png?alt=media&amp;token=716027d7-53dd-44ac-b93c-b08081576f01" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dd4d686f76d0def05d298f30.png" alt=""><figcaption></figcaption></figure>
 
 funky function basically will add RDI (our input) to the value stoed in stack. Value stored in stack is PIE address + 0x134a. Then, if retn instruction executed it will jump to the address stored in stack/rsp. So basically the result of addition with our argument will be used as the next instruction address funky function. After `retn` instruction we can see that there are suspicious instructions that never executed but doesn't looks like a "good" instruction in this case because when we see in main function, we can see that the value that will be passed to `printf` is the value returned by funky function (rax)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FdGfnscM2XJ2nAPlsQQGE%2Fimage.png?alt=media&amp;token=51555c73-bc25-4971-9574-827617a5f5de" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/98f6f7d64f281e834d3b4b90.png" alt=""><figcaption></figcaption></figure>
 
 So in this case we need to find the "correct" address that will give valid rax value after funky function called. IDA or another disassembler will try to do disassembly for an address from start, so there is possibility that the instruction on 0x1353 is not actually started on 0x1353, and this kind of mechanism is widely used as an anti disassembly technique. Let's try to decode the instruction from different start.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FTws7EZM28a0UmyYqmo8s%2Fimage.png?alt=media&amp;token=1e9a781d-fc1e-40cd-b956-f5f56313faa3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cfbcc689fa5029551f8b147b.png" alt=""><figcaption></figcaption></figure>
 
 We can see that if we move a byte (started from 0x1354) it will shown another valid instruction which looks like legit instruction for this case. Because in the end it will fill rax value. Now, we just need to find the correct value to jump to PIE + 0x1354 which we can do it manually.
 
@@ -109,7 +109,7 @@ f.write(str(inp).encode())
 f.close()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfSVGvpg7N9qnEDkQOnB2%2Fimage.png?alt=media&amp;token=d18dad57-a375-461a-b88c-8854771e8279" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bacb592df24288db1278e856.png" alt=""><figcaption></figcaption></figure>
 
 Flag: GooseCTF{iharcbh}
 

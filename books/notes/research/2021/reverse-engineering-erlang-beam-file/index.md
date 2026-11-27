@@ -10,7 +10,7 @@ BEAM is the filename extension of bytecode compiled from library ([ERL](https://
 
 Given an Erlang BEAM file, here i try to run it using escript but it failed.
 
-<figure><img src="https://lh7-us.googleusercontent.com/GJVjRHOhnq9ffw39HgXPZpJ1WnH800TIjKHM8mHNWTQHaJz3zkMTmPdJd8R2fibFiIT7P4znwOZA7DifdNEenXb8lPqFw1QMxKc5hUdkFDXTOxR3lcQAJzeljWgmWxGpkaRHCGPh4hngG399qCgW0A" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/273db51e34daef0a99b03a65.png" alt=""><figcaption></figcaption></figure>
 
 So i do it statically. Using iex i try to print the IR from the file
 

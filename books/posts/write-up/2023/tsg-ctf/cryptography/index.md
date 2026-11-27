@@ -84,7 +84,7 @@ for i in string.printable[:-6]:
 rec_find("{")
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FyLeDAhVPAJtgBhyZiKfm%2Fimage.png?alt=media&amp;token=af02de6f-d239-4568-b6a7-441858ef29eb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f4d6fd8cd4c9e0eda4b6209b.png" alt=""><figcaption></figcaption></figure>
 
 Flag : TSGCTF{OK,IsTHi5A\_un1qUe-flag?XD}
 

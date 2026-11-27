@@ -20,7 +20,7 @@
 
 Diberikan file ELF 64 bit , terlihat dari pseucodenya bahwa dilakukan pengecekan panjang dan nilai dari flag, dimana pengecekan nilai flagnya menggunakan perhitungan aritmatika.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/j6LQfIY-JPWD4i9sjiqvvqN8YvW-Q3KU6fSva0-uJmlp8jWn605Wo3CR4aZNRWkAwYfitC70uet2Ezgr-Xi4glaVMNPqYUsIuqSz7JHS4tw-Hi7CQ7z9fLzzfM6ZQVp8QfX6uEFqZPlRiYbPvA65cg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b5ea4dae153c50677f9693f3.png" alt=""><figcaption></figcaption></figure>
 
 Jadi untuk menyimpan tenaga di soal selanjutnya maka untuk soal ini kami gunakan automated tools yaitu angr, dan ternyata bisa dan cepat selesainya. Berikut script yang kami gunakan berdasarkan referensi dari  <https://github.com/guyinatuxedo/nightmare/tree/master/modules/13-angr>
 
@@ -61,17 +61,17 @@ Flag : IFEST2021{ch3ck\_ch3ck\_4nd\_23ch3ck}
 
 Diberikan file ELF 64 . Selanjutnya kami coba membukanya menggunakan IDA. Karena beberapa nama fungsi tidak terbaca pada IDA maka kami gunakan bantuan dari gdb.
 
-<figure><img src="https://lh7-us.googleusercontent.com/YZRaI8VDTQ1ZIEBmm4CAsmJU0DhrMt7jlcgSCaQ9KkFj_aRAoaRuOplyN-3IfPx_bE4dvlBk04-Jw_SNe9yxHpySlr7frh7QVxt8fN9NZYalsSD0Byv6mQOAdtAdaKwHL7nnznsgNFa05Ec9KNtpWQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/359e24ae4347c28a313fea92.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/yM7w7iEIr58AyQd9rr_FjECr4J4QRivhNos2z5PHMrO6JheZZ4_ceOGSABVg7uhbnayqP6Qc5aQfr4XtyObvu-7nm1Cv6gCrDI_89CV8YE3d8V9HesZHpVY1Uxjp-C7wl3BUcwKNf4W-9AcOiZXMbg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/549c8b6c585a14a251499dff.png" alt=""><figcaption></figcaption></figure>
 
 Jadi intinya program diatas melakukan write library ke directory tmp lalu memanggil fungsi licenseCheck dimana input kita digunakan sebagai argumen pada pemanggilan fungsi tersebut. Jadi pertama kita perlu mendapatkan file library tersebut terlebih dahulu
 
-<figure><img src="https://lh7-us.googleusercontent.com/pOTxcN5b7bFVKmdz1jut2oeJSqTg1eCQvCzmpbZWcVRPm2bXTi6oXV1P4wkjVsNtdgteL7l5m5K5ilhFH9B6o41zUSbf3UXQMyA6SwNm4NGgH9bxixV7rvakxMnsAv3fykSqUeMrYIycVF8hpErTMg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1efb189af971a5c18330cb8a.png" alt=""><figcaption></figcaption></figure>
 
 Breakpoint pada pemanggilan fungsi openlib untuk mengetahui address dimana input kita disimpan dan lokasi library
 
-<figure><img src="https://lh7-us.googleusercontent.com/nbbFGrS9ab2HU2681675gTFLZvBZDsLfOZWTxKoSMUtaI_LF0gqtviFu1AwZ2Ugj9Y7k6iYwvKKl-XGaSys-Brg3M8YBdSfBPaagUE68QqTU21i1pRQGQf-u18inqHVZI3CikHPGQ6lxmTeY1_5-Tg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/937adcad9bbd8f7d1eb4960d.png" alt=""><figcaption></figcaption></figure>
 
 Salin library tersebut dan analisis menggunakan IDA. Ternyata file library tersebut dibuat menggunakan GO , berikut inti dari fungsi license check
 
@@ -121,19 +121,19 @@ for ( i = 0LL; i < v6; i = v21 )
 
 Karena pada binary golang hasil decompile cukup lumayan abstract, maka untuk mempermudah analisis nya kita lakuakn dengan dynamic analysis. Caranya set hardware breakpoint ke address dari input kita
 
-<figure><img src="https://lh7-us.googleusercontent.com/3555_FeUfKuJaRRh5OhBucshtCRdb_s587Pjc01_xS1Y6NX0OGlhMK91STu5E07NR_ZpYbW7eLy0V7NQtGGxU6mTMQsTYeQJxJplnnG8z7GbkIUz-_BJxnHGOnWQzk8jNWbbZWXpHk62de5gOCZNJQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a205c69aeacd9799f442c4ff.png" alt=""><figcaption></figcaption></figure>
 
 Lalu continue kemudian finish sampai masuk ke binary golang
 
-<figure><img src="https://lh7-us.googleusercontent.com/P756Xa4mOMc4Ty1E97DvUxrCf9rAPGeE8m3oLxVvMn6yqvtYXKWqOscIi4yWKQBO-t9RqEDZErgdrYgu5UGVyp7DfLL62qdwBlsQ_X-IgEGhD_ZOjyuszjbWoZPcFB6-Y5w0Wi2-VMHZgqmMD5_sWA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/87b5f087f03dfb242f8c1ea1.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya kita sudah masuk ke binary golang
 
-<figure><img src="https://lh7-us.googleusercontent.com/HDqkH2ZQMFETdx0nIJprIqTdYPpDj2BAdSzoYdTihJqtAP3pMt725fcNa3DmGTI8KQvFtIqHoiuEkVjygkqQxR2Jl3TlIkJr79vYLDGleOLgDneXpDXXhpS9QGVVFkTkhlAx0TB-tUy4B84KsztAxQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e2b3bacfe12fdc18f4cb92a0.png" alt=""><figcaption></figcaption></figure>
 
 Pada saat dynamic analysis kita ketahui bahwa input kita ditambah 0x1337 kemudian dijadikan sebagai index pada main\_crc\_table , jadi lakukan dump pada main\_crc\_table
 
-<figure><img src="https://lh7-us.googleusercontent.com/BLNaNs-oSpYGJ2E8kTk9-0ZSNebU3UyJXBk4thg9qKdA_VX1A-QgFV4KEIBydPVSSsSZTMA12QX4YMXt8tTAqQjBpRjY7_RlPZR8wJGDQMO1YUsQB-uL-zszIfVS5jW6X9-0-9r8g1o3SVuPeoM4oA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9343cdcde34ac8795ac239df.png" alt=""><figcaption></figcaption></figure>
 
 Nantinya nilai tersebut dijadikan sebagai argumen random seed lalu dilakukan pemanggilan fungsi random dan dibandingkan dengan hardcode value pada binary. Disini saya melakukan parsing terhadap nilai dari hardcode value tersebut menggunakan gdb scripting , berikut script yang saya gunakan
 
@@ -195,7 +195,7 @@ for i in range(0,len(cmp_value),5):
 print flag
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/4T3aZbMqQgRd2RAYtRWbM6OoDMGPupJP3oT2co8FlOPvG91yMeUN0X_3Wo0SdShFOOgk-scYfADGtsxh3y3gwmUMWkBlDPKCTAgPvcp_YJYM5H_5NoWbRuOAHVOBVa4dpJdI7jML5c-ZHvFb3Sy5oA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6c3cb0ca3010c4d90623608f.png" alt=""><figcaption></figcaption></figure>
 
 Flag terpotong namun masih bisa ditebak yaitu mine} , disini terpotong karena salah di jumlah looping yang dilakukan saat pengambilan nilai pembanding.
 
@@ -211,15 +211,15 @@ Flag : IFEST2021{what\_you\_cracking\_lumine\_license?\_vengeance\_will\_be\_min
 
 Diberikan file ELF 64 bit , selanjutnya kami coba analisis menggunakan IDA.
 
-<figure><img src="https://lh7-us.googleusercontent.com/MW8oQMGbS_LVJnqshuq9A3kcsDYY_-0LufHpdwWzi9u4Xe-Ro2OKrHLSbIMs_vqcGcOP6KI_JzlLgCIJyaDHO8fb3KAjZbR-OwXJHVbGNysIGZR7yny1ebPd_PHY9hShLU4O7aMGD404-gsl7vhtTQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0feb520b6ee02857e346024e.png" alt=""><figcaption></figcaption></figure>
 
 Terdapat pengecekan ptrace diawal kemudian dilakukan penulisan file library di /tmp , disini ketika kami lakukan breakpoint pada openlib anehnya file library pada tmp size nya 0 atau tidak ada isinya , jadinya kami lakukan breakpoint pada fwrite pada packer kemudian lakukan memory dump berdasarkan argument fwrite tersebut.
 
 Bypass ptrace
 
-<figure><img src="https://lh7-us.googleusercontent.com/pg4-hbobQ0bqT8ObedMymTL6j1YA3gz0fMOjynoAuGW_k4o2v3eQh5qOQHckurxhn3LkppHT7E29hygdMNk7tYvp0_QBOFWR5dKJt95tjBinPXo4n9pVKKFOBQ1MNdWpDV0SzSH3SeDYgYL8zE-Bgg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/34a50508215fbd11aba01da9.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/c06CDEY7QtRn6QIY5OlbcztzMffmGgdOyY_gkJ_nqkCb1Jfsvi9BZxUO83B8D62aJ0VBwrFdByHnki_c_Urx9qzXs8c79olkVPpkYouTqJiUYs0C1MXA2mlqVUpxF1nuSBY6hMzPuwpPWiV-aZboEQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2f6f9470c10414bcf6b1f07d.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya kami buka file result.bin , isinya kurang lebih sama , hanya berbeda pada nilai dar crc table dan juga pembandingnya , jadi tinggal lakukan hal yang sama seperti pada lumine’s-license. Sebelum itu karena file .so nya tidak kewrite ( size 0 ) jadi tinggal lakukan copy result.bin ke nama file .so yang sesuai dengan nilai pada saat pemanggilan fungsi openlib.
 
@@ -241,6 +241,6 @@ print flag
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/8w-9dV_RaZvJ0ZFROiyqQjNSA2Lp-4qHq-u73bDuncl52VzqtRiDPLC6LYLv85rtB9JSwYWA0wBFwFJTEI-aOxOTRHyuQzGTZloeks4BFzPm5lqgYB8c4j6WQTq1KcMY7jlTuKOQ20F2Ls_2uJ7-XA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dece9dc49952cc684ff3d8c1.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST2021{NOoOOoOOOo\_didnt\_i\_tell\_you\_to\_not\_crackme?\_;-;\_uwu}

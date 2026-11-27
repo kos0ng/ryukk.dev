@@ -21,31 +21,31 @@
 
 Diberikan file ELF. buka dengan IDA
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf7dippekurTcdq4FaeekGB--52VOoG31apk6K9WRz4ZUQBNdMhqmBMWzZaJZSWN1P0pGzQ2U_kAa5VDuyAkEU0a8C0fY7Yl50ajKmtKWZj2bP8KrKQBetjq_ofFcLAWFhtoCRcYJ_na3DbhqAYFUcU-wBu?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2a178fd79f512359fd8a1430.png" alt=""><figcaption></figcaption></figure>
 
 Dari kode diatas diketahui bahwa input kita akan dimapping ke check\_function. Check\_function berisi shellcode karena akan dieksekusi/dipanggil nantinya. Jadi disini ada dua kemungkinan mengenai input kita, yang pertama adalah input kita akan digunakan sebagai instruksi atau yang kedua sebagai operand. Mari kita cek
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeJaP81dCYyVe0Ol0HyZcNtj6gp_tuR8LtdVc0v-XovXtav_tF3eXyUT9TZenEudUvi0abLz0Fn7s1yFnFhil14IajSCoEif3wiZXYIFsYZfspvBgR4JFNHCd3uGdnU7f3ETp6X10xxP5WGH8vfdGZYpmfP?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7c51974674090c2bde7e4ece.png" alt=""><figcaption></figcaption></figure>
 
 Input pertama akan terletak pada 0x4066 (nilai setelah t). Lakukan disasm
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdYop_Kgn9TdfAJ0_uVSlNTguFblfbRMyP00Ah5HYntztmyfA2PrnoMvBsjW9KuFCnud3gsMeQRH0XV88dr6H9dpgVoEQvRvDQjB6MMCVc4254xl13NCCqFS51_SJZgt7Vh8jt8lemEIREy6JomyYHMVT_f?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b2fb39a5013b96c7feeda667.png" alt=""><figcaption></figcaption></figure>
 
 Jika kita ganti nilai ff dengan nilai lain misal 00 maka bisa dilihat bahwa operand dari jz akan berubah
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf20rYFBWTpqDHUywfR2L6tp_nvZOMO2SqQ3tlnZMvJe-vo9a7J_IMtVPATv0N7c7XlvjcAOpqKpLvlFq9yxqSjS46kgrREbqcfj60DRzAwnz-7UOfVTARNrt1pg9_E9lkYbBuMkbN25fovnhh1x0giokq_?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dfe534848450ae5017306aea.png" alt=""><figcaption></figcaption></figure>
 
 Jadi disini bisa kita simpulkan bahwa input kita berfungsi sebagai operand dari jz, kita tahu jz pasti akan dieksekusi dikarenakan cmp 0,0 pasti true. Langkah selanjutnya hanya menentukan dimana address yang valid untuk eksekusi selanjutnya. Cek input selanjutnya berada dimana
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXemtDoOtH2rKx5FAG_cuHdOi0kJaqlELm3viB4Y-pdK5MCprWOez8BI1qspIKAo2Qn9Amem46WXHeW6uPV4qJinxFXw_Lvmih1l03bDa0wJ0SfHtNXoD45NL4fLXg0s7fbXyVZ_7k0VdMzdE8EN53aEL0RR?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6762683af64bdc2048f80395.png" alt=""><figcaption></figcaption></figure>
 
 Input selanjutnya berada pada 0x40b4, lakukan disasm di instruksi sekitar 0x40b4. Dengan trial dan error bisa kita temukan bahwa instruksi valid berada pada 0x40b0.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXd3P_8Bt2LcOqPLRy6WoDJyfObBBGcPBgR6WmP3lfy09MioFY4p9ujT4ZJnbgnd1mta-jsdOOHK-mHmjTqu-AJdfpmCBxL4cRKWUp_nMJQpdEzKH0fGlj_WH5BpP3_Ta0dtDRH6nED2XSqsyRrt-MUes2lS?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cb9824ceeb73e071c0cf0641.png" alt=""><figcaption></figcaption></figure>
 
 Dari sini kita tahu bahwa nilai operand pada jz adalah 0x40b0. Jadi untuk mendapatkan operand yang valid kita bisa dengan melihat selisih dari kedua address tersebut. (target\_address - address\_after\_jz). Contoh untuk input pertama adalah 0x40b0 - 0x4067
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXenwkSX7ur-5KTmYC1FUhxFXB_d61xeq6CTbdzhS-ZYycbPGsweMTmLW6vHjMZR8mriWPV6lOBxH7HvgCYIPpJr4pQ5P1yzBIqtwAUW_CQwy6550sElLMdoQ4hhG1ZhlYpndiuPJfwBrxfQGR4BM4jd0acM?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/33bacd6ed26d3322d0c607c4.png" alt=""><figcaption></figcaption></figure>
 
 Asumsi kami disini semua bentuk assemblynya sama, jadi tinggal scripting letak ‘t’ lalu kurangi dengan letak ‘t’ selanjutnya dimana perlu ada padding sebesar 5 supaya menghasilkan seperti kasus manual diatas. Berikut solver yang kami gunakan
 
@@ -62,7 +62,7 @@ for i in range(0, len(a) - 1):
 print(flag)
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeyVDKIJ5mjE_asjV5N7bNOBJHUhkPJsAbQDERdCC1B9QSV9xdtNodTtDcQ_Apj_MwMW4o370a2qqeU5cW7QfppgTBYBtdJcdeOMa1vFL7qVgs4nw6U1W5KXImiaUrT4py411Pq-5oK2z10sgHnaWZwp8vT?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3933a0c9d6c0cd893b65b49f.png" alt=""><figcaption></figcaption></figure>
 
 Flag: INTECHFEST{Br4nch3s\_As\_Fl4g\_Ch3ck3r\_Wh0\_W0uld\_Hav3\_Th0ught}
 
@@ -76,27 +76,27 @@ Flag: INTECHFEST{Br4nch3s\_As\_Fl4g\_Ch3ck3r\_Wh0\_W0uld\_Hav3\_Th0ught}
 
 Diberikan file PE .NET, buka dengan dnspy
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcIemyhrXI2STqWbXaddtsTF6-1iloW9y0M70p75XZlGfzfGMkXSvmbTsXMV4lDRKy5DJX1KtQl20y1iSZ9mlHisFWt8Au9KZRsU65W_BMSKPlGm_H5DwCSrQO4DVIAvpZt94noIMnZFjoIN9JCuU291dKA?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c2e461884bae65e17952a276.png" alt=""><figcaption></figcaption></figure>
 
 Fungsi yang dibuat oleh probset tidak terlihat langsung, buka dengan IDA untuk melihat fungsi lebih jelas. Pada IDA fungsi terlihat lebih jelas
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeKtJ-KedSpEPKEV33uuwoUPFVBTsT_j9jad-lN9iAxRRalC3tpXQbypNmKWDfdTL0cgowV-BDUmNn88edTQ4JgVeSuhhsw9X7lAS5sot7qEhEhnwzZmIz3EDb8cWC5kU0m-3UmTM95lZLlrLMoCR1G7wU6?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e949c1c25ecb750cd617683d.png" alt=""><figcaption></figcaption></figure>
 
 Lakukan decompile pada dnspy untuk fungsi decryptflag. Lakukan analyze pada fungsi decryptflag untuk mendpat xref.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc0ZrbDt87FWCAlTmpIIcWk3-Qzr0mCrjF4weWErVQ4BOSLrhg4Vcusa0fxKFjRXxvitcrWEVwlPG5w_k0JwAK2Yf7FZDzuPFAXvNTpQjzO_TxndvG_w55vSwnz9uHWWDXgUYBEnYhnfES9JQX5vLHITZiC?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/14d0ad7985f154db961066b7.png" alt=""><figcaption></figcaption></figure>
 
 Bisa dilihat bahwa fungsi DecryptFlag akan dipanggil jika username equal dengan Administrator dan serial untuk user Administrator valid. Jadi selanjutnya cek fungsi checkSerial. Fungsi checkSerial menerima dua argument yaitu username dan serial. Bisa dilihat bahwa username akan diproses pada kode berikut
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfPRH5Oz_1wnZW4CvOaTWDcHlGo1AhP8BYW7dHKwNtE_B74SzFHztXjcw6KPtj7FzYAYfINDviX-uYYUhITRxfJCdoG68RBkXidMUPI__FsAO6-vYfEgQqzGQrBgapqtnu4j1q1FfKwQ7VAAO69sNVFzTU?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/55212f048c030c93d615fd3c.png" alt=""><figcaption></figcaption></figure>
 
 Nilai akhir dari proses yang memanfaatkan username akan disimpan pada variable num6. Kemudian num6 akan disimpan pada vector \_u0020&#x20;
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcgi3yobRc11WA0ho-ZHi2ey12S0gDvs6uhb6jJLwiO0kdEPtf-scGejPqo0VQm1Zwj8rQSkr4YOkzYTsBlfw8u_H2cBMWKznxeOQ8boGgIAr3rzPNWLVNbZookTLJNOs7y3CoxGGJj4b-tXdXp6gq31uU?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2e50e8f1e4387e58aedd505c.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya vector tersebut akan digunakan untuk validasi terhadap serial. Sampai disini kita tahu bahwa nilai num6 bisa kita dapatkan dari program, selanjutnya tinggal mencari tahu bagaimana serial divadliasi berdasarkan num6.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfYBIQb3z2V-zpL8bzYSl7CFJNspFtYEFTpGC4FIpkRZR0nYVkNjFq8xjcLqGElXqgh2z8LF7HLO_xVBemk6EhXdtCznbEQ-q5J1re8BuV4dj2Qz2_xs1rouxrIEGSHJnTuyASWP7sR2UACckdu6KHGyelj?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2a87048f46f3e1b13cde1591.png" alt=""><figcaption></figcaption></figure>
 
 Sebelumnya ada validasi seperti input harus valid hexadecimal karakter. Selain itu terdapat validasi sebenarnya yaitu seperti pada (num20 << 4) | num21 != \_u0020 & 255. Jadi tinggal reverse kode tersebut dan dapat serial yang valid. Berikut kode yang kami gunakan
 
@@ -130,15 +130,15 @@ print(serial[:-1].upper())
 
 Dapatkan num6 dari breakpoint pada line berikut
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcbbhcCKW66OPC7fSZpO3cbbdq3NN8sQUKRPN2Y5tNLl6sNiYuUnJCUFalJHYuoUnynQYJfXEcMNn-DLSu9mK5a9cDGR8tRkSkesMp0MxAHXWD22j_ErPvpw18Le0bnX6rC-zobH6cQJkdAlxXBxpK_54eX?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6232463a6cd384a0375098b4.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdILdgtJbWoiLajHNfeO_Qnwsp3Xb5a2TNkCMAuXMSpCk6duJLvhow7-disT30i3MEJflQ-CdFDVfL5aYsP5yV9yeHlw2DFe1YId8u50VS6_VWYxausZYmal2OhhyClP6vtwbwwRo0rqP84pqjwOSrYZfYu?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/96740606d02d3087aa528365.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya tinggal masukkan user dan serial ke program dan dapat flag
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXchGeBKBDNUryxVmIjPRhIfX0-HOsvlLI4k_KajBfmP4cL9L7gKdPkXiF7tS94nEmhXH_EG6RPGfsorq2VgYXJQeUHFUrPb_CV7ZFQN7p5j-18IYnS77SsHW92bz3_h8oRx4YvAdGWI52HQagRlxzUsitqu?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7163ea0ead054141a7f8bee9.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdrcgAytVwbUC4d6p0JToF9NG4OS51oekyUD-VZxMf83L0yzypTfRQ4LF5vdA3pi7vcIHtjlTgYCnISjlcR866ysD3cpH2zDkRdEB2yaJl3h0CB6PeA-As37GryHIFZy5kBqD_gt7zhhjt-BrqLzHvFg4OM?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/26b71713c7284197bed38c7e.png" alt=""><figcaption></figcaption></figure>
 
 <br>
 
@@ -154,45 +154,45 @@ Flag: INTECHFEST{did\_you\_know\_that\_this\_serial\_system\_was\_the\_same\_ser
 
 Diberikan file APK, decompile dengan apktool. Dari struktur direktori asset diketahui bahwa apk tersebut dibuat dengan unity
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfANUZPwXkuzPc5bpp3GqL4-cBmoyw6NIuG6OmB-kXnFtjxLqZ1mzCMKCYKGOX61AmL8h4xtVfnfDINUBS0KWaLXwWF0Xa-ENzc0jYpTBdQWDoblIVI43lP6edTe4jwOWXOjyT6DFTMd08NhbWvxJvQXEM?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d64da463c3b186649f8976c6.png" alt=""><figcaption></figcaption></figure>
 
 Karena tidak ada Assembly-CSharp.dll pada assets maka kita perlu melakukan reverse engineering terhadap libil2cpp.so yang ada pada lib direktori. Disini kita bisa memanfaatkan global-metadata.dat untuk melakukan recover terhadap beberapa informasi pada libil2cpp.so seperti nama fungsi. Gunakan il2cppdumper untuk mendapatkan datanya <https://github.com/Perfare/Il2CppDumper>.&#x20;
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdWW8M7HUeiMJf-maWIHMuF3mZ0cOgZILaeOaALMlppFyox4p9WfgLW9P70AK-Ib_b3uuDzKusZi2bSx5SYbj6XOHRdGReY-cDmz0jsq3bpVGQ74Xx_MHzz3Gl_1OvI6Gn_U2ltm3Bgha5l4uCRgY2nc6h5?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1703a6e918a42759071706ff.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya gunakan script sesuai dengan tools yang digunakan untuk melakukan patch terhadap executable berdasarkan hasil extract dari global-metadata.dat. Disini saya menggunakan ida lalu melakukan load terhadap ida\_py3.py dan pilih script.json. Selanjutnya kita fokus pada fungsi dengan awalan GameManager.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdlWLjcaA81x84VfLv66TK_rpF4VXrCl7zL83lSpUR7kq2Ik5ILSsu1Xva_VxKHhUq9ZjQvsWqW0NLqW0EuDkxZmGxn-xgOzqRTbY6eUYAWxX8Cekxp5g1LMlQB2TXEEz9KJ4zW9sX4D_74_RsM8aZFBMYO?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cc610def3a419231110a1276.png" alt=""><figcaption></figcaption></figure>
 
 Lihat fungsi AddScore
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfEshqU4QfpdlBQmc4ISnbJ_WmLbxpIoB0AEFp3LvRVkgrZ63BM9hdu5Pe8j_AuzVFkGOD0AgQiErh3e-ARim7eVeSodUCVGLF-4i6QHWVR_wOn9ngeHgVQIpjc7HGGJDDGfHMDJ3uz7e8CcbpS7y-15cM1?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3bd205bb2970a17abf465f14.png" alt=""><figcaption></figcaption></figure>
 
 Dapat diketahui bahwa AddScore pasti melakukan penambahan score. Penambahan score dilakukan sebanyak 1 kali, jadi bisa diketahui bahwa (v1+32) merupakan address untuk score. Dapat diketahui juga bahwa terdapat increment lain yaitu untuk v2 (v1 + 36) dimana nilainya didecrypt lalu ditambah dan diencrypt lagi. Jadi disini nilai score sebenarnya ada 2 yaitu pada v1 + 32 dan v1 + 36. Selanjutnya lihat fungsi Update
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXceBeuSoam9m38A0G1GnJOu8iqly5ccoYP23xmiu5Rbja0YkLaAdint5in0ey5AWkDqSyfSHG7FjU5KkfOgKVj9piza-bUIQJyItm3-8ID6lEJiPsfAd9iV2CyXJdTWSh7vFhqhANFo7MH_hGXP1n6mqvgU?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bb0cc23c8510b94680301d1d.png" alt=""><figcaption></figcaption></figure>
 
 Pada bagian awal dari fungsi Update dapat diketahui bahwa terdapat decrypt process untuk +0x24 atau 36, hasil decrypt akan dibandingkan dengan plaintext score (+0x20). Jika berbeda akan menampilkan “CHEATER DETECTED!!!”
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdaGxjA0qP3vtp7ffsoH3vGawbHoXkmX_rTpZXkmD4yzp0fY4JB5gFzfVOyH3DPAvLO8KyuyEVMTQ3ygRmWQzsSYMk1JyA5PrMFKC0aWXfdnrIz9ERYJbkSlT6nknYBQZK9E491ImpMU-NIeuhZQcqt2tJM?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/894722106797f41b18726b85.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya dibawah ada pengecekan nilai plaintext score, jika lebih besar atau sama dengan 0xCC07C9 maka akan dilakukan decrypt. Asumsi disini decrypt adalah fungsi untuk menampilkan flag. Lanjut pengecekan ke fungsi decrypt
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc4aly5Uc7MB5nJdQm1j3uwxqrZ5db7aq6YTNsGqaL32yCynwERA7vXnqcMWFrr25pOJMCWeKubJRN2mUvHYq-e5qc962DyYMubNaSDus49n-G5k-VHbNapFKdUNN_46WU8PySyeDDizrlZOrmu5NZre-kK?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2fd4638abe58ee9ee928b87e.png" alt=""><figcaption></figcaption></figure>
 
 Fungsi decrypt menggunakan a1+0x24 yang mana nilai dari score yang terencrypt sebagai argument untuk md5. Dimana nilai md5 tersebut akan digunakan untuk melakukan decrypt flag. Sampai disini kita tahu bahwa kita harus melakukan update terhadap 2 nilai jika ingin melakukan cheat, yaitu 0x20 dan 0x24. Gunakan IDA untuk debug<br>
 
 Set breakpoint pada address 0xD7ADE4 dan 0xD7AE10. Pada 0xd7ade4 ubah nilai x8 menjadi 0xCC07C9
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdfPQY3nB8urTc2lby3nD56YjFUOpJ4tBHu2tB0jX3Sgt4j9CjvaLzVdsgYhhfiZPHh4B6xSGx6Id_bzlwzytvjIQiIreP1J1-fEhIqac3ytHgjRB-90mgHTUvplFntk1wklcV0NkdopiyqjyoJa6WB1Z0?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/463c21e932ccff23dd292af4.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya pada 0xD7AE10 ubah nilai x0 menjadi 0xCC07C9
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXegryYn9rsRxDnd04e-SgYjDjqivKZgjaYQ0dCROXyVTWQ-ARBBax0mXYhQOjR2GqBFAgmtssQxc5RosWFuMpibV1lpbBo9xaHF0QAuMPMh66FATHUvJwS8YdObGnjQqsIiN_UUKcWb0eidr6803LI-OLU?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f13f4cff1f01bc244c76285d.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya tinggal continue saja dan jika ada error pilih pass to the app&#x20;
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfcGXJXR-a-3gal8Cdy9CtMZ6DLb-8iOr9so2kPbpDXFper9pMndC0vVm4y22FnXe-BYiVYG5O8umqbBCF6xNPczqt0VcWDAvT8iKxNY3tHBIx9Nj-KuB3oaR5cOz4V2Ob1Pr7XkNSBnBpSKecmeviDkmKt?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/34df5e7757d2db5b46e5f8a8.png" alt=""><figcaption></figcaption></figure>
 
 Flag: INTECHFEST{Byp4ss1ng\_Sh1tty\_4nt1\_Ch34t\_S0\_EZ}
 
@@ -206,13 +206,13 @@ Flag: INTECHFEST{Byp4ss1ng\_Sh1tty\_4nt1\_Ch34t\_S0\_EZ}
 
 Diberikan file ELF 64 bit, decompile dengan IDA. Terlihat bahwa program dibuat dengan c++.&#x20;
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc-uu1owW_WPKw0wASRIxrfUF5Ejk4r8bp6x2IN4DqW5o5i1h6DuvhV_-55Nyt3qa88OYmqrxy_SdKyM4zI0okvUk5p3EQ7qaISjHcog4-JJWj6k0y6v4Xt6CLGRXvyV5tAUskjHuhvmVOzaW86VAqPJHc?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bc94025abb57c3772c7a048d.png" alt=""><figcaption></figcaption></figure>
 
 Pada awal program dilakukan penerimaan input lalu pengecekan format flag dan membagi input berdasarkan dengan \_ sebagai separator. Pada line 114 dilakukan pengecekan nilai dari vector (hasil split) jika panjangnya 4 maka valid lanjut ke line 121 untuk looping pengecekan setiap nilainya. Jadi total ada 4 nilai yang dicek.<br>
 
 Masuk ke fungsi std::for\_each<\_\_gnu\_cxx::\_\_normal\_iterator\<std::string \*,std::vector\<std::string>>,main::{lambda(std::string&)#1}.&#x20;
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcsi6M8srupke76w4qOH8RThpTJ3LArS5N_ebtDjjODelT2yuCRCeKVlBsfspRE5LTkkkgztSIzgsVDFo9waQUIGF_NJK9hTPWm4ewOsONS7_jkaAy4O2TrVb8LBcmuT8--r568wi6VjGm6FJIAB1P8t_Ie?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0026c501ec66822d89948400.png" alt=""><figcaption></figcaption></figure>
 
 Input kita akan diproses pada fungsi main::{lambda(std::string &)#1}::operator()((\_\_int64)\&v5, v3);. Pada fungsi tersebut akan dilakukan pengecekan untuk keempat nilai, berikut untuk gambaran besar flownya
 
@@ -546,6 +546,6 @@ INVALID_FLAG_2:
 
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf0H62zPFWsLFuJ6CquSQec3TErFw2cFdFcEyICyDEcpG1areM5vpqQctX56_vTy2AifmrISPaty7lPOEuWPg_d4vcTKXagVkdGypX-d83FDnkd5qzJGCQAuKfc3l_DZxUechGuEJdhPApykkM_jxWSQcei?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d70313f935228ce0f0515917.png" alt=""><figcaption></figcaption></figure>
 
 Flag: `INTECHFEST{The_C++_G0d_dea47fed}`

@@ -127,9 +127,9 @@ for i in product(*possible_key):
 
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FtPwhZmHCdmyrLChJclpb%2Fimage.png?alt=media&amp;token=63cf006b-97ae-4c36-bf27-4c0fc04dc825" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c9dbfa111b9186314bc33019.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZ4HFWpbPIXelPf2g9yk7%2Fimage.png?alt=media&amp;token=d5f69c9c-5a02-44f3-8781-d73fe4de3a0f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0b470885c90e1566487eee89.png" alt=""><figcaption></figcaption></figure>
 
 After getting first 4 bytes key, lets do semi automatic bruteforce for each next byte key.
 
@@ -210,7 +210,7 @@ for i in range(0, len(ct), KEY_LEN):
 print(pt)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FSAWDp4Wpccl530U7Ia8x%2Fimage.png?alt=media&amp;token=63c420f5-cce3-40e5-897f-4fb28bd331a8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9e5bdc1f864c3653d8da29a6.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CTF{cc64393474865290892e5197153ad6109151d8ee2fd5e316d81b80c3d825bd82}
 
@@ -399,6 +399,6 @@ for i in pt:
     print(i, flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fd5Qli3cDuou5VEipy92v%2Fimage.png?alt=media&amp;token=55ba922a-c929-4463-9a5e-aad7bb68ee9b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/46ff64f77b4bd88c06f6a627.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CTF{45adda2019d24619435fcb0a0b644f576c8baeffeeb603d1618cdbeebeefaead}

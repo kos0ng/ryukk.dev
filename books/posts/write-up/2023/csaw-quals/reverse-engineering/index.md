@@ -20,23 +20,23 @@ Note: please enclose the flag in csawctf{} before submitting, i.e. csawctf{fake\
 
 We need freebsd operating system to debug the binary. Since i don't have `freebsd` virtual machine i just do `static analysis` to solve the challenge. Taking a look on main function
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5IAtepDJwQm5QBhCpeSL%2Fimage.png?alt=media&amp;token=308e9d2c-b2b7-4147-bcd0-9b672ad87c8e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/df2c4770e388a51472849b9c.png" alt=""><figcaption></figcaption></figure>
 
 Verify function processed our input with some algorithm and at the end it compared our processed input with static value which is `"flag{ph3w...u finaLly g0t it! jump into cell wHen U g3t t0 the next cha11}"`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FmLV5r2yPGKf7bbbKIBI8%2Fimage.png?alt=media&amp;token=69d12fb5-5e54-463f-9753-54ff4c1641be" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e735c6de00658e6ea9f424cc.png" alt=""><figcaption></figcaption></figure>
 
 We know `v28` values but there are data variable that we don't know the value since the variable not initialized in `verify` function. By clicking the `data` variable we will go to the `bss section` that stored data variable
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIa7komeH86J79UENBbLq%2Fimage.png?alt=media&amp;token=710cc88f-f9d1-47b1-b83a-3380c3058bdf" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/560cb7862a1f1f24a37fe4ba.png" alt=""><figcaption></figcaption></figure>
 
 There are some functions that use data as operand, take a look on `corss reference` we will see list like below
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FizG4l9J2DBaIz2vFjqjl%2Fimage.png?alt=media&amp;token=71596a2a-4fbe-4793-be55-701868a316a9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6ea97c45da3d9b85e5bd6b59.png" alt=""><figcaption></figcaption></figure>
 
 We can see that there is function `__static_initialization_and_destruction_0` that use `data` variable, go to that function&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FsHq33LV90NS0OmHu9CIi%2Fimage.png?alt=media&amp;token=3c065b8a-ff7a-4f62-ac37-0b6c67a21e46" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5aab00df164da16bf9cbf4e5.png" alt=""><figcaption></figcaption></figure>
 
 `memcpy` function copy values from `asc_403740` to data variable, so for now we have all values needed for the algorithm. Next we just need to reconstruct the code in `python`
 

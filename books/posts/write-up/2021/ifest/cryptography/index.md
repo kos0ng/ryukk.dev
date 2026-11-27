@@ -154,7 +154,7 @@ print(key.n)
 print(key.e)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/oKsxKVyRnYds55hV-CmA0d7auBpSx8ESw5Du4IWiVnBWIPB9STzoimisK__5HPeNcKhweNH92KFDQbMBIeuh1T0MC_aWJM1uqIk0ryT4R3uHN3mUA1N94u7F7cS8Tm4wO5RRkq55YfaAE3D1eQIbgw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/56e19bfb1e5bd0e23feaeaf3.png" alt=""><figcaption></figcaption></figure>
 
 Ternyata nilai public exponent \~ modulus , jadi nya kita bisa coba lakukan common attack pada kasus serupa yaitu wiener attack.
 

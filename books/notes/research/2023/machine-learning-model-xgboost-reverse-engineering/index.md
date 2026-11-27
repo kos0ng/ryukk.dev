@@ -10,11 +10,11 @@ I participated with team **F7 Spammer** on IDSECCONF CTF 2023 and we got 2nd pla
 
 From <https://docs.aws.amazon.com/en_en/sagemaker/latest/dg/xgboost.html> we know that XGBoost is implementation of **gradient boosted trees algorithm**. XGBoost created a **tree** like image below
 
-<figure><img src="https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/model/cart.png" alt=""><figcaption><p><a href="https://xgboost.readthedocs.io/en/stable/tutorials/model.html#decision-tree-ensembles">https://xgboost.readthedocs.io/en/stable/tutorials/model.html#decision-tree-ensembles</a></p></figcaption></figure>
+<figure><img src="images/c446aae00022d8cbba92e54b.png" alt=""><figcaption><p><a href="https://xgboost.readthedocs.io/en/stable/tutorials/model.html#decision-tree-ensembles">https://xgboost.readthedocs.io/en/stable/tutorials/model.html#decision-tree-ensembles</a></p></figcaption></figure>
 
 Since a **single tree** is not strong enough, XGBoost use **ensemble model** which combine more than single tree to do prediction like image below
 
-<figure><img src="https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/model/twocart.png" alt=""><figcaption><p><a href="https://xgboost.readthedocs.io/en/stable/tutorials/model.html#decision-tree-ensembles">https://xgboost.readthedocs.io/en/stable/tutorials/model.html#decision-tree-ensembles</a></p></figcaption></figure>
+<figure><img src="images/5963bcf3da1d3cd06022662b.png" alt=""><figcaption><p><a href="https://xgboost.readthedocs.io/en/stable/tutorials/model.html#decision-tree-ensembles">https://xgboost.readthedocs.io/en/stable/tutorials/model.html#decision-tree-ensembles</a></p></figcaption></figure>
 
 In this challenge we are given a json file that contains dump of **XGBoost** model. You can download the model here. To load the model we can use  code below.
 
@@ -79,7 +79,7 @@ xgb.plot_tree(model, num_trees=11, ax=ax)
 plt.show()
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FBIDLaWDX6OQxSMtsAir4%2Fimage.png?alt=media&amp;token=e39922da-bf85-4308-b85c-052d1ebb680f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4ec8aff63fedded3049a9754.png" alt=""><figcaption></figcaption></figure>
 
 ```json
 ----snippet----
@@ -506,4 +506,4 @@ for i in product(*poss):
         print(f"Found: {''.join(map(chr, i))}")
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FnQDbBVVPaWR1u5vc6REs%2Fimage.png?alt=media&amp;token=be4445a4-e446-484c-9262-46dea0a97237" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8028eb8f88785e35110880f5.png" alt=""><figcaption></figcaption></figure>

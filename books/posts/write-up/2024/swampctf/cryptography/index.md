@@ -138,7 +138,7 @@ for i in range(len(flag_ct)-1, -1, -1):
 print(flag[::-1])
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F9ENiWmh38rYuCaVHq2ZL%2Fimage.png?alt=media&amp;token=7faca46f-2cc5-473c-a36d-e83bf85406e7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7ecbb241d2eb392f5ab06d28.png" alt=""><figcaption></figcaption></figure>
 
 Flag: swampCTF{d0nt\_l3ak\_ur\_k3ystr3am5}
 
@@ -213,6 +213,6 @@ for i in range(500):
     solve(c, e, n, i)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FatVbp7XPVhI8a8xKV4oP%2Fimage.png?alt=media&amp;token=c1ff86d6-98e6-4d31-b26b-bc57b8e0e85f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/23a25baedb3dc70414b73ebb.png" alt=""><figcaption></figcaption></figure>
 
 Flag: swampCTF{pycryp70d0m3\_h45\_4\_p4dd1n6\_func}

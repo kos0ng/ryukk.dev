@@ -1,6 +1,6 @@
 # ryukk.dev
 
-kos0ng’s CTF write-ups and security notebooks. The site builds static HTML from versioned Markdown, without a database or GitBook requests at build time.
+kos0ng’s CTF write-ups and security notebooks. The site builds static HTML from versioned Markdown and local media. Neither builds nor readers need GitBook to load an article.
 
 ## Local development
 
@@ -18,8 +18,8 @@ To connect `ryukk.dev` later, verify domain ownership in your GitHub account’s
 
 - `books/posts/` mirrors the [CTF GitBook](https://kos0ng.gitbook.io/ctfs). The Posts index shows write-ups by year → competition → category. Expanding a competition reveals its recorded participation result (when available) above direct links to category write-ups. The team and placement are also searchable. Collections holds authored challenges (grouped by year) and Lifetime CTF. The introduction and write-up year overviews keep their URLs but are omitted from the index. Filtering opens matching branches; clearing the search restores your place.
 - `books/notes/` mirrors the [Notes GitBook](https://kos0ng.gitbook.io/notes). The `/notes/` tree lists research by year and omits the introduction and year overviews. Old `/shelves/` bookmarks redirect to their matching `/notes/` pages.
-- Run `npm run import` from a networked machine with Python 3.9+ and curl to refresh Markdown from both page sitemaps. Review changes before publishing. It does not delete files for pages removed upstream.
-- The collection roots serve searchable indexes. Each book’s introduction and other Markdown pages retain their source paths. Images and downloads remain hosted at their original URLs.
+- Run `npm run import` only if you want to refresh from the old GitBooks. The importer requires network access, Python 3.9+, curl, and Pillow (`python3 -m pip install Pillow`) for new images. It reuses local copies when available. Review changes before publishing. It does not delete files for pages removed upstream.
+- The collection roots serve searchable indexes. Each book’s introduction and other Markdown pages retain their source paths. Article images are versioned in an `images/` folder beside their `index.md` and copied byte-for-byte into the published page directory. To add an image, save it there and use `![Description](images/filename.png)`. Outbound citations and third-party download links remain external.
 - `theme/` contains the pixel landscape, palette, typography and optional archive filter. The full archive is navigable without JavaScript. Language-tagged code blocks are highlighted at build time with Highlight.js and its Tokyo Night Dark theme; unlabelled or unsupported languages stay plain text.
 
 ## Challenge indexes

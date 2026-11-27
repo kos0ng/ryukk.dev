@@ -28,7 +28,7 @@ Given memory dump, analyze the running process using volatility.
 python .\vol.py -f .\ctf\akasec\portugal\memdump1.mem windows.pslist
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FStWlh45bfiUN7g0syHEH%2Fimage.png?alt=media&amp;token=63ff531d-a4b2-4c73-a8e9-a43a793efb8a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ec716dac1ef32547ea9e91f5.png" alt=""><figcaption></figcaption></figure>
 
 From the description we know that someone was searching for something and we can see on the running process there are chrome process. Chrome store the history on history file, so lets take a look on list file on the memory.
 
@@ -36,7 +36,7 @@ From the description we know that someone was searching for something and we can
 python .\vol.py -f .\ctf\akasec\portugal\memdump1.mem windows.filescan
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgMiThhbanKdC05mYS0Dy%2Fimage.png?alt=media&amp;token=81f78a02-93bf-4693-8282-364e80bee0a5" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0f7f61c8b28fe7941ef1031a.png" alt=""><figcaption></figcaption></figure>
 
 So there is history chrome file at 0x81595680, lets dump the history file.
 
@@ -44,7 +44,7 @@ So there is history chrome file at 0x81595680, lets dump the history file.
 python .\vol.py -f .\ctf\akasec\portugal\memdump1.mem -o .\ctf\akasec\portugal\ windows.dumpfiles --virtaddr 0x81595680
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7cORPRhrXu9RDWbNuWxw%2Fimage.png?alt=media&amp;token=b5852d96-ac17-4d3a-9bd9-f14fa0f3d033" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cccea2d6373eea8f3f189b14.png" alt=""><figcaption></figcaption></figure>
 
 We can't directly open the database using sqlite3 because it's not valid sqlite3 (maybe some trailer error). But we still can see the content of the database by utilizing strings command.
 
@@ -54,9 +54,9 @@ strings file.0x81595680.0x98570f60.DataSectionObject.History.dat > history.dump
 
 There are some suspicious strings
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fv8QRy7Q8Uh20cG3yrxmL%2Fimage.png?alt=media&amp;token=4c42a1b7-42ca-4f54-8f40-de6de8f6b019" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/35dda9ec1c58514a37326772.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNcSQbnX8gi3xPHSFrzfe%2Fimage.png?alt=media&amp;token=9830f4d2-2cb6-4535-ae58-10b76a4acc9a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1051171d5825b2efeedde1dd.png" alt=""><figcaption></figcaption></figure>
 
 Integer before the string actually the index of the string, so we need to sort the pairs of index and value then combine it.
 
@@ -296,7 +296,7 @@ for i in range(1, 23):
 print(flag + "}")
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fh1MH1Zipja7lKdsTZosu%2Fimage.png?alt=media&amp;token=b81850ec-4b88-4882-9c0a-972345902a2b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3070bd9ec5c414185bb0eff9.png" alt=""><figcaption></figcaption></figure>
 
 Flag: AKASEC{V0L4T1L1TY\_f0r\_chr0m3\_s34rch\_h1st0ry}
 
@@ -312,11 +312,11 @@ Author : **d33znu75**
 
 Given pcap file, open it using wireshark. The first packet looks suspicious.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJZbxsUkv013iiT9ezGOw%2Fimage.png?alt=media&amp;token=6b433251-e15b-4de6-a230-d480c035581f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/edd4cd140452e664777419ef.png" alt=""><figcaption></figcaption></figure>
 
 If we decode the domain we will get value below
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FiUjxH8Vx9FgaF55iKOZC%2Fimage.png?alt=media&amp;token=aff281b0-1261-4e55-9307-1cfda2b59e6f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e925555380d798d09c8dfe36.png" alt=""><figcaption></figcaption></figure>
 
 Looks like 7z header, so lets do scripting to dump the the 7z file from the subdomain. Convert the pcapng to pcap file.
 
@@ -403,11 +403,11 @@ python3 dec.py new.pcap "akasec.ma"
 
 7z file protected with password, crack it using john with rockyou as wordlist. Got the password `hellokitty` then get pdf file named flag. It also protected with password, crack it using john again. Got the password `meow`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FuC047rtzbTHi6bEjh9V5%2Fimage.png?alt=media&amp;token=37407b23-49f6-4099-a278-d780aecd75f9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bec4f8ff908c5f34865473ac.png" alt=""><figcaption></figcaption></figure>
 
 Open the pdf file and got the flag
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfL0M3dCvWJbR53P5QtFg%2Fimage.png?alt=media&amp;token=075431bc-18f7-4f0a-b0e6-07174350a43a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c9d801f87640d5d30ceedbaa.png" alt=""><figcaption></figcaption></figure>
 
 Flag: AKASEC{PC4P\_DNS\_3xf1ltr4t10n\_D0n3!!}
 
@@ -425,15 +425,15 @@ Author: **samaqlo**
 
 Given docm file, look on the macro with olevba and oleid.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FscqXKf620wJZbb1ZFvMN%2Fimage.png?alt=media&amp;token=0d844abf-b796-4fb5-b8a1-8cf38662ca67" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/01eb8d85ad591cd1032649da.png" alt=""><figcaption></figcaption></figure>
 
 Looks like there is no embedded macro on the docm file. Lets try to unzip the file.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FxES9qgGGwuk17GQK5esU%2Fimage.png?alt=media&amp;token=8915f660-6a01-4194-8d20-95d82f64d0a4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cf0a4f8a92e9ddab563e7072.png" alt=""><figcaption></figcaption></figure>
 
 at word/document.xml there are suspicious values which are consist of hex strings. We can also validate it through opening the docm and there are some text in white color. The first 2 bytes looks like a valid PE signature.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5bHarvlh0lQtuLHCSPSu%2Fimage.png?alt=media&amp;token=cd9eba11-340b-494c-8b87-31e957cd7d85" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bf35c1829360182365478ad9.png" alt=""><figcaption></figcaption></figure>
 
 Lets dump the whole PE file.
 
@@ -451,11 +451,11 @@ out.write(tmp)
 
 Open the PE file using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7oNlKPNZTeeVsHG9YvCK%2Fimage.png?alt=media&amp;token=6150eb81-1891-4aa1-9a6d-724119e63ca1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/043b7fb38f1fcc9f191d1f3e.png" alt=""><figcaption></figcaption></figure>
 
 Looks like it obfuscated, lets try to upload it on [virustotal](https://www.virustotal.com/gui/file/716b65a42612f32fa410f3365eae3e348b9f046d5678e280f8e448d8c6e7b852/relations). There is suspicious URL contacted by the executable.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVLeP6wwze0egDLaGgMYL%2Fimage.png?alt=media&amp;token=2a5954c8-bea4-4783-84aa-b33876b6c823" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/46d27196701edd78474dbbfc.png" alt=""><figcaption></figcaption></figure>
 
 dump.exe should be the dropper and it will download ransomware.exe. Download ransomware.exe then  open it using dnSpy because it is .net executable.
 
@@ -630,7 +630,7 @@ for i in glob.glob("saveme-chall/*.png"):
 
 Open the images (144).png and got the flag
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fq9yxvU2wQ6nvvG4VI1L4%2Fimages%20(144).png?alt=media&amp;token=e6b1b29f-6850-4bf6-a257-152a3553c709" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c9c25577e38caa20888265e3.png" alt=""><figcaption></figcaption></figure>
 
 Flag: AKASEC{F\_MiCRoSft\_777}
 
@@ -646,15 +646,15 @@ Author : **d33znu75**
 
 Given file ad1 and pcap. Open the pcap file using wireshark. There are several http traffic and there is suspicious URL which is freerambooster.000webhostapp.com.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6PJsvmg7d7ZUmfrF6bQR%2Fimage.png?alt=media&amp;token=190c8367-1135-4a36-bb66-952cca5dbf9e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2b1e21e945cd31ecc572ca3e.png" alt=""><figcaption></figcaption></figure>
 
 Access the URL and click download button
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fxl8Pn8QC93W1nx2c06MH%2Fimage.png?alt=media&amp;token=721ab65f-9233-4c8d-92d9-36bf1c7b8887" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0cd492d38f67e456bef2021d.png" alt=""><figcaption></figcaption></figure>
 
 Open FREE\_RAM.exe using dnSpy or ILSpy.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FFYfRUwMGw3oLQ9p0ShYE%2Fimage.png?alt=media&amp;token=09f97bae-aa44-4a0f-844b-24687d548782" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5f241d708c431b4aa4606c77.png" alt=""><figcaption></figcaption></figure>
 
 Looks like the executable run several powershell command, lets take a look on powershell history. Open ad01 file using ftk imager then go to .
 
@@ -694,11 +694,11 @@ Set-ExecutionPolicy RemoteSigned
 
 So there is sslkey.log stored at SIGNUP directory, it will be very useful because it will let us decrypt the SSL traffic. There is no sslkey.log in SIGNUP directory but there is sslkey.log in SIGNUP\ink directory.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FT1nSpPEH5J1VuOQpJbX3%2Fimage.png?alt=media&amp;token=4f23ddca-6aaf-4919-9c93-5c53bed97284" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6e1a966e98b0da0f58d452e9.png" alt=""><figcaption></figcaption></figure>
 
 Load the sslkey.log file by clicking preferences > Protocols > TLS > (Pre)-Master-Secret log filename. After that look at HTTP2 traffic and there will be request to URL that contains flag.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHRt1D4h5QRnqQNDmkFNO%2Fimage.png?alt=media&amp;token=24cd7c79-253f-442e-ab28-8c82e770d703" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4afb104c719fbbd9857c77e6.png" alt=""><figcaption></figcaption></figure>
 
 Flag: AKASEC{B4s1c\_M4lw4r3\_4nd\_PC4P\_4n4lys1s}
 
@@ -716,7 +716,7 @@ Author: **samaqlo**
 
 Given memory dump and pcap file. Open pcap file using wireshark. There are several HTTP traffic and there is suspicious HTTP request which is /download.dat.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F3lmk52zX74yIR8EiRM9K%2Fimage.png?alt=media&amp;token=ae6a538e-3fae-4ae8-954a-4fb7c9fc16c6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a2c654bf22682ba6c95bdfd4.png" alt=""><figcaption></figcaption></figure>
 
 Decode the string and write to file.
 
@@ -729,11 +729,11 @@ out = open("download.exe", "wb")
 out.write(base64.b64decode(a))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FL9f2PpfIjDWke58EtFcz%2Fimage.png?alt=media&amp;token=63d59c7a-e700-4295-ac9e-273efa2acfba" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1ee03580bac31f20f90e24d9.png" alt=""><figcaption></figcaption></figure>
 
 Open the executable using dnSpy.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQSFHzyzD1JI6iEdT4Gm1%2Fimage.png?alt=media&amp;token=5c4852a6-ba8b-4c38-8e1c-960c46041ea7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9f6fc946d2b37874bc9fa723.png" alt=""><figcaption></figcaption></figure>
 
 So the original executable name should be snooz.exe. Lets check available process on memory dump.
 
@@ -741,7 +741,7 @@ So the original executable name should be snooz.exe. Lets check available proces
 python .\vol.py -f .\ctf\akasec\snooz\snooz_chall\memdump.mem windows.pslist
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FCrGEQ6DiyveK0Ncbpv2o%2Fimage.png?alt=media&amp;token=61bab5dc-34ab-4e61-9e66-2b50ea04fdde" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/efa0b812a60175bc413acf90.png" alt=""><figcaption></figcaption></figure>
 
 We can see on image above that there is snooz.exe with PID 3200. Dump the executable using command below
 
@@ -900,7 +900,7 @@ for i in range(0, len(f) - 16):
 	print(i, xor(f[i:i+16], key))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5fFeJZpPaqZ695stjnSc%2Fimage.png?alt=media&amp;token=3fab1f09-7ecf-42cb-8519-55be977a6b00" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/53e53e076d98979e82e6f298.png" alt=""><figcaption></figcaption></figure>
 
 There is suspicious string that looks like a key which is at index 315. On function a.a we can see that the executable listen at port 1337. So lets open the pcap again and filter for port 1337.
 
@@ -908,7 +908,7 @@ There is suspicious string that looks like a key which is at index 315. On funct
 TcpListener tcpListener = new TcpListener(IPAddress.Any, 1337);
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7n7G3DT1lWdbvbMJYkmM%2Fimage.png?alt=media&amp;token=6954d420-5b88-4bd1-803a-5b1c29396d76" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/698abd035d604801c06ee41b.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 from Crypto.Cipher import AES
@@ -920,13 +920,13 @@ for ct in list_ct:
 	print(cipher.decrypt(bytes.fromhex(ct)))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FcHGvCWcV2pWMNkZ64yZw%2Fimage.png?alt=media&amp;token=bc8f4e0c-c772-4e11-a1e5-55812a77f88e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/090cf366827c4d51ba5724eb.png" alt=""><figcaption></figcaption></figure>
 
 "pastecode" mentioned on the text and there is password also "5n00zm3m3rbr0z". Because i can't find the pastecode link i tried to do simple grep string on the memory dump.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F4vnvzrMxKkVDUcySpnf8%2Fimage.png?alt=media&amp;token=30e68537-780f-4efe-8139-653996a987d6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/86a3d4fae025538173263ff4.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgGuzcvp3QclNpLLrTeYz%2Fimage.png?alt=media&amp;token=caf95071-f8f0-4e55-9cd6-1e43a60d6a3e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5465217ffb51b13a81890e74.png" alt=""><figcaption></figcaption></figure>
 
 Decode the base64 value then write it to file.
 
@@ -946,16 +946,16 @@ strings -e l memdump.mem > dumpl
 
 On dumpl i found interesting string related to password.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQ6noT5mA6dTEVYVwWlzO%2Fimage.png?alt=media&amp;token=921385e7-0dd7-4325-84d1-eb17b1fd8566" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6396f26f0dee1fb8af5e42b9.png" alt=""><figcaption></figcaption></figure>
 
 Use "Samaqlo\@Akasex777" as the password and got flag.jpg.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7W5tQWJNqAnYVMfSZSrX%2Fimage.png?alt=media&amp;token=882a319c-ea2e-4670-926a-a9b2a636f9ae" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7df668381a15b4e8baa6cfa2.png" alt=""><figcaption></figcaption></figure>
 
 Looks like flag.jpg doesnt show flag, lets try to do some stegano stuff.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F3i6y215XXRwiKayD2PRb%2Fimage.png?alt=media&amp;token=ca24922f-368d-44cf-939c-d6c2e11179e3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0df45ddcc10788833319ae9b.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7Qyqb56pQfqF8Z9vxMOS%2Fimage.png?alt=media&amp;token=5be67acd-6147-4da9-b829-bd8ddb96576d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6b61274dec39ebae509bf85a.png" alt=""><figcaption></figcaption></figure>
 
 Flag: AKASEC{05-10-2023\_free\_palestine}

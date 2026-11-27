@@ -18,17 +18,17 @@
 
 Diberikan file pdf , ketika dibuka seperti yang kami duga , tidak ada apa-apa. Kemudian kami analisis menggunakan pdf parser , didapatkan embedded file pada object 20 dan terdapat string yang ditulis pada pdf pada object 4
 
-<figure><img src="https://lh7-us.googleusercontent.com/TN51z14J45pe1OlsmTLeXwNyNdhNuyvcXXmmN_5KMgNtdrj9MtG7I2PjXJ4LK5ISvkBnVz0tGMeskdz8da5Y7nIkqn6Fi2RQv8uJcnfIMxzjAHtExyiEwwdCA1h5qJ3wY2ZN8OIsQ7OjwMQB6nc8yQ" alt="Object 4"><figcaption><p>Object 4</p></figcaption></figure>
+<figure><img src="images/357bc7b5e8f84936e9b29e76.png" alt="Object 4"><figcaption><p>Object 4</p></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/7KCtM5-F-ruAYpMdwPulyWtpUJTS7EnGtpcIu4k6yArRoqayUpzBlvU8OWAfCBIDBdNBIG3YawY9IrYADVuaKTGKsl8U8xL_CvYI29y8LDBDfVRtuSDMu9g3HkF5GAgatBS65jIaM0LG69cUTrDaBQ" alt=""><figcaption><p>Object 20</p></figcaption></figure>
+<figure><img src="images/952ce899983216bb21852a89.png" alt=""><figcaption><p>Object 20</p></figcaption></figure>
 
 Terlihat terdapat file zip ( header PK ) , jadi kami lakukan penghapusan byte secara manual untuk nilai sebelum PK .&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/55N8gGe21Ea8EYwi3J9IQro712weO2V-7l8KxH5y6ICNGqozcpIKx3jtiVeBg6ILHyDAghDOxsRzvK6YWxHyNp6-nZA8cn2px54o-AhKvOkVSXphliXvQguFCN9YsXGoBEy-TEtqwgTu5B_na4e6lQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f03713cad2a812f6f30e6d59.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya dari hasil parsing pada object 4 kami coba lakukan statistical analysis menggunakan quipquip dan didapatkan sebagai berikut
 
-<figure><img src="https://lh7-us.googleusercontent.com/U2GYllPcYREkVaMjkfzvf3RbuIBF8irD0L-VoCiAuNeJAHOq9zzP_aLwnC6vJXHcNqYowOhyeCM8cYTd3iTcEQJx5XreOtvxMCNY7QO87ofXKOfwZ9jd9g9iZtNBFecdio6ZosIuuRppkEPscJv_Pg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/48a60bbf85529209587d0d31.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat bahwa kalimat pertama merupakan lorem ipsum , jadi kami buat script helper untuk membantu kami melakukan guessing terhadap nilai yang tidak diketahui
 
@@ -57,7 +57,7 @@ for i in real:
 print(dec)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/nFojJlbncZGw0Jmyl0AlMzdgLa6P8q5hS7ImBqnRRDo3hM81jqs2EUZzVWd4eZdU_CzK_QzH9GTjOpiEuknRyEFOOsjmNVhRmtKf4PFqm6G2-oJPhGRV0vdr16rVSTu62bBF3iWaRfdaUIYn4-dGOA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/97d6d6dbf937a06baf239ceb.png" alt=""><figcaption></figcaption></figure>
 
 Untuk huruf yang hilang pada kata kami cari tahu di <https://www.lipsum.com/> dengan generate banyak paragraph tentunya. Dapat terlihat pada hasil konversi diatas bahwa passwordnya adalah&#x20;
 
@@ -78,12 +78,12 @@ for i in permutations(string.digits,r=6):
 
 Untuk nilai “,.{}?v”  itu bebas , intinya mengubah nilai angka menjadi nilai yang ga ada di string a biar ga ke replace juga yang seharusnya.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/fl5KBawMmvypADDxs0rEXrPztXVWMWNe0A7d05jqpenuC3IaiCs3GKg1lzFVykgIWQ-6uADyXqLy8030DVP8nXnBjjb_Db8XzuTMuB87SoXi-FjG8gnfI3fPjUMu1Qm9ZebCILwUyuns_q3DjL6Nwg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3e6bca71c95bcef1eb014a9a.png" alt=""><figcaption></figcaption></figure>
 
 Didapatkan password 4nother\_lo0o00ong\_passwd\_7dde2afc24ad548f26b3a05d2fa2ff4a.
 
 Selanjutnya tinggal unzip dan didapatkan flag :3
 
-<figure><img src="https://lh7-us.googleusercontent.com/_P99DL_vdeAweO_1GbyRb-q3RZoYi5_fUf313zgS1ClTi6EOi-1o6MWWlpSEEpYGuig6Z1MxxPJntVg3pJsR52QrOljOiWsjU5daXckBihYcfIqsUdcoXInqZKiD-pxSzZhAmfpzsvsFJGqX129EWQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4ca04848892e3b75bead54e1.png" alt=""><figcaption></figcaption></figure>
 
 Flag : MDT4.0{yet\_we\_g0t\_an\_unexp3cted\_typography\_f80ec1a}

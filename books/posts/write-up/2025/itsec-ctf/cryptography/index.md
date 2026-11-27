@@ -255,7 +255,7 @@ break
 r.interactive()
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfxHkO7KjiSYsyKmQm5082CBxvkCsdeBAgnWWIZGb-OPmbMe-uy2Wz8efH9WcNgmHloUDkikcg2SFpgydGvcCfhNE2Y8eRJ3tj_keaNecsiMaN4b91vXWUbOho7MCZc91y9wk9XkQ?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4ffde044aa10b442f4f50bba.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ITSEC{i\_l1ke\_1t\_b3tter}<br>
 
@@ -785,7 +785,7 @@ int main() {
 
 And it turns out there are still a lot of results, but it's quite fast for bruteforce,  it takes only `216` seconds.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeOgzCyhPcI3FMEu8_UhuwomGPrPc-TAxyc3kC_sT1aFqBVnuuIIHOeIGsmnLTRMVipYae0qv7a5wC8f-n8SKjNzhEuC-G1u6p9ycHs46bGw0XsDt0590chValIiyYrYAGXlUfmvQ?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/37a65026abbf5520e0cf0f98.png" alt=""><figcaption></figcaption></figure>
 
 So for the last step, just validate the output above with RSA encryption operation.
 
@@ -806,7 +806,7 @@ print(pt)
 break
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf7jPoi4F1PngJW8Y6pMRfsGHeyMlTFe2evYSZoMBbHEFMT2hSFvwEuZ7kY2rHvSaTE4zPIfqv21ehNQhDkEj3hcemL3HxE4aUiO2aeydpnna4AfFeKAXe7snhOY401a4XBbxBmBw?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c5b1fa1d63cec67b665d3d62.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ITSEC{Secrets\_don't\_stay\_buried\_forever}
 
@@ -1055,6 +1055,6 @@ mr = pow(c, dr, r)
 print(long_to_bytes(libnum.solve_crt([mp, mr], [p, r])))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fev6Zbcro7Za8a2yZfcuJ%2Fimage.png?alt=media&amp;token=71223677-dd01-4f77-8f50-bfce030ee382" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/93af28088a7592a29eb03ede.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ITSEC{tH4Ts\_WhY\_M4th\_iS\_Be4UTiFuL\_&\_iMPoRt4nt!!!}

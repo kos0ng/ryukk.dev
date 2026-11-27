@@ -52,7 +52,7 @@ class Main{
 }
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/63ctC0HUIKdLYOpUV-Hlcq_WRzQ0DvimdGRNPLZ85R85ZryV40LjjeWJtzHsJLszWTys_5TM3H5bhwPR5Nt2OIHt4Ald-h471FwjbWSAfG9X7eHTXBQZ9lD4IjBznDOXKfZUeHyWitSHURJVf7trvQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6b13624025752a3bfaa24c57.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST13{brut3Force\_AND\_w1n\_6965d74c2e}
 
@@ -66,9 +66,9 @@ Flag : COMPFEST13{brut3Force\_AND\_w1n\_6965d74c2e}
 
 Diberikan file ELF 64 bit, kemudian kami coba decompile
 
-<figure><img src="https://lh7-us.googleusercontent.com/ZGXYHeZHqoeB4HcbLjQTztntxujBGVxuS8SxL-C5c-2wl102Li5LJYDVPjQ1TYvqt5azWhzCAyAV2uvyw79M0tArKmsmN-RkE0lmrfFo0yWzMtMvLZ51v4mKhWG4dM4Znz5UTieX_S56TJVyls4-5Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1ff1403957d6e0252bf163a0.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/bb-80fNkX2aCCz3sFmDAJIk4nDDv-LObNXYqY6Bv1n15Cqx4lvqKGoTTGzRz8Wjtp4fNeYURRcffTJ0OBotDQnhYRVWp2RyW6Xnt7gRUNfXoAnbYVKMvsvhmQSqHzUsFEaML_yLaz0D-J4C5PduxLw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/400901dcbce984cb9f5bc039.png" alt=""><figcaption></figcaption></figure>
 
 Disini kami lakukan analisis pada fungsi main dan cast magic, cast magic untuk setiap indexnya nilai nya sama , jadi antar index tidak saling bergantung , jadi bisa dibruteforce per index. Berikut solver yang kami gunakan
 
@@ -114,9 +114,9 @@ SolverEquation()
 
 Flag bisa dilihat pada file data atau tunggu sampai selesai script berjalan
 
-<figure><img src="https://lh7-us.googleusercontent.com/fvOyTCoDApNIaQokRxKJQTCoMdL7b3d2y1WOVeLcOtqzErk6PzIf0BcaiLC5b2I7Apli5gt09F4T09KAPZ_RjMgYD-RnbAc0d7SoYKZn9llvp2DeKMZHS-lMESQQYeBvFoHf5R7L992Iv7iUbE6lNQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6622853055f11f00de4aaa52.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/qEYFtXe-uyKYs4WG_D_zkLZTJD-xDKwsYlaDkJ3L2Yx07bY3vrpQ_7oQ79x1wES0qXmToTf8ffIETbmqRHx2vouno-sw9BEkjto6bxeL6p1HG7V6avvPySqrGjYTfP1Yi-mp2LJ8wXDET_8j2Tj2Vw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d51107b0ee9b3f077e4c66fc.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST13{n3Ver\_Tru5t\_M4tHemAg1cKal\_tR1cK5s\_n0BoDY\_tH0u6hT\_No\_0ne\_W0ulD\_n0t1c3\_4nYw4Y\_98f66ab185}
 
@@ -130,15 +130,15 @@ Flag : COMPFEST13{n3Ver\_Tru5t\_M4tHemAg1cKal\_tR1cK5s\_n0BoDY\_tH0u6hT\_No\_0ne
 
 Diberikan file jar , disini kami lakukan extract terhadap file jar tersebut. Nama filenya mirip yaitu diawali dengan c dan diikuti dengan angka, untuk mencari file mainnya ( entry point ) kita bisa liat di manifest.
 
-<figure><img src="https://lh7-us.googleusercontent.com/vUfAW1JIc6OyurdZNdPva0__ljxFkVOGntR_uXawz0TEGQYf4ZC_Ufr7U2AwobsMZB5RYKNmVAHSnOcrBSbvFdHuQYpqRWMUDausU5Dvp5xi9BhTcA-VJt5zAbH_2JHdAMrwqn4QsKq7D3EbIqbvBw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/792d68a88eab169cc37867d8.png" alt=""><figcaption></figcaption></figure>
 
 Diketahui main classnya yaitu c239 , lakukan compile pada c239 maka class lain yang dipanggil akan ikut tercompile juga
 
-<figure><img src="https://lh7-us.googleusercontent.com/LHZ8DWH8svYBgKHouYCwo_D_onpaj_nEdHr7K5e5of3AzWvKbADUIm0Xgrhluyk_bhIVX4RFgTedIuWbKM782Y-wRceUkPrD_eC2jVMLz6WUnh2zIJguxGD6SkH-NKmQL4CNuVvbBbIjwo7jzlnj7A" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a598752fbf206ed6739bd36b.png" alt=""><figcaption></figcaption></figure>
 
 Karena di file aslinya tidak ada print terhadap nilai flag maka kita perlu cari tahu di class mana method terakhir dipanggil. Caranya karena kita tahu nilai akhir flag adalah “}” lakukan search pada file yang menambahkan “}” pada variable object.
 
-<figure><img src="https://lh7-us.googleusercontent.com/nGLUkKWIVy8fxxjKGzMUlRN5RpJcNnRkZK9QGaDo3ai4oX_zSdVkE_sJrdkSrBkXwzyH06z_Bhxd0Q-klhLgF4hVPliPcKIWoamDIBi4OLl64-MvAZvpF3AD7YNQnBiciiMmGLp2uSpb4_M_GICfRA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/aadd8d65296dd16c6f15917d.png" alt=""><figcaption></figcaption></figure>
 
 Ambil nama filenya , lalu lakukan perbandingan dengan file class tadi.
 
@@ -153,7 +153,7 @@ for i in b:
 
 Didapatkan class terakhir yang diakses
 
-<figure><img src="https://lh7-us.googleusercontent.com/MBCH-UO_u-8YKwK1iIdPKkydfA5HZYA5tJUsIkny6efxkrJ--WKvBEy70FDcSiNlALzAbUT4Oigj5R67oH3Sy7-AMSGUBULoJFtPiKKBW3IcQxDF3ZyVQysCHPQIT0uBwGvLy2GJLSaJLDv1XGRGVg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d31c3e17e982dc59044dbfef.png" alt=""><figcaption></figcaption></figure>
 
 Lakukan edit terhadap file tersebut yaitu dengan menambahkan print terhadap variable object
 
@@ -179,6 +179,6 @@ class c375 {
 
 Disini kami sudah melakukan rewrite terhadap semua thread sleep menjadi 2 milisecond , entah kenapa ingin menulis 2 daripada 1 atau menghapusnya. Tapi 2 sudah termasuk sangat cepat. Selanjutnya compile file c375 lalu run kembali file c239 untuk mendapatkan flagnya
 
-<figure><img src="https://lh7-us.googleusercontent.com/BoJY9JwqrxeXMzcCO60VpvWtMbWX7VaomfvemQENrv_-hzgxRHJqNI3I4wvJE4bRq8cpLCZx4qWAs8EFH6nfOjUQrR_w94HZPwAlangxRWg0uruoj7q09VhSnVNZusO0No7ZXbUl8ReO9Wu2PkVLCg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6e5a60af06c481efeca74fd8.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST13{MaNiFeSt\_file\_15\_ImpOrtAnt\_4\_jar\_bafc2b182e}

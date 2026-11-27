@@ -95,9 +95,9 @@ if __name__ == '__main__':
 \
 Jadi intinya kita disuruh mengetahui value dari secretsubmit, namun disini kode dari sabebencode di hilangkan. Disini kita bisa melakukan analisis terhadap input dan output guna menentukan seperti apa algoritma yang ada pada sabebencode.
 
-<figure><img src="https://lh7-us.googleusercontent.com/VUXJbyLnKILARdo6jQCOiI4DtVoAsPlAmaJkmZQjIDJYuMgdsUwGyEEW7dKopG-RriOiLPFwxHyQdaIAw9GxvhxirtrSi9km2TRlN6Gt-KPZbm-jKFSI6SaK4wcbnUGo17YyqpUYG84plvbDQUVPo2s" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/422e13fbd160c7c8aa820b54.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/hatrQxNFDkNbblERFvKdiMDqPIg-pqMu2ySh9U3Dw_XtWedFL6Z_ERyGLykldKYl5wXKE97wXy8ttqBKqzqKRglsWWCPijg3b6Oeyx7f4nGZUHAD4lyrhLbUvVtbkdK9l7Tqs8celQHU3HYKKt8T4Ro" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ae0a04da8697640696c32e2e.png" alt=""><figcaption></figcaption></figure>
 
 Bisa kita lihat dari input dan output diatas bahwa terdapat perbedaan antara encode aa dan aaaa pada base64 biasa dan sabeb64. Setelah kami validasi ternyata asumsi kami benar bahwa input di encode setiap 2 bytes, karena 2 bytes printable tidak terlalu banyak maka kita bisa petakan semua nilai dan decrypt secretsubmit dengan memetakannya kembali ke value aslinya.&#x20;
 
@@ -152,9 +152,9 @@ r.interactive()
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/aQSIqNrT0A1TrjlEeglNZjLp9_cv5cqqjvoRUE4a59LD7KI_ZxxjqeTQrnpH6mRq0OGygg-1AVUf11TG1iq-rkh-dyDu1Y2Cu22PwigxXfus2po-ZQXcpX3n4SjJ0mXL8_q8719QW9tmDX3LWpl4_6o" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3dc67c008e99b300e3b9e0ff.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/PT-s9VMm7D8ykYIvDmZP7qdU62iyb_yNU0jb3Rt0ynndNlSm5shQY-B5Gydi4tE4838xQFgcCSriVQRE54sA1CIBLSuK-4WdgR0cSNyKAcxQJlxCUnYyv3H0rOvsTWo2mQR0osNkcPwvqnc5OybtXhw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bd66346d7419a4267d15840f.png" alt=""><figcaption></figcaption></figure>
 
 Flag : NCW22{jusT\_a\_littl3\_d1ff3r3nt\_C0ncept\_0f\_base\_6nam\_emp4t\_x1x1x1\_1be1ec3c3ea96b983a75e17dd3d44e8b}
 
@@ -212,7 +212,7 @@ for i in encrypted:
 print(long_to_bytes(int(''.join(res),2)))
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/XIfY8mnCj2pGxTd6jRqTumlgcq0aTk-ZTsceUev8ig-_z_QpC5KNjSruOxVIAGAH_5cgirqmG8wElhSoLNk4kmyq2zx3zfX2Qv4KhhPwkjmo0yclEgsLeW2vzLsOyj3Zz3FQ3PCJOXDUPuHoBLesOPk" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/66c491e606c035706c4c3302.png" alt=""><figcaption></figcaption></figure>
 
 Flag : NCW22{j4c0bi\_symb0ls\_101\_w!th\_c0mposit3\_numbers}
 
@@ -460,6 +460,6 @@ for e in range(3, 100000):
 			continue
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/bqqPLbSJd_pIJwP5Fq8z0y_yjM2wtKhTKt82WRkgkjShAF4ut7Z59W8rcwSNKdSjEUkENRkT7ZfwYYylC-PLnQXE6ySJuDqUVC8Z3VEcgaD2c6cCrkDwy3GQX5f6ADJzyscFMFymv3JC0b1PRMd-9SQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ea899284f9dfb560e5d2ca18.png" alt=""><figcaption></figcaption></figure>
 
 Flag : NCW22{ReCoVer\_PriMes\_tO\_dIsCoVEr\_PriMes}

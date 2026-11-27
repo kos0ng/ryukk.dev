@@ -19,11 +19,11 @@
 
 Diberikan file exe yang cukup besar , kemudian kami lakukan static analysis pada file exe tersebut.
 
-<figure><img src="https://lh7-us.googleusercontent.com/YS32WGK9ojd8C7wDr54xlfJ-b3mvxZKELQTNxa5_5RXrBqoFJiF49HOZ-3OtAqBbL-S91uTQSxaBWW2avH8aPvaEC_F3h1BtfmXvX5IBsr2wpEQYYLjoQ-PQa2fvXYHPnuYbTENKK4-IjnliXSdBKA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/af00e634ad7aecfc3db81893.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat pada fungsi main terdapat mapping terhadap file dengan nama “winrarsfxmappingfile.tmp” , kemudian kami coba lakukan pencarian terhadap string tersebut dan ternyata pada kasus njRat terdapat algoritma yang sama dan melakukan write file untuk second stage executable ke Local\Temp\RarSFX1 ( <https://menshaway.blogspot.com/2021/03/njrat-malware.html> ). Jadi saat kami menjalankan file kami coba cek direktori tersebut dan didapatkan file exe . Disaat yang bersamaan kami juga melakukan dynamic analysis cuman pas cek direktori tersebut ternyata ada file 5head.exe yang dibuat dengan electronjs , jadi kami lanjut analisis file pada direktori tersebut.
 
-<figure><img src="https://lh7-us.googleusercontent.com/KEjG9SpqhgnQ8P0gajjzmP4ET_C7OLO2RNRhmWL1ODc-9gHdrBiI6JVeGDuciVKYFnR7iGi2tx099dkuHSnCfZpoLKbtjjNiZb5CizsZXLLhvUMzouTQm504ZTzG-wQprTHDIFm2k4o-_8Ge-SmoMw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/50330c415bcb3d8bfb34a0fd.png" alt=""><figcaption></figcaption></figure>
 
 Berdasarkan informasi yang kami dapat , file asar dapat dikembalikan ke source code lagi , yaitu dengan melakukan unpack pada file asar tersebut ( <https://github.com/jonmest/How-To-Tamper-With-Any-Electron-Application> ).
 
@@ -31,11 +31,11 @@ Berdasarkan informasi yang kami dapat , file asar dapat dikembalikan ke source c
 npx asar extract electron.asar zz
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/2rAk2yIsTH8KwfBhxwpne3448rqxXKovwSM0L4mEAcGTz0SAqHwj53wStpzpM90CTg6ZtMSQ1QjzP0SOhy9t3ygKJ3uaK3zq4MeGG0Gr5EumDaq6yYLIdx4LNpkum58pJpDCHRAoNwTFZGxIxQ818A" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5ad09eb164d8c2c657561d43.png" alt=""><figcaption></figcaption></figure>
 
 Sayangnya saat mencari informasi kami tidak mendapatkan sesuatu yang penting, yang kami ketahui pasti disini saat menjalankan file terdapat tombol authenticate dan pada direktori resources/app terdapat index.html dengan tombol serupa.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/48Xlnthbz06zgpjtmuYiI1VhtWD6b6xoMYLpDs6sTkrAvpspY4j_bkNmhajSEh89jg6caqaD8ecVWsCbr6gxuRdMd_E2xIODa19wVUhM41YKngSjI-Bt-XYK6HCkNeUFpKdKnuo5TUqUHyZP-2uEdA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/73c619523570791dab4a84ab.png" alt=""><figcaption></figcaption></figure>
 
 Kemudian kami lakukan view page source dan terdapat obfuscated javascript , lakukan deobfuscate secara otomatis + manual.
 
@@ -186,6 +186,6 @@ ctx.putImageData(imageData, 20, 20);
 </html>
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/c3UR8RsIEcBmSvc7ZBQ5OIy2sJUXoZIsRZwKZZ2qvz05wAihubRDKxZuwy6XJEW6wI2l_YgNaesWvGJ794-KV7Av_yNh5MgfK9L5r0AQnijXXJ_F3jFE279ksLekEXyV2bNkqGfJQXGCZdSaQLgZ0Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/14daafdc3aa917312a165468.png" alt=""><figcaption></figcaption></figure>
 
 Flag : MDT4.0{bypassed\_face\_recognition\_wannabe\_app\_with\_my\_5Head}

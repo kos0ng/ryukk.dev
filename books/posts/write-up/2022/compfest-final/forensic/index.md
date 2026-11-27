@@ -35,7 +35,7 @@ for png, control in im.frames:
 
 Sebelumnya disini file nintendo.apng juga diubah headernya namun bisa kita kembalikan dengan menyesuaikan dengan header png asli
 
-<figure><img src="https://lh7-us.googleusercontent.com/zkY2_fF0K85JrTOikLQJIsjk2yR1PTx0K_SAuoHTCh43sqdyfxqD9syuyII7Cbo7NaOeOHHTuWD3fqU9L83Duq7UGvcHOhfd0u8KDxmjzWgqy4XkXAuqiEKO0SjvKEUq7OzO8e-bdy6SdRLRHBR8cuI" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1a3ce67d05ed3166619073f9.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya setelah setiap image terextract(dimana setiap image terdapat flag) kita bisa langsung lakukan extract value flag dari setiap image. Berikut script yang kami gunakan
 
@@ -62,6 +62,6 @@ for i in range(length):
 print(flag)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/d5UeM9uJkrhGbL4fOc1gkfG9qNFHqfsunlTYND5OH4eJ7_0gTeyJV1ScyUooOrIeRH3F6pV7Hs2UwjYFrQdmxlRBdEiKCnOj5lbuP0MOdwyQbK8rqjhbat94SwLLCHetjw00Zm3nCWfA2RXG0kcvKZA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f42ba985db55e3452030927c.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST14{1ts\_aN\_4n1Mat3d\_PNG}

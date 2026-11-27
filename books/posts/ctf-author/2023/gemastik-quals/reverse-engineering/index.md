@@ -14,25 +14,25 @@ Like usual flag checker. Nothing new, but now running as a service
 
 Given ELF bit file, then open it using IDA
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F43TLUcZ8O73BKjBx3hFU%2Fimage.png?alt=media&amp;token=eeba5f8e-693a-4044-8556-4ace4efbe0df" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e3d0d28bca6ed5a006263ebe.png" alt=""><figcaption></figcaption></figure>
 
 From the `main` function we can see that the program receive user input using `scanf` and store it on `v13`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F2S23AuHanaQaLr8mQ94c%2Fimage.png?alt=media&amp;token=7c273272-a72c-4df1-8b06-6ec76cacff6b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a76d192f72ac231573a5dad0.png" alt=""><figcaption></figcaption></figure>
 
 `v13` values are processed with xor operation and stored in `dest` variable. Function `sub_14bb` use dest variable as argument and when we dive on the function we can see that the function actually `RC4` algorithm
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIJTUZ7MM1TbxegzLnIgd%2Fimage.png?alt=media&amp;token=6b9be263-85f2-4187-9963-77623001d2d4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/940b7f95bf9cfca661b9ff1d.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2ForcRRZkoFMgeFxcA2C7d%2Fimage.png?alt=media&amp;token=206d0084-0b4d-45b6-b569-6f7940ac46d9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2f438fb16d53ae9ae0661b03.png" alt=""><figcaption></figcaption></figure>
 
 Since we know the key we can reimplement it on our main programming language, in this case i reimplement it on `python`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FiLaXZBKp4IAjZULD2Xhp%2Fimage.png?alt=media&amp;token=70e294a4-b87c-48ed-8b3f-b309086a53a7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5c080bba310dd3f0d96f4654.png" alt=""><figcaption></figcaption></figure>
 
 The last function called on main function is executing file located on memory, we can check the `syscall` on link below <https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl>&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FE57yQpNClH0Yo0w4qyxr%2Fimage.png?alt=media&amp;token=a1039374-bc3d-43a1-85f1-14f374a935ce" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6840d3dc3860d6779b87605a.png" alt=""><figcaption></figcaption></figure>
 
 So actually the `RC4` algorithm used to decrypt the actual binary that validate the flag. Here is script i use to decrypt the binary
 
@@ -375,43 +375,43 @@ out.write(pt)
 out.close()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FB3gFm45wqOP2yu6ssuDj%2Fimage.png?alt=media&amp;token=4ed479b7-d6d2-4f13-91ec-6733f7ca3251" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e9e25cefe3b106394b3ba1bd.png" alt=""><figcaption></figcaption></figure>
 
 Running the new elf we can see that there is no output but we can confirm that it is valid `elf`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FeQqHboIRiBgbgz2Gszy7%2Fimage.png?alt=media&amp;token=41b4d5cf-ab9b-4405-87c0-c6c331fe65b2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e126337b8604881fabe90e55.png" alt=""><figcaption></figcaption></figure>
 
 Now the question is how can the binary validate the flag? and where is our input stored?
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FFXjE99R8tXZ20kMERFEn%2Fimage.png?alt=media&amp;token=f9bdafa5-7109-4a27-9f64-7382fc5cfb75" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ef4f5b9dfd37285d5c3f7c81.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FemO0W3BIBOTh58ucKYpo%2Fimage.png?alt=media&amp;token=76b295af-f9bc-45cc-a428-3924591f097f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/be753d55cbce581a3ddd3d1d.png" alt=""><figcaption></figcaption></figure>
 
 When we decompile the new binary we can see that there are some values that looks like our input which is `gemastik2023{AA...AA}.` Take a look on assembly code we can see that `0x67` or g stored on address `0x12c9`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FSQpvXetfCxbDxhOS51EX%2Fimage.png?alt=media&amp;token=d00690f0-31e5-46a8-ac75-bd37357d8d78" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/de7c005ae1bbce2975520c41.png" alt=""><figcaption></figcaption></figure>
 
 On initial binary, we found the same value (`0x12c9` or `4809`)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FodoDMc1cCWChS4znk2lZ%2Fimage.png?alt=media&amp;token=ca1c4740-cb46-4255-a421-88fc8651dee9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cdde660c5db4465e89b8253d.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJuwFpVNPnBsvqzI7LHO1%2Fimage.png?alt=media&amp;token=c9032827-cd7f-408c-b40a-1e81545b8047" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a19c64f049638760e2f8d9b9.png" alt=""><figcaption></figcaption></figure>
 
 and we can confirm that `v8[45]` value is `0`, so line `330` with `j  =` `45` produce `dest[3809] = v9[0] ^ v13[0]`. Line `331` do the same thing but with different value which is `dest[16176] = v13[10]^v12[9]`. Checking value on address `16176` or `0x3f30` on new binary we found that it also store constant (`0x41`)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOLrNFV40lRurPu2KXJiv%2Fimage.png?alt=media&amp;token=32f2eea4-dfbb-4d0e-b3c3-275103f1877f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7cc01e19fe1413a0a6688e9e.png" alt=""><figcaption></figcaption></figure>
 
 Now we know how is our input stored in second binary. So the next step is understanding how the second binary validate our input.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FF7n8s1f8YDPttX5YAWvx%2Fimage.png?alt=media&amp;token=01052b3a-695c-41d9-b81d-452ba39a98f7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a835c7a3557c965efb3b7368.png" alt=""><figcaption></figcaption></figure>
 
 So actually there are 3 functions that process our input, so take a look on each function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOvfZVEfC5IDgCAnbeSmN%2Fimage.png?alt=media&amp;token=3ad1d226-3838-4e90-8828-7f178f6e4266" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d6e5bc5c7e47cde76472e7b2.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FCEiAi0M2Ve8Y4XjZgzHj%2Fimage.png?alt=media&amp;token=84cffa6c-7acc-4e56-8182-0e79461d8147" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/df3c6dc5da01cee44293bd7b.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F3dhnnoaEhu0la9NPhIdo%2Fimage.png?alt=media&amp;token=8f5808c8-7356-4057-848e-e9bb237efff4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/712b9c19d9236c8ee192ccc5.png" alt=""><figcaption></figcaption></figure>
 
 From the constant stored on each function we can confirm that those 3 function generate `md5` hash. After knowing all functions we can rewrite flow like below
 

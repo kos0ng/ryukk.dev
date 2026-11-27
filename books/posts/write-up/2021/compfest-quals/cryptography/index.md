@@ -121,7 +121,7 @@ print res
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/OtZLIHLnR1HaCoxyHPk84jbxMm5sB9R514xHM79t3QuJgW7zkrtw-SI2PnmM7ySKYVXxsOvjyiOCCbvBnkWZ4rMKvq6Jtv4BCyko2Hb0UKs6xlCvTL6UBsaz8mmUpbjOBim4xh1vGhdSXUBL2YcZGw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/22d9327d93245577876a1e9e.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST13{y0U\_d1DnT\_3xpEcT\_t0\_FinD\_pQ\_4s\_a\_fl4g\_DiD\_y0u\_7e1877a801}
 
@@ -280,7 +280,7 @@ for i in range(len(a)):
    	 print(a[i])
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/knjDSg3BdpUp65S0oKYJuRQV8-93jYfs2vLiQyxr8f8UDZpqI5hzHOhx8NW-qnu67SS32tt9YVMAfSJeS4FYPvZL2QeETKhIdo5awRutDdh8kuFVdWqGuT552qThnVsAQmpE8qELkFdIehM8gSIIAg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/501c17d2fba1ba2f667e7313.png" alt=""><figcaption></figcaption></figure>
 
 Didapatkan outputnya “87d&”. Jadi bisa digunakan sebagai pembanding di script utama.
 
@@ -348,17 +348,17 @@ Output
 ['87d&', "87d'2", '6>p<c/c', '=(l#a', '6uO2nDfm1=Bkq9&@3BW&@rc.&56', '=(lLpA8c%#DC9NKCh[Zr56', ":2+3L/g*_.BOQ'q+EV:2F!,(2@:q1", '=(l#a56', '6VgEQ7R^6T0f+/5An3YW1c@1!', "88W2r+A-ctF<G[=AKYT!EcZ=F1,'h\\BOPpi@ru:&F$B", "8LJ?tE,oN3FEo!MF`M%9H#IgJBOQ'q+EV:.+ED%7F8", '=_2#T/0JP@@:re"0KM*G>l', '8K_\\TG%De<BOr;uCggs\\2D@0t+EVO?/hSa', ':MVL(8K`4kCht58ASu$$BlkJ+AoqU)+F.mJ/g*Z&+E)-M', '1GE8q0f:XC2DR7%@:h?\'2`!:"1HAu\'1H9d', '1,r\\s@P^#%2*#8*An*\\P0Ocjn@l.XL2e?JY@:V;R2)-jB3Ab/(', ':2+3L/0K.J+D>2,AKZ).AKYT$@:p^#Dg*?', '8K_\\bE+L/*@:O(aEcW@5@;]t$F<GX9AKZ).Blbm', '<+oue+Cf(nDJj$%+DGm>F(Jj(Eb-A6BkM+$56', '=_2#T/c', '8K_\\bE+L/;DfmFJAKZ#-B4uB>', '8K_\\bE+L/5D_;', ':MV(pBOu&', '6@!,p', '6@!,', '@X2M', '87d&', "87d'2", '6>p<c/c', '=(l#a', '6uO2nDfm1=Bkq9&@3BW&@rc.&56', '=(lLpA8c%#DC9NKCh[Zr56', ":2+3L/g*_.BOQ'q+EV:2F!,(2@:q1", '=(l#a56', '6VgEQ7R^6T0f+/5An3YW1c@1!', "88W2r+A-ctF<G[=AKYT!EcZ=F1,'h\\BOPpi@ru:&F$B", "8LJ?tE,oN3FEo!MF`M%9H#IgJBOQ'q+EV:.+ED%7F8", '=_2#T/0JP@@:re"0KM*G>l', '8K_\\TG%De<BOr;uCggs\\2D@0t+EVO?/hSa', ':MVL(8K`4kCht58ASu$$BlkJ+AoqU)+F.mJ/g*Z&+E)-M', '1GE8q0f:XC2DR7%@:h?\'2`!:"1HAu\'1H9d', '1,r\\s@P^#%2*#8*An*\\P0Ocjn@l.XL2e?JY@:V;R2)-jB3Ab/(', ':2+3L/0K.J+D>2,AKZ).AKYT$@:p^#Dg*?', '8K_\\bE+L/*@:O(aEcW@5@;]t$F<GX9AKZ).Blbm', '<+oue+Cf(nDJj$%+DGm>F(Jj(Eb-A6BkM+$56', '=_2#T/c', '8K_\\bE+L/;DfmFJAKZ#-B4uB>', '8K_\\bE+L/5D_;', ':MV(pBOu&', '6@!,p', '6@!,', '@X2M', '87d&', "87d'2", '6>p<c/c', '=(l#a', '6uO2nDfm1=Bkq9&@3BW&@rc.&56', '=(lLpA8c%#DC9NKCh[Zr56', ":2+3L/g*_.BOQ'q+EV:2F!,(2@:q1", '=(l#a56', '6VgEQ7R^6T0f+/5An3YW1c@1!', "88W2r+A-ctF<G[=AKYT!EcZ=F1,'h\\BOPpi@ru:&F$B", "8LJ?tE,oN3FEo!MF`M%9H#IgJBOQ'q+EV:.+ED%7F8", '=_2#T/0JP@@:re"0KM*G>l', '8K_\\TG%De<BOr;uCggs\\2D@0t+EVO?/hSa', ':MVL(8K`4kCht58ASu$$BlkJ+AoqU)+F.mJ/g*Z&+E)-M', '1GE8q0f:XC2DR7%@:h?\'2`!:"1HAu\'1H9d', '1,r\\s@P^#%2*#8*An*\\P0Ocjn@l.XL2e?JY@:V;R2)-jB3Ab/(', ':2+3L/0K.J+D>2,AKZ).AKYT$@:p^#Dg*?', '8K_\\bE+L/*@:O(aEcW@5@;]t$F<GX9AKZ).Blbm', '<+oue+Cf(nDJj$%+DGm>F(Jj(Eb-A6BkM+$56', '=_2#T/c', '8K_\\bE+L/;DfmFJAKZ#-B4uB>', '8K_\\bE+L/5D_;', ':MV(pBOu&', '6@!,p', '6@!,', '@X2M', '87d&', "87d'2"]
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/URhGuETaZCsZ2pxa75Qp2HvLq9REjM0SqcohawcV9oIVMKGJLkd1Hkm6KRF_IUKyM0sSR0bTroh7-6XscMgHlkELYZP6ndCs0BwKRBuwj1OAZ3NQ3Rpe_TD_2fxJmT9oWYlKBl2kemDMPFnt3uekGA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/108654a7ad3b3668560adc0c.png" alt=""><figcaption></figcaption></figure>
 
 Didapatkan output aneh , cukup lama stuck disini karena kami tidak memisahkan setiap percakapannya dan langsung melakukan decode secara keseluruhan. Namun untungnya kami sempat mencoba di cyberchef dan terlihat bahwa ada beberapa string yang terbaca ketika menggunakan base85 decode , kemudian kami sadar ternyata harusnya di decode per percakapan ( tidak berkelanjutan ) . Jadi decode saja sampai ketemu flagnya
 
-<figure><img src="https://lh7-us.googleusercontent.com/q5gtS04Kns5YdC_Sw6n0YR6McEEp1E8wUpSm3xtf3ypnD6GNzStbQLdL0oCFOtKzDq4KPCdWsy7xQqJQiIlcjMDZeT8URe-kLOl2-H6e-UUfTW1wZmlP3PnoOCegkU17xweVGV5U-eLP0Y0jyGlOCw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/54a8359887eddc5de172a4e9.png" alt=""><figcaption></figcaption></figure>
 
 <br>
 
-<figure><img src="https://lh7-us.googleusercontent.com/-yqQNcOy_fg37v7zaSC7MCOkzCmI-bDbDzau8zgo5pmuj4kTiXNxW7Q8sRZ2MVwY5wM8Y4Yl_x9QzQwecPRAK7rWedqug9X9qwYOY_jlO5W_vok6pctDGY_pJiiH6tHyC9VI7twcdQg1tcV9CcAqqg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5b258b7e7b577fe1b29619cd.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/qpfr5MLhs0ysK34J-G2GLbsgi-oQcDKMJ-gLdgAitTuVcj_KVH_oxNeF_SdgZ9AO1P5rZaq3750X99EJWvhdpAZtaooSvOxHizLR479KIAC34SCqMWJwMWVzqeYO4X_4SVQG3hFBiumgiqA-6xcdVQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e46ab75edc0050d438e437f5.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST13{4fd29464a28a1b39559f4fc500b41c4b17ec8ad74512394a830b51506628caf4\_734b39d538}
 
@@ -523,6 +523,6 @@ for i in list_flag[::-1]:
 print res
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/B5OtoG2cPy1-bZ9Udhtpjm82CMiPLyKdUmvZqXC9mmYK7PHxfTBf2Q29YHOpvu3ZcJjg7BqS_c3MNJ4iirgUcAQdETDr1_-UXNPVOwVBaF4YP8MmKyScOFQsJV1uBm5eTIxZQtbvvmma08SZkxZOXw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/17d5dbe6c51dda6b357d844e.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST13{Y0u\_aes\_me\_Uppppppp\_\_\_\_\_t0\_c0dE\_on\_st0rmy\_Seaaaas\_\_\_\_e0212d1a34}

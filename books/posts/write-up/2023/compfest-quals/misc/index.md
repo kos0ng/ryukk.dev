@@ -18,7 +18,7 @@
 
 Diberikan file torrent, ketika kami coba lakukan pengunduhan ternyata gagal. Kemudian kami coba cari cara melakukan parse terhadap data yang ada pada torrent dan menemukan repo berikut <https://github.com/webtorrent/parse-torrent> .&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/Iz1za5eg6KnlRS4mqP34ffTbZ-Nsx3n7lQhU6NiRGE3IRUqNpKa1NMU0JfRMhm6k7jxZ_U7CoVCnSVJBpPhRKw157DLappl4-lnyPpqIBe7oawLEG2LQFzjG-Css5yFGOtEq6KO5P2a1s1qgTQS-c34" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/59d719309aa726f14136ba6b.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya kami menemukan referensi mengenai key-key yang ada pada torrent tersebut <https://b0tchsec.com/2016/tjctf/torrent> . Jadi setiap nilai pada pieces merupakan checksum dari 12 bytes (pieceLength) data dari file yang akan diunduh dengan torrent. Karena 12 bytes panjang dan sepertinya tidak memungkinkan untuk bruteforce 12 bytes, jadi kami coba dengan checksum terakhir karena checksum terakhir memiliki data dengan panjang 3 bytes (lastPieceLength) .&#x20;
 
@@ -37,7 +37,7 @@ for i in product(list_char, repeat=4):
 		break
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/YQfNbF6cIDZDTamznfBEZawviNcaPRI8b4yz2GW_eOMIWNoOaG6XujYUaAWjtj_1nZ1imUeEz9YiYvdJqpc_dYXi2A0-LjibN8fir1WWA-1rbnSX_iugadBwFSZXIpZiRQmFcUTPT-xSwyt9KRVgVQM" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b7b7302fab7c271d9ae20a34.png" alt=""><figcaption></figcaption></figure>
 
 Didapatkan nilai b'\xef\xbd\x94' . Terlihat bukan valid common char (<0x7f), jadi selanjutnya kami coba cari nilai tersebut dan didapatkan referensi berikut <https://www.kaminomoto.co.jp/sub/lib/Unicode/Japanese.pm> . Dari deskripsi diketahui bahwa ini mungkin ditulis dengan karakter pada bahasa jepang, awalnya kami coba bruteforce dengan daftar karakter pada link tersebut tetapi gagal karena ada beberapa simbol yang tidak ada. Jadi kami coba cari di github untuk nilai tersebut dan didapatkan file berikut <https://github.com/Voine/ChatWaifu_Mobile/blob/14092ac66c2afd51de06bb126fd102cec869eb8e/VITS/src/main/cpp/openjtalk/text2mecab/text2mecab_rule_ascii_for_utf_8.h#L160> . Karena terlihat lengkap jadi selanjutnya tinggal bruteforce saja. Waktu brute dari akhir karena nama file flag.txt terdapat keterangan pada plaintext/data nya yaitu flag ada pada diary\_1.txt, jadi selanjutnya kami hentikan dan start bruteforce dari pieces 32 (375/12 == 31.23, dengan asumsi ada format flag jadi kita tahu nilai awalnya).&#x20;
 
@@ -256,7 +256,7 @@ for known in pieces[32:]:
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/YCleq7508SIUC1wT84fkXS-Mu6fuyu8w362-7tmDa5NmWcGIuGO47S61N7OoDEB7xDlEjgbY6kUkB4tMpYBLRHkDxNldBQnZEaJmf4jpGNoUpTzKxUbk2B5q92vPbvcnuChS8RsYOx7Lxj_2E8Za8wo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f747fa14c387690e5fcf0286.png" alt=""><figcaption></figcaption></figure>
 
 Ternyata flagnya menggunakan karakter jepang, jadi konversi ulang.
 
@@ -366,6 +366,6 @@ print(zz)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/kF9HqdFkYEmVKk3CuwIc0Ek_7U0AOtgCHGhros9gtA7t5z48wMSbeWVdF71KBRxb-7W1FTJtAW_gjG54lWor4nlL2p_O1U15mKjJKRcdsQKjiN0h0A2pgwM9GIHC21ZQuj4qlosd0lul4B2WkBYr_jY" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d93a6a66f8c44e01f59a46d7.png" alt=""><figcaption></figcaption></figure>
 
 Flag : ＣＯＭＰＦＥＳＴ１５｛ｂ３ｅｐ＿ｂ０ｐ＿＿ＢＥＥＰ＿ｂｏＰ＿ｃｌ４ｓＳｉＣ＿ｔ０ＲＲｅｎｔ＿ｄ９４ｃａ７５ｆ６２｝

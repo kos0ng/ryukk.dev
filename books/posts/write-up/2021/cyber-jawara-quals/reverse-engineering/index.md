@@ -22,7 +22,7 @@
 
 Diberikan file elf 64 bit , selanjutnya kami decompile file tersebut
 
-<figure><img src="https://lh7-us.googleusercontent.com/MrRonPVy7-U-K3PrMw1bVI6MEEpFP8hCVpGBbWZ1DJ1MVM_Wl0f21rRhg0qmEdKyXdj4ybJ4F7cO-cEBALbo_CK4Chv4tsxNS_7XDsgAse1MxNuRjB5kE2YRt1biAbYm3SJI9TxUsXguVGA6H5F4eQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/825d0663b27d25be121c326c.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat bahwa terdapat pengecekan untuk input secara incremental , jadi mulai dari 1 byte , 2 byte, 3 byte, dst. Untuk crac sendiri merupakan fungsi hash ( modified crc32 ) . Jadi disini kita bisa melakukan brute per 1 byte , dengan cara membandingkan hasil hash karakter 1 byte ditambah dengan jumlah hash sebelumnya. Berikut solver yang kami gunakan
 
@@ -109,7 +109,7 @@ Flag : CJ2021{this\_one\_should\_be\_easy\_enough\_right}
 
 Diberikan akses ke suatu website yang merupakan web assembly.
 
-<figure><img src="https://lh7-us.googleusercontent.com/mPa9nEGjC7xhsd3rJ1DLKXggOKoj_pJVlcgE6u3sVyCbRWcjAg8Gd5kiLyJSPeLewOOdmMdsj3UmZ0w9WVVSSNCCUXg1ftMpKuE1mqjLf2elM-Xge5ob-aD9Apt6VQPK0MJMPn5j9oJfmtMIUUr6sA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/313221b92d8ca40adaf3c3c8.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat bahwa kita diharuskan mencapai finish dengan koordinat 126,127 dengan koordinat start 1,0. Pada setiap langkah terdapat pengecekan valid move , fungsi ini bisa kita gunakan untuk memetakan block pada maze. Selanjutnya tinggal implement bfs untuk mendapatkan shortest path first menuju koordinat finish. Berikut script yang kami gunakan untuk melakukan mapping terhadap maze.
 
@@ -279,7 +279,7 @@ console.log(coord);
   }
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/VFN7fSmH-hueR2LHmslDpHTeFa9fY1mO38UQZPa2RvDp2dA4yXPe9T0t2JcfrG1xQ3fBhJnNUMinli4mSBThvQATZABB8xoeQEoWIKeEJA0pV4_S7A29fkWV5O1Z6DMb6qdnf7AkO1F38BppCRtxvA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/937020a388f7293e8063ec1f.png" alt=""><figcaption></figcaption></figure>
 
 Tekan key random untuk mentrigger looping , kemudian diakhir tekan “s” untuk mendapatkan flag.
 
@@ -295,7 +295,7 @@ Flag : CJ2021{web\_assembly\_will\_always\_a-maze-d\_me}
 
 Diberikan file gba , disini kami melakukan decompile menggunakan ghidra dengan bantuan ghidragba. Cukup stuck lama karena mengira bahwa cheat yang dimaksud adalah melakukan patching, ternyata setelah melihat pada fungsi lain kami menemukan ada semacam cheat yang sudah disediakan dari gbanya :)  ( fungsi FUN\_080001b4 ).&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/gUeimA8qcoc5Xw3oA9r2oHlfQIm3GQzG4DoEFgW2lfd8Sx1whNGTqWuBOFEBHaDfv_pfPPm6et4JY70ikMVCN8JLj1UoSWGCCJsxQYiiwbg-7uJEfekLYxNiUQvVfJN-jR3k0l7ao57aGOLTUZD8Cg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1c985f00b52464b49dcd8545.png" alt=""><figcaption></figcaption></figure>
 
 Disini ada 2 cara , melakukan mapping keyinput ( harus cepat mengetiknya sepertinya ) , yang kedua adalah mencari nilai DAT\_03007b74 dan mendapatkan flagnya. Diawal saya coba melakukan mapping , tapi seperti yang saya bilang sebelumnya sepertinya harus cepat mengetikkan cheatnya agar bisa menghasilkan flag, karena input panjang jadinya gagal deh. Berikut script mapping yang kami gunakan.
 
@@ -309,7 +309,7 @@ for j,i in enumerate(z):
 
 Selanjutnya cara kedua, ini ngeselin , karena sudah kelelahan akhirnya yang harusnya 0x7fff saya tulis 0x7ffff , debugging lama karena bingung salahnya dimana hingga akhirnya sadar. Untuk value DAT\_03007b74 sendiri bisa menggunakan memory viewer untuk mendapatkannya.
 
-<figure><img src="https://lh7-us.googleusercontent.com/VruJdFOnXRK8SAdiEiNkgXS79B7d40FErB5DmFwLbZfyUIWPDZHnhrqoWNA8jSq40X21-vBdMwTgDVXH602e2YESMxv_4y0sGm-oDMbhFsCU9onsmB66NWZPn2MQcIUgBNU4GPqQwpjGywnH3kEoOQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c87b296759027ed1d61abe53.png" alt=""><figcaption></figcaption></figure>
 
 Value initial dari DAT\_03007b74 adalah 0x1337. Selanjutnya tinggal generate flag, berikut script yang kami gunakan. Sebelumnya ada miss juga di value 0x14 yang saya tulis 0x1 , kesalahan waktu parsing data.
 

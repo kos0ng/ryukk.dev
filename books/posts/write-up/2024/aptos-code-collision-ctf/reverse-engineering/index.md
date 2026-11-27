@@ -155,7 +155,7 @@ flag.append(magic_2(b"bW", 10))
 print(b''.join(flag) + b"}")
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6UuVmlBMyw56QoOib9SW%2Fimage.png?alt=media&amp;token=bc208d6f-20ba-4a29-9189-aed9ad60291d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/460fbf26ae6a47e2ae28d996.png" alt=""><figcaption></figcaption></figure>
 
 Flag: aptos{so\_you\_have\_learned\_how\_to\_use\_revela}
 
@@ -284,9 +284,7 @@ initialize is the first function executed in main.rs, after that we will interac
   * ((x11 + y31) \* (x12 + y11) + (x13 \* y21))
   *
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FLWCCL0T7w4PvObze7j9A%2Fimage.png?alt=media&amp;token=0d7bb489-0988-49c6-9d9b-da367d03cf36" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/a9d6fdb91afee09049066c2a.png" alt=""><figcaption></figcaption></figure>
 
 So to utilize approach above we will use bit length 19 and use ULE function to make sure that the value will be 1 byte.&#x20;
 
@@ -380,7 +378,7 @@ print(f"{m=}")
 print(f"{n=}")
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Ftfy9dafPSFvzUUprVsUT%2Fimage.png?alt=media&amp;token=526ba445-1896-4d60-8cde-6e11ce01e38b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/72f135a7f0467d11af04b1f6.png" alt=""><figcaption></figcaption></figure>
 
 After getting the valid value for m and n lets put it in move and send run the solver.
 
@@ -397,7 +395,7 @@ module solution::exploit {
 }
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FmTZrYNdRgvUnWO4clQqo%2Fimage.png?alt=media&amp;token=52c4fcf4-169d-4acc-8804-ce32a5769aaf" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c6cc8b32fdb1b3aed63a9472.png" alt=""><figcaption></figcaption></figure>
 
 Flag: AptosCTF{a7ed0e353b00f098d765c11605fa807b78cf4b80c8879afb5aa17351760f9787}
 

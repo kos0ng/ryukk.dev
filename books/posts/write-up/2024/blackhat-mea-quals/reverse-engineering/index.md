@@ -20,27 +20,27 @@ We received a phishing email within which we have found this file. We believe th
 
 Given PE32 .NET, open it using dnspy.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Ffu5eDHOFhxE3Kc0bXfKB%2Fimage.png?alt=media&amp;token=41415913-3e50-4b7d-887d-bbe4675abf24" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3b06e4fb41b1947409a56a91.png" alt=""><figcaption></figcaption></figure>
 
 Looks like it was obfuscated, so take a look on entrypoint by right click on Ifw\... then "Go to Entry Point"
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F88fgi2XgzweueMhEsNll%2Fimage.png?alt=media&amp;token=71514f45-a4ea-4414-99c0-064ba42abed1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b89b0367d37f698d25a82f9a.png" alt=""><figcaption></figcaption></figure>
 
 So there are so many functions called in entrypoint and all of the function name are obfuscated
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FXbPS1NSYj1Wcb3uSIucg%2Fimage.png?alt=media&amp;token=e5f9a7d2-ac9b-414a-a66a-b3f44f41c668" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/291c4cffabaff12b41ca34a6.png" alt=""><figcaption></figcaption></figure>
 
 Looking at some called function and then i notice that there are some pattern in those functions. For example in function `\u032E\uFFFD\uFFFD쐬\uFFFD()`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FD9POJCGT9jqoEnzsysvF%2Fimage.png?alt=media&amp;token=02c430ca-d7db-401b-bb0d-95f6c4737cb9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4c0bf70c1282d4f5d18280ff.png" alt=""><figcaption></figcaption></figure>
 
 We can see that there is something like "global" variable used to store all the leaked data. Clicking the variable we will go to the class of the variable. Scrolling to bottom we will see some "encrypted" values.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F8VccDa0lASEUZPmGfv7x%2Fimage.png?alt=media&amp;token=fed79884-5352-4934-8427-5acabe41db29" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2dc6568616f596fd9f51a328.png" alt=""><figcaption></figcaption></figure>
 
 At first i didn't think that this malware are well known malware (i was thinking that the author created this by himself). But when i search the encrypted value i found several code that use the same value.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FoPRY7lOFAJhztPLNliqK%2Fimage.png?alt=media&amp;token=53e5922d-052c-42c7-b5ae-7017c0945829" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/abb1e28f0b203c78b506da89.png" alt=""><figcaption></figcaption></figure>
 
 So this one is known malware, the code that we found looks like interesting because it use the value for decryption process. Lets try to find any reference regarding snake keylogger.
 
@@ -48,11 +48,11 @@ So this one is known malware, the code that we found looks like interesting beca
 
 We found the explanation of the decrypt code
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fnd9hkQSD08Bpv822NJJJ%2Fimage.png?alt=media&amp;token=ad40a08b-54ff-417d-8185-0fdb2a27a73e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8b8b3fa7f5962f069004d135.png" alt=""><figcaption></figcaption></figure>
 
 So lets try to find the ciphertext value in configuration class. In this case we assume that the RID of the malware is same because the code is actually same.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FjhTw0tVNOxibAh8lhDPw%2Fimage.png?alt=media&amp;token=bb8c59c9-b9aa-40f3-bab0-7683e8d8fdeb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/752446cc37b7545219a4cb94.png" alt=""><figcaption></figcaption></figure>
 
 Finally, just change the ciphertext in code and got interesting base64 value.
 
@@ -72,11 +72,11 @@ for el in arr:
 		b"BsrOkyiChvpfhAkipZAxnnChkMGkLnAiZhGMyrnJfULiDGkfTkrTELinhfkLkJrkDExMvkEUCxUkUGr"))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FyshuTaEaEvx6PRldPr5o%2Fimage.png?alt=media&amp;token=7d952756-3320-42f1-832d-bedcb9fed4e9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ae6e7d3cbc18b2280a4d2504.png" alt=""><figcaption></figcaption></figure>
 
 Decode the base64 encoded string and got the flag.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwBxJSjgkVOUg7kuzawx8%2Fimage.png?alt=media&amp;token=ad98b3ed-c3af-4760-a3a4-fb0472e85ced" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/addc8b8a896a280daa178703.png" alt=""><figcaption></figcaption></figure>
 
 Flag: BHFlagY{t3legr4m\_g0es\_w!ld}
 
@@ -90,7 +90,7 @@ I have some files missing but I think I can figure it out anyways.
 
 Given .rdb file, stuck for a long time finding what kind of file is this. During the competition my friend (nyxmare) did binwalk to the file and found some interesting string on the decompressed zlib.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FggWccti4cXEosBnlXMis%2Fimage.png?alt=media&amp;token=5e0ac2b3-d885-4305-832f-199af6afddf8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b1382849fa2227ff2782893a.png" alt=""><figcaption></figcaption></figure>
 
 Based on some information gathering i conclude that it was file from R programming language. Narrowing the search, i found some reference about .rdb file.
 
@@ -318,7 +318,7 @@ print(nice)
 
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F464teVo6g4yGmNLhBFnZ%2Fimage.png?alt=media&amp;token=ae390f06-bd7c-4886-971e-72e9e1987dbd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d3aedb8e2196336bc3927fd4.png" alt=""><figcaption></figcaption></figure>
 
 Flag: BHFlagY{Rnt\_vu|ns\_Of\_Seri4liz4t10n\_sUp3r\_fun!!}
 
@@ -332,7 +332,7 @@ A friend of mine has sent me this authenticator, he said it's not working fine e
 
 Given PE 64 bit, open it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FTqxO3ase9bysQeulIPr2%2Fimage.png?alt=media&amp;token=294d7aad-1928-4785-a1dc-64234ade161e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/37e9daaf70c1b8562f19d32f.png" alt=""><figcaption></figcaption></figure>
 
 When we run the application there will be messagebox popped up and will process our input. When i tried to set breakpoint at main function the messagebox popped up first but the breakpoint is not triggered. So the process of popping up messagebox and checking our input is not done by the main function.&#x20;
 
@@ -342,11 +342,11 @@ In Windows we know that there is a methodology to call function before main func
 
 Now, lets try to inspect what function called through initterm. Breakpoint on initterm
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F3yWhmm5F0077RO2Nirb8%2Fimage.png?alt=media&amp;token=c840fbb0-efa4-44ea-b325-7eec813ce4cf" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bcd2527fe717f32e7c4073b5.png" alt=""><figcaption></figcaption></figure>
 
 There will be no messagebox popped up, so the "actual" code still not executed. Now take a look on First variable.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FoiQGkxUupDhKJPJcyDaT%2Fimage.png?alt=media&amp;token=a683fba2-9c81-4465-866e-a6c090e5a869" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/871694b7ea40d4fd41c6e589.png" alt=""><figcaption></figcaption></figure>
 
 Looking at all function we will notice that only the last function are suspicious, so rename the function.&#x20;
 
@@ -377,9 +377,9 @@ void sus_func_1()
 
 Take a look on sub\_7FF7EAB74D20 function. Breakpoint at 0x7FF7EAB74DEF we will see the decrypted string at \*rbx
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FXqogwVB95Dh51bodwzMn%2Fimage.png?alt=media&amp;token=8b0c12c6-0b0c-4a13-b46c-f7e84b4c2214" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b88c9e585585b20121eba682.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHtXqX5oGoWSLnwuEpSxg%2Fimage.png?alt=media&amp;token=bbba4642-6013-46b9-b355-1e3766b87951" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/25cd410f08a8004ee1e1f302.png" alt=""><figcaption></figcaption></figure>
 
 Continue the dynamic analysis then we can conclude some insights.
 
@@ -484,7 +484,7 @@ Continue the dynamic analysis then we can conclude some insights.
 
 * The VBscript code are resides in line 59-67, it "obfuscated" using xor operation. The easy way to get the plaintext code just breakpoint on `(*(_QWORD *)v6 + 40i64)` function call and take a look on second argument.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5K6TG9zMAV8P1s3YHBdX%2Fimage.png?alt=media&amp;token=e1f0678e-edab-4cf3-ab73-1150716573bb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/68ae52a50a2d5273f4c3a0ea.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 def conv(data):
@@ -525,7 +525,7 @@ data = """
 print(conv(data).decode())
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Faa3RDxwJRQbjDdD4o6NF%2Fimage.png?alt=media&amp;token=7579b453-ae4b-4cd2-9311-013e72c75910" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1aa6e9496d51a0241db99f6b.png" alt=""><figcaption></figcaption></figure>
 
 The code looks like same like the messagebox popped up when we run the progam. From code above we can see that our input is stored at WshShell Environment Process with key "KPASS". Back to the code now then  continue to the next function sub\_7FF7EAB75020.
 
@@ -686,7 +686,7 @@ out = open("dump.js", "wb")
 out.write(pt)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FH09vuBW0WmV1B0POcDc7%2Fimage.png?alt=media&amp;token=29a5df92-f5ef-491e-9ab1-898f302e5003" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7e4989ad2254138d6bb200cd.png" alt=""><figcaption></figcaption></figure>
 
 So the javascript is obfuscated, lets deobfusacte it using online tools.
 
@@ -786,7 +786,7 @@ See the full code in this [gist](https://gist.github.com/kos0ng/aa196cbae693033a
 
 We cannot directly execute above javascript code using interpreter like node, based on information that i found we can execute above code in internet explorer. Trying to find executable that can run above script i found "csript.exe". We can run above script like using nodejs executable.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F3iz0zer0C2GI3EyxT6nR%2Fimage.png?alt=media&amp;token=23e24335-ab17-46fc-bd1c-3318e8c19070" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bd4eb0c7f398dab111b9eca0.png" alt=""><figcaption></figcaption></figure>
 
 Back to the javascript code, there are some insight that we can note
 
@@ -853,6 +853,6 @@ for i in tqdm.tqdm(itertools.product(*list_char)):
       break
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgueUwXShCiUg2gO97C7K%2Fimage.png?alt=media&amp;token=0759dd2a-5cd5-40e8-a819-f505203119b9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/46883e563d7e82c6f1ccee16.png" alt=""><figcaption></figcaption></figure>
 
 Flag: BHFlagY{ca11ing\_n4tiv3\_c0d3\_fr0m\_j5\_vb5\_ps}

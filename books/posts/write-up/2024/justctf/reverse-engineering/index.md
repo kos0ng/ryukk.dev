@@ -98,11 +98,11 @@ void __fastcall __noreturn main(int a1, char **a2, char **a3)
 
 So basically there will be dynamic call to the function after we input the menu number. All the available command can be seen on 0x0000555555566968 - 0x0000555555566AD0.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FXWuRLprZIPos2YFy6stZ%2Fimage.png?alt=media&amp;token=b1fb96c9-0a6a-44b3-956e-1627b93b3042" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8e300ca4a743c7eda4fa0b50.png" alt=""><figcaption></figcaption></figure>
 
 Based on the description, the given executable is DEMO version and from above image we can see that there are only 6 command include exit. Looking at available command on program we found that there is "compress" command.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgleCGV6YW0pW4cmrc2At%2Fimage.png?alt=media&amp;token=9b4916ae-a531-48a1-bf94-689fce451636" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/92a318efa70792a0d605f185.png" alt=""><figcaption></figcaption></figure>
 
 So we need to find number for compress command first. Lets go to GDB.
 
@@ -112,15 +112,15 @@ b *0x0000555555558a5c
 
 Now we need to find the address for menu 1 and menu 2. Go to first menu by putting 1 as the input.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfEagiFNVYkR5VE025zzs%2Fimage.png?alt=media&amp;token=7e2d6b97-faf6-41c7-8bfb-7c921cc4df0f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0b6f45950027e7dfcebc5dff.png" alt=""><figcaption></figcaption></figure>
 
 Go to second menu by putting 2 as the input.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F3QHfS5N0MQC2CepZkbyu%2Fimage.png?alt=media&amp;token=7cb5b351-fa0f-4162-bf08-6d89b7c04dce" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/36903501958516991ad1c6a9.png" alt=""><figcaption></figcaption></figure>
 
 Lets calculate the number for compress menu, first find the reference for address 0x555555566A90 (CommpressCommand).
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F9Fh9ND2BorWXuMBfn4Ot%2Fimage.png?alt=media&amp;token=7a824840-d09a-4e97-bc28-2437e0b864c2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4e6fa5bff4dec204527fb4b8.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 menu1 = 0x0000555555579fb0
@@ -133,21 +133,21 @@ diff = menu2 - menu1 # 32
 print(((target_menu - menu1)//diff) + 1)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5MgXMtYdMuQMHDJCCzRd%2Fimage.png?alt=media&amp;token=cf33ff9e-dfd0-4aac-b10b-c80cac806782" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/76d5e346393197dfd6e71f52.png" alt=""><figcaption></figcaption></figure>
 
 Lets try with number 7 and we will go to compress command.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FcUNtksZIr8kaW9S2wpYu%2Fimage.png?alt=media&amp;token=8ca2b921-d344-46a4-8b09-6a88b61c0ee7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/47ef98ccd0c418681b2d1a6c.png" alt=""><figcaption></figcaption></figure>
 
 Our objective is getting RCE to get flag on server. Compress command utilize system function to do compressing, lets dump the argument.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEAH6OBtyHaHVcfuoCbno%2Fimage.png?alt=media&amp;token=b3948b19-2c1c-4fe1-bbdd-efa7c7eab5a7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d3e9d303a7b039695a567f19.png" alt=""><figcaption></figcaption></figure>
 
 ```
 b *0x55555555D981
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FlqUX7jSyjthUCZMc3gVO%2Fimage.png?alt=media&amp;token=6e214b67-07fc-4d74-a416-45c5bba7e1c6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f73b998b1247c5226b644e7d.png" alt=""><figcaption></figcaption></figure>
 
 So it use tar command to do compression, looking at GTFOBins we know that we can abuse tar command to get shell. tar also vulnerable to wildcard injection, so we can get shell by using wildcard injection with argument same like in GTFOBins. Looking at rename command we found that we can input any character as the new filename, now we can utilize all available command to make the payload for RCE.
 
@@ -211,7 +211,7 @@ My favorite TV channel has recently become more interactive...
 
 Given .asn files, after searching for a while we found repository that looks like have the same file <https://github.com/igilham/mheg-slate>. Looking at the reference for mheg we found that we can decompile the given file to the source code using [mhgenc](https://code.google.com/archive/p/mhegenc/downloads). After getting the source code actually it still hard to get the flag because we're not familiar with the code. Looking at another reference we found that we can debug the file using [MHEGPlayer](https://sourceforge.net/projects/mhegplus/).&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FN1DLNyVQtsUe7Hy9tDXo%2Fimage.png?alt=media&amp;token=fc858f4b-246b-4ec8-80c2-ae701278d05b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6be4e6a22fa691f54fc42df8.png" alt=""><figcaption></figcaption></figure>
 
 With above directory structure we can run the file using below command then click `populate carousel from disk`.
 
@@ -219,7 +219,7 @@ With above directory structure we can run the file using below command then clic
 java -Dmheg-source-root=src/ -Ddfs-root-dir=src/ -Dfile-mapping.//a=src/a -Dmheg.profile=uk.dtt -jar MhegPlus.MhegPlayer-1.0.1a.jar
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZsLpVMI8TFCT4NpoaiES%2Fimage.png?alt=media&amp;token=4f5fd752-9fea-452f-9d70-0a7fd99887cd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/da55f945d1ea75fb1dae5630.png" alt=""><figcaption></figcaption></figure>
 
 Click `Play in realtime` so we can interact with the program. To go to the flag validation program we can follow the screen instruction.
 
@@ -228,15 +228,15 @@ Press Blue
 Select Extras (down-down-select)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FdyXG4bQRhP19plyVqKqS%2Fimage.png?alt=media&amp;token=9b3ad7d2-bee1-40e0-919d-a0e56dad86e1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/442e4ecfb7a9be7c07f57784.png" alt=""><figcaption></figcaption></figure>
 
 Now we need to find where is our input processed. When we input invalid value the background will be red, so if we check in the source code we see that there is call of setBackgroundColor with color 0xff0000
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEtsem1IJbjJZ7WClw0mz%2Fimage.png?alt=media&amp;token=65b323e9-9947-4417-9911-acc380c7f52d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d181c5d65205737bdc3a2608.png" alt=""><figcaption></figcaption></figure>
 
 So the link identifier is 2583, we can trace the call by searching 2583.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPuwno4rFRr6FK2KWJLjL%2Fimage.png?alt=media&amp;token=a32ca45a-fb88-4d73-9b1f-576c3f608cae" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d5df496044bdb48dfb2e3edb.png" alt=""><figcaption></figcaption></figure>
 
 We can see on image above there is :Activate (2583) which mean that link 2583 bound with those line of code.  After Activate instruction there is TestVariable instruction, lets try to find the emulator source code so we can see what is TestVariable do and also its constant. Found this [reference](https://github.com/roshantha9/SimpleMHEGPong/blob/122acd107202f6f4f86915bcc6109bce06e222f0/dev_text_src/rel/~COMPLETE_pong.mheg5#L613) on github. Now we have the operator and its value on this [code](https://github.com/roshantha9/SimpleMHEGPong/blob/122acd107202f6f4f86915bcc6109bce06e222f0/dev_text_src/rel/~INCLUDE_pong.mheg5).
 
@@ -260,7 +260,7 @@ else:
 
 Until this step we know that the function that process our input is on :Link 117 (line 1228). Set breakpoint on line 1235 (click on line number) and lets analyze what the call means. To trigger the breakpoint input any value then select "Confirm".
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfAdOjhGj4hd51Bomonlm%2Fimage.png?alt=media&amp;token=165b2a95-a535-45cd-9003-0bccf1b8330f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4ffed443919952246ba11b06.png" alt=""><figcaption></figcaption></figure>
 
 ```
 1235:        :Call ( 27 34 
@@ -288,11 +288,11 @@ Until this step we know that the function that process our input is on :Link 117
 
 * 53 is our input
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FyZmWUoCbbvIj4zQwaTiB%2Fimage.png?alt=media&amp;token=3770d471-bd84-4689-a77a-c1b2b511e80c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/140d2f8a03956bba93afbbab.png" alt=""><figcaption></figcaption></figure>
 
 * 61 is output
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPjWJbUxnR2HKUjr0PDz7%2Fimage.png?alt=media&amp;token=5e96aaee-be01-4893-bd73-7bf50c06ba4d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/039f0d319f7ca98c7cd74426.png" alt=""><figcaption></figcaption></figure>
 
 What is GSL mean? lets try to take a look on [mhegplus](https://sourceforge.net/p/mhegplus/code/HEAD/tree/) emulator.
 
@@ -302,11 +302,11 @@ svn checkout https://svn.code.sf.net/p/mhegplus/code/trunk mhegplus-codels
 
 * mhegplus-code/MhegPlus.Compiler/src/bbc/dtv/mhegplus/mhegactions/MhegCall.java
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEFQX5IssRqLzYnDQ5DOQ%2Fimage.png?alt=media&amp;token=28bec355-5370-4a7b-89e2-978ff81d2b1e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b694793f0ffbf948493ef611.png" alt=""><figcaption></figcaption></figure>
 
 So GSL is Get String Length which same like strlen. Through stepping we can see that it is a valid strlen.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvdowT5OKCsIIhAI5iVCz%2Fimage.png?alt=media&amp;token=55c78e8b-063b-48ee-9721-0388f25ca472" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/85be6bdcf8f0bf1d75a254f7.png" alt=""><figcaption></figcaption></figure>
 
 Okay now we know the approach to understand the code, lets convert each part
 
@@ -584,7 +584,7 @@ for length in range(68):
 		continue
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F20H21LKz2rStsBgT43c1%2Fimage.png?alt=media&amp;token=598cde24-243a-4598-93c5-b958302f1986" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/eb100688ebc12a0bed7b9e57.png" alt=""><figcaption></figcaption></figure>
 
 Flag: justCTF{0ld\_TV\_c4n\_b3\_InTeR4ctIv3}
 

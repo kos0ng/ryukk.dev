@@ -207,7 +207,7 @@ r.interactive()
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/docsz/AD_4nXena9RXVRpWkDsOUEi60M3OX6DST7b_XPzq65rh6DSSyz6YrCXKp91Bm5nLgB-Ib1Sy4YHHApqMRsHRwv_6tQduSFC49Edx5PbqbuV5rzf2mkCM1nEbd3mbzyvGIrMOSVQPFQ4VbiUJ5S-R6JH85UKUizo?key=8Tl4ydFatRR8LKsibWjVHQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/28271f401dba28a6e5c8d3a9.png" alt=""><figcaption></figcaption></figure>
 
 Flag : MDT4.0{dapat\_meningkatkan\_iq\_sebanyak\_100\_poin}
 
@@ -350,6 +350,6 @@ for x in sympy.nthroot_mod(pow(ct1, d, n), g, n, True):
    	 continue
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdTzxP1iffu2p0Db9Sz0QHvno-D5bO_titdNcvMrKhwRSHZdIJEwNCAovun62F0yPgt0hn9O1wpL9aOsivozci_0harxVhoqNusJgbN49K_vjrqgRgzB8ratuPUkujJ_jzZ0bo3gnvyCsIieX7ZKtKYHdE?key=8Tl4ydFatRR8LKsibWjVHQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dbec37bfcd0604c29eb2602a.png" alt=""><figcaption></figcaption></figure>
 
 Flag : MDT4.0{qONW3\_\_you\_cant\_stop\_me\_guessing\_out\_\_1NKjA}

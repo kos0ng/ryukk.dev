@@ -23,7 +23,7 @@ What is this funny file? 🤪
 
 Given .pyc file, at first i tried to decompile using pycdc but it failed. After that i tried to use pycdas to show the opcode of compiled python.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FTnAI3ylsLysoB5FNA1Nh%2Fimage.png?alt=media&amp;token=0f413c88-2ee6-4ecf-8929-50914869ab87" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/833be106d71190034fce4a5c.png" alt=""><figcaption></figcaption></figure>
 
 ```python
         136     LOAD_NAME                       34: input
@@ -122,7 +122,7 @@ cipher = AES.new(key, AES.MODE_CBC, iv)
 print(cipher.decrypt(ct).decode())
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FFWeq8kyogMXG6VgSt4al%2Fimage.png?alt=media&amp;token=885eabd1-6f2f-4b22-bc04-aded4cbd8651" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/924e7a067f9e007545ea8ff4.png" alt=""><figcaption></figcaption></figure>
 
 Now come to the part that need us to guess what is the objective that the author want, by reading above text again by again i understand that we need to reconstruct the original code including the position (row and column). Before i got the objective i tried to do analysis on the variable initialized (a-z) and i found that all the values are 0 and the code only put the variable without doing nothing. Now, lets take a look on the opcode again
 
@@ -188,7 +188,7 @@ Now come to the part that need us to guess what is the objective that the author
 
 The code above that i said it does nothing. During the disassembling process of the pyc file using pycdas, i found there is option --pycode-extra and it will show Line Number Table like below
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FdmmXXhuopjAv0386iEKn%2Fimage.png?alt=media&amp;token=c5942df3-3653-4748-ba94-9f73b5ad173c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/03613a3b672e5c7c62d23b91.png" alt=""><figcaption></figcaption></figure>
 
 By trying to do the dis with our own code i found that Line Number table consist information about column and row, which is that all we need to solve this challenge. Below is my flow for solving the challenge.
 
@@ -231,7 +231,7 @@ for i in mapp:
 	print(''.join(i))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIaXII8xBN78PpeeAKwDW%2Fimage.png?alt=media&amp;token=ad3c432e-061c-4406-b21a-688fba8ff2e1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/07ee6ddc79a02a1c4fd61ae6.png" alt=""><figcaption></figcaption></figure>
 
 For the IV just add the following code in the end
 
@@ -257,6 +257,6 @@ cipher = AES.new(key, AES.MODE_CBC, iv)
 print(cipher.decrypt(ct))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FeFJEYllK8LHbsEP9qQ0O%2Fimage.png?alt=media&amp;token=c782b179-a3e9-4bef-a491-1fa2ce1191b6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/76baf1f616d383fa3ba6bc60.png" alt=""><figcaption></figcaption></figure>
 
 Flag: INTIGRITI{y0u\_7ruly\_4r3\_7h3\_pyc\_p4r51n6\_m4573r}

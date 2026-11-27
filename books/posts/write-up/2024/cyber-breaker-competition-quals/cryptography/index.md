@@ -59,7 +59,7 @@ d = pow(e, -1, phi)
 print(long_to_bytes(pow(c, d, n)))
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXczLlE8xqtONH7gSEyYVs_bIGAwVIilABOccfFrKNwsz0v9af5ahT6c8daxxpGzVN2WcFP45FBuruvhTUoTiVyJG71bAlhEOXWvbJTJjBNrP7cP-0UAo93314cuVgsVX-mRSoHum5j-oOh7OvgtJWTOe245?key=LN5wmeu9Z-8QxNv3aDLEBQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0a59460732eaf0eabd562d49.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CBC2024{is\_the\_safe\_prime\_in\_the\_room\_with\_us?}
 
@@ -138,6 +138,6 @@ for i in product(*list_prime):
 		break
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcW9Tv3iwNEniQJhHRS9t0ADA77bQRpdc9U3J3cTu_1wqTRPSCvlnelzSol3OtYRG2Yx7p0YjMaymel-I0vDM2CdLvtiLN1-eFx55yxB1X1KxAU6GDudhmXLtbo_Re2RB3BlTE5iADpiTB3lYs7no5b_sLn?key=LN5wmeu9Z-8QxNv3aDLEBQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/962238636f1dc96d4c2094a5.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CBC2024{whats\_the\_point\_of\_this\_err0rzz}

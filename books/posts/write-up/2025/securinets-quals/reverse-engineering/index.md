@@ -12,39 +12,39 @@
 
 Given C# executable that hardly obfuscated.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEbIiVT95s1avoDfCW1ig%2Fimage.png?alt=media&amp;token=b82c158e-baae-451d-b579-3a62fbb7f290" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ff2e3c5f7d37a82a4dc812f1.png" alt=""><figcaption></figcaption></figure>
 
 Through running the executable, we can see that there is a form created.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQQQmGarJoKrhjuCdBlVU%2Fimage.png?alt=media&amp;token=9b987477-a741-4895-b17c-89abfc08c318" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3fd2fe40dc6b471b0ec4a34b.png" alt=""><figcaption></figcaption></figure>
 
 We can see that there is a button, but it is disabled. Since it is a crackme challenge, let's try to enable it. First, search variable with `Button` data type in decompiler, i use `dnSpyEx`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FUMYRYuJIPV6iOHwGoap8%2Fimage.png?alt=media&amp;token=0b7a8618-faf7-464c-acab-98233c775dfe" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0040a7f28a4ac3c868c70e53.png" alt=""><figcaption></figcaption></figure>
 
 If we take a look on `Button` constructor, we can see that it use `setStyle` from `Control` class. Through debugging `createParams` i found a way to enable the `Button` which is by forcing the properties enabled to `True`. So the easiest way i think to modify it is by setting breakpoint on `Enabled` setter and change the value to `True`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvZND9AftIj9FYXiwkgF0%2Fimage.png?alt=media&amp;token=64bb4bbe-bf83-4146-a2e2-090033322536" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5cf32a7d05a904cebd7f3b2d.png" alt=""><figcaption></figcaption></figure>
 
 &#x20;Now, `TEST` is clickable, but when i clicked it it doesnt show flag.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FV4gX7ZQKaLf5UzZZmzBh%2Fimage.png?alt=media&amp;token=61e85521-45de-4b65-9c15-fa5bc0623093" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ebbe4320f732c1cfed960e84.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FjBKBHVq0ed7vKZ0OZIcM%2Fimage.png?alt=media&amp;token=806895e7-eec8-4fbf-accc-8bcad67c9b30" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/40629eae6439ded356eb856a.png" alt=""><figcaption></figcaption></figure>
 
 Back to the class where Button lied, we found that there is `TextBox`, let's try to set breakpoint on getter of Text for `TextBox` Class.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNzPJMiKhlm3hOBDMpLzR%2Fimage.png?alt=media&amp;token=8031f405-b21e-4106-b22c-2a6d768e4fd9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1e5e0ff29ac176520d503a4c.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNjWs1c5SEq7x5fDmpOjp%2Fimage.png?alt=media&amp;token=ad4ab884-9be7-429f-9ea3-e64691fe8c6d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b3464b5e7c6e2c7d5c01ae3d.png" alt=""><figcaption></figcaption></figure>
 
 Continue the process and right before showing Wrong Flag, the breakpoint on Text getter will be hitted. Doing step in we will see that the text value is empty "".
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOSRtVrr5gqv3ogtXvZXI%2Fimage.png?alt=media&amp;token=60c1216f-a820-49bd-97d8-a1683d4df0dd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/70037d42ff5ec0a4673cd35b.png" alt=""><figcaption></figcaption></figure>
 
 If we continue to step in, the debugger will crash. By looking at the stack trace we know that probably it crashes because the caller function is a `native` function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Frj4i1PY2fP0skF1yuhUP%2Fimage.png?alt=media&amp;token=e0ed23e2-7392-4ef0-a664-ac61245d0f72" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4111bac483da5376f7e24c04.png" alt=""><figcaption></figcaption></figure>
 
 But now, at least we've a nudge from a stack trace regarding what is the function actually did
 
@@ -53,17 +53,17 @@ But now, at least we've a nudge from a stack trace regarding what is the functio
 
 The next step we need to do is `deobfuscating` the initialization of function. Let's try with function that we found earlier, analyze function `e\u0015\u0015;|` and take a look on assigned by.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F9aCBIE9kVahz4Qf9N74a%2Fimage.png?alt=media&amp;token=03c3129c-c9fc-4ab2-a49b-c5f6da1c4ab7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d4ed69558af9956478bd3d6a.png" alt=""><figcaption></figcaption></figure>
 
 Take a look at function `FUCKED_BY_AD3M_XTN\u1160\u1160\u1160\u1160\u1160FUCKED_BY_AD3M_XTNIcFUCKED_BY_AD3M_XTN\u1160\u1160\u1160\u1160\u1160FUCKED_BY_AD3M_XTNIcFUCKED_BY_AD3M_XTN\u1160\u1160\u1160\u1160\u1160FUCKED_BY_AD3M_XTN` and we can see that the function is creating a dynamic function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FCrnKUVaihCy9eLaS7aJB%2Fimage.png?alt=media&amp;token=ceaaa909-a2db-4094-b62d-1959c28a7a8c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/17ba627e18fd2c450449d15e.png" alt=""><figcaption></figcaption></figure>
 
 Setting up breakpoint on that function then we can get a brief idea about the function obfuscation things.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FR84A3vtVk0Ameny1NlAQ%2Fimage.png?alt=media&amp;token=1487edd1-5619-42dd-802b-61ea8fc64fe7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3ba264a17ed5eeb3a4668857.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FxMjA0XMFqhSvtMCFWPgs%2Fimage.png?alt=media&amp;token=efd19aa2-4d78-4d69-a32c-10bb1b7b5c2f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4666d0d690b8f752232ca217.png" alt=""><figcaption></figcaption></figure>
 
 We can print IL from that code by using `dncil` .
 
@@ -610,7 +610,7 @@ write_bin("func3.bin", a)
 
 The decompiled result will looks bad, but we still can understand the big picture of it. The idea is by tracing through call stack when breakpoint on imported function hit.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FjJtaj9pIz4iu45kE3cup%2Fimage.png?alt=media&amp;token=929c424c-0347-4543-ab6f-4e2694ad27c7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/94e577ce5c927a0ab040a47c.png" alt=""><figcaption></figcaption></figure>
 
 Example in image above we can see that address `0x0B0334A8+0x5E6` is return from Split function call in native function so we can create comment on it (would be nice if we can create struct but too lazy at the moment).&#x20;
 
@@ -1673,7 +1673,7 @@ LABEL_20:
 
 Next, just reconstruct the algorithm in python. To get the modulus, we can do the same approach because the program convert it from Double using internal windows function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fm1FpAprxblBAYLutVqii%2Fimage.png?alt=media&amp;token=83230e1d-2093-4972-a7df-61cfbf962fcd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ca95c8e6e23b1108e3439f11.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 import base64
@@ -1734,6 +1734,6 @@ for i in cmp2:
 print(base64.b64decode(flag))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FeR0kpRZU6sFgsgL4UnSy%2Fimage.png?alt=media&amp;token=f893e34a-2509-4389-aa09-fa512d6761f1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/90180bda280b4bccc50227a2.png" alt=""><figcaption></figcaption></figure>
 
 Flag: Securinets{N1c3\_C#\_Sk1llz\_But\_C4n\_Y0u\_H4ndl3\_Th1s\_0n3}

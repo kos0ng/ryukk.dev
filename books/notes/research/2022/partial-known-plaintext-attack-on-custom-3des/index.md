@@ -280,6 +280,6 @@ for i in result:
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/BT8O7ZtGXpqDvgNmsY1OTQ_y8yMjlBzc6MaA6cU657yin5JVy9IXqYp8a1Kswr5Nx3igIYQ3mB7a9IwLY6s6ojFdzup84LjqWK-jW5EwW2L_2bQkTXK-dU5DUkPttkvRoRqzHgzFwbWZJgVJglkk0XA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/53db8fbc0e2c311afd374f47.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST14{wh4t\_K1nd\_0f\_0n3\_r0unD\_3ncrYpt10n\_i5\_tH1s\_c62281d071}

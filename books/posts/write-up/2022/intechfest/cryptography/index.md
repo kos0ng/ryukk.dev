@@ -66,7 +66,7 @@ print(flag[::-1])
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/aJ-0O9upFKGCO9xpRnD6zoVis9ieooibsxJB4z-9KwhcWAlCsQq6Qf98qDnWwiOzHsOWMVvAIu16mxAciZV2jGPO3wQfmr-gB8k7QkAYVM9XyV8P6Sk6wZBqWbb1QILXoxoumGdohT2RE1rDC8aN0s8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/52ed3ec38222493ad5408538.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{3asy\_obu5c4te\_ha\_h4\_ha\_\_}
 
@@ -157,7 +157,7 @@ for i in range(len(dec)//2,len(dec)):
 print(flag)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/U3L_2sQ-i-7Yl2QPulWA0mwlubVG_6AE0l1U2CCmDOPIYscOL0HpCLr24TaeutbsYaVOCS8fkpSDd5tlF0FrWj_lIKDY4SpOv1j2XQ0G1QMbVausOWK-4UcdUY68qfpZk4wp9x6uS_MnA-PTJZbdsIk" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ecd2f409fe589b9496464d1e.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{3asy\_chall\_5o\_you\_c4n\_get\_happier}
 
@@ -371,7 +371,7 @@ r.sendline(long_to_bytes(SECRET).hex().encode())
 r.interactive()
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/5pLgXRBvwZCRXB-6cJwNelbziA7hpjAWyVowuv54I3imosurzXhb1lIXgx2ZoA5uopBali0gcJQ4paEpqhSjUxjFxmMGP_mVLA_G670c_DRNHdWfrpLlsxZJNt-U_3xoJFn7YQqu_NjJUkzr9-TUM5U" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c7f3e119e7ff4b5270951ca1.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{s00000\_M4nYyy\_Vu1n3r4b1LyTYY\_iN\_r44nnD00mNe5555}
 
@@ -486,6 +486,6 @@ if __name__ == '__main__':
     main()
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/sn3Awm_6pPt0DX0GPmLdlY1OrGLTvjShqPMWWWBsn3vd5RskwxOtjvg8qnl-YeYhdDv91FJCkA3mRC7-m4GCBTYl5Bae51Ck8_Hwy9c3CYr3l1ibqoco2DSIX-pAvawrrSXSMP94x-_QGTSAa4RFLMU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/439df674ccbf4f4e490064f1.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{math\_problem\_require\_math\_solution}

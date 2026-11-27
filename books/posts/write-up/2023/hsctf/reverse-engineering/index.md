@@ -138,7 +138,7 @@ mapp[finish[0]][finish[1]] = 0
 dfs(coor)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FBUOxSaazB7OwsS7ZQIJX%2Fimage.png?alt=media&amp;token=bb8b2077-9012-4294-b4a9-0e7be9676f3d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2bff101f2eb096570d7e8110.png" alt=""><figcaption></figcaption></figure>
 
 Flag : flag{l4byr1nth\_9abe79d712e6dd52c4597}
 
@@ -152,7 +152,7 @@ Scotland forever!
 
 First step, we should extract the original elf executed in `recursed` binary. This should be done by set breakpoint on write function and dump the memory
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5krS8dOlULjkL7yhpUm1%2Fimage.png?alt=media&amp;token=04b63af6-f6b1-4b5f-907e-7c12927123cd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4dcafde0938dfdb3aeae9a62.png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 dump binary memory result.bin 0x00007fffffbd5450 0x00007fffffbd5450+0x0000000000428f10
@@ -160,7 +160,7 @@ dump binary memory result.bin 0x00007fffffbd5450 0x00007fffffbd5450+0x0000000000
 
 After that we should facing the real cursed binary, compiled using ghc and of course it made using `haskell`. In this case we can't use <https://github.com/gereeter/hsdecomp> or another modified `hsdecomp`. So my initial approach by enumerating what instruction that processed our input. It can be done by doing hardware breakpoint on our input.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FubDoqAmnVGprrbILKjVg%2Fimage.png?alt=media&amp;token=1d72b782-786b-4447-91a6-08737d12d4e8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/efe9f27b8f316cb70bd6c3b4.png" alt=""><figcaption></figcaption></figure>
 
 From image above we can see that our input stored at `0x7fffffffe701`. Next step is doing hardware breakpoint on that address by using command below
 
@@ -168,35 +168,35 @@ From image above we can see that our input stored at `0x7fffffffe701`. Next step
 rwatch *0x7fffffffe701
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Ffr93UbOMmADG2ciLEen9%2Fimage.png?alt=media&amp;token=bf6b2755-97b4-4263-8db0-2f607ccfd3a8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/49af5350e293b658913b64fe.png" alt=""><figcaption></figcaption></figure>
 
 After some enumeration i found that there is something like argument processing and we can skip that by setting up breakpoint on `0x4afbae`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FoXjuQiSi0f0aBjsRayvw%2Fimage.png?alt=media&amp;token=a6118f4c-8ed9-4a76-8ab3-4fcf69385e50" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7ab438d4abfa24105443cf7a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FD5XvisNbt8pR8Q866w1b%2Fimage.png?alt=media&amp;token=ee14c06d-e562-4616-b66c-724ca2c2f16b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b4048bb250ead3c18e0f6f99.png" alt=""><figcaption></figcaption></figure>
 
 After hitting breakpoint, search value for our argument. In this case i used `RYUK12345` as argument
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FDlLfjcD6C9sB8WyYZaey%2Fimage.png?alt=media&amp;token=5f29305e-b218-4a27-95a1-d16e6ae9c1e4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3aa00fc1e1e2f62e80dc97dc.png" alt=""><figcaption></figcaption></figure>
 
 There are some value found on memory, we can enumerate 1 by 1. In this challenge, i found that `0x507b70` used for next process. The next step is changing the hardware breakpoint each the value moved or processed by the instruction, here is for example
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPbubE854Frrrr1xTNI1I%2Fimage.png?alt=media&amp;token=5c3960c7-a677-4b7a-ac07-07dbd529acb3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d3e8c122e78da537a0935e46.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F2kx94zUkyVky5Kr1z8iR%2Fimage.png?alt=media&amp;token=8ed33553-9a20-4f8a-9500-c6f5695a9245" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/26825b4d16f3f0afee5c3acb.png" alt=""><figcaption></figcaption></figure>
 
 Do the same process until you find something interesting. In this case we found interesting function that process our input at first time, it is `ghczmbignum_GHCziNumziInteger_integerXor_info` .
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F3nruTczxkPntgPT8G2K8%2Fimage.png?alt=media&amp;token=86961637-29eb-4748-9c13-509dbc7709cd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/157dc3a97e0772ce9a180168.png" alt=""><figcaption></figcaption></figure>
 
 Take a look on decompiler it contains so much code just for "xor" operation. But again we can validate which instruction process our value. It is relative simple since the code that doing xor for different value only on line `159` or address `0x49FB98`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvWznrUdi44dg7AjqUMA9%2Fimage.png?alt=media&amp;token=2373d353-9f6a-4bb3-94fa-34cb4ef5a308" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bd937df559a40615cf7f91df.png" alt=""><figcaption></figcaption></figure>
 
 The function name has pattern, so we can try set breakpoint on function that maybe process our input.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5pxDIyUkDEqqtY2LEAzb%2Fimage.png?alt=media&amp;token=01660d64-ce75-4bbc-a277-dec77674d43d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4854dfee0de532cf3b357b27.png" alt=""><figcaption></figcaption></figure>
 
 For example we can just do command like below
 
@@ -289,7 +289,7 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F70ca7zwoCjhzH5D22MoR%2Fimage.png?alt=media&amp;token=f562388b-f6f7-4a99-b9c1-b99f994e9990" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5501340d410fc5d463fe1cf7.png" alt=""><figcaption></figcaption></figure>
 
 Since there are many values are same, so i use different value as our input for 5 times to get 5 different output. Each output i saved it to file and named it as `cmp{i}` . Here is example for `cmp5` file, output from input `qponmlkjihgfedcba9876543210`
 
@@ -653,6 +653,6 @@ for i in var:
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FA1Zj0IWRN0FGdQfquRSF%2Fimage.png?alt=media&amp;token=565e06cb-21e1-4ece-963f-622ea8330c07" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/338802f16d00d827a93097e8.png" alt=""><figcaption></figcaption></figure>
 
 Flag : flag{monads\_are\_like\_flags}

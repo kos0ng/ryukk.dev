@@ -120,13 +120,13 @@ A simple flag checker
 
 Given ELF 64 bit, open it using IDA. Looking at available strings i found interesting string that related to pyinstaller.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FCBFufjp6NgTsmdX5lUaw%2Fimage.png?alt=media&amp;token=bf2595e6-8681-4916-a55c-55054ce2f644" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/15556de25ad55707ee89877b.png" alt=""><figcaption></figcaption></figure>
 
 Based on above information i tried to extract the pyc file using [pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor).
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F2mMvinSuZJCSkWmTqWVz%2Fimage.png?alt=media&amp;token=71527a18-2fa7-464f-abf7-f2aec44ae720" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/85ddf9424472b899e3066d9c.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNzqdU6yFLhYgGu7IJ0mF%2Fimage.png?alt=media&amp;token=c9af615d-672d-4025-a6d3-bfb169665279" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fc9dfc725bc18d5cc8e33cc4.png" alt=""><figcaption></figcaption></figure>
 
 Lets use pycdc to deocmpile main.pyc file
 
@@ -246,11 +246,11 @@ for i in range(len(arr)):
 print(bytes(t))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fo00XWVmVGciadOvtfb5k%2Fimage.png?alt=media&amp;token=9b62b9ed-97f9-49b8-9431-aa4ab436bc28" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/283ca7d3d8dd68ef58be36ce.png" alt=""><figcaption></figcaption></figure>
 
 In this step my assumption is t variable will be overwritten with some value. Also our input will be processed by some function because t variable and our input (FLAG variable) are global variable. The executed code after receiving our input are importing check library and run check.check, so lets check the library.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fgu2Sh0EUtBYnmPld4RaC%2Fimage.png?alt=media&amp;token=9f80eb24-16d6-4c64-a953-2c931c25c587" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c096326a478caaacda0d7113.png" alt=""><figcaption></figcaption></figure>
 
 From image above we can see that there is no checker.pyc and the only file named checker is shared object file. It is possible to load shared object file in python, so lets try to decompile it using IDA. After opened it in IDA, search function with name checker because the called function is checker. Modify some function and variable based to make it easier to understand
 
@@ -329,11 +329,11 @@ print(PyObject_GetAttrString_OBF(byte_3015))
 print(PyObject_GetAttrString_OBF(byte_3087))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FArHpsp6inozcSSQmgn2E%2Fimage.png?alt=media&amp;token=fac2cb16-b759-479c-80bc-cdc6e5e7c23f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8e9c02ab8311c7d260efa351.png" alt=""><figcaption></figcaption></figure>
 
 The function will be added in flight through function PyModule\_AddFunctions. The second argument will pointing to check function. Double click off\_6500 and take a look on off\_6500+8, there will be function address.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FqM1YDt9ixiOwWpZqDR7R%2Fimage.png?alt=media&amp;token=efe2e3ee-4394-4b19-b9e0-df92faaa10fb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d3503d7fcb2da0b9a2304364.png" alt=""><figcaption></figcaption></figure>
 
 Static analyze the code and take some notes
 
@@ -381,9 +381,9 @@ v16 = PyBytes_FromString(&unk_3011);
 
 The algorithm doesnt directly shown up, lets take a look on PROCESSED\_INPUT variable. PROCESSED\_INPUT variable has so many cross references, go to one of the cross reference we will see function like below.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FuWYPp6Inc2hS392Sjv7Z%2Fimage.png?alt=media&amp;token=82bc51f8-cc43-4236-afe9-eb9192b5eb66" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d0da94be9ebc5e77bc50cb85.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FP8nfo70MSTiyOSlUlKeh%2Fimage.png?alt=media&amp;token=85723788-e52a-4c91-87ae-20d867b60dd5" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/682b2dceb5924e470926a08e.png" alt=""><figcaption></figcaption></figure>
 
 From code above we can see that our input will processed by rotate left instruction, looking at another function there will be some arithmetic or logic operator also. My approach during the competition is to set breakpoint on all available operator and then trace the operation. Set breakpoint on all available operator using idapython
 
@@ -443,7 +443,7 @@ for i in range(0, len(new_list_target[1]), 4):
     set_bp(bp_operator(new_list_target[1][i]), 'view_regs()')
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F0efh9LUqdFlkiIfXrtN6%2Fimage.png?alt=media&amp;token=2cf78d71-c37d-485f-ac35-c50a7fb008bc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/00f5aab1f2f93e0f0898e1aa.png" alt=""><figcaption></figcaption></figure>
 
 After that setup debugger for .so files
 
@@ -463,7 +463,7 @@ After that setup debugger for .so files
 
 After that we will see image like below
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FFy99HHFJfv7CwX3v3WAm%2Fimage.png?alt=media&amp;token=37ed2cb0-8f2e-4b9f-9c07-4e24b6477ee7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ea1872d714314879a993cc9b.png" alt=""><figcaption></figcaption></figure>
 
 run automation below to trace the instruction
 
@@ -1099,7 +1099,7 @@ for i in inp:
 print(f"DEAD{{{flag.decode()}")
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FFJ3iasLJEzTpzOphY6wE%2Fimage.png?alt=media&amp;token=b22d8388-1c00-43e0-85b1-15bccbae44ad" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/603d9759897b76d46888af4a.png" alt=""><figcaption></figcaption></figure>
 
 Flag: DEAD{run\_pybyt3c0d3\_w1th\_C\_4P1!}
 

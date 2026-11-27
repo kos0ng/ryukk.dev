@@ -118,7 +118,7 @@ for i in range(0x100):
 r.interactive()
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/KkJkZ4do0Qs2MSlpmfSlZP6Iw_DG8GpaJ9TmehMmUdZ80ZjYQOqLsGM0YiWmCqb19VSZhC78icwcv3VSaBQweJ4sWHoqRz-OEWs8UHzCtG5AB11U5iFVp1L-0kwW2NE5p_GLdnOrWkqkVySjxtIUjig" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/23dcb2154af6f77ee0b8d4f3.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST15{bezout\_identity\_is\_key\_8316a2afd2}
 
@@ -188,13 +188,13 @@ if __name__ == '__main__':
 
 Dapat dilihat bahwa message\_hash tidak dilakukan hash, jadi kita bisa input plaintext pada message\_hash. Mencari informasi mengenai hal tersebut kami menemukan referensi berikut <https://crypto.stackexchange.com/questions/48716/is-it-secure-to-ecdsa-sign-a-public-key-without-hashing-it-first> .
 
-<figure><img src="https://lh7-us.googleusercontent.com/6I2CZ-Ag4ggL-CCS78nqzxjLRly_LNdNyv28MRujwx5EwAPMpr545JH7I7j7wG_sl-koTQGWKxjv_s_STJEMGFHeUmUyXRR3r1Qjn1dIjfSjnI6Vh7RHgJqVXtfT-3jENxAdLLtT1dirp4okrsih6pw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5f153139119fcf8cf445419c.png" alt=""><figcaption></figcaption></figure>
 
 Jadi kita bisa menginputkan null byte unutk message\_hash dan nilai r,s == x\_a , untuk nilai x\_a kami dapatkan dengan cara menambahkan print .x() pada fungsi verifies (/Users/kosong/.pyenv/versions/3.11.2/lib/python3.11/site-packages/ecdsa/ecdsa.py
 
 ).
 
-<figure><img src="https://lh7-us.googleusercontent.com/MRidyCOio9X4d0y9RyuuVnXAj_n07GfS02a07Jl-uN8rjJXI0uKNu4B31I4XClUJzQep_c12bX2LRe7H7WbuPuN9MLkApgi1Otz3Wtzk3uaSWTeYL_thzcFHlb-Lh2JBQi3AxubytxEngVB2XkfDvA4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/382626e185c2c95b912c667b.png" alt=""><figcaption></figcaption></figure>
 
 Dapat nilai x\_a yaitu 93233629630266104566162329194337469407578449363377301369248925679328375971650, selanjutnya tinggal kirim ke server.
 
@@ -215,7 +215,7 @@ print(requests.post(url, json=data).text)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/eB55rKqwdFsb9CqEY6phnTiRb-DhmTBk7OhTFPIKhmrL2EiHyv5VqxU2m_AMCONW7Y8ZFwhMlUA6tBlhMz93Ox8Y1FvRzOYR8Upvml3ECNdJs1264l4H8Tdjzxo68cFDbQJartjiSfypPSccpEBpgDI" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a64f649d783007a577c5569f.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST15{mU57\_vErIFy\_TH3\_h4SH\_373dd88e55}
 
@@ -389,6 +389,6 @@ for c in enc:
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/DnNjPFQNLIF6BPEPxfgP5635AxYoM3l5_3D_mPOZyF22p7Ph6GfYTrvrHkmK6uiKA32tQtUELFquuAqF_tJ-HjC3aWpWwPXT1HudUuSnxS7OAZYkBX48yEBRQ5kNEU5pZPvT5r7Ey0AacsWE9NR_zGo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/85fa4158315e4c2d379f81fa.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST15{D4ngerr\_LLL\_1s\_Ev3ryWh3r3\_ed2c699bb3}

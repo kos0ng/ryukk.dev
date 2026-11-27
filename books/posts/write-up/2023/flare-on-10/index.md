@@ -4,7 +4,7 @@
 Participated as ryuk. Got 99th place in worldwide and 1st place in Indonesia.&#x20;
 {% endhint %}
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FnzU2ymiG9aMHhjHpHZMn%2Fimage.png?alt=media&amp;token=fc2ab4a0-00ce-4619-9d5b-012493d70a60" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c37fe7581e7ffbaf309f6d43.png" alt=""><figcaption></figcaption></figure>
 
 <!-- challenge-index: 0537b4d1c51854a4 -->
 

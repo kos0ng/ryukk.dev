@@ -21,31 +21,31 @@ Can you make it to 320m?
 
 Given ELF 64 bit, open it using IDA
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FnlAZjZdosGbF4KmZog9o%2Fimage.png?alt=media&amp;token=607d767e-cf63-417d-9023-4bb9cff37866" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d20448b6d4bfa2e99488a9bb.png" alt=""><figcaption></figcaption></figure>
 
 Program receive input using argument and in this case there are 3 arguments needed. All arguments passed to function f.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FzNR8I0Qm5vSk5e8nS4BF%2Fimage.png?alt=media&amp;token=61f571e7-f7ed-45d4-9c8f-e8ab8af826b7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/19dc4b3dbc02f5ceec074d53.png" alt=""><figcaption></figcaption></figure>
 
 function f just add those 3 arguments and return the result. Looking at another function i dont see any suspicious function available, so there should be something in another place (outside .text section). The first approach i do is executing strings command to the executable
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fwx8CvLGcx7KTbFDhLQSZ%2Fimage.png?alt=media&amp;token=da0a91ed-f7c9-4cd3-8188-a690b7d279de" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c56c10723fafc57a593b8ad4.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6xRnlVY5o82syF7P64Mn%2Fimage.png?alt=media&amp;token=f4188a3c-64da-4a02-8238-32172405eb41" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/143d0920e9b316e5626ae7c3.png" alt=""><figcaption></figcaption></figure>
 
 So there are some suspicious section such as .debug\_info, searching that section i found this reference <https://stackoverflow.com/questions/77169835/issue-in-parsing-dwarf-debug-info-section-in-an-elf-file>. .debug\_info section has relation with dwarf, searching about how to dump dwarf information from ELF file i found dwarfdump command. Execute dwarfdump command i got this result
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwZKhEhyliHRcTMiRbHmc%2Fimage.png?alt=media&amp;token=d477ba44-c2ed-41d0-8ebd-3ead271cb64c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/62701614dd56b52ca4c8198a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FK16NrSTNva6e7RG66pih%2Fimage.png?alt=media&amp;token=c182d20d-593e-47f6-8b70-aa8cec8d3dbb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d78068e0779fcc819fc0d449.png" alt=""><figcaption></figcaption></figure>
 
 We can see that the start address is 0x00001147 which is the end of function f.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7DngencLY0R3S62scRpL%2Fimage.png?alt=media&amp;token=30fa734d-f011-44cd-9787-56985d9fc29a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cdb485aa5e4dde6e5d4d46f6.png" alt=""><figcaption></figcaption></figure>
 
 Searching about dumped instruction i found that those instruction called dwarf expression <https://llvm.org/docs/AMDGPUDwarfExtensionAllowLocationDescriptionOnTheDwarfExpressionStack/AMDGPUDwarfExtensionAllowLocationDescriptionOnTheDwarfExpressionStack.html>. Next step i do is searching any useful command in GDB that related to dwarf expression and found that we can dump the instruction using info scope command <https://yourlabs.org/posts/2014-04-13-gdb-debugging-basics/> .&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHBFGIO6wNFpAlxOGPhwR%2Fimage.png?alt=media&amp;token=4779c5fe-e991-4a38-a1b6-f0c6e9714784" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d5d296cef7c92576c678d416.png" alt=""><figcaption></figcaption></figure>
 
 My approach is trying to reconstruct the whole instruction in python with reference <https://dwarfstd.org/doc/DWARF5.pdf>. Here is my reimplemented code
 
@@ -155,29 +155,21 @@ Lets analyze each part
 * rdi & rsi & rdx == 7219272754963824708
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVNxD6vNkvSB2VrknE1yk%2Fimage.png?alt=media&amp;token=7ece32a0-d289-45a1-be24-9b7ced9bb98a" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/a07d886366e022932481eceb.png" alt=""><figcaption></figcaption></figure>
 * rdi, rsi, rdx are printable (<=0x7f)
 
   * rdi, rsi, rdx & 0x8080808080808080 == 0
   *
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F9CniEzI4XbCCk0GbUlwj%2Fimage.png?alt=media&amp;token=b15a06ff-539a-4bb2-b838-f16490f06dbf" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/381dfc1f68ecd4299425af76.png" alt=""><figcaption></figcaption></figure>
 * rdi\*rdi + rsi\*rsi == 18116903027530606121
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfsM78jqjmvJjpYytFdzg%2Fimage.png?alt=media&amp;token=3a37fba6-c0c7-4251-b946-b6cd414b9da0" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/90f0d4de0afc4cb1e1f60270.png" alt=""><figcaption></figcaption></figure>
 * rdx\*rdx + rsi\*rsi == 16612709672999228116
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvreJ0x5MEMCEGbDf12zC%2Fimage.png?alt=media&amp;token=338f9509-4b6e-42d6-a9af-da49a93bffe3" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/f6419d0526a86135c4dff563.png" alt=""><figcaption></figcaption></figure>
 
 We can see that the constraint looks like solveable using SMT solver like z3. So the last step is creating script to find the valid value for rdi, rsi, and rdx using z3. Here is my script
 
@@ -207,7 +199,7 @@ flag += long_to_bytes(model[rdx].as_long())[::-1]
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Ff3oqAvzQKzWcg0WxD9Tu%2Fimage.png?alt=media&amp;token=c1698386-ae8a-4ef5-a8ba-eb82d8a81f87" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d4b26cf402386ec289485bc8.png" alt=""><figcaption></figcaption></figure>
 
 Flag : EPFL{\_1tTookS3venDwarf5}
 
@@ -227,7 +219,7 @@ History teaches us there are good gods and bad ones. Good ones write their own d
 
 Given ELF 64 bit, open it using IDA
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FsgmAuIBnoCq4jTmERjNl%2Fimage.png?alt=media&amp;token=ed0f4018-e244-4a9e-88a5-979c50e5812a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/52f2c28493100f760531760f.png" alt=""><figcaption></figcaption></figure>
 
 There is obfuscation on main function, through debugging we can know which instruction executed and which are not. In this case i try to dump executed instruction by automating the next instruction process.
 
@@ -381,15 +373,11 @@ From the trace we can see that there are two type of obfuscation.
 * Dont execute jump in ja
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fa64G2IYgMpx08ehp9bzP%2Fimage.png?alt=media&amp;token=ca4faba5-051d-48fb-b196-6447a04ef2ec" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/c0f51b2d7a350da47bda3159.png" alt=""><figcaption></figcaption></figure>
 * Execute jump in je
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIOZ5yXINGrvU6Uhz4zgQ%2Fimage.png?alt=media&amp;token=f4634013-ab8a-4c98-bab9-171dcd9b546a" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/6cf49871d1da641e82d0db9c.png" alt=""><figcaption></figcaption></figure>
 
 So there is a pattern although it use different register on each obfuscation part. With those knowledge we can create script to automatically deobfuscate the program.
 
@@ -459,11 +447,11 @@ The script will automatically nop obfuscation part then we can decompile the fun
 
 In some part we will facing issue regarding the old xreference, to patch it we can do undefine instruction then make instruction on address that has xreference. Here is the final code after deobfuscation
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwzzGVrgM0QGCtCfEhQAP%2Fimage.png?alt=media&amp;token=45afe400-0ff5-4f9a-bf1b-11a70d8e494a" alt=""><figcaption><p>main function</p></figcaption></figure>
+<figure><img src="images/4ee2cb41146790240e29cf9b.png" alt=""><figcaption><p>main function</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FhsAPertkix1U2TTAFdTz%2Fimage.png?alt=media&amp;token=03ae517f-1ccc-4fa7-9c57-7b53468e3ab7" alt=""><figcaption><p>sub_1189 function</p></figcaption></figure>
+<figure><img src="images/224d037a12d0b6b1668090dd.png" alt=""><figcaption><p>sub_1189 function</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGRaCcyapJoQ3emPXhOzt%2Fimage.png?alt=media&amp;token=54e04239-e6f4-4f1c-9c14-5e23f74caffa" alt=""><figcaption><p>sub_12a3 function</p></figcaption></figure>
+<figure><img src="images/e6d22ecba07b2539411b5ef6.png" alt=""><figcaption><p>sub_12a3 function</p></figcaption></figure>
 
 Here is the analysis for each function
 
@@ -536,7 +524,7 @@ for i in range(len(flag)):
 recur(arr, flag, uniq)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FyY0QKKvocuudcihSAI8J%2Fimage.png?alt=media&amp;token=9179f079-48a1-4168-b3b6-74dc1fbd39d2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/15f7a8831ef10163467b43d1.png" alt=""><figcaption></figcaption></figure>
 
 Flag : EPFL{3z\_disa55em8le\_4\_an\_3z\_r3v\_with\_4n\_ez\_fl46\_at\_th4t}
 

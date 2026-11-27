@@ -28,21 +28,21 @@ Open GameAssembly.dll in IDA and load script `ida_with_struct_py3.py` then
 
 After script running completely we can see many functions renamed, for a reference we can decompile `Assembly-CSharp.dll` in directory .\Dump\DummyDll using `dnSpy`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHEG4S4Kg5nV10ymbXgwj%2Fimage.png?alt=media&amp;token=0adc3426-3d06-4966-9591-c3df3423a6bf" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f54aa2fc4a73e072bc2dc224.png" alt=""><figcaption></figcaption></figure>
 
 In ida we can see the pseudocode for each function, for example for function Awake in `GameManager` class.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIwbYXLzF2RAzxikklcxX%2Fimage.png?alt=media&amp;token=49b1f83e-0c00-44af-9940-2d2c6bb43224" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/067b7ea5a29bd7638bc4c94e.png" alt=""><figcaption></figcaption></figure>
 
 Through running the game and from the title we know that the game is about maze, in this case player put in a maze and need to find something in a maze which later we know that we need to find a `button` and `press` it.
 
 Lets take a look on level file by [UABEA](https://github.com/nesrak1/UABEA) and click on `View Scene`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FyDsoQXLtQAJ488S1d7iL%2Fimage.png?alt=media&amp;token=f76c7600-216a-4e5c-84ff-f6023c02351f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c5d2d544b64a9885d9eb3915.png" alt=""><figcaption></figcaption></figure>
 
 Expanding the `m_LocalPosition` in Button Object we can see the coordinate of the Button
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVnCd3FtiizYJmM6akeXM%2Fimage.png?alt=media&amp;token=9c39193a-c4fb-4059-872c-2d2d3abc3645" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7d8cc93a52f0332426ecbed8.png" alt=""><figcaption></figcaption></figure>
 
 Back to IDA, take a look XREF on function `GameManager_CalculateSHA256`.&#x20;
 
@@ -213,27 +213,27 @@ During debugging process we got following values (address of button object) at b
 
 If the execution hit breakpoint at `PlayerInteraction$$Update+198` , set rax value with one of value of button object we got, for example 0000026EC1304980. In address `PlayerInteraction$$Update+1F3` , set IP to `PlayerInteraction$$Update+1F5` then continue step in and we will hit instruction that call `GameManager__OnButtonPressed`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7i7B7JICLU6Igum6WFf9%2Fimage.png?alt=media&amp;token=e5f92ed6-e56a-4fe1-8844-9286bd8adb5f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1c6906b21854e2e3ead2e3a8.png" alt=""><figcaption></figcaption></figure>
 
 Next, setup breakpoint at `GameManager$$OnButtonPressed+B8` and continue the process. In second argument we can see a pointer that store value of plaintext which is `257.29461586.2037`  and from level 0 we can see that the those value is produced from the position of `Button_Object_3`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FogYxG7yyzOkzqS8cDZk5%2Fimage.png?alt=media&amp;token=9990b8ff-ad85-41fe-b26a-739d4eac4f5a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/eae681d2457bbde46a1d2a32.png" alt=""><figcaption></figcaption></figure>
 
 By looking at the result of hash in rax after calling the function we can see that it match with our SHA256 implementation
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FScM5FhXYZimMg3KxngGE%2Fimage.png?alt=media&amp;token=8bb6ed5e-aca8-4309-b8e2-658d965fc721" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f6204724325c167941cc70d2.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwnEK79rtZuhooR6m7Nwo%2Fimage.png?alt=media&amp;token=4843f8c0-f53c-4376-a83e-0133d1436ec2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/545e9e8fce8e2631105b0091.png" alt=""><figcaption></figcaption></figure>
 
 Let's continue to next step which is trying to press another button. Do the same flow but with different address of button object which is `0000026EC1304940`. Now we can see that the hash value is appended with a next coordinate value.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FXxJrkvRiqXaS8TKoTjFv%2Fimage.png?alt=media&amp;token=1d3fb438-70d8-4dcd-89ea-2782ae358903" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3da900bbeba59876a64ddd6f.png" alt=""><figcaption></figcaption></figure>
 
 Continue the execution and we will see the new hash value which is same with our SHA256 implementation.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FYM700sz45rTS4zoLCqZR%2Fimage.png?alt=media&amp;token=4bff0437-8d3f-4b3c-8e7d-249f7af51569" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c05878de932a38789427cd15.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FyYNLdYp2SvbLHBLsZhBJ%2Fimage.png?alt=media&amp;token=bc569012-80a3-497d-a9ec-ef090a7634b4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ec3a8e3434662b95022afbc4.png" alt=""><figcaption></figcaption></figure>
 
 If we look at coordinate value we can see that the coordinate is the coordinate for `Button_Object_1`. With this information we can reconstruct the actual hash with correct order which is 1,2,3, and 4. Following is my script to solve the challenge.
 
@@ -840,9 +840,9 @@ inp = b"ABCDEF\x8fA"
 print(hex(zlib.crc32(xor(inp[:4], inp[4:8]))))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Ff5Mpft5m48YfdMs1xhec%2Fimage.png?alt=media&amp;token=6933252d-9060-4adc-8368-0c4162610167" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/85b2a750de431a4aa1e06f40.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FRkFAKOJ6chNPndAeGTwo%2Fimage.png?alt=media&amp;token=45d2bb1b-9f82-4a29-a923-b799fd7264cc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7940330e338e3e18f0ea25bf.png" alt=""><figcaption></figcaption></figure>
 
 From the first 8 bytes value we don't know the actual value but we only know the hash of xored first 4 bytes and second 4 bytes. We can `bruteforce` 4 bytes actually but it still the result of xored value so i decide to continue the execution to see next validation.
 
@@ -917,7 +917,7 @@ __int64 __fastcall sub_8FEC(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsi
 
 So the JIT code will be on v6, breakpoint at `0x9107` and dump the code.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQGG0muiJCEaOn6WJp2Nu%2Fimage.png?alt=media&amp;token=32eeadb0-697b-4f80-ab74-52006bc692a3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2e7b1ae7e762e475c97e0a18.png" alt=""><figcaption></figcaption></figure>
 
 From the argument we also can see that it process first 6 bytes value and looking at the instruction it looks like calling another function. So for this code i decide to dump specific region of memory, run `vmmap` command and we can see following address (near `rbx` value)
 
@@ -965,7 +965,7 @@ Open it using binary ninja
 
 Function looks like obfuscated `rc4`, to make sure we can set hardware breakpoint on our input and continue the execution.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPSk8njpNijjC3VE56pvv%2Fimage.png?alt=media&amp;token=dadbaf72-3e00-483f-b4ac-89b9a0533811" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/547e5d1923f1a02b030cb825.png" alt=""><figcaption></figcaption></figure>
 
 ```
 gef➤  rwatch *0x55555577ba10
@@ -973,7 +973,7 @@ Hardware read watchpoin`t 13: *0x55555577ba10
 gef➤  c
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNE8YDU6ucLEkFuXAvOpI%2Fimage.png?alt=media&amp;token=2384c2a7-8189-4741-b8bd-199c3b361a44" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/98d5407969eba0d792c71225.png" alt=""><figcaption></figcaption></figure>
 
 Setup new breakpoint at `0x8C3F` and continue the process and we can see that the value compared is the xored value of previous instruction (`xor ecx, eax`).
 
@@ -984,7 +984,7 @@ gef➤  pie b 0x8C3F
 gef➤  c
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fp0LWzgAqex0RoAgYw8hd%2Fimage.png?alt=media&amp;token=b141dee8-a6b8-4c71-b95f-501b7e275289" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ce5a37460518cb6d872b9b64.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 >>> long_to_bytes(0xfdde33974f4f ^ 0xffa823a03c64 ^ bytes_to_long(b"ABCDEF"[::-1]))[::-1]

@@ -20,21 +20,21 @@
 
 Diberikan screenshot sebagai berikut
 
-<figure><img src="https://lh7-us.googleusercontent.com/0Gb5j0lUle0D12eH7fVrquFF6gOW_G9HQxC1xU_HEjOUu5pILKPMI_45GR_rhqrYuWQ0aCSf0aJYt47Y9wXYrDdW2ys3GnEfymWyzYQ86mj8GnFqzZ-NEdPadHVzT3L5Gzicv3wqEIEYPiRfMtuPefY" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/03509b1c473d7abce4e4425c.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Tulis ulang pesan yang dikirimkan oleh alesha yang terlihat seperti url pada instagram. Akses instagram, lalu pilih salah satu post dan ternyata formatnya mirip jadi tinggal tambahkan saja dengan <https://www.instagram.com/p/> sehingga menjadi <https://www.instagram.com/p/CwkCHG8SuMH/> .
 
-<figure><img src="https://lh7-us.googleusercontent.com/kBrstt08n3kxXKX831tfM-ckpLeQVPzObLkpOki-J8omUu73fFyvv9bF2IFQyRnLSIRfdMe3eue9LzLspFLKJNaJV9AaCvqVAFdTJiu4s4K4RCZxh0C8h8irhydycebbVfw28qHKjuEB5aDJGSGHG3U" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/995ae370ed514acb418520ec.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Terdapat username spotify lalu search username tersebut di spotify. Klik bagian following dan kemudian cek manual masing-masing akun yang difollow. User Caltimurti terlihat mencurigakan, lihat followingnya ada 2 user yang bukan artis yaitu Joosph dan janethseame.
 
-<figure><img src="https://lh7-us.googleusercontent.com/ySJ3gJKQRkmMQJn3LIV1AnXb30u3g16WOenCtgovKx_alr_0DCDcJii29zte4__Ll-v1ZkyX6VorWUbEV37MtCUCgGUt6_-mH8VOgTstODlY724-GBb6-1Ae8wjj0u7rAOOZ8klu0NsgZek5qM0TZvw" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/e31a7c445d0a1e515d1f0258.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Selanjutnya klik masing-masing profil dan didapatkan ada 2 gambar yang terlihat seperti foto couple (berdampingan) pada masing-masing akun
 
-<figure><img src="https://lh7-us.googleusercontent.com/eLTJPizEDlF7UXH1atUAhz0bOG3LisekO00ntwzR5Y-h7RvxZg7Azl2BnTWt8mgLMwmazMOoiA6VGpPgQfPNRUmVe3W23jA2xrjRiXH4IMMOQ9fxC_vH5KD9JPnEiZk2GJiTP4N7LRvXb118lVmcU_c" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/35e3779039106a60d153ae2f.png" alt="" width="375"><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/D3a6ygeMw46_YL7d_DK8y8ghlwED3-rJvGdMg50jA3fjWL_D9vkPz53XKnEfYpNl-RToeN_CHj4W2oENvZdIGezOAVHnqWe7iE7M01XYHRvxpIzaRv2_eo6uQQRMCTDN3C4b3nlQu8KIV6DHncASDjY" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/80e3797397fa2a6974dd1667.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Selanjutnya tinggal submit username sesuai format
 
@@ -50,7 +50,7 @@ Flag : IFEST23{Joosph\_janethseame}
 
 Diberikan dokuman dengan isi sebagai berikut
 
-<figure><img src="https://lh7-us.googleusercontent.com/b1iqBBOwUX809nEOXFQTwjOEwD2zCHXo3gp7yVWCTVTbOCJsQKcxNZ-VcPzXoDrrHTPedp5dkfzvxw6-OPQZlvh-a5Rc6MwlijKPe0aOJRvVSWTeiTJuxfLT2jBicuZ_hg6-GW6_HZ5HgSnEO4zsaU0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3db969ddb0f375a396e063f0.png" alt=""><figcaption></figcaption></figure>
 
 Jadi intinya kita diharuskan mencari sequence dengan total terbesar pada suatu matrix. Disini kami menggunakan algoritma DFS tanpa mencatat visited path dengan delapan arah (karena bisa diagonal) dengan catatan nilai yang berdampingan sequential. Berikut solver yang kami gunakan&#x20;
 
@@ -106,7 +106,7 @@ while True:
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/JXuI5pIL-7F7dKDTrbDR2Pq0a7-Amf5ytqehusOPsHtjP8N-hZqisdZ4cXsqeMkueHSyL00JFEMC9OYrbe27Ovy0s_YuFNFW7t0wQQu-Yz1x3DL8ObjRy9vngZJPAwRZ_Ikz-pDH_Nlf5hLwn5wc3dE" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3edf1c71858c0be0e2b035e7.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST23{if\_CP\_Enjoyer\_exist\_why\_dont\_CTF\_Enjoyer\_exist}
 
@@ -141,6 +141,6 @@ print(contract.functions.help().call())
 print(contract.functions.getEverything().call())
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/7MoM9MvPLPq0Q9Aq7XvFTaxbgnR9TOjtg21uXIZ14fCxnCamTbInxHrO2zO7rJ3F_RDLIEuGFFchjLS9B6x5WXjszJWNakbV7pH9N6nns3AYdtpkXWKloAjD4rsG9kmZKVgSwch0H7TxKWDgP_OnXhU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e4a66f0d13805ad63961e265.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST23{2ddafab8af0fd9bb86cb0680238b1717fd1b2a22d46fff9a4a1767b0c39c7716}

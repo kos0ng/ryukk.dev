@@ -20,13 +20,13 @@
 
 Diberikan file PE yang dibuat dengan golang. Disini kami membukanya menggunakan IDA. Kita perlu menginputkan value yang sesuai sebanyak 3 kali. Pertama username, password, lalu OTP.
 
-<figure><img src="https://lh7-us.googleusercontent.com/Bs-3SjKlZ5aJoZF4LrPdtXrs2KmNl7bbjEVcC82JP_Te2UMJwR85B3cgUQoCNinVsg8oqzeOrTwF9LEjnPNt1T60dfqP5p8JOzxSbCuebVpOqmyKT-6DKstV7eo5CaTwLmn8n0qsLr3__Y0_OIxQ6mc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/94fbeb4f41c8212baef87fa1.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/7qLOcpehIU5dnlrZV5Q3bGwC9yEWGHnYXJ__yOpkZdaDbZIbjV9G1ppkxkTWAnyYi-9xPVYQjDyv1iurwvZg3Yi3Ye5uX3_f8vuM_grs3zktXxXzgEFwIKCKlvuq0PafYAR40UOyfyNBUcf5Iy2LGI0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bf86cae9258784379d9e2ab2.png" alt=""><figcaption></figcaption></figure>
 
 Untuk username algoritmanya dapat dilihat diatas, intinya kita bisa lakukan leak terhadap value dari xor dan mendapatkan value input yang sesuai.
 
-<figure><img src="https://lh7-us.googleusercontent.com/1Qf-evYbzlH9ujHlj8ZdsMYHkk91TbnI9oDn9VBd7tlammeel5cOVs5Ifi1OQaEoX7KV4ipBU10SwWLZKvIgsVDrOXqFK9dQ9y_wB-WHa7xHu-XgiHFagA4PsHsNlu1jUX9loSZN1a06vwkI3_8GWRU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6db89ea6420bffa7fa20ab81.png" alt=""><figcaption></figcaption></figure>
 
 Leak value rdx pada 0x5152c5 dan qword ptr \[rsp+rcx\*8+4F8h+var\_3F0] pada 0x5152bd. Lakukan xor dapat value username yang sesuai.
 
@@ -41,11 +41,11 @@ print(username) # JohnWix
 
 Selanjutnya password, namun disini ada beberapa sleep yang tidak berhubungan dengan password/flag jadi bisa kita patch supaya tidak dijalankan fungsi sleep sebenarnya.
 
-<figure><img src="https://lh7-us.googleusercontent.com/CFotyLsPRXY0AedaRvn_hu7b93I562tg603HRB8NyW2uxQF8uitm4B4f2nMDcDGMlIRPwm_tedduFwU1kcVJDkpf-BFrcjUozg7oOWuQX-ouNojtS_OQyGHB6-zoe2-TFg_TN7k6rjVT2sMX0bWsf4o" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/04e06741e848b7ae1956d432.png" alt=""><figcaption></figcaption></figure>
 
 Caranya dengan mengubah jle menjadi jnz pada 0x4db203 .&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/kuyesCHYq5dNLJ_VGKtOEIkbQx4NqdwauJhhhcvmZOROXm9xJIcLflnyj680SV62ynIodngHGRCU_CiODHjZNBKgDx92TPMAPDeg0FSMNVaijd5E9i-j5g7m4PjR0k7Qf9rrIlA6kyj3sHqDieLRfX0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c22db82b55b25f78a0b4c04d.png" alt=""><figcaption></figcaption></figure>
 
 Untuk value password tinggal dapatkan semua static value lalu gunakan z3. Berikut script yang kami gunakan
 
@@ -89,17 +89,17 @@ print(input2) # Jup173r8o0M
 
 Terakhir adalah OTP
 
-<figure><img src="https://lh7-us.googleusercontent.com/iDG36puMPScvIxOFZwy6xS82GvZ89QIEjngxjayf5Bhugb5ck81R2XH6mPTqMfcNfogi5a-sBKfkiNWacFdPNfrKc0fL5qX8Ixkedrl8VxebEs1XX36q64x6h--IuvyDx-zr92nNSqC2MMEpo3Z4TqA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ee73aeed5b92ee1959b0ea4a.png" alt=""><figcaption></figcaption></figure>
 
 Leak value rax setelah pemanggilan fungsi rand lalu kurangkan dengan main\_minran.
 
-<figure><img src="https://lh7-us.googleusercontent.com/IbAa_FalIqwcZHuknQL8-q0C1epuf0lV_UDK_tSoNC0ASczgsh9vBAcVEI58osK-izjoH0y2qhiEoUi9x2mJ1qd-eZ1XyuI_pi_eXpA9hqHifWqNMwdl1r4dO8qcT8XfK4FmxxheMnPKN_VFPaWJ1bQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b21e6327562aa7f9ae4268d1.png" alt=""><figcaption></figcaption></figure>
 
-&#x20;![](https://lh7-us.googleusercontent.com/9Rzq44yywaIt5PdQtmMOCeJsgb55UdXeZHXTwtgobzPSS_g1lrvekzmpq1ZjXGi3xUHMcRJPUuFiUUiUibstbyAPgsiO0RMNNJz9bNawEihesFW-KrgMx4Si2HQS5GEbwcyhiVi04q3cc72ECSRM97w)
+&#x20;![](images/4421b1c4a7cb4e00cb8abdd9.png)
 
-<figure><img src="https://lh7-us.googleusercontent.com/tDRgEulBCjVUbklLla6RZ7zMaKg-ITdrMA6HxuI1I51wCOhJqaJ19wygQ-ZSIgnrGczp_pEGVDs6AWrRcdksj_tYyN4hmnVGMwFK8AcTjiNjv-CEWhRB-vaIymoTuSrlh5Ov3TTf76xVPUXtUK7UYOs" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d7e05b8844017190be42ec33.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/8m1rGQoXVIP4tv6Y8XNoKR60q0voUm9GXaVDe80-xcT183ahQS7zd_yQYuQNpBhhWlk2niE4lE4G6P7dSGWQdlJc4InTxecdLs3kg1HHftFV1Jfj-w05TC4xdKB95jYiTfZVH4YEa9wDce4MVGf7cjo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7329ffd2d00a722192d2fce7.png" alt=""><figcaption></figcaption></figure>
 
 Flag  : NCW22{1t\_1sNT\_JU5t\_4n\_0TP\_C0d3\_155351}
 
@@ -113,33 +113,33 @@ Flag  : NCW22{1t\_1sNT\_JU5t\_4n\_0TP\_C0d3\_155351}
 
 Diberikan file PE yang dipack , karena disini kami tidak tahu packer yang digunakan jadi debug saja. Set breakpoint pada akhir pemanggilan fungsi yang melakukan jump pada suatu address
 
-<figure><img src="https://lh7-us.googleusercontent.com/iAbqN8glBJqVOxxYlmB431NJVQqEkT9q6OmLWnyoaFL4-yTLHA3es3w33A7Kc8sDaH3iNYIKbHq8W-67bTyXkOT4QThuLXyhYqMCNpVkbaMMO-b2Bvc6UZgSh9OXjh98MOehsXjuLvheUkzJ5vgjYwo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d52136c9d45b5965c4b77279.png" alt=""><figcaption></figcaption></figure>
 
 Step over dan nanti akan ketemu dengan pemanggilan suatu fungsi
 
-<figure><img src="https://lh7-us.googleusercontent.com/3V9_VweKh2hggBj64kx1pPb0BqLbtLqT_3PtPTTiY5O1QvFQ8ehUl6PokQbEtUCZvGZheTFfw4lYRBgoezJSSXXXTgMJIHULNdQNvppBZCA7lMJVsoTTYIWHDHsOD2ZlcmlafUv2FjD7Q14VKmnKeWw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/88f9c0c8abf0f43f1cf0d950.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya step into
 
-<figure><img src="https://lh7-us.googleusercontent.com/mFCCM4e6jMZl-ECpc385uxQJc51jTs6MqtDu9EY4fiAAqWq0szzRm8lAJzN26UpBm7C3SzS3tXtrytBUFzLkioQOiGy6IM2HXhnqKDLM_uTnacmpV6_hg9LgBFNgpWVhBOqJ4i-ZCCeEpDdkhNnxAF4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d1506d2d85dde61565bae90f.png" alt=""><figcaption></figcaption></figure>
 
 Sampai disini kita sudah masuk ke hasil unpacknya (program aslinya). Selanjutnya lakukan analisis dan kami mendapatkan fungsi pengecekannya yaitu pada sub\_7FF6BF631A57
 
-<figure><img src="https://lh7-us.googleusercontent.com/axNaDGB3s5WX3l-MDDXFkgdk5iS2blenckc5ciTjFDuh-2n4ZuqIAt57UIQQXkhibkX1BHvnJ2wFBlc-RnqBOnRXmSaXLwDo4PfZWme1FkUleBWDPlC3Z5a68VvyghUuRtbXNR61Z0gHF8O8So2fT6E" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d27c4e472008359d62b21687.png" alt=""><figcaption></figcaption></figure>
 
 Intinya kita disuruh menginputkan 24 bytes value. Nantinya 24 bytes value tersebut akan dioperasikan dan operasinya berbasis VM (hardcode).
 
-<figure><img src="https://lh7-us.googleusercontent.com/xkCC1EG1cM0i31lXIuQ13fESGO4C4_5Q9Gw3Zco6rxbfEaZafi5czZ0Xe_8k1QmuQ-VLs5KWBsQvDHrpw5X_DQ4RmcGx7roENG5HvFRV9WH_nAcUAaOnK90OSmQz2HfdWY_Kgb6sjCCb60C56Z2uzaA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a5cff1cd4557a663d3afbc0f.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/2ISkJhVQPk1Xx_oQPTamzTM_5ZwzwGWKiREAG-dqQDfbpH4BlreCOnaKLHoFKUldVeOayKzdyxJA1EASoKBe4zUKkG7pSdy51qzY-np6FrR2CxnQ08zEOO8TEW1P5a5F0sktSJH7_li7k8wxKb640Ro" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5a5c87a066b1aa34107e207b.png" alt=""><figcaption></figcaption></figure>
 
 Untuk mempermudah disini kami membuat assemblernya namun pertama kami perlu lakukan leak terhadap bytecode VM nya terlebih dahulu.
 
-<figure><img src="https://lh7-us.googleusercontent.com/R0YIVJ2xVuBuazQqZTdUpsnAolgu5TWkwjicg3sOQh2Dt54_z_id-NLQm6-RsRtdMNWH1bhHa7T-LdARQ7yDIeBiPQEjZSlOa2yqD1HWYA6HFhrK2mAONC0NRrGjIXZwY9Tir4ieR-TEF5sgZrasMpE" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/04c03928add25a57d33263f3.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/V-vFdGdIIf8951LgSkr7ZL_7K_rZY-7dQEaCykMQYuk6tvDYN1Evbuw8Sfp6ZBP5dbH5R_n1VIS8Hs2V0FxCzSWHT7-YbnIbQ-haAHLQX6o1saTgHDfkLnboq8T2niLqq9UkPg5Ebzlc4atEZQ8CZbc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8fbacc2333cac056b4ea7388.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/cwuiO114CHCIlsJk-ML1MNVNydnHwaHianUc5v4XbYOibE2oqQNN5FV3WCz-w9XTr2iVS-lSjVgELEgt5RU3c4YcJQzLPChGy0wvfXNuM_CY2emjwMIf1GTJPndPnUarzze84An5L34hwhpMywx0llU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e5e67af917fdafa6c4a42f04.png" alt=""><figcaption></figcaption></figure>
 
 Copya value pada address 0000021F0B3924B0 sampai 0000021F0B392520 (bytecode VM). Berikut assembler yang kami buat
 
@@ -171,7 +171,7 @@ while data[cnt]!=0xff:
 		cnt += 3
 ```
 
-![](https://lh7-us.googleusercontent.com/f7QpKUv2-x6mTazI6IrxJbBlB3wpscONTHQPaUG_uivyakyehMPzAIUkIPfe8phD1r7YL_X3dBAGlw05KpdRLH-guGmxzF3SlafYMWXgoAW2Y_eQpA2S-FPbS7p3ySaen5JgvaYRqLrEldHjQl50QZQ)
+![](images/c3765be0daa166f0f11f717b.png)
 
 Selanjutnya udah jelas maksudnya yaitu mendapatkan input yang pas, gunakan z3.
 
@@ -199,8 +199,8 @@ print(flag)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/RTehPHF5bM3nkUrnUw_T3xxuwJ0l63nY4xi7AxKQaCYHMnaCQDRrnIUKizVXQBnzMFb4_XegU57j7i-D0TPUKmTsv8VTpFtPP0VtHE8a8amlX1lq9LF7Yb-TOSKylcR5eIrRTanFDpf8YaDv2rIs_4w" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c19846c165ec5808b798c75b.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/S1gE-u-iYbqTwuaNrvRBCdcS-hpcY-ewxBgRUB2r5SE0tlilOwlWIIaQ6c_yNSYMOSjCTXTDtWnqf4M9wWNeM6f0j-fj4-7TY-TBTCMJWH_N6N9TrupQaI3oGrFIEjpSe0S9Zg1Xz8jILlEJHr-5u6k" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/09783571a6e833ee12ac9357.png" alt=""><figcaption></figcaption></figure>
 
 Flag : NCW22{Th!s\_is\_tH3\_CEO\_p4$$w0rd}

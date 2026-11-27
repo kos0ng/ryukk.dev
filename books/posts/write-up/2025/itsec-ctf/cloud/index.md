@@ -12,7 +12,7 @@
 
 We were given access to a website, <http://18.138.81.27:3000/> . We knew the website was using `NextJS`, and we'd read about `SSRF` vulnerabilities in NextJS, so we tried it, and it turned out to be valid.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcqozHnsDapBRGhDyNeIofHNig8GTf1C7s5NTYCoUm_-drRlNCvxh3BhEBciBqPh3OwTOilmxxAbjzj4AfYiZMQz_Wawd5FeKO8WNLiXou_lu_zd3d4pz3aO82GJ9auQMg6wFrSXQ?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5f49410508dce9d6e5451051.png" alt=""><figcaption></figcaption></figure>
 
 Then we use the following script to make it easier to setup the exploit.
 
@@ -71,11 +71,11 @@ Next-Action: 95228ff7cf92d88ecfca706b51714073b0e48996
 
 Then we can see the leaked data in HTTP response
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXffY8zjFFlYVOlRAe4ueBf7OyX0tUvmxyX5hxicVvgfiuYQ8eOGBCbLuLMLWVHqptide_Z_W-hq4tJTPNkDbT5C3K4zbRMLcHCKR78raccUmic1j64kzIUq0MQdyr31S9oSnwuolA?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b87f8ed5bbfb35817e08ed26.png" alt=""><figcaption></figcaption></figure>
 
 Next, we leak the region from AWS by changing the target URL to `http://169.254.169.254/latest/meta-data/placement/region`.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnGsjelRDXp08kqPnITxn6egBr3qgoPVszPKnZ3bfnXFKH6mv_sLE7q74DLNmnQyip-FEVeMVNU1vlLV34ZLUsLD-2Vi0YEvETJUek4Jg1KZSbskLWB2a1OJ43Vo2jZ-EDrIT6uQ?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e385006190c961a53cda25a4.png" alt=""><figcaption></figcaption></figure>
 
 The region was determined to be `ap-southeast-1`. Next, we used `pacu` to bruteforce the services available on that account.
 
@@ -192,11 +192,11 @@ There's a URL on list-apps service, so we tried opening it and got a 404 not fou
 
 After opening the URL, we're prompted to authenticate and we've successfully authenticated using the credentials we obtained from the list secret.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdOiEAGTtMTPGb82nSsvHOt4PGtov9xKKM3buhqWLhNUQ3K2iXTk86YOzvs45XdnbfUfTkrOCzaSdN5ET-8G7FYm0YFtvv9a8vBYzmgxN4MJhplXPM9mMGvL0051zFnyjrD_WDJ?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/edbada457f4e0096e2846c49.png" alt=""><figcaption></figcaption></figure>
 
 Looking at the website, we can see that there is chatbot feature. After doing fuzzing we found that there is SQL injection when we give input `'` on Topic.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdWD_kZpBRj3BkgOBgWNqFqBCYOVnAbKxlMhGynmCbmU6oJBWxWZKJrL-RxlfpxzvH34dIskdQpqOuEEu3Qz15QuBFNjS2HU1tQ2pfdyhkyLij7BNAcHeyIOmGrJaT67PzIj0bJqQ?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/a199588ef87b36574ebf85d0.png" alt="" width="375"><figcaption></figcaption></figure>
 
 We can see that the error is displayed on the chatbot, so instead of doing blind we can use `error based SQL injection` to leak data on the database. But the problem is looks like there is a restriction where our payload will have spaces removed. Because it is a common filter, we can use common bypass also which is using `/**/` to bypass space restriction or filter.
 
@@ -210,7 +210,7 @@ First, we need to leak the table.
 
 {% endcode %}
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeiTG9ywtnp-9Jutv8TlqJEfg7IjbdGeCqZMa_81Tq9qpEfcBuEZIAy_p8Vv9b8Um_Zw5bjf5f0_ihgbJ-v-GJJPbLHmf5R7EG2gkglQVttj4bHXSsvaYmtACxdmXXoNTEbeX1jRA?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/e1154475ec5654fcaa1244d9.png" alt="" width="375"><figcaption></figcaption></figure>
 
 After knowing table name, we can continue to leak column name
 
@@ -222,7 +222,7 @@ After knowing table name, we can continue to leak column name
 
 {% endcode %}
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXe_lJnLZB698A6Fmf7ZvTdrtqnfrGp1yaUthmh437yZJVk3yXE09StPYNQXLOAiqPVO_w_9_misJx-oPUfKsmKsQ0BiP6Pm27AD_5RlvaGrsGgmDGeQPlE5l0Hj72yTOBhu96Mz?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/e834e732d0c0c2414caa0c54.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Now we've the column name, let's continue to leak the data inside it.
 
@@ -234,7 +234,7 @@ Now we've the column name, let's continue to leak the data inside it.
 
 {% endcode %}
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfQHr0QUreGo2ZrsmzgyXsCPHnZ13wBUM806zUQxopbSbp5kzcr4MTHYFKxtr5ZQeNX-KCKgm1AkPaMaM_4JRgT_u4LvJZDpl4-WkX6CWcEwCr0rC_kh2JMXkX1dc1chrHIJhHYPw?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/4f344d8fb67dd1b30479c52a.png" alt="" width="375"><figcaption></figcaption></figure>
 
 From image above we can see that the output is truncated, assuming that it is limitation for the output we choose to try leaking next value by using substring.
 
@@ -246,7 +246,7 @@ From image above we can see that the output is truncated, assuming that it is li
 
 {% endcode %}
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfQTeo47t5ChVnOoQj2urLYhBZCUUcymATeSeR0ZnbZIPOqeS-eh_J-bUr_kfttRAT7DRpV3RuKG1h_E8kl6WxXJqZ8DJ624_dD_Xp63BuOMP4JRkhWmsSCDW5lBLtcv7Or3yF1hw?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/b1044595e76fb00cc10aaf29.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Finally we got the full flag!
 

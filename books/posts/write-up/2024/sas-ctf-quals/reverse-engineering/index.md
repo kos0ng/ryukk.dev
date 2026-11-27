@@ -24,19 +24,19 @@ Hello, dear bruh. Do you know that once upon a time there were cute small Ebins 
 
 Given PE32+ file, open it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FP79VghoCbpShtpvOUfxB%2Fimage.png?alt=media&amp;token=23d0e293-5824-464c-aa33-a582231fc7d4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d30cf0a667cc75cb4f4972a4.png" alt=""><figcaption></figcaption></figure>
 
 Look at the Strings tab, it looks like executable compiled with pyinstaller.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fh7T8s3RcNhECsf7OvF7k%2Fimage.png?alt=media&amp;token=1f3fa530-b787-4f0b-b25a-01e305f41374" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/995b4e205bb463ddb46f9b53.png" alt=""><figcaption></figcaption></figure>
 
 Using this [script](https://github.com/extremecoders-re/pyinstxtractor) we can extract the pyc files and all of its dependencies.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FXw18CScAD14mhK1kWLaz%2Fimage.png?alt=media&amp;token=8207f6f1-848d-4c5d-b1d6-224da310976f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/27d42891f6fcfcb147c550fc.png" alt=""><figcaption></figcaption></figure>
 
 Now, look at main.pyc which is the main code of the executable. Use pycdc to decompile the pyc to py file.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfEri68fLQXw2HFA7tbxT%2Fimage.png?alt=media&amp;token=015070ac-807f-4903-98dd-09fd293ab530" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8b2c128e57c4647f24f266c7.png" alt=""><figcaption></figcaption></figure>
 
 Although the pyc file has been decompiled, the code still obfuscated. Lets dive to the first obfusction
 
@@ -68,7 +68,7 @@ dis.dis(xD)
 
 {% endcode %}
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FKkj587FeD0CAL989p6HJ%2Fimage.png?alt=media&amp;token=f2d43245-c363-4000-bc84-6f94b917af32" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a347ae065c2debffa8c1f1e7.png" alt=""><figcaption></figcaption></figure>
 
 For the xD function, it looks like string obfuscation and not related to input validation. So for the xD we can defeat it by running the xD function for all obfuscated strings. I use regex and sublime to get all the argument for xD function.
 
@@ -112,7 +112,7 @@ print(xD(b'\xdaR\xae\xe8\xfbJE'))
 
 {% endcode %}
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FyaLe03X5InnDCKsXRgLg%2Fimage.png?alt=media&amp;token=aaa9b5eb-4999-44cc-8910-01c83c368ec8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4d67ede423f814512a7ec1c4.png" alt=""><figcaption></figcaption></figure>
 
 Now, replace all obfuscated strings with deobfuscated string.
 
@@ -423,9 +423,9 @@ write_to_file("brother.exe", ebor)
 
 Load as x64 file, then go to address 0x0. Go to the address of jmp instruction to view the actual code.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FcPmc1HFedRKZ7TyAkyfR%2Fimage.png?alt=media&amp;token=8354171b-20ad-4d4b-bef6-16d61628a5fe" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e341376b4ad1283d658f8d7a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FH9H2KpQwX7vyY4vRT4Za%2Fimage.png?alt=media&amp;token=209e3ab1-56b2-468a-b291-edb44e23025d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/aca32aa751dbe48098cb1b48.png" alt=""><figcaption></figcaption></figure>
 
 Press p or create function to make a function of those code.
 
@@ -1092,7 +1092,7 @@ print(flag2)
 # SAS{h3_1S_do1n6_l3g_3x3rC1s3}
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FS4o2poFgl0dS0sZBAqvF%2Fimage.png?alt=media&amp;token=bc1ecb2d-3bc8-489f-850a-c4ee195da273" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/acf96419fcf967e1ced5c769.png" alt=""><figcaption></figcaption></figure>
 
 Did little guess for the middle 8 bytes and got the flag
 
@@ -1108,11 +1108,11 @@ The integrity of a world is at stake. A notorious hacker 3vil\_Uranus has taken 
 
 Given access to URL, we can see that the URL do validation for the input on wasm. The validation can be seen in index.js, so the next step is try to decompile the wasm file using ghidra.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FdvMDWwR8NzS3JBeJr0qY%2Fimage.png?alt=media&amp;token=a40c723a-f9dc-49d8-b7da-7b07612a9b2d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4006d77ffa2899437546e68b.png" alt=""><figcaption></figcaption></figure>
 
 Look at exports section to get all the check function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvqUaWd7YUb87SqV6A63h%2Fimage.png?alt=media&amp;token=ab8f42d1-5e37-4a34-ae91-de1eb86f9a6f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/65fd1b1c08faacac97e82045.png" alt=""><figcaption></figcaption></figure>
 
 #### Check1
 
@@ -1254,7 +1254,7 @@ Boolean(Module.ccall("check3", "number", ["array"], [FromHexString("01020304")])
 
 Set breakpoint at 0x8f70 then run the code above.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FR7hELyWQOl039ZmXhEuN%2Fimage.png?alt=media&amp;token=bdcd0f39-c88d-42a5-9787-435a4e9e89fe" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/42fc10cbf7f2759f572f5e2a.png" alt=""><figcaption></figcaption></figure>
 
 Look at stack and the target value is 1836311903 (0x6d73e55f). Put it on python script
 
@@ -1396,11 +1396,11 @@ print(inp4)
 
 In last check (check6) there are so many input validation
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FM3i6wcnkRScEge6n4r1P%2Fimage.png?alt=media&amp;token=e6034bfb-1e41-49c4-908d-c01573501523" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3779abfcde7d6e49c72d5d6a.png" alt=""><figcaption></figcaption></figure>
 
 But we can see there are pattern on the validation so we can extract constraint and solve it using z3. During the competition i can't got valid solution for the constraint and when checking it on ghidra i found something weird.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FY4Xpw1nDyNKJE2lRHg9c%2Fimage.png?alt=media&amp;token=8304e1ce-1c43-4876-9e25-34938684dc2f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1f3242b52d2569631448b892.png" alt=""><figcaption></figcaption></figure>
 
 Take a look on the offset, on disassembler it shows 0x4 but on decompiler it shows 1. Besides that there are also different in size used for each index, sometime it use 4 bytes, sometimes 2 bytes, and sometimes also 1 byte. To overcome this issue we can decompile the wasm to c using wasm2c then parse the decompiled code to get valid index and valid size. So the last step is writing the solution which has been explained previously in python, below is my solution
 
@@ -1822,7 +1822,7 @@ print(inp6.hex())
 
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJhjQA7hAzA6GMERbcs0g%2Fimage.png?alt=media&amp;token=104b8444-9878-4468-9d39-46ec06d272cf" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/aaf626d1163e1dc080b9f4ae.png" alt=""><figcaption></figcaption></figure>
 
 ```javascript
 check1Data = FromHexString("b724600535316972")
@@ -1842,7 +1842,7 @@ strangeMiem.set(check6Data, check1Data.length + check2Data.length + check3Data.l
 alert(PerformHack(strangeMiem));
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FlP1TRhF6tK92iLaPK9Y6%2Fimage.png?alt=media&amp;token=2ff2a8f9-83b9-4f94-b6fc-31d079e4f02a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ee736fb0a5645921f3425bfa.png" alt=""><figcaption></figcaption></figure>
 
 Flag: SAS{0k\_u\_54v3d\_7h3\_p14n37\_n0w\_u\_5h0u1d\_61v3\_m34n1n6\_70\_l1f3}
 

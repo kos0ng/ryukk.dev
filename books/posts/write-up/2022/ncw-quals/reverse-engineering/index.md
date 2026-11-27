@@ -118,7 +118,7 @@ print(rbp_16)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/6HCY0LGTRZdevSGfEQOYqIUqbsiq_uxADKp8ioBnghSFZKLtIxVnBLVF0Tuy6JvwQAGj5TV8F5OWZmOWD0Lhe__y9og4YaF9AHTatGI_BP8a4GvHe4rl5lSukYR4EJQFhMbknlaqvHZMPq8Alr_hT8o" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f7a6049e184657edbc3dd8ed.png" alt=""><figcaption></figcaption></figure>
 
 Flag : NCW22{18612224}
 
@@ -132,45 +132,45 @@ Flag : NCW22{18612224}
 
 Diberikan file elf 64 bit. Kami membukanya menggunakan IDA
 
-<figure><img src="https://lh7-us.googleusercontent.com/LA7h51AfgTixW5UDPirR45z9JylhZuCzUtoWalogawn6rNIzLsHQ40vNzBPyW3DB6e78j4k1GeV3KXRBJpaIVU5wMmSJHuh3iGMoTHIh-WNdWaXpwwQlf-LDdoPIuAs-W6Are0QDsUJuZqHDfnMl9BM" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a9c2e5feae649d3e6b5b7454.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/xKeogoBK2t74pfWa5LBsGZLNuZwHrmrQuBt3aVho3f-TxVXIg-S_h0axny-E2nFZpR7aZ0T3xirPuRXg8af69PwmkcPuwoYqXZ9XSR2wavAp6qNerai8kImew_nC6s0CavndwhXf1xYEIMeKdkhZm0k" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cf26e8fb058723941aa06621.png" alt=""><figcaption></figcaption></figure>
 
 Pada start terlihat ada pemanggilan fungsi init dan fungsi init mengeksekusi fungsi anti debug
 
-<figure><img src="https://lh7-us.googleusercontent.com/07MLJ1e2OtsLwaUenXxXS-Ek9la6nk3jEtwYLwkWYvXi8Sb_o5tvdigYyBET4X-bKfJyEfBuMsBn_WD08KN6XfKl9BxA0vOvOojN89NSPRq9mEn3XNhgjev3R1LA80WPOk7p4sOv5xA6X0-CldT4OPc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8b081281e112f04b41726058.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/UtNPWR0VH6YpzZfCZuVP4DSVskbzQOy97oYHLMNW04R_AJ9bkdEnJw4wuS7JjgvP5JrI6_uDggBd-qSaLIMyvI_HsR560JOWIzBPfVBiKnAv4D8njcolChR1ZxTkrcUzrvidI0L_xAm04YdK3ENMy7s" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1e77bbb9d964ecda5c9813bf.png" alt=""><figcaption></figcaption></figure>
 
 Jadi lakukan bypass terhadap pengecekan debug tersebut ketika melakukan dynamic analysis dengan gdb.
 
-<figure><img src="https://lh7-us.googleusercontent.com/82kJyaSMqbqYAnwlZeNqxLcqMWDeMnEDdyTdT6c9bcu0lGn2t8Euy_yU9pJr6UGgOmPkuMzfOOFHEcNcsni9CjKXrn3-bMC-qD47gRERNWRyn2jMk-iX_fUKO2ULxAnqqIDdUhbADMAjBANndtYfKvU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c5d8c29f2817216f0f69c290.png" alt=""><figcaption></figcaption></figure>
 
 Setelah bypass maka kita akan masuk ke fungsi main.
 
-<figure><img src="https://lh7-us.googleusercontent.com/5KXgbxoGuz4EgQEmBa4V0qWRK0QsZ0CBgogbvDQ__7srOGhs0JbVxwUdzK95D1e3pupUvO5PaX0m1-XYTLTlxB_GsSh_Uyyt33DK1DZUb0VhPq-MtMNspRs-BRZp6dmzLyjgOQ-hH_MEXJxUt3CDVtU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8abe0fb480e9bcab9cb83bb8.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat pada IDA terdapat anti dissasembly pada fungsi main. Maka kita perlu lakukan sedikit dynamic analysis untuk ini.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/QmEI02KRvmdziBj3HCb1LA4X1-8afsqwvCEzKBITqyF8mWne0-dPY4WoCZ8uWCBJF0d-IJihjOw8p8EG3p6oGy0Q7mf3YhwtZc5kZLF38OYr3KyShSFcaoRTBPVpvEyARsW24PRxbBG2uo6uyWaNxGI" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1ee7b011c9881b57c1a6e4b7.png" alt=""><figcaption></figcaption></figure>
 
 Setelah masuk fungsi main lakukan next instruction sampai masuk ke alamat yang tidak bisa disassembly pada IDA. Jika sudah, cek instruksi pertama kali yang bisa di disassembly pada main (GDB) di alamat yang tidak bisa di disassembly pada IDA.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/WXU8klij32zVTtcNXtgtsuUwoQ1sMZugynRkzco83hQgtFnYdXxE2eT-s-9QcvODXj73naBFkQa9cKW0fq74lh1A7Wux_hXxYBEG3Q7ldgPvOUBNjkbPGjIxFVhXofE7JwYMuTaxanBP64D5czF5Q3E" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a1d200038e77ae1d0bdc9835.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/RkHK5aI82BiVZTXnL37TSEvtf47ymHhWpKa0Qgg9k7u3EbylHuAJkNoeyIJYjdSxi9pbY2bQGC51LxjK2eqr74CX8MeFfKa3uoS5pxRsjo3C5_YFLGfRJu38qrBcE0wbboynit6K7eBrC5HiWIs_BhI" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bb1928bc60451840bb5388fe.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat pada 0x5555555553f6 sudah bisa didissassembly dengan benar, maka convert ke assembly mulai dari address tersebut lalu create new function pada address tersebut.
 
-<figure><img src="https://lh7-us.googleusercontent.com/zF05an3i5fpllDkECLnyYvg7NmhX3mQvHxCglmX4X6MDKKx4REzKSU2N1kt5-nnqLYbGgWXe9o8x9Vhwe9zvX4qdzYmSFOtSpheRwBGlGeJmv3DuZ7p6PSvNDkZwA7u1kWBCnEwr-M1FM_sLXDjJysA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/38c9204ec76e0cea3c8a0b17.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/6OUDtgW9PzsrnL3wqWZgNqdH3lWtV9P55GjvoP_gvirrrtoBWQFsiN2uTHzp66me1k-v_fvM5B-848nVqpHpYeZ83VUlsSRDxZH_mOAr2dN2FN5o28MFseRRrizw1JnUW53CY9Q6jhynQkXT2DbZmjY" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/99dab6ff4a445c1fe3369c42.png" alt=""><figcaption></figcaption></figure>
 
 Langkah selanjutnya analisis fungsi pengecekan, terlihat bahwa terdapat fungsi swap yang dilakukan pada algoritma diatas. Jadi karena algoritmanya hanya swap, maka kita bisa lakukan pemetaan dengan cara menginputkan nilai yang berbeda sebesar 30 bytes dan set breakpoint pada 0x017CE .&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/ddvnL_An03JAgiT448IplQCnZiMBOQz6wczlA-eJGk8sIJbur-j7E-YwxZYzp1T30e_4GL4Y3Q_8pxR3EtWJGjBRw_ziCAqjwWZF61W9u_gYBnPkch6WagVmIaNS01szTyacyT7lVutiz3aKor95eCc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2d36dd230ff48d85b1ba7506.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/YDFolUEPtYSVPyZhviDE7Kw6mi4SDeRlbmx-pAjn9KSsbT8bosQduBu0lAQvD3x5T3NHUVRnNuF_a7iiQfWa7_-ytWdtiIRu1rQsJ6wI5533tHb3Oz1rIpWO94yYcshvmsGqYLK2oNdaF1GlfPrJKcE" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/67e824476f5f87c8edfff8fa.png" alt=""><figcaption></figcaption></figure>
 
 Berikut solver yang kami gunakan untuk mendapatkan input yang valid.
 
@@ -190,6 +190,6 @@ for i in range(len(ct)):
 print(''.join(flag))
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/VyDSs6y7QbA2R5V1vSMDZhNSLjd0Bl597XY5i1rHBECDGHs7HTHxF5HUXmJL60DZi2o_8CmYOZdvhfnb_ksU3J1k1V4hE0KhWSo4PX2pB7jrm_hTXUYQrHj51Q5NExVvzokeOhhnL-EbNp7oGoe4pPQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b2d78f2159aaf9cb3b2b38d5.png" alt=""><figcaption></figcaption></figure>
 
 Flag : NCW22{use\_string\_h\_is\_better\_i\_guess}

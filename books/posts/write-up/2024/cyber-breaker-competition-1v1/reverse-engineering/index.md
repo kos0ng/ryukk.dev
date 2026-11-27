@@ -157,7 +157,7 @@ pie run
 
 Input some random value then send "si" to step instruction.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FlyL1cQuOmhdYEW6IQ635%2Fimage.png?alt=media&amp;token=9d89f60a-c0fd-43a0-977e-c6149b2fa779" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/94e37a6efbfaf44b224d5f5e.png" alt=""><figcaption></figcaption></figure>
 
 So rdi is our input and rsi is static values. our input (rdi) will be moved each byte to al and then will be xored with 0x18. After that it will be compared with 1 byte value of rsi (static values). From that information we can get the valid value of input by xoring the static values with 0x18. Below is the script to solve the challenge
 
@@ -169,7 +169,7 @@ for i in a:
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJewytWjD3qjRpvgvavuK%2Fimage.png?alt=media&amp;token=e25d4d43-3062-4748-bff4-74fbd87e4613" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b69ef68c94f43e908baa460b.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CBC2024{83aff36469178ee2aac7f6c2ed897eb2}
 
@@ -286,7 +286,7 @@ pie b 0x1516
 pie run
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7B5pvTkWJ8hk6jkKFmqb%2Fimage.png?alt=media&amp;token=d6cb39e1-9f9b-4336-922d-fbf1b508d4be" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f1c26ea75fd4f52a7fae4299.png" alt=""><figcaption></figcaption></figure>
 
 Lets do scripting and use 2 different input to check the values compared.
 
@@ -334,7 +334,7 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FUs3TCGc9ycM07tYs3kxk%2Fimage.png?alt=media&amp;token=81c070f4-43e0-4bff-a06a-7b81bf9024f0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1f7ffec717e85ba7d6cabe31.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 dict = {'0': [255, 16, 17, 12, 225, 34, 20, 122, 189, 6, 64, 215, 66, 169, 239, 181, 189, 255, 98, 171, 202, 8, 148, 254, 101, 68, 160, 161, 23, 9, 71, 138, 58, 115, 9, 208, 2, 157, 34, 159, 32, 220, 41, 254, 203], '1': [0, 17, 18, 13, 226, 35, 21, 123, 190, 7, 65, 216, 67, 170, 240, 182, 190, 0, 99, 172, 203, 9, 149, 255, 102, 69, 161, 162, 24, 10, 72, 139, 59, 116, 10, 209, 3, 158, 35, 160, 33, 221, 42, 255, 204]}
@@ -348,7 +348,7 @@ for i in dict:
 	print(arr)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FTOiSHIZmyZl5MP7P6r3t%2Fimage.png?alt=media&amp;token=959dfed6-9377-4813-8afc-e12cfdd4aef9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f73a0b5ea75771315c3cd8f2.png" alt=""><figcaption></figcaption></figure>
 
 We can see from image above that the different is same, so lets decode it by adding the known diff with the ciphertext.
 
@@ -368,7 +368,7 @@ for i in range(len(cmp_val)):
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVvmkmwT5DuwNQJ6Rdbak%2Fimage.png?alt=media&amp;token=c2a15264-10bb-427b-8719-2d8e5660b677" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b8ceb689873bbd5cdca090d2.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CBC2024{0x00\_baby\_vm\_or\_baby\_d3m0n\_vm\_1a9f9c}
 
@@ -419,6 +419,6 @@ tmp ="B@@6543s1ij>=j8$u%\'p\'/ {+\"#)*(.B\u{17}\u{1a}@A\u{16}EDMT"
 print(encrypt(tmp))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVOTxhLpRsagGNBGf9WvR%2Fimage.png?alt=media&amp;token=920c3d37-1f49-4740-8e39-6a66bacf226c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0589c4fa7d5f87da91557859.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CBC2024{8ca20d74d74d297c2885761b68ce3cce}

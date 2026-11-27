@@ -40,7 +40,7 @@ Cjixoxv=Selamat Qxvxtp=Datang qz=di ZBJCV=IFEST cjonx=semua
 djlcjoxtpxv=bersemangat
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/ZXYZJae50Rs0F1yHlQRN5cNHd56LB7jxdThI2kl8Fwv3Z-FHYhs1JRfFeb4wJme5jirewBCUma9f7IShFUjwbjXtxPYvPHnZbqLINpPu9ukJFq2MN1X2U-YX6Si73YdgTpMH9MQQMotzlxXVOjeEPYk" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7583ea61982bfac0b1e58164.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST22{1ll\_st4y\_by\_y0ur\_s1d3\_dba943210}
 
@@ -52,7 +52,7 @@ Flag : IFEST22{1ll\_st4y\_by\_y0ur\_s1d3\_dba943210}
 
 ### Solution
 
-<figure><img src="https://lh7-us.googleusercontent.com/aptlOeM-IWJJaa8omNAZiAjn1Dqbv5J1J2Xeug9_-gsLve-nOrHtDIejM6ebRWAKxQ5VhUD8VxN2hwJj96FwypblDrJQytI1ruafYpIhkDWXax9TRPNJm8tGh9ROShN_HM5y-ekqIS9YuliR-qo869c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/52eab05a5dd277d0dce7855b.png" alt=""><figcaption></figcaption></figure>
 
 Bisa dilihat hasil enkripsi berulang dan nilai untuk setiap index sama pemetaannya. Misal AB dengan CB , maka nilai ciphertext B akan sama. Jadi tinggal leak semua kemungkinan dan petakan ke plaintext. Berikut solver yang kami gunanakn
 
@@ -86,7 +86,7 @@ print(flag)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/wTezxxfVQc8_ubf1nndoLUvhrlHB3x0jrmLydQTPvehnBFlvvy-WmLz40cufGW0wGQrAa-0T3IHg3Pq5ckdKuZD7R2n6zzIWaTddrZSq7S6pTnBY6rQskcZZ5Ptkf4PYlwpbSt5BlIBO7vc5Y8QrSTo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9d0e2d2011964c26a27bfe29.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST22{ad03h\_k03ntj1ku\_k3t4hu4n\_ini\_random\_string\_biar\_ga\_di\_brute\_force\_sama\_kamu}
 
@@ -182,7 +182,7 @@ print(flag)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/E0hiYUidIKwSp02vw-c15WjcWI8pD1Uzl-jtRcqYjXLK_aic9YXgfrKrnWbiQhEsiX_WM0uzNHafvptgD1nQVgUbFn1XU-ttpYFL13NHN41_Vs6jDNjazjGlj_s_GI8yQ_M-vuSUzOs9c1DqA6FG05s" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b9f0359428dd6a656d66f094.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST22{Prepare\_for\_AES\_Trouble\_and\_make\_it\_AES\_Double}
 
@@ -265,6 +265,6 @@ for num in [r,mr,s,ms]:
 	print(long_to_bytes(num))
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/98r-1CZskB8fFKhWkL7B_ukkozfVx5C0OlOcTjj3qlD3Y3FQk4i4gvAuLVAUL_9E8R9KE4mUGr3n2prugZMACEJ0pp2qgjoR01Rp9QuY8_U0ys19-ukt2QjnSD-yeSqbW8MscToPycbU8jy3mUnGJq8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/24842d457b12771eebb00f4a.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST22{xixixi\_bapack\_rabin\_bisa\_aja}

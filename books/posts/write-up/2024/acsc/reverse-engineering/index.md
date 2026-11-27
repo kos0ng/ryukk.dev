@@ -21,13 +21,13 @@ It's just a compiled Python. It won't hurt me...
 
 Given `run.pyc` file, try to decompile using `pycdc`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIUPXNRNwKQonsP7YBiGe%2Fimage.png?alt=media&amp;token=9a1267f2-5479-428c-a693-ab6923e35ab8" alt=""><figcaption><p>run pycdc</p></figcaption></figure>
+<figure><img src="images/9df41e95886eccda50e7cc7a.png" alt=""><figcaption><p>run pycdc</p></figcaption></figure>
 
 `pycdc` failed to decompile `run.pyc`, so the next step i do is `disassembling` pyc file using `pycdas`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FnwWsZRSOEk0xKZLvFFhj%2Fimage.png?alt=media&amp;token=01cda47d-b878-4afa-ac2b-9dc6c84e8a79" alt=""><figcaption><p>run pycdas (1)</p></figcaption></figure>
+<figure><img src="images/5375f9ca856075a70f12954b.png" alt=""><figcaption><p>run pycdas (1)</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgwTUAV7Ct59hSdnVnHqB%2Fimage.png?alt=media&amp;token=51716fe7-c57b-4304-9a50-54bf62776f89" alt=""><figcaption><p>run pycdas (2)</p></figcaption></figure>
+<figure><img src="images/d12e3f39d9e19df34d4b52e5.png" alt=""><figcaption><p>run pycdas (2)</p></figcaption></figure>
 
 It has so many lines and should take times if i manually convert it to python code. So my approach is by building `custom python executable` that printout value in specific `opcode`. In this case i try to dump the values during `COMPARE_OP` execution. Clone spesific version `(3.10)`.
 
@@ -97,7 +97,7 @@ Execute `run.pyc` with new compiled python and we will get the flag which is val
 ./python run.pyc
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FcO3WgLGL2rWJXa8mnxq8%2Fimage.png?alt=media&amp;token=26bbb501-d7c6-4cd0-983e-24b9120d1f4f" alt=""><figcaption><p>run modified python</p></figcaption></figure>
+<figure><img src="images/8feae2cef971399905443b75.png" alt=""><figcaption><p>run modified python</p></figcaption></figure>
 
 Flag: ACSC{d1d\_u\_notice\_the\_oob\_L04D\_C0N5T?}
 
@@ -111,7 +111,7 @@ Yara... Re... Ta...
 
 Given 5 files as follows.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fip4DEPvVdVLqDuPXVZfM%2Fimage.png?alt=media&amp;token=5e6c8415-37d1-475b-acdb-2a01cba1ed09" alt=""><figcaption><p>list files</p></figcaption></figure>
+<figure><img src="images/33ef3c8af9329bc2d8704ac9.png" alt=""><figcaption><p>list files</p></figcaption></figure>
 
 Files overview:
 
@@ -128,11 +128,11 @@ Files overview:
 
 Running the `wrapper` (check.sh), we will get the following output
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fy6zOcpXuxS845ySIVBdZ%2Fimage.png?alt=media&amp;token=bb44c11a-8c39-4c41-a8ad-3135423aa4d7" alt=""><figcaption><p>run wrapper</p></figcaption></figure>
+<figure><img src="images/e5b005a5387c36e2826ae959.png" alt=""><figcaption><p>run wrapper</p></figcaption></figure>
 
 From the output and the `PrintFlag` binary i assume that the objective is to find the `correct key`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FISENg8MGrOnPpnNVowmM%2Fimage.png?alt=media&amp;token=b906529d-3f45-47b9-bb73-1544b4089bab" alt=""><figcaption><p>decompile PrintFlag</p></figcaption></figure>
+<figure><img src="images/d92dcc4f9a7e673d9b220d66.png" alt=""><figcaption><p>decompile PrintFlag</p></figcaption></figure>
 
 At first, i tried to find any reference regarding `yara compiled rules reverse engineering` and i just found this [reference](https://bnbdr.github.io/posts/swisscheese/). The article explain about `yara internal` including the `VM` and its structure. From that article i got information that function that becomes VM executor/runner `yr_execute_code` in libyara/exec. Because yara is `open source` and the version of Yara is known, so i tried to create `modified yara`.
 
@@ -164,7 +164,7 @@ At first, i tried to find any reference regarding `yara compiled rules reverse e
 
 After executing build.sh there will be yara executable which is bash script (wrapper for new compiled yara). Executing yarareta rule with new yara will generated output below
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FC3ZzLXOXbacUTmhplm0F%2Fimage.png?alt=media&amp;token=9503000a-e9d5-4689-a1dc-d1de1132182e" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/e6c5d6e5be9616ebab3bf5bd.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 There is an error when we run yarareta with our new yara. Back to given library, i tried to dump the opcode by using `gdb scripting`. &#x20;
 
@@ -197,7 +197,7 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F3lqEyAionXuq0ZihAyoL%2Fimage.png?alt=media&amp;token=8e619802-4a91-4b9c-8785-ac028f3d2d1e" alt=""><figcaption><p>gdb scripting output</p></figcaption></figure>
+<figure><img src="images/5eaeb04983abe99fe12fb122.png" alt=""><figcaption><p>gdb scripting output</p></figcaption></figure>
 
 Using given library and yara executable there is `no error`, so there is something wrong with new library or new yara. Reading the source code again, i tried to dump the module name loaded with `OP_IMPORT`.
 
@@ -228,7 +228,7 @@ Using given library and yara executable there is `no error`, so there is somethi
 make # compile yara
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FImFZEHfSKvo8b3vcEgtU%2Fimage.png?alt=media&amp;token=822f5a86-7c3f-4613-bb99-5eb6d86baa5c" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/4aae12f95c05a150b5e7bdff.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 From image above we can see that yara tried to load acsc module which is not available in our new yara. Based on yara [documentation](https://yara.readthedocs.io/en/v3.5.0/writingmodules.html) , i tried to create `fake module` with name `acsc`.
 
@@ -295,7 +295,7 @@ if CUCKOO_MODULE
 
 Finally just compile yara using `make` command and run yara again.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPOo8xazANhTcEIXeCr4T%2Fimage.png?alt=media&amp;token=f3339b02-d538-4828-a42b-8c722467687d" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/8ef8ab5634f9ee36d55b0d3c.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 Now it has different error but in same opcode which is `OP_IMPORT`. Failed module to load is `magic` but magic is not custom module. It included in yara source code but not automatically included during basic compilation. From this [reference](https://yara.readthedocs.io/en/v3.5.0/gettingstarted.html#compiling-yara), basically we just need to add argument `--enable-magic` when running `configure` script.&#x20;
 
@@ -305,7 +305,7 @@ sudo apt install libmagic-dev
 make
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Ft9US5Ykf9yiJDmydq7op%2Fimage.png?alt=media&amp;token=d4f5d4c6-59e4-4fa9-9a82-b14afb7f7c8e" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/64fa3ec7c2f4d3dab2c947f2.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 Somehow it still error on me, so i decided to manually modify `module_list` and `Makefile.am`.
 
@@ -343,7 +343,7 @@ endif
 
 Run make command and run yara again.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FC0YqAZEg8XWa1X9DePfZ%2Fimage.png?alt=media&amp;token=4a50d85e-65fd-4b04-9cf3-9a013822848e" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/6e8e6f8f35166f441402bcbf.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 Now there is no error during opcode `OP_IMPORT` but there is an error during opcode `OP_OBJ_FIELD`.
 
@@ -368,23 +368,23 @@ case OP_OBJ_FIELD:
 
 * Line 7: add print identifier
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FAcogsSyjOXgNtN55LZKW%2Fimage.png?alt=media&amp;token=ccace9e8-2d27-4da3-8c0e-dde702271871" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/d0df12e8d5091f23342c54b7.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 From image above we can see that there is an error caused by `invalid identifier` (identifier not found).  Until this step, we must note there are 2 identifiers shown on image which are `type` and `check`. Besides that, `acsc` and `magic` import process are not error again so those modules should be stored in yara or library. Based on simple check, i found that  `"Hello World!"` from my `acsc` module is stored on `libyara.so.10`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPivuNKbsKCpX6YStOmhT%2Fimage.png?alt=media&amp;token=f7f139fa-b82f-4669-bf63-7288d9e4d81c" alt=""><figcaption><p>check string on library</p></figcaption></figure>
+<figure><img src="images/b6598c81c2909bfae7943b69.png" alt=""><figcaption><p>check string on library</p></figcaption></figure>
 
 Decompiling my own library, it shown that cross reference to "Hello World!" is `acsc__load`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fc3xl0p62WtJSVvi3xhlb%2Fimage.png?alt=media&amp;token=c89f2451-5fe4-4d17-8b8a-ad01a31b458c" alt=""><figcaption><p>string location</p></figcaption></figure>
+<figure><img src="images/fd0f9eb42c453954f153f95b.png" alt=""><figcaption><p>string location</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FFSw1nrpILuj8X7aux5gz%2Fimage.png?alt=media&amp;token=7849f04a-2885-44b3-b651-76b41b63bdd9" alt=""><figcaption><p>acsc__load function</p></figcaption></figure>
+<figure><img src="images/65e81982fc3a794d2d27467a.png" alt=""><figcaption><p>acsc__load function</p></figcaption></figure>
 
 Searching `acsc` on function name also shown that there are some function named `"acsc_*"` on my libyara.so.10. Lets compare with `magic` module.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FaguamwmnbilcTjTucUrS%2Fimage.png?alt=media&amp;token=0d7588d8-3d66-4dde-ba14-329f98060aaa" alt=""><figcaption><p>search function with prefix magic</p></figcaption></figure>
+<figure><img src="images/56a042f01feb267c489c2e5b.png" alt=""><figcaption><p>search function with prefix magic</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FfstlBYHARwe4HEV6kmRm%2Fimage.png?alt=media&amp;token=74eb6013-3c4c-474c-9bad-538129229b9b" alt=""><figcaption><p>magic__declarations function</p></figcaption></figure>
+<figure><img src="images/ff3ebe3b821f66f3b4c30e25.png" alt=""><figcaption><p>magic__declarations function</p></figcaption></figure>
 
 {% code title="libyara/modules/magic/magic.c" lineNumbers="true" %}
 
@@ -442,11 +442,11 @@ rule TestingMagic
 }
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F1UD648bMLxHX07qsUfB2%2Fimage.png?alt=media&amp;token=f643c63e-8e1b-4262-a6fc-6d30814836d2" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/ac5796e2a27df613ef86cdac.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 Now take a look on acsc modules inside `libyara.so.10` from the challenge.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FI3ae6ncQoz1pP4DGmMa4%2Fimage.png?alt=media&amp;token=f1d7d95f-4470-4ab9-9455-89c0a0dba14c" alt=""><figcaption><p>acsc__declaration function</p></figcaption></figure>
+<figure><img src="images/f2ee54202f576d7b9b4be978.png" alt=""><figcaption><p>acsc__declaration function</p></figcaption></figure>
 
 From image above we can reconstruct `declare_function` for `acsc.check` which should be `declare_function("check", "r", "i", check)`.  From this [reference](https://yara.readthedocs.io/en/v3.5.0/writingmodules.html#declaring-functions), we know that the check function take `regex` as argument and use `integer` type for return value. Now, lets write `fake function` for our `fake module`.
 
@@ -474,7 +474,7 @@ end_declarations
 
 Compile with make and run yara again
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7lCYeWEdqIGvIsdESYHq%2Fimage.png?alt=media&amp;token=f8e873f9-225c-4071-aaea-573ff7d913b1" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/44309ac4071caf8726fe16e0.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 Now there is no error and we can see some branches (`OP_JFALSE`). Before branch, there is `OP_CALL` and `OP_OBJ_VALUE` which indicates calling of function and usage of return value. My assumption is it becomes `false` because the return value from function call is `false`. Lets back to the given library and validate the assumption.
 
@@ -501,7 +501,7 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F70kvdJWaqvZZ199an7j1%2Fimage.png?alt=media&amp;token=f9482059-7be3-474b-ad9d-3062cb31dbd2" alt=""><figcaption><p>debug check function</p></figcaption></figure>
+<figure><img src="images/8c9e0375e2adaddd5bed2cfb.png" alt=""><figcaption><p>debug check function</p></figcaption></figure>
 
 <pre class="language-c" data-title="check" data-line-numbers><code class="lang-c">...
 return_value = yr_re_match(a2, v8, v11 + integer); // &#x3C;check+82>
@@ -583,7 +583,7 @@ fiber = fibers.head;
 
 * Line 8-9: print executed regex opcode.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fl3e2EmYsiTFskZSWYOSf%2Fimage.png?alt=media&amp;token=c383bf4d-bacb-41fb-802a-de808f6797c4" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/2cf532c96f5f9e4c9d241a05.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 After successfully dump `regex opcode`, next we will try to change the return of `yr_re_match` so the return of check function will be changed also. In this step, we assume that it continue the process if return is `true` (1).
 
@@ -612,11 +612,11 @@ SolverEquation()
 
 * Original value returned (0xffffffff)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FnMqKh1A3YlTmBrWOaFWi%2Fimage.png?alt=media&amp;token=ae86b42a-715b-43de-a34e-c03b438a86e1" alt=""><figcaption><p>original flow</p></figcaption></figure>
+<figure><img src="images/3f27927e822756564587e610.png" alt=""><figcaption><p>original flow</p></figcaption></figure>
 
 * Change value returned (to 0x0)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fdxrm6mAu0ydibCA6p2OM%2Fimage.png?alt=media&amp;token=2370c039-2ce9-41f0-aa2f-6695a1a608be" alt=""><figcaption><p>modified flow</p></figcaption></figure>
+<figure><img src="images/b80ba0a052a0ee5eff02e741.png" alt=""><figcaption><p>modified flow</p></figcaption></figure>
 
 My assumption is `correct`, the process will continue if return is `true`. Now create `fake module` always return `true`, so we will know all the regex opcode.
 
@@ -636,7 +636,7 @@ define_function(check)
 
 * Line 4: make result always true
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FbhuCfwp53Y8VvdiTi8Jf%2Fimage.png?alt=media&amp;token=1d788608-b49e-4727-a200-53827acc491d" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/d6445da25d57e2acc9997c0d.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 We can see that used regex are `RE_OPCODE_MATCH_AT_START` and `RE_OPCODE_CLASS`. Through searching on testing i found that it was like `^[value]`.
 
@@ -657,7 +657,7 @@ rule TestingMagic
 }
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FyMp4hZeO7QeaeaCO3lRj%2Fimage.png?alt=media&amp;token=52c419c7-199f-405d-8ea8-b90e8dc4a246" alt=""><figcaption><p>run modified yara with custom rule</p></figcaption></figure>
+<figure><img src="images/5b12bbf4a02d535717403454.png" alt=""><figcaption><p>run modified yara with custom rule</p></figcaption></figure>
 
 Take a look on executed regex opcode, in `RE_OPCODE_CLASS` i found there is call of function `_yr_re_is_char_in_class`.  `_yr_re_is_char_in_class` will validate is it target (chr) in range of class or not. There is also another `flags` such as `case_insensitive` and `negated`. In this step, my idea is try to dump all valid values by bruteforcing value in `CHAR_IN_CLASS` function. Last, to make the regex process continue, hard code the result variable to `1` (always return true).
 
@@ -698,7 +698,7 @@ static bool _yr_re_is_char_in_class(
 * Line 23: identifier if regex is negated
 * Line 27: make \_yr\_re\_is\_char\_in\_class always return true
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FWDnDPj4rNm4exX4LqV8g%2Fimage.png?alt=media&amp;token=ac4a1de3-b406-499e-b157-cc636b8a3930" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
+<figure><img src="images/e2680cfd3dcf8d3a119f9a55.png" alt=""><figcaption><p>run modified yara</p></figcaption></figure>
 
 `Negated` means the value should not be in those valid chars. Next, store all dump data to text file and parse it to get the valid key. Because our checked key in fake module is `ABCDEFGHIJKLMNOP` (all different), we can use this to trace what char validated for each regex. After getting the key just decrypt the ciphertext using `AES CBC`.
 
@@ -746,7 +746,7 @@ print(aes.decrypt(bytes(ct)))
 
 {% endcode %}
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FtZDMuPSLsc4myJCkDmBi%2Fimage.png?alt=media&amp;token=9e868a1a-371c-4bce-b20e-b0437e98ade8" alt=""><figcaption><p>run solver</p></figcaption></figure>
+<figure><img src="images/fb8dce255abf809aadb3e5d0.png" alt=""><figcaption><p>run solver</p></figcaption></figure>
 
 Flag: ACSC{YaraHasTwoVirtualMachines\_92b2c97ac28dd9fcbdf26ae7a7c906fe}
 
@@ -760,11 +760,11 @@ This binary runs your command! Just find a flag file from the server and read it
 
 Given 2 files, PNG and ELF.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fp9WIWrjGeTIq33HoYjBG%2Fimage.png?alt=media&amp;token=e0d688f0-714b-4411-b0e1-70b11d50ea66" alt=""><figcaption><p>list files</p></figcaption></figure>
+<figure><img src="images/23a40e007208b9392b1de3ab.png" alt=""><figcaption><p>list files</p></figcaption></figure>
 
 Decompile `ELF` file using IDA.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F383qDH13zRjHOTl1k3IN%2Fimage.png?alt=media&amp;token=fe3ff293-bc98-4779-a839-81f50d618a92" alt=""><figcaption><p>main function</p></figcaption></figure>
+<figure><img src="images/7401e0f552eb9fde943ffd88.png" alt=""><figcaption><p>main function</p></figcaption></figure>
 
 Lets analyze each function
 
@@ -773,38 +773,30 @@ Lets analyze each function
   * If program argument length is `one` (no argument provided), program will read data from `stdin` and store it at `first function argument`.
   *
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fe17yCqMFMWzO2cdvSFdn%2Fimage.png?alt=media&amp;token=1ddc2f20-9d85-4ee0-9d7a-b8038c734ed7" alt=""><figcaption><p>sub_4a46 function</p></figcaption></figure>
-  ```
+  <figure><img src="images/5499fec493e877ce0345fd05.png" alt=""><figcaption><p>sub_4a46 function</p></figcaption></figure>
 * sub\_4B35
 
   * If program argument is `not one`, program will use second program argument as `filename` and read the file given. Data read by the program will be stored at `first function argument`.
   *
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHJuwm5exaYfOgI5MisdE%2Fimage.png?alt=media&amp;token=95cb7b15-3706-466d-90b4-cfa15dba5b5a" alt=""><figcaption><p>sub_4b35 function</p></figcaption></figure>
-  ```
+  <figure><img src="images/8075606febdb277cb54a7ea6.png" alt=""><figcaption><p>sub_4b35 function</p></figcaption></figure>
 * sub\_4D88
 
   * There are some well known `PNG chunk` in this function such as `IHDR`, `IDAT`, `IEND` and it is used to compare with `stored data` (third function argument).
   *
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fa2pDH2q2OjnlLQB1rund%2Fimage.png?alt=media&amp;token=211e9fba-0172-472a-bf5d-22788856875f" alt=""><figcaption><p>sub_4d88 function</p></figcaption></figure>
-  ```
+  <figure><img src="images/4fff822d6e49926802b26c6b.png" alt=""><figcaption><p>sub_4d88 function</p></figcaption></figure>
 * sub\_508E
 
   * Compare `&unk_8020 + 32 * m` with `s`. `s` variable constructed from second function argument and third function argument
   * First function argument will store the result and used as argument for command function
   *
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F0zXbyaCDUJXeaGvDzx5b%2Fimage.png?alt=media&amp;token=c44865e1-a689-40cd-93b6-8a04ba9a2bac" alt=""><figcaption><p>sub_508e function</p></figcaption></figure>
-  ```
+  <figure><img src="images/4443a08f9985d31002f96af9.png" alt=""><figcaption><p>sub_508e function</p></figcaption></figure>
 
 From overview above, I changed the variable and function names available in main function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZ9arRG1baSqpNHqrxbzz%2Fimage.png?alt=media&amp;token=78b772e8-1a0b-47c0-bd4d-5500a9e034b7" alt=""><figcaption><p>renamed main function</p></figcaption></figure>
+<figure><img src="images/7f79350d504f44f44f200e67.png" alt=""><figcaption><p>renamed main function</p></figcaption></figure>
 
 `read_from_stdin` and `read_from_file` are clear. So the next step i do is analyzing `process_file`. Below is initial analysis i did
 
@@ -814,33 +806,23 @@ From overview above, I changed the variable and function names available in main
   * sub\_4C7C basically just do assertion to ensure the chunks is a valid IHDR chunk. Besides that it also return `width` and `height` in first and second function argument
     \*
 
-    ```
-    <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F0SPVN1uHWB9hydCe3Akf%2Fimage.png?alt=media&amp;token=aac50ade-c2f0-48da-b671-4d6508a60105" alt=""><figcaption><p>print width and eight</p></figcaption></figure>
-    ```
+    <figure><img src="images/13f3092d7da24adbbcc4a760.png" alt=""><figcaption><p>print width and eight</p></figcaption></figure>
 
     \*
 
-    ```
-    <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F40wYe3iZq2Hlg91y4fd5%2Fimage.png?alt=media&amp;token=07dd4890-f503-481e-a5c9-9307da69e023" alt=""><figcaption><p>debug width</p></figcaption></figure>
-    ```
+    <figure><img src="images/622dd78b86668d6e1e36c127.png" alt=""><figcaption><p>debug width</p></figcaption></figure>
 
     \*
 
-    ```
-    <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FhNUr3MHCbVhXzeVjIKuN%2Fimage.png?alt=media&amp;token=c9ce2278-f183-4a62-915b-fcac26d53c51" alt=""><figcaption><p>debug height</p></figcaption></figure>
-    ```
+    <figure><img src="images/ea50c8d947603a4add6321d6.png" alt=""><figcaption><p>debug height</p></figcaption></figure>
   * `memcpy` (0x4F12)  is copying IDAT data
     \*
 
-    ```
-    <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVT81wpUbOwiQxurPG121%2Fimage.png?alt=media&amp;token=a74363e2-45b6-424e-9bf3-94a5b865a6b8" alt=""><figcaption><p>debug IDAT data</p></figcaption></figure>
-    ```
+    <figure><img src="images/dd5c3fc58be6ca7b925a2ef5.png" alt=""><figcaption><p>debug IDAT data</p></figcaption></figure>
 
     \*
 
-    ```
-    <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FaCMC7nVdVqTp7iIh1nyf%2Fimage.png?alt=media&amp;token=c2105cb8-684a-4f94-a8b9-e7152c4691be" alt=""><figcaption><p>print IDAT data</p></figcaption></figure>
-    ```
+    <figure><img src="images/7903c56b632c29b7b0b15a2b.png" alt=""><figcaption><p>print IDAT data</p></figcaption></figure>
 
 Rename known data and function, below is the `process_file` function after initial analysis
 
@@ -929,43 +911,43 @@ LABEL_24:
 
 Now, lets take a look on `sub_2F82` that process IDAT data.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fl2K3yyXi1hZ3wueeev7T%2Fimage.png?alt=media&amp;token=e1cc42ca-d381-4a2e-b498-9c04ad7775fd" alt=""><figcaption><p>sub_2f82 function</p></figcaption></figure>
+<figure><img src="images/1e248ffc58ab169d8cf5269f.png" alt=""><figcaption><p>sub_2f82 function</p></figcaption></figure>
 
 `sub_2F82` consist of so many function call, because the flow looks like PNG parser i tried to find any algorithm that process IDAT data. I used available `constant` (0x6120) on sub\_2933 function to find `similar algorithm`.&#x20;
 
 * <https://github.com/search?q=1%2C+2%2C+3%2C+4%2C+5%2C+7%2C+9%2C+13%2C+17%2C+25%2C+33%2C+49%2C+65%2C+97%2C+129+PNG+idat&type=code>.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FrJSkXoEir2qgrRhJBx1M%2Fimage.png?alt=media&amp;token=7a2b3994-a5e8-4f66-aa87-52de5df74c82" alt=""><figcaption><p>similar algorithm</p></figcaption></figure>
+<figure><img src="images/6bcb45a4ad0c17435659bcb1.png" alt=""><figcaption><p>similar algorithm</p></figcaption></figure>
 
 Looking at the code i found some information, `DIST_DIST` variable processed if `block_type` is `1` or `2`. `Block_type` `1` and `2` used table generated by function `create_huffman_tables`. Function name is `inflate` and from PNG parser script we found previously IDAT data `decompressed` before IDAT data is processed. Search about `inflate/deflate` using `huffman coding` related with PNG i found this [reference](https://www.w3.org/TR/PNG-Compression.html). Detail information about `compression algorithm` can we found at [rfc1951](https://www.ietf.org/rfc/rfc1951.txt).&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNQI0SkD6rUoxQX5HQBbh%2Fimage.png?alt=media&amp;token=fb2d2204-18a1-4fec-b1da-8f25699bd078" alt=""><figcaption><p>rfc 1951</p></figcaption></figure>
+<figure><img src="images/c38766cf4c93061c432aac4d.png" alt=""><figcaption><p>rfc 1951</p></figcaption></figure>
 
 From `rfc1951`, i found that there are 3 header bits used in decompress process.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FSnskGo91phcqp3ZrPRUh%2Fimage.png?alt=media&amp;token=9b59e711-0f43-4f7f-afe2-146ffa2f37af" alt=""><figcaption><p>3 header bits</p></figcaption></figure>
+<figure><img src="images/fae53b68cd8c76de4c246122.png" alt=""><figcaption><p>3 header bits</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FozoNjaCVLahdXUqJNkNa%2Fimage.png?alt=media&amp;token=5819676b-325a-4a8d-9172-fe7527727fa7" alt=""><figcaption><p>kind of BTYPE</p></figcaption></figure>
+<figure><img src="images/55df5c66d657a1f62d4b6a3c.png" alt=""><figcaption><p>kind of BTYPE</p></figcaption></figure>
 
 Back to the binary, set breakpoint on first function that process compressed data on `sub_2e99`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F55vFK24GX192R2gH0RP9%2Fimage.png?alt=media&amp;token=9c8f0497-2d7f-43be-a99a-784d55d85aa4" alt=""><figcaption><p>debug BTYPE (1)</p></figcaption></figure>
+<figure><img src="images/0fee5e27f46c02905908276f.png" alt=""><figcaption><p>debug BTYPE (1)</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVHLgukGMeFL5omRfQ1Bs%2Fimage.png?alt=media&amp;token=51afe52e-c45e-4167-a5db-58ec6e6dfafc" alt=""><figcaption><p>debug BTYPE (2)</p></figcaption></figure>
+<figure><img src="images/e1acd219b526e02010d08e6e.png" alt=""><figcaption><p>debug BTYPE (2)</p></figcaption></figure>
 
 * `0x555555556f1b`: process compressed\_data, return eax = 0x1
 * `0x555555556f2f`: process compressed\_data, return eax = 0x1
 
 Lets check 3 bits from compressed\_data
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHPcANt5N9s4k4lSMace2%2Fimage.png?alt=media&amp;token=e5642e41-40cb-4236-bf3f-deb32d5d626c" alt=""><figcaption><p>convert to binary</p></figcaption></figure>
+<figure><img src="images/36a913f122aa452f70ae12f9.png" alt=""><figcaption><p>convert to binary</p></figcaption></figure>
 
 * `bit 1`: 1 -> 1
 * `bit 2-3`: 01 -> 1
 
 From above information i know that data those 2 data are `BFINAL` and `BTYPE`, lets rename available function and variable in `sub_2e99`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fv083rFczNeul6QLIVRr9%2Fimage.png?alt=media&amp;token=84b4037d-75d4-4bb3-8ae3-b94f1baf4a8a" alt=""><figcaption><p>decompressed data</p></figcaption></figure>
+<figure><img src="images/fc8852575aaba80886bdb718.png" alt=""><figcaption><p>decompressed data</p></figcaption></figure>
 
 ```c
 __int64 __fastcall process_idat(__int64 *decompressed_data, __int64 a2, __int64 a3)
@@ -998,13 +980,13 @@ __int64 __fastcall process_idat(__int64 *decompressed_data, __int64 a2, __int64 
 
 Using GDB, we know that the decompressed data start with `0x00000000ffffff01`. `zlib.decompress` do the same thing with decompress function (sub\_2933).
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FRnqI9bDggYmgUxylyoVJ%2Fimage.png?alt=media&amp;token=562bd864-2777-4762-8fb7-684bbe8b646d" alt=""><figcaption><p>zlib.decompress </p></figcaption></figure>
+<figure><img src="images/1290d9999e9f4b230debd92a.png" alt=""><figcaption><p>zlib.decompress </p></figcaption></figure>
 
 Continue the flow, decompressed data will be processed again in function sub\_4960.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPPFUPDfUnWQji7vAhgfI%2Fimage.png?alt=media&amp;token=6a096363-1a77-476b-8da7-bec45f8f8529" alt=""><figcaption><p>debug decompressed data (1)</p></figcaption></figure>
+<figure><img src="images/1a1a04ab52280bdaf0246ddb.png" alt=""><figcaption><p>debug decompressed data (1)</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FUx352OhWHroKOf5rwxqW%2Fimage.png?alt=media&amp;token=0ef8b7e7-1bdc-410b-bd07-88539d86e4ed" alt=""><figcaption><p>debug decompressed data (2)</p></figcaption></figure>
+<figure><img src="images/f591c22008cb6b79049189ba.png" alt=""><figcaption><p>debug decompressed data (2)</p></figcaption></figure>
 
 `sub_4960` will convert the decompressed data to data with prefix `0xffffffff`. Looking at more data, i found that there is not only `0xffffffff` but there is `0x00000000`. `0xffffffff` and `0x00000000` are well known value in pixel color, which are `white` and `black`. Lets validate using `PIL` module
 
@@ -1018,15 +1000,15 @@ for i in range(3):
 		print(pix[i,j])
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGVieHLGBaezFgbbfULf5%2Fimage.png?alt=media&amp;token=3d28b8e3-68d4-4513-952a-020270c00c5e" alt="" width="307"><figcaption><p>extract pixel color</p></figcaption></figure>
+<figure><img src="images/6c803969ae7a47ffa46bafa3.png" alt="" width="307"><figcaption><p>extract pixel color</p></figcaption></figure>
 
 From image above we can see that a few bytes pixel color is same like in GDB. So i assume that `sub_4960` convert decompressed data to `pixel` value. Continue to next function, `generate_command` (sub\_508E) convert the pixel values to `system` argument (command).
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOb7vanslKwVrUVJSWyz1%2Fimage.png?alt=media&amp;token=898e1553-8f71-4af6-ae45-c66cc8d6533c" alt=""><figcaption><p>generate_command function</p></figcaption></figure>
+<figure><img src="images/1d58c9ef5d1778c57913d8a8.png" alt=""><figcaption><p>generate_command function</p></figcaption></figure>
 
 The conversion basically convert the pixel values for each `block` (16x16) to 32 bytes value and validated it with data on `&unk_8020`. Data stored on `&unk_8020` is 32 bytes value for each possible character (0 - 127). Looking at `&unk_8020`, there are 2 cross references wich are decompress and generate\_command function.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPcpler9bOh2ZD0WJgKvd%2Fimage.png?alt=media&amp;token=818b1e65-6c78-4c0f-8b7e-44f9174793c9" alt=""><figcaption><p>decompress function</p></figcaption></figure>
+<figure><img src="images/79b0cf996034e7fa01cb2aa7.png" alt=""><figcaption><p>decompress function</p></figcaption></figure>
 
 On `decompress` function, it will check the `third function argument` of decompress. If third function argument is `1` so it will `remove` any mapped 32 bytes on unk\_8020 except for character `"catflg"`. So if we input "ls" picture the program will only detect "l" since the mapped value for "s" on unk\_8020 has been nulled/removed. After understanding program flow, i tried to create script to generate image which contains command we want.
 
@@ -1075,11 +1057,11 @@ image = Image.fromarray(array)
 image.save('fix.png')
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FkVNVHWQ33hO0mNW72q9C%2Ffix.png?alt=media&amp;token=df4531f9-85ef-46e3-baa3-b088274f1800" alt=""><figcaption><p>generated image</p></figcaption></figure>
+<figure><img src="images/7cd3f96f09539d339be45947.png" alt=""><figcaption><p>generated image</p></figcaption></figure>
 
 When i tried to pass the image to executable, it failed to generate command. When i check decompression process i notice that it use different `BTYPE`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZvjBYF1gLV0DNkD96hMQ%2Fimage.png?alt=media&amp;token=5dfaf71b-f094-4a0a-a99a-37665b090c1f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e4e97e08b0e4942436978904.png" alt=""><figcaption></figcaption></figure>
 
 Looks like the executable only support `BTYPE 1` decompression process, so my idea is try to manually put the pixel data to an image. In this case i tried to find reference how to compress data with the same method like `BTYPE 01`, this [reference](https://stackoverflow.com/questions/69603064/how-to-get-zlib-or-another-library-to-create-type-01-deflate-block) gave much help. Below is compression validation.
 
@@ -1256,15 +1238,15 @@ for i in chunks:
 new_png.write(new_data)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F4k2mGUoOLptGQq2DRM3A%2Fimage.png?alt=media&amp;token=f6982a15-09e9-4f3a-878d-b74822cfbfc0" alt=""><figcaption><p>execute generated image</p></figcaption></figure>
+<figure><img src="images/52e0d3b2a225a321a2418428.png" alt=""><figcaption><p>execute generated image</p></figcaption></figure>
 
 From image above we can see that it successfully executed. But now there is another problem, like we know on decompress function allowed character only `"catflg"` because other character are `nulled`. At first, i tried to find any possible command that i can use using "catflg" char. But at the end i can't find any useful command to get flag that consist only of those char. Look again on decompress function, i notice that there is validation of a3, if `a3 != 1` then no value will be nulled.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FdLehK4OUDdfbqcEahBXa%2Fimage.png?alt=media&amp;token=ca2d988b-d0af-49db-9174-ad25ed9307bb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ff739417b982311f4005b830.png" alt=""><figcaption></figcaption></figure>
 
 We can see also that after nulling char a3 will be set to 3. So why not directly put a3 with 3? actually there is no `BTYPE 3` so my idea is forcing `BTYPE 3` by changing the compressed object. In previous step we can see that `BTYPE 2` still processed as `BTYPE 1` in the binary, so i assume that using `BTYPE 3` it will skip the nulling process and still decompressing the `IDAT` with `BTYPE 1` mechanism. To do this, since `BTYPE` is 2-3 bit so we just need to change the 3rd bit to get `BTYPE 3`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FYYv512dBeEwoMrYqQgfb%2Fimage.png?alt=media&amp;token=82b591aa-30fc-4af1-87b0-6cc455b98b1c" alt=""><figcaption><p>change 3rd bit</p></figcaption></figure>
+<figure><img src="images/4f6a2979cdf7c1c78cce3316.png" alt=""><figcaption><p>change 3rd bit</p></figcaption></figure>
 
 ```python
 import numpy as np
@@ -1363,7 +1345,7 @@ for i in chunks:
 new_png.write(new_data)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FMn6vHNBGWZkjyZLTDWO3%2Fimage.png?alt=media&amp;token=97e807e4-535b-47a8-b07f-fb33ed20fa74" alt=""><figcaption><p>execute generated image</p></figcaption></figure>
+<figure><img src="images/06637dfda29e8d26dd8c4b6f.png" alt=""><figcaption><p>execute generated image</p></figcaption></figure>
 
 From image above we can see that we has been successfully put `"z"` to our `command`. So the next step is try it on target.&#x20;
 
@@ -1478,17 +1460,13 @@ r.interactive()
 * command: ls -l
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIvIN615uR19KkPmFs1nG%2Fimage.png?alt=media&amp;token=d2bf80db-fe01-47c9-ab80-5719eb8c8256" alt=""><figcaption><p>execute generated image</p></figcaption></figure>
-  ```
+  <figure><img src="images/029bead1b98cfb46c3c3fa09.png" alt=""><figcaption><p>execute generated image</p></figcaption></figure>
 * command: cat flag\_ba435220d789b8cb.txt
   * error
 * command: cat f\*
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FlHsARINe3lHkUrVkIC0D%2Fimage.png?alt=media&amp;token=982f76e1-a9bb-4d2f-ada7-15961c6dc160" alt=""><figcaption><p>execute generated image</p></figcaption></figure>
-  ```
+  <figure><img src="images/3fadff3356e301476105151f.png" alt=""><figcaption><p>execute generated image</p></figcaption></figure>
 
 Flag: ACSC{b9d1a7555c74959f9026a7d7b3bb08a07e2b3585ca0bd44836483b204a762dcd}
 
@@ -1502,37 +1480,37 @@ Where is the flag?
 
 Given `PE` file, open it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6TyH6PSqtCryALTCrnR5%2Fimage.png?alt=media&amp;token=7baae734-a09c-4dee-a1c9-52c0977774a3" alt=""><figcaption><p>main function</p></figcaption></figure>
+<figure><img src="images/36cb4f4b4b07ba2631b6b8cf.png" alt=""><figcaption><p>main function</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJGf88bIcSJQCnPZzjGZQ%2Fimage.png?alt=media&amp;token=56ef217b-7a67-4087-84d7-0c819b7082f9" alt=""><figcaption><p>run executable</p></figcaption></figure>
+<figure><img src="images/cbaca49defa0b52ff35f38a8.png" alt=""><figcaption><p>run executable</p></figcaption></figure>
 
 Executable needs `4` argument which identified as `KEY0-3`. Lets debug it.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F8zPoFj7srYPJHVc8qQH2%2Fimage.png?alt=media&amp;token=555b2894-3901-45c9-9749-787924ebc7a9" alt=""><figcaption><p>debug stored input</p></figcaption></figure>
+<figure><img src="images/c793ebd0d1c0d85230d9a411.png" alt=""><figcaption><p>debug stored input</p></figcaption></figure>
 
 `dword_357470` array stored our input, each index has maximum length `4 bytes`. Continuing the execution, i got an error on `0x0351E9A` during a call of `memset`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FXqoIwyzMUbG2exQuPKCJ%2Fimage.png?alt=media&amp;token=c424b12f-2b95-4a2e-a174-64a479790144" alt=""><figcaption><p>exception triggered</p></figcaption></figure>
+<figure><img src="images/fc1b22d9feaf808db678b199.png" alt=""><figcaption><p>exception triggered</p></figcaption></figure>
 
 From the challenge name i notice that the name is `VEH`, my assumption VEH in the name is `Vectored Exception Handling`. Back to the initial code on main function, there is `exception handler declared`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FKEHKYaIwARMdLe0SR6Vv%2Fimage.png?alt=media&amp;token=90aaf096-035d-4727-ad2b-f0f4749c43cf" alt=""><figcaption><p>exception handler declaration</p></figcaption></figure>
+<figure><img src="images/203fc341a3f3b746b59dded9.png" alt=""><figcaption><p>exception handler declaration</p></figcaption></figure>
 
 In previous step, we can see that our input stored at `dword_357470`. Actually we can see some cross references to `dword_357470`, lets set breakpoint on each function. My assumption is if exception `triggered` (since there is exception handler declaration) the program will call the `handler` and those handler are processed our `input`.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F1B9hoZlCkHRobMphlaxf%2Fimage.png?alt=media&amp;token=50500dfc-d442-4241-9216-aa211467abf0" alt=""><figcaption><p>cross reference to stored input</p></figcaption></figure>
+<figure><img src="images/17cae7a6899a679a836910c5.png" alt=""><figcaption><p>cross reference to stored input</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FqCMjydfzPay6HMBArmAK%2Fimage.png?alt=media&amp;token=8e1f1b7d-55be-4871-9718-00b681f073af" alt=""><figcaption><p>reference to sub_3513B0</p></figcaption></figure>
+<figure><img src="images/bfe3adb636b1adf1616532d3.png" alt=""><figcaption><p>reference to sub_3513B0</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fo2RnzFurvsiC00QCTGhy%2Fimage.png?alt=media&amp;token=9413be4b-7927-4ce2-a723-a61b449bddf5" alt=""><figcaption><p>reference to sub_3515D0</p></figcaption></figure>
+<figure><img src="images/106ea0ac40c2815014126577.png" alt=""><figcaption><p>reference to sub_3515D0</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FTv96P84HYLIEZinhQwEp%2Fimage.png?alt=media&amp;token=c165f3b2-75ec-4e8d-b19d-643a701ecdc4" alt=""><figcaption><p>push sub_3515D0 to stack</p></figcaption></figure>
+<figure><img src="images/e52b77bd08fd2a85bc99c341.png" alt=""><figcaption><p>push sub_3515D0 to stack</p></figcaption></figure>
 
 Also if we trace reference for function that processed our input, for example `sub_351B50` we will find out at the end there is a comment regarding exception at main function that utilize `sub_3515D0`. Continue the execution there will be popup about exception handling like image below. Just click `Yes (pass to app)` and we will go into one of the `function` in cross reference.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F4EsKbJQTs7Ex0Q3SzCuh%2Fimage.png?alt=media&amp;token=9f8bde4d-3bd1-44ae-8d52-edabb52ec302" alt=""><figcaption><p>exception triggered</p></figcaption></figure>
+<figure><img src="images/c6e7253f90370336d5df7671.png" alt=""><figcaption><p>exception triggered</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7buJAeE0P7RCDDywWmOK%2Fimage.png?alt=media&amp;token=c2afc893-3748-42ae-a979-bb57ed5e80ae" alt=""><figcaption><p>program break at sub_351B50</p></figcaption></figure>
+<figure><img src="images/39b3156a393386fcb5c95e86.png" alt=""><figcaption><p>program break at sub_351B50</p></figcaption></figure>
 
 Lets analyze `sub_351B50`.
 
@@ -1578,7 +1556,7 @@ Lets analyze `sub_351B50`.
 
 Data on `v2` will be executed later in `0x00351F04`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwiUR2dRchtoSxCdDkbkM%2Fimage.png?alt=media&amp;token=7701890d-62b8-45e2-b00e-ffef1371aa5b" alt=""><figcaption><p>call <code>0x00351F04</code></p></figcaption></figure>
+<figure><img src="images/094463be3666a27c9c35231d.png" alt=""><figcaption><p>call <code>0x00351F04</code></p></figcaption></figure>
 
 So value stored on `lpAddress` or `(v2 & 0xFFFFFFF0)` should be `valid` assembly. Because `v7` is only `one byte`, we can `bruteforce` the value to get valid assembly.
 
@@ -1604,7 +1582,7 @@ unk_354148 = "D4 4D 91 FD 7C B9 28 18 18 18 93 58 14 93 58 0C 93 18 93 58 08 45 
 brute(unk_354148)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FE3MvkcknYmtblYM97Frb%2Fimage.png?alt=media&amp;token=14aec173-e80c-47f6-9556-c5730af0005a" alt=""><figcaption><p>brute unk_354148</p></figcaption></figure>
+<figure><img src="images/d2012f8f9edd6d9a06f1d6ae.png" alt=""><figcaption><p>brute unk_354148</p></figcaption></figure>
 
 Looks like `0x18` is a valid key. Try it by putting `0x18` as `first key`.&#x20;
 
@@ -1614,7 +1592,7 @@ input: 18 90abcdef deadbeef baadf00d
 
 Now, if we continue the process the program will call `sub_351B50` again but with different input processed.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7vFSeuV4FSvGZvVArbq5%2Fimage.png?alt=media&amp;token=a68da25c-6da6-4047-8879-4bc88a4b90f1" alt=""><figcaption><p>break at sub_351B50</p></figcaption></figure>
+<figure><img src="images/a3734a9ed8ab46bf40e0e141.png" alt=""><figcaption><p>break at sub_351B50</p></figcaption></figure>
 
 Because the `function` is same, just brute using the same script but with different data.
 
@@ -1641,15 +1619,15 @@ unk_354030 = "C6 5F 83 EF 89 E6 16 3B CA 83 4F F6 83 4F F2 83 4F FE 83 4F FA 83 
 brute(unk_354030)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FWiGoqY2e3JsCfHF6LRTY%2Fimage.png?alt=media&amp;token=1b094f66-f87b-460b-adc5-509827adf880" alt=""><figcaption><p>brute unk_354030</p></figcaption></figure>
+<figure><img src="images/94aa701f49bae851e3498346.png" alt=""><figcaption><p>brute unk_354030</p></figcaption></figure>
 
 Looks like `0xa` is a valid key based on disassembly result. Change the `second argument` to `a` and check the result.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FOPe54LXatopBNFyQp2Fz%2Fimage.png?alt=media&amp;token=bf3dc391-2b00-4677-b838-e8436a6ff441" alt=""><figcaption><p>debug decrypted code (unk_354030)</p></figcaption></figure>
+<figure><img src="images/dd861d724ad0cf8498e6613f.png" alt=""><figcaption><p>debug decrypted code (unk_354030)</p></figcaption></figure>
 
 Right click on `0xc10001` then click Create function and we will see the `decompiled` function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6OA0G2EmTuWsAGe6veR8%2Fimage.png?alt=media&amp;token=c6a6271d-1538-4a10-a623-f6347d41a924" alt=""><figcaption><p>decompiled unk_354030</p></figcaption></figure>
+<figure><img src="images/dcc0f8106c514e8004cd0b83.png" alt=""><figcaption><p>decompiled unk_354030</p></figcaption></figure>
 
 Actually there is another `int3` that will hit `exception` again, so do the same thing for the `third argument`.
 
@@ -1676,17 +1654,17 @@ unk_354018 = "D1 D1 D1 D1"
 brute(unk_354018)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fk7KVnv674YPrsm2mxICE%2Fimage.png?alt=media&amp;token=35d875b0-8624-4764-a499-6374ff42a973" alt=""><figcaption><p>brute unk_354018</p></figcaption></figure>
+<figure><img src="images/36a58f9b3f44af10ad8a09ef.png" alt=""><figcaption><p>brute unk_354018</p></figcaption></figure>
 
 `0x1d` looks like correct key, lets change the `argument` and run again.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FeSqmvjJwvytvzsB1smWo%2Fimage.png?alt=media&amp;token=96737b37-c333-43d8-a54c-1032285f8b4a" alt=""><figcaption><p>debug decrypted unk_354018</p></figcaption></figure>
+<figure><img src="images/5aee7987a17efd601d37a8cf.png" alt=""><figcaption><p>debug decrypted unk_354018</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvEzxOtOpEhY9A94rF9e9%2Fimage.png?alt=media&amp;token=06101601-a979-4bcb-8d78-9e4e218a5435" alt=""><figcaption><p>sub_3513B0 executed</p></figcaption></figure>
+<figure><img src="images/e4d213fcd40dcc7a99e4e00c.png" alt=""><figcaption><p>sub_3513B0 executed</p></figcaption></figure>
 
 Now the executed handler is different, `dword_357470` actually is our `input` so rename the variable to make it easier. Set breakpoint at `cmp` instruction then continue the process.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FKN7lLqOIscLUIJJeagiR%2Fimage.png?alt=media&amp;token=b6363807-030e-4b44-bbb5-9ab60c8321ce" alt=""><figcaption><p>break at cmp on sub_3513B0</p></figcaption></figure>
+<figure><img src="images/3985aea5ce33b31d3f458c72.png" alt=""><figcaption><p>break at cmp on sub_3513B0</p></figcaption></figure>
 
 ```python
 inp = "18 a 1d baadf00d"
@@ -1698,7 +1676,7 @@ result = (v5 ^ ((v7 << 16) | (v7 >> 8) & 0xFF00 | (v7 >> 0x18)))
 print(hex(result))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FsoFvM8DFTkcWzDGdnYxi%2Fimage.png?alt=media&amp;token=523add09-069f-4529-8576-f1fc591a0dcd" alt=""><figcaption><p>execute reconstructed code</p></figcaption></figure>
+<figure><img src="images/f0e84d44657c89f55e7d3a57.png" alt=""><figcaption><p>execute reconstructed code</p></figcaption></figure>
 
 Okay so our `input` processed and there are `4 times` checking. Dump all the constant and put it on `z3.`
 
@@ -1732,31 +1710,31 @@ for i in a1:
 	print(hex(model[i].as_long())[2:])
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FCrbQIUAnvviezclc1EB0%2Fimage.png?alt=media&amp;token=6c0d8830-d357-459e-9b00-dd22e390d5f4" alt=""><figcaption><p>run solver</p></figcaption></figure>
+<figure><img src="images/e0cfbcc1ca3d8f72e86d39ba.png" alt=""><figcaption><p>run solver</p></figcaption></figure>
 
 Change the argument with z3 result and run the program again.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEb8ZKfCMJ5q8c0deGS5x%2Fimage.png?alt=media&amp;token=fabeba3b-9675-41e3-b5a7-f401a04258a6" alt=""><figcaption><p>validate the result</p></figcaption></figure>
+<figure><img src="images/0308fc3e77f68c9ab06af4f0.png" alt=""><figcaption><p>validate the result</p></figcaption></figure>
 
 From image above we can see that ecx value is correct. Continue the process and we will facing so many times `single step exception` like image below.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwcuwPO0AefUnKJaLYztG%2Fimage.png?alt=media&amp;token=ff95d7a3-7150-4070-9314-7e9f9a932f1d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9c3ab0e6137189c409a88b72.png" alt=""><figcaption></figcaption></figure>
 
 Change `exception definition`, make the program just pass to the app without `suspend` the execution.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fl28YxKE7w2NFjPQGjCtN%2Fimage.png?alt=media&amp;token=35f65697-56d3-4ce0-8008-a3506db4a5dc" alt=""><figcaption><p>change exception definition</p></figcaption></figure>
+<figure><img src="images/84e0a981594adeaedb59b8df.png" alt=""><figcaption><p>change exception definition</p></figcaption></figure>
 
 Then we will break at `sub_351230`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FF0WCJkzxSJPFsR0HgkdF%2Fimage.png?alt=media&amp;token=c8c545dd-0d26-484e-81b7-31cb61b13806" alt=""><figcaption><p>sub_351230 executed</p></figcaption></figure>
+<figure><img src="images/a24037011ef771b0ddc6427b.png" alt=""><figcaption><p>sub_351230 executed</p></figcaption></figure>
 
 * sub\_351080: `RC4` algorithm with `input` as key (16 bytes)
 
 Basically `sub_351230` do RC4 encryption/decryption then xor the result with `a2`. Continue the execution, we will break at`sub_3512A0`.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZ9HXkgsyq0OkINvVACxm%2Fimage.png?alt=media&amp;token=6f939995-044c-4260-9c4b-ecaad64044ae" alt=""><figcaption><p>sub_3512A0 executed</p></figcaption></figure>
+<figure><img src="images/4652dfc47526ca5616f4e0b9.png" alt=""><figcaption><p>sub_3512A0 executed</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6Gz5njtCweJ1hmNSQNLV%2Fimage.png?alt=media&amp;token=81ebd223-d13e-4f6a-afcc-5279a092ad53" alt=""><figcaption><p>debug comparation code</p></figcaption></figure>
+<figure><img src="images/028784c83239fe48afc04b0d.png" alt=""><figcaption><p>debug comparation code</p></figcaption></figure>
 
 a1 is `"ACSC2024"` and our `input` is validated with `a1`. So we need to add those `constraint` to our `z3 solver` and run the program again. Finally, the `flag` will be shown on `messagebox`.
 
@@ -1797,8 +1775,8 @@ for i in a1:
 	print(hex(model[i].as_long())[2:])
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Ffg45U8yk2DaUgxxu4KP8%2Fimage.png?alt=media&amp;token=f78022ae-dfbb-473b-8901-c45d84a215aa" alt=""><figcaption><p>run solver</p></figcaption></figure>
+<figure><img src="images/e78be78064c445300c9e7ac0.png" alt=""><figcaption><p>run solver</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F3i3KyXX2HMYPUJ5pECbB%2Fimage.png?alt=media&amp;token=c6f56adf-7e8e-423e-b622-da27d88b5bcd" alt=""><figcaption><p>put z3 result to executable</p></figcaption></figure>
+<figure><img src="images/8986fc6f3f61d7eba8a258b1.png" alt=""><figcaption><p>put z3 result to executable</p></figcaption></figure>
 
 Flag: ACSC{VectOred\_EecepTi0n\_H\@nd1ing\_14\_C0Ol}

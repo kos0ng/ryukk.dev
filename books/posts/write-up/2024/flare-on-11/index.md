@@ -4,7 +4,7 @@
 Participated as ryuk. Got 23rd place in worldwide and 1st place in Indonesia. &#x20;
 {% endhint %}
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGS6cNZem8QF3UYnhujri%2FScreenshot%202024-11-17%20at%2011.32.14%E2%80%AFPM.png?alt=media&amp;token=b73fe409-b8e6-4b14-97e3-a29e5c9677c8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a4422ba7ca609fed201aa880.png" alt=""><figcaption></figcaption></figure>
 
 <!-- challenge-index: 03c78239dd76a54d -->
 

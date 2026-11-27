@@ -18,7 +18,7 @@
 
 Given json file, when we check the data we found sql injection payload on query parameter.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/gFprsQ8ccnJu0p3zfv4V4jOi0rgjg8dAF54Olyo-JmtOlx63gDKvZlSOIdkRh86fx7g6wq2PhcWL0B5A4h0Ron8Y0xceeyPYKKuL07Cwzuj-hC9iRcCwhGhGPxu-M_m_gU22thQJzEfNebSiE6ZpR9s" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7f3dfb56f05919e4a2a2f23a.png" alt=""><figcaption></figcaption></figure>
 
 Payload we found are used for time based sql injection based on the time to deliver the generated file from randomblob. So the first step we do is determining the difference between true response or false response. In this case we found that we can utilize “time” key to determine that, so if the return is randomblob(1500000000/2) the time should be greater than 3 but if the return is randomblob(1000000000/2) the time should be greater than 2 but lower than 3. After that since we know the operation, index value (substring), and the result from query we can use z3 to find the correct value. For the operation we trial error also analyzing the result to find the correct parenthesis, something like if there is modulo and multiplication which operation will be done first. Here is parser we create to get the z3 constraint format.
 
@@ -157,7 +157,7 @@ for i in constraint:
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/wwk3Ps3TMHLDQ9FWcWQtV25OXzvCzA_zv0u6ENb3Q__b_GXJIDML5lqpzFZPeeHtz7pSnP5sHrV-yfeILUl13bZXye7tUGzXEe75QG5Qz7zWJ_Zg3cdyqa9gSrrx-3LOiamoW3N_eFmToJXV9ORF9Us" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/eec33b051687f06413a9068b.png" alt=""><figcaption></figcaption></figure>
 
 After that just put the constraint into z3. When the first time running the solver , it produce unsat/failed then we found that there is invalid constraint that make our solver fail (because the value is impossible since the sum of two printable charset should not be greater than 1 byte). So after commenting that constraint we got the valid flag. Here is the final solver we use
 
@@ -257,6 +257,6 @@ print(flag)
 
 ```
 
-![](https://lh7-us.googleusercontent.com/fhle3_Rm8n0fOLSC-1-U3zt5p6bK0tB1Q-Zb_K0vkrz8Dm6tgWfnRSFeDvX7IgoYm0PZTyTNhVrECIn_MSq7ANyNrk1I44mQO7AyjN9TbYaPTyW0ClmWgOEecu2mX_do6je_PQmGyhYpdhFddCE2hmE)
+![](images/24d10f25054c7f84048e452f.png)
 
 Flag : CJ2023{a346e8d716e2fd7a514c803b22447b83f49eeaea}

@@ -20,45 +20,43 @@
 
 Given PE file, open it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fhm8tnA1qFKXYbwdWVb0Q%2Fimage.png?alt=media&amp;token=cef6a16d-ed37-4029-a31b-7d8a9472002c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/34d6f93034080180ae72b829.png" alt=""><figcaption></figcaption></figure>
 
 Main function not detected, but it still easy to find since start function is common start function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FkRPb8EQfo7sg6xt8hLV1%2Fimage.png?alt=media&amp;token=5bc4808a-ca78-4035-ab94-568437856791" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/94933f9462adeadb918c77b7.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvkeXV2UaPaxGSNDv5q6r%2Fimage.png?alt=media&amp;token=37748418-44dd-4d4e-abf6-5447f39b35ab" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/209ede8325439fa8c661268d.png" alt=""><figcaption></figcaption></figure>
 
 So sub\_401530 is main function, set breakpoint on that function. Set breakpoint at 0x0040165F and step instruction to enter the function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FYQJxhsGFR0LVZFjRBUwJ%2Fimage.png?alt=media&amp;token=fef9c243-7074-4e49-8896-e11722c6af7e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a7c2dddacd1dd5a320e1cab2.png" alt=""><figcaption></figcaption></figure>
 
 * call near ptr unk\_1E7210
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZ6LAkd3OfEFkmUEhALFr%2Fimage.png?alt=media&amp;token=a5338431-1c6c-4fbf-b966-32904927e605" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/d381914cec8dd3f9d0a5c4af.png" alt=""><figcaption></figcaption></figure>
 
   * edx+4 == 0x1e000d
     * So function unk\_1E7210 do self modification by doing some operation such as substract, xor, rol, and add.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIl96Ey5jsS5FnMM2ew2H%2Fimage.png?alt=media&amp;token=44d4a6ce-bfb8-4da5-81d8-59b7e99cb5e7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ce7d0dfce76d2c2b2ca6b0cb.png" alt=""><figcaption></figcaption></figure>
 
 From image above we can see that the code is different after mov edi,edi. Lets disassemble again code after mov edi,edi by pressing c on address 0x1e000d.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FMPkvEQk1fBr32TIju80l%2Fimage.png?alt=media&amp;token=73baacc0-52d8-4795-89aa-89664889adb8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e5b6154ea6b362e8edd62781.png" alt=""><figcaption></figcaption></figure>
 
 Continue the process by stepping instruction we will get into looping at 0x1e0028.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FUa05lH7kwKDHxoRFy6mz%2Fimage.png?alt=media&amp;token=14677767-9e48-4fe1-8d11-d8e82ec1194f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d0b521c92b3b4d7bd08cd7f7.png" alt=""><figcaption></figcaption></figure>
 
 Loop instruction will do looping until ecx is 0. So we can said that it will overwrite value until 0x1e0029 (edx + 0x17). If we set breakpoint on those address the debugger will error, so the idea is set hardware breakpoint on 0x1e002a and continue the process.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FKlzi8aH4G1Vhjg1F1a5W%2Fimage.png?alt=media&amp;token=5a8dd16c-a044-4fe0-a1b4-e1b1dc7f68af" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4a10653b59fa12d22986fc61.png" alt=""><figcaption></figcaption></figure>
 
 Now the values start from 0x1e002a are different again.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FySN4GJhAPzWhO282naig%2Fimage.png?alt=media&amp;token=0d013415-b290-405e-990d-309c50ee887e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/45803ec5ef6374d06d792264.png" alt=""><figcaption></figcaption></figure>
 
 Scrolling down i saw valid PE file, dump it using IDC.
 
@@ -74,11 +72,11 @@ fclose(file);
 
 dump\_pe.exe actually a valid PE and consist of some functions but since it written dynamically there are some imported function not detected. So i choose to continue current debugginer. Disassemble code again and do step instruction again.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHvtbskjbBOalbwYTGIJL%2Fimage.png?alt=media&amp;token=4412a46b-ef11-41a8-a0d4-5c731a56b4c9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/84a86fb136e7d598a52f7873.png" alt=""><figcaption></figcaption></figure>
 
 Continue the process until call near ptr unk\_1e7031.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FlwvlFk9nPVA9vjtzacpk%2Fimage.png?alt=media&amp;token=72d3ad27-c534-4962-8ba7-c51f11398291" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f05de2e36744c05b668b8b77.png" alt=""><figcaption></figcaption></figure>
 
 * sub\_1E717C: resolve function based on hash value
 
@@ -92,33 +90,33 @@ debug078:001E70E3 call    sub_1E70F1      ; GetProcAddress, 0A18B0B38h
 
 Next, set breakpoint on last instruction on sub\_1F7033 (0x01F7177).
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FnriuwH5tZohNn7HtiHTs%2Fimage.png?alt=media&amp;token=198c9433-e799-4f8e-9152-4e61273694bd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/918d8f03927a9f240aad91ba.png" alt=""><figcaption></figcaption></figure>
 
 Step into sub\_1f71fd again and set breakpoint on 0x01F720E.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fco8UgMNNL2ayO5vaVfuz%2Fimage.png?alt=media&amp;token=f5c8ffb7-fe95-4aa2-9f09-c6f5da3f82f7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a547c374f1af308ed6421894.png" alt=""><figcaption></figcaption></figure>
 
 Step into on call edi and do step over so we will not get into call unk\_7FE71CB2.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FmCf0fMzZRPkkqpnQqy9B%2Fimage.png?alt=media&amp;token=b8a17adf-851c-4f88-b8eb-5e0d8465a05f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5105e9def06b200f07ea0a69.png" alt=""><figcaption></figcaption></figure>
 
 Now we are on start function of new executable sub\_7FE71737.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fz0Eg5cfgzRo4fRy1bg91%2Fimage.png?alt=media&amp;token=b3249eab-3f48-4d16-8c8d-a8f1d649cac6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ccb4e98e54bdcb8d820afeeb.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6mhMow6SvJWERBZ27viO%2Fimage.png?alt=media&amp;token=cfeab92f-d036-4e8b-b3fa-c786244f1487" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/02e09a543e4fbb27bfb1fbf8.png" alt=""><figcaption></figcaption></figure>
 
 Again, we can find which one main function by manually validating it.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fl93JfBkru7DQOtDNAIsr%2Fimage.png?alt=media&amp;token=4954e78a-2d6a-4cc0-8f04-7e5e1d299d0a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c4bed3f1b40a379e7c9d0330.png" alt=""><figcaption></figcaption></figure>
 
 Set breakpoint on new main function then continue the program.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fhgvyd3ncoYRLgcfu8RNz%2Fimage.png?alt=media&amp;token=0d799062-4a35-44e9-8a8e-f753589b2aeb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/17a0440e0ae82416268eca45.png" alt=""><figcaption></figcaption></figure>
 
 Rename all function. Original function name can be found by double click the address.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FQfMmqV8tQyA5FjJMifnU%2Fimage.png?alt=media&amp;token=4f6d5e1a-5f79-4ae0-9327-75ae1b1aa1e4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b9bd21b974137b86869ef088.png" alt=""><figcaption></figcaption></figure>
 
 {% code title="main function" %}
 
@@ -581,7 +579,7 @@ for i in product(*list_key):
 		print(tmp_key, pt)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FkCybiKRSwjA2t3aHIDmT%2Fimage.png?alt=media&amp;token=32dd03c5-665e-4947-b49b-01ca87f57a79" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6821fc23dee8587e653299b7.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ASCWG{What\_A\_ReverseEngineering\_Beast\_13337\_-\_-}
 
@@ -1186,15 +1184,15 @@ Given ELF 64 bit file
 
 When we open the main function it show something like fake validation because it always return wrong key
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FkEX6Sidmpza6bNPcLSlv%2Fimage.png?alt=media&amp;token=05faa339-3fa5-4f6b-8dc6-1b5ab0042171" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/26222ff7ac2d6f475728f2ec.png" alt=""><figcaption></figcaption></figure>
 
 So the next step, i checked the `init_array` to see whether there is suspicious function called before actual `main` function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEjTfqp55OeqIZKn6j2i3%2Fimage.png?alt=media&amp;token=09bd37d6-7630-4870-a823-7b9278790c02" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/95adec0fbb0a08047996bf36.png" alt=""><figcaption></figcaption></figure>
 
 We can see on image above that there is `function_main` `(0x13A1)` in `init_array`.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FnXnCoeJICWzwZBe10XiB%2Fimage.png?alt=media&amp;token=2e3f5625-95ec-479a-892e-cad1ac9dd890" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0bf850d6a403a592a2e9c8ec.png" alt=""><figcaption></figcaption></figure>
 
 There are puts and `scanf` on that function and we can implement the xor process to knowing the value printed out.
 
@@ -1210,7 +1208,7 @@ for i in a:
 print(res)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FItRjTnkbtLkeZnU46Ref%2Fimage.png?alt=media&amp;token=06285b0c-9855-4aa7-acf7-0fe4e3ed815a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5ac43de3994467f149c4cab7.png" alt=""><figcaption></figcaption></figure>
 
 We can confirm that the printed out string is same like in actual main function. Then, we just need to set breakpoint on that address to make sure that our input actually processed on `0x13A1` not in `main` function.
 
@@ -1236,11 +1234,11 @@ We can confirm that the printed out string is same like in actual main function.
 
 Function `v17` processed our input and the function created during runtime. `Opcode` of function `v17` stored on `0x4080`.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvwkL607dm6xpoloLzfuC%2Fimage.png?alt=media&amp;token=b4bc66c0-f0f5-45df-84e3-daa4b56a7c80" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/33e4992a4295ee2d3220f53b.png" alt=""><figcaption></figcaption></figure>
 
 We can directly convert the opcode to instruction by pressing `c` in `IDA`.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FAz1zlSNzet7OnfABlttG%2Fimage.png?alt=media&amp;token=7b336251-7450-4ae7-9b8f-5daff12a4dbc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/262e9b9760ea890307a9d566.png" alt=""><figcaption></figcaption></figure>
 
 function `loc_408B` xoring the byte on index `i` with index `i-1` then stored it on `i` (basically like self modifying code). We can reimplement the function to make the rest instruction valid.&#x20;
 
@@ -1274,11 +1272,11 @@ out.write(bytes(result))
 out.close()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FWKftWaUr4jUYZ0nVc0PD%2Fimage.png?alt=media&amp;token=9064cc17-4657-4259-a7f7-53e90e0b6e70" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ffcaf6074c4c6ef06a141733.png" alt=""><figcaption></figcaption></figure>
 
 Opening new binary, now we can convert the opcode to valid instruction on address `0x40be`. On address `0x40bc` we can see that there is instruction `ud2`, basically this instruction trigger crash `child process` to back to `parent process` inside while looping `(0x1ba1).` There are also another instructions that trigger the same condition such as `sys_kill` and `int 3` (as shown in image below)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FridQOPt9kXdauuSAWt1w%2Fimage.png?alt=media&amp;token=86490792-3a7a-4c8e-a71e-a36312f117e3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/638ec5ef80fa18a06100c7e9.png" alt=""><figcaption></figcaption></figure>
 
 During the competition i do `debugging` and modified some function name inside while looping to make it easier to do static analysis.
 
@@ -1419,7 +1417,7 @@ gcc -shared -fPIC ptrace_hook.c -ldl -o ptrace_hook.so
 
 After that just run binary like command below then there you can see the trace result on `log.txt`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwbVYME3pBM9ZuacpJOGW%2Fimage.png?alt=media&amp;token=97327e33-c5e4-4f6c-8658-b33d95e09636" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/168b9475ca1dc40091e50075.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 GETREGS: rip: 0x7f68f899503c
@@ -1647,21 +1645,21 @@ out.write(bytes(result))
 out.close()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FdzSWfBRgEh18TIkrbo61%2Fimage.png?alt=media&amp;token=6c0eeab3-ea3e-4b71-a118-7938cbb9eadb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/072b3d08a7f561c47c1037db.png" alt=""><figcaption></figcaption></figure>
 
 Next, after getting the correct instruction we need to what values passed to the parent process. Set breakpoint   on address that call `fork` function
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZ1lAkPyXJbIzw2kaoPjU%2Fimage.png?alt=media&amp;token=c3f1135b-cbed-4f05-b422-66e2681155bf" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9de33b2060204715fae47d52.png" alt=""><figcaption></figcaption></figure>
 
 To dive in child process we need to change `follow-fork-mode` to `child`
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FvzR8yB8xLLBKCOd75EmT%2Fimage.png?alt=media&amp;token=93d1d2b0-d8d3-4923-9169-f264e9fd1260" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c76cab374042e58f3e8520a7.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fi6SPnaiyHQf64K6IoOQk%2Fimage.png?alt=media&amp;token=9cf8eb6a-2085-489b-865c-72e40352b3b0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/578a4950dcc048249471d502.png" alt=""><figcaption></figcaption></figure>
 
 On call `rdx` we need to step instruction to know what values will be&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGO78YiW7uQR0d6dqhUTZ%2Fimage.png?alt=media&amp;token=bf8d813a-d3aa-456c-9a7f-c96e96d035e0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/34ffcbb94a3ea3d752c1a5b9.png" alt=""><figcaption></figcaption></figure>
 
 Okay, so in the last instruction before back to the parent process there are 3 register that have values.&#x20;
 
@@ -1673,7 +1671,7 @@ r12 = 0x14
 
 Now, we back again to parent process and check which instruction processed those values.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FbVZnfeGPbU0Y7eK3E1gP%2Fimage.png?alt=media&amp;token=b44c64b8-d66b-4f5b-a768-3fe9afad27be" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9166f77c85de711ff5c4215b.png" alt=""><figcaption></figcaption></figure>
 
 As we can see on image above that the first values processed on parent process is same like in child process. During the competition, my approach is  parsing the instruction using `gdb` scripting. Here is the script i used to parse the instruction
 

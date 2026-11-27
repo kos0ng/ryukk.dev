@@ -103,6 +103,6 @@ print(long_to_bytes(pow(c,d,n)))
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/WniP21-_4KMFEEBZREyGkuwmY0Nlsk-WLOKH8NqIljzr6dG3DC7hl-RlcF02uIqgxI9eao4V75cE1-_lIowAUjizwmFJZMFrWO55pTiCxEHwspMJYDyJVBiWkEzRLbPnqAF7IBxkKcq8GBLPBeamIzU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/279573ead818b721db71e014.png" alt=""><figcaption></figcaption></figure>
 
 Flag : CJ2023{*diputar\_\_d1j1lat\_\_disambit*}<br>

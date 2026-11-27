@@ -676,13 +676,11 @@ Actually we can reconstruct all of those code, but it should be easier to just "
   * Start address located at 0x1190
     \*
 
-    ```
-    <figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2F19ehrZOFtsoqH2v5GNr4%2Fimage.png?alt=media&amp;token=21ddbbe9-f902-46e5-9a29-dfdfa67226b2" alt=""><figcaption></figcaption></figure>
-    ```
+    <figure><img src="images/67e11ec5e1c95d5e17e7ad32.png" alt=""><figcaption></figcaption></figure>
   * Values that we need to dump stored on v4 or third argument (rdx) on \_fprintf.&#x20;
     * &#x20;
 
-      <figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FCtpKzKTTqxKk461JJGA6%2Fimage.png?alt=media&amp;token=eec4662e-16d2-4f49-ab3c-c4e088cfa686" alt=""><figcaption></figcaption></figure>
+      <figure><img src="images/a3544f0de4f09f532119159b.png" alt=""><figcaption></figcaption></figure>
     * So end address could be 0x13d3 since it is the latest "values" processing before writing file initialization
     * Values stored on rsp, so at the end of the code we need to dump rsp values
 
@@ -704,7 +702,7 @@ def device_native():
 print(device_native())
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FWqWGqzqmIqdEURX8Qd9K%2Fimage.png?alt=media&amp;token=ca20bd26-2210-4535-a158-6396b219a8ea" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/73ea04c4da45ad9abaef5ba3.png" alt=""><figcaption></figcaption></figure>
 
 Next, we try to emulate Java\_com\_hexagonal\_wondermaze\_Game\_checkRoot.
 
@@ -713,17 +711,13 @@ Next, we try to emulate Java\_com\_hexagonal\_wondermaze\_Game\_checkRoot.
   * Start address located at 0x1870
     \*
 
-    ```
-    <figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FDsQeCExawdzyegrAeQfh%2Fimage.png?alt=media&amp;token=26fa10b5-0667-422d-baea-1d51c15933c1" alt=""><figcaption></figcaption></figure>
-    ```
+    <figure><img src="images/f484641137540e6ed4f20527.png" alt=""><figcaption></figcaption></figure>
   * Implement custom memcpy
     * copy array values to rsp
   * End address located at 0x19c6&#x20;
     \*
 
-    ```
-    <figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2Fl1fzGeYnaJjjoD1gkgzr%2Fimage.png?alt=media&amp;token=c3800dfe-ba30-41e5-ba24-ecbeb8d15292" alt=""><figcaption></figcaption></figure>
-    ```
+    <figure><img src="images/f074055e9cb7c887778e7324.png" alt=""><figcaption></figcaption></figure>
 
     * Values stored on rsp
 
@@ -786,9 +780,7 @@ Last function we need to emulate is getSystemTime
   * Start address located at 0x1640
     \*
 
-    ```
-    <figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FJ1L8eWZj86OG6kShmi6k%2Fimage.png?alt=media&amp;token=28768412-27f0-417e-ba92-2623d233d3d6" alt=""><figcaption></figcaption></figure>
-    ```
+    <figure><img src="images/1d66f75417f02bd73a4ac209.png" alt=""><figcaption></figcaption></figure>
   * Since fopen and printf not used, we can skip those functions by setting rip value
     * hook at 0x176d
       * change rip to 0x1772
@@ -797,9 +789,7 @@ Last function we need to emulate is getSystemTime
   * End address located at 0x17f2&#x20;
     \*
 
-    ```
-    <figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FV4L6T2MxnLdmWyVaqVc7%2Fimage.png?alt=media&amp;token=95143a75-69c4-401e-b938-bb546281d560" alt=""><figcaption></figcaption></figure>
-    ```
+    <figure><img src="images/00b71288f59fa980828a2cf3.png" alt=""><figcaption></figcaption></figure>
 
     * Values stored on rsp
 
@@ -916,6 +906,6 @@ for i in range(len(arr[0])):
 print(flag[::-1])
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2Fg0lyP9yXDudWbcCkedDj%2Fimage.png?alt=media&amp;token=54ef0f3b-9c3a-444f-9e2d-bacf994669fd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2c78948bf49914273ce73a37.png" alt=""><figcaption></figcaption></figure>
 
 Flag : ctf{Th3P4thKe3p5Ch4ng1n9}

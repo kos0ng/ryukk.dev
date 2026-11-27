@@ -1,5 +1,6 @@
 import {
   cpSync,
+  existsSync,
   mkdirSync,
   readFileSync,
   readdirSync,
@@ -35,7 +36,7 @@ function collect(section, dir = '') {
   for (const file of readdirSync(join('books', section, dir), {
     withFileTypes: true,
   })) {
-    if (file.isDirectory()) collect(section, join(dir, file.name))
+    if (file.isDirectory() && file.name !== 'images') collect(section, join(dir, file.name))
     else if (file.name === 'index.md') {
       const source = readFileSync(
         join('books', section, dir, file.name),
@@ -72,7 +73,7 @@ const entries = (section) =>
     })
 function localLink(href, origin) {
   try {
-    if (!href || href.startsWith('#')) return href
+    if (!href || href.startsWith('#') || href.startsWith('images/')) return href
     // Curated challenge tables can link directly to a migrated post or note.
     if (href.startsWith('/') && byUrl.has(href.split(/[?#]/, 1)[0])) return href
     const u = new URL(href, origin)
@@ -250,6 +251,8 @@ for (const p of pages.filter((p) => p.dir)) {
     )
   const neighbors = siblings.get(p.url)
   const pager = siblingNav(neighbors, byUrl.get(neighbors?.parent)?.title, esc)
+  const images = join('books', p.section, p.dir, 'images')
+  if (existsSync(images)) cpSync(images, join('public', p.url, 'images'), { recursive: true })
   const { body, toc } = article(p)
   const content = toc ? `<div class="reading-layout">${toc}<div class="article-body">${body}</div></div>` : body
   emit(

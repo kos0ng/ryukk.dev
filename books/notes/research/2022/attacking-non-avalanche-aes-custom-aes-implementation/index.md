@@ -703,6 +703,6 @@ if __name__ == '__main__':
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/ogUBRtCBiKsL5dnTGdPd1ekpPMCuxh7SKcMzYyZvojhIf8oZJrHoHC4yD-erWlR6nI_cbcGUc9fdIdVWZ2sjxhiOmx3I3zeuXRML3mrW3T10Yyu2Y4BF9GvWuOM6veXsN3NFB2wY17IFQHwo25RMn88" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6755c98ab0bc7c5ad5bd92bc.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{n0n\_Aval4nche\_funct1on\_ciph3r}

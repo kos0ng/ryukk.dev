@@ -26,7 +26,7 @@ enc=[];holder1=[];holder2=[];fl4g.split("").map((x,y)=>{!y?holder1[y]=x.charCode
 
 Terlihat dari fungsinya bahwa ini merupakan kode javacsript. Jadi lakukan deobfuscate simple dengan cara menambahkan newline pada kodenya.
 
-<figure><img src="https://lh7-us.googleusercontent.com/OcIVWeH_YYhQRrGdPeAaIbwnRwlZKSHqUquv_Jfe9QQX0lqX-xxFYy7sQHv0nkXJMg59a9b7dL-wkcGe3t8aC5V8FbgX1BYa4FdxUEaWE9Dm_N2Bmbd-r3BlGBj37vtbLIsdxHRiazZ1Jf9eQC8FIT8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/896889ff585e2bc06e99d15e.png" alt=""><figcaption></figcaption></figure>
 
 Berikut alur programnya
 
@@ -51,7 +51,7 @@ for i in range(1,len(h1)):
 print(flag)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/XA6hDgy6Ob8eI4xaZ8lhLYRLT_O4pmt5LacxD1pq9fS1nZXyWCinaIq4jx_z8QAAA-btuE3kpLZg-fHmT4H2rBnL7-WfEJJuspvAW7q0uVK_PA9XGDsyIV-ceOTklrnfHylhGRFaW86OxZJVi8LIJj0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dc167174ec804aedefd0a496.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST14{4dler\_ch3ccs0me\_1s\_f4s7er\_7h4n\_cRC!!\_0240f11cc5}
 
@@ -65,27 +65,27 @@ Flag : COMPFEST14{4dler\_ch3ccs0me\_1s\_f4s7er\_7h4n\_cRC!!\_0240f11cc5}
 
 Diberikan file APK. Kami coba jalankan pada android
 
-<figure><img src="https://lh7-us.googleusercontent.com/sJep5zoPWHAoGI0FcHgUypcif3pdy-w0F3Dkpt3h2zkKNDgM9U8mTkkij8eZUhDWFSv7KM15LunQn2amrhTKXHCbBLOt0h40H8NqjJNT5QNSG04v4KrMQBlam6nc3OIRXeRTu-3vlqxWQ5v1Z2Uzcn0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/32ee16868624ffffd632e63d.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat terdapat string “Enter the pass code!” . Kita simpan informasi ini, selanjutnya kita coba decompile menggunakan apktool.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/8GlafZ5z7SXZCGu5adu8I5wvMnN6qjDUj9ViOGvKs5mJTVc_m5ySvzJ-0XUWPMxKbV9zzdmkeyEt7NSuNV1IqZvnn3wvmzP5NgFz-ZwkKLkVwP12bV538uOXDTf5RGyeT8LFpikqJ9kLAzzkRzO26hM" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9651cbeafacd5bca0497857a.png" alt=""><figcaption></figcaption></figure>
 
 APK tersebut dibuat menggunakan flutter, selanjutnya kami coba cek kernel\_blob.bin dengan asumsi mungkin APK tersebut dicompile dengan debug mode aktif.
 
-<figure><img src="https://lh7-us.googleusercontent.com/bXn5UuczQvBCFRHKLsls-oNy7bDV5K8M_m1mnAZz3plHeupLQIbFje3hw0iCk3Z5SO9VbPbYb8Tq4XjwKZhSHeb1mGU1QrYZR8wDrs_Tx83jUzkWV_m-cD12Aec6c05TBAT39pkO59QL2TBrGlTCyfI" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a58feaf528bc1af489afbd65.png" alt=""><figcaption></figcaption></figure>
 
 Lakukan pencarian untuk string “Enter the pass code!”&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/iZVYfX_DPogmpoya2UcBCJOcXQt7prPyDCOk3SGAWEYN_oNAFtVUY-7bywatqxCRiKb94v7oCJnetyDKDycqQcZvdFzzucFBi0ox16g6jQf95-s9zo4crhLdyZ1gE82RKy4IA00sMNisKev_fR_Foio" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/faed44e3d45513c9a2aa5db7.png" alt=""><figcaption></figcaption></figure>
 
 Ternyata ada, selanjutnya tinggal cari fungsi validasinya. Disini kita bisa lihat pada potongan kode diatas bahwa fungsi validasinya terdapat pada aVPRtlcZip .&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/FwOzfFbUXKuOjQ6YxWgp6nYtP0kQv8wDZNWZa9iiM8eURaScFkcilHrhFuBsEsIWEt4tLi_Ne4seVqEjGC0LtG7pecyFu-h3IzVxYpPNlMgGpP5Aj2jhSMpqp1WuFgyh7dR8GNLJSX5xS8qb5eQ_bqA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b30669d381cf7179d8d25fe9.png" alt=""><figcaption></figcaption></figure>
 
 Fungsi validasi hanya melakukan xor input dengan value yang ada pada array OaqqprViEU . Jadi kita search array OaqqprViEU untuk mendapatkan valuenya.
 
-<figure><img src="https://lh7-us.googleusercontent.com/4rbh6CAy_RgQ7yivy1c5X1_MmBf9RjvKOsGEmH2zS0TwF0VS3MkA5H98pWenIjD0W-ZZ0WC8TSvSK4bAUhM_H17atSOhkVs0nt1X7RiDVfxY9HsXGCcl01JPKH2gu8lZ-1ScPtO2lpm0Qb7qDoPIgQU" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5573227ea1fc471c9270d3f2.png" alt=""><figcaption></figcaption></figure>
 
 Karena sudah mendapatkan valuenya tinggal lakukan xor saja dengan mengubah input\[i] menjadi enc\[i] pada algoritma yang ditemukan. Berikut solver yang kami gunakan
 
@@ -103,7 +103,7 @@ for i in range(len(enc)):
 print(flag)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/Kv5jFgXkjdwLUWaztlcnIsqoe3VWMY-7KfOqmMSLd1_SwmKZMXFmrBI2mtAUJTTERHZjzCV0WdUk1j9FVV7IzTuwGnomV6si-TmD3KknjUwChCBahH6LGg_z5HLJrmxIdpsadz7QfNEVtUgIrvyGuyg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/23eedcfa7e931498d8d9559b.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST14{0k\_n0\_m04r\_d3bu6\_m0d3\_n3xT\_ti3m\_\_mayB\_ba3e31290d}
 
@@ -117,7 +117,7 @@ Flag : COMPFEST14{0k\_n0\_m04r\_d3bu6\_m0d3\_n3xT\_ti3m\_\_mayB\_ba3e31290d}
 
 Diberikan file chall dan lorem. Berikut isi untuk file lorem
 
-<figure><img src="https://lh7-us.googleusercontent.com/ZyMRlWKFzR5wyy2FVmpCCQ24HSLTnB2z1D6Dihi2Dt0Ysxvir7xdYqhHaYWKSJlnAuR_Qjm5kFtqnVbqVJGJeZn6J6775TiQkWbwhqECRDk_1irf9qPq5o7VNe9xFtFGjpIS-XPT31wPrqmB8Yc_pmw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0ccf2e1c77c8c4d7c9ca9c59.png" alt=""><figcaption></figcaption></figure>
 
 Dari judul kami asumsikan bahwa ada compression menggunakan LZ namun kita tidak tahu LZ variasi apa. Jadi kami coba beberapa variasi LZ hingga mendapatkan yang mirip hasilnya yaitu LZ78. Berikut implementasi dari compress dan decompress LZ78 dengan sedikit modifikasi untuk pembacaan filenya.
 
@@ -199,7 +199,7 @@ print(decompress(result))
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/Wohxrt2MjpPfBmSM7QCZSIitm8tOBkWdUdxNMW2E9rLMQsNWPT9erF7r-m_BEbl1dCni2t24RJcfaZkUsIMyneAAdCxdz5AnQDm5aE6H0ycbPjm1BxZJ32-1VHCt2ZpMHEVDLyIm4RAS7DlVp7lBgY0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/56c011940494a4aebefc5bbd.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat kita sudah berhasil melakukan decompress. Selanjutnya tinggal lakukan decompile manual untuk op code python tersebut dengan mengacu pada <https://docs.python.org/3/library/dis.html> . Setelah decompile manual kami juga lakukan validasi dengan cara melakukan dis terhadap fungsi yang telah kami rekonstruksi. Berikut adalah hasil rekonstruksi kami
 
@@ -408,6 +408,6 @@ print(inp)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/GmxP7WuSz-wHVzU9gBOZdx1ImO9-jZurMRZM-JihEtV7A8Yibd_0I3g0tM8hlO-A6J-NtLVjn4vm9e8-AWyOIULwZyQL9ONuXrucb_WD_JOh7K63HB_mJrOkYoFuucnXan00eQahbqk4GWKYQ28MtNc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0f19d681469e6e3f8cb3f8fd.png" alt=""><figcaption></figcaption></figure>
 
 Flag : COMPFEST14{\_g00d3ye\_\_m49u1Re\_6bd36c9440}

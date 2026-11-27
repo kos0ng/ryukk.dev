@@ -18,7 +18,7 @@ This game drives me crazy. It asks for an impossible score. Can you help me out?
 
 Given APK file, open it using jadx-gui and save the decompiled code.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FErM6T81R39niALsEYRdY%2Fimage.png?alt=media&amp;token=a07358b7-dd3e-409c-9fc9-c8243777475b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/21fd329fd2d932ec066c2873.png" alt=""><figcaption></figcaption></figure>
 
 MainActivity create new GameView object. So take a look on GameView.
 
@@ -146,12 +146,12 @@ uber-apk-signer --allowResig -a wicked-game/dist/wicked-game.apk
 
 Run the APK and it will show android image after the score changed to 1.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FhQBk9uCF9173quXbPeWp%2Fimage.png?alt=media&amp;token=89d2860f-2c0d-4165-83c8-d46b748c2a0a" alt="" width="188"><figcaption></figcaption></figure>
+<figure><img src="images/02d8f79af262d2dd6dac8f10.png" alt="" width="188"><figcaption></figcaption></figure>
 
 Basically the program only run the game and check the score. Win condition is showing image above, based on the description there is something with the image (catch android inside). So lets try to do some guess on the image. Image loaded through getResources function and R.drawable.graphics constant, so the location is in wicked-game/res/drawable/graphics.jpg. Upload graphics.jpg to well known [online steganography solver](https://www.aperisolve.com/6a3f42ad4d97dd568de676f99a1cc5f0) and there will be a flag.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FP6287dU7SJIhe658KnQZ%2Fimage.png?alt=media&amp;token=c50f5f87-891b-4dd6-97e5-500b18a62f66" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e58f7d1840b78bc5df198f07.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F5uDvuza2aqh8O8OiKkhP%2Fimage.png?alt=media&amp;token=e4429fdc-5cb3-4909-89ac-4e705f00751b" alt="" width="188"><figcaption></figcaption></figure>
+<figure><img src="images/a14b149b305494c83a13f4b1.png" alt="" width="188"><figcaption></figcaption></figure>
 
 Flag: wehnd-wdwdaxae-cfewfwg

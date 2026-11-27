@@ -35,11 +35,11 @@ __pyarmor__(__name__, __file__, <DATA>)
 
 There are also another files given such as in image below
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2F1TvRnG4jgJByOxYsJhtX%2Fimage.png?alt=media&amp;token=37ad2397-81eb-401f-af51-d6e91f048b54" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/84dd2a816db9b123ef5f191c.png" alt=""><figcaption></figcaption></figure>
 
 When we run the program it will give us output like below
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FvUIr5Z8dQTuVETeZ2zFK%2Fimage.png?alt=media&amp;token=5964545d-b388-4b92-8c66-af05a42f7ecd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7e30a9a56a92dbda4cfe7e39.png" alt=""><figcaption></figcaption></figure>
 
 One of the possible function used by the program to printout the usage string is "print" which is builtin function from python. So basically if we define our print function it will replace the print function used by the program. Lets try with simple code
 
@@ -53,7 +53,7 @@ code = open('/home/kosong/ctf/tfc/re/mcknight/hasher.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2F0Ef6kXf75439bTnLvz17%2Fimage.png?alt=media&amp;token=8bb5be94-8677-45c7-b131-73abf28a2d2b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/50530c1ca8ddeafe44cbba47.png" alt=""><figcaption></figcaption></figure>
 
 We can see that we've successfully injected our python code. Now what we can do? since we can inject our python code we can do some information gathering. Lets try with calling global function.
 
@@ -68,9 +68,9 @@ code = open('/home/kosong/ctf/tfc/re/mcknight/hasher.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FcxOb8twTj07NVqJlOuvf%2Fimage.png?alt=media&amp;token=4f556f55-c968-447a-aafe-d6fad50525e7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dfaa83501a19c73931a46448.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FCaFHANDLkWeozgUKY0GO%2Fimage.png?alt=media&amp;token=232be5ff-3136-46e4-b6bf-6897e3ceafaa" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dadabc81f8eb5cc144958722.png" alt=""><figcaption></figcaption></figure>
 
 Know we have information about function and variable available in protected code, lets try to call all of them.
 
@@ -87,11 +87,11 @@ code = open('/home/kosong/ctf/tfc/re/mcknight/hasher.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FRpndkYWeRwTvOqlLStgD%2Fimage.png?alt=media&amp;token=c37bf541-da03-4a79-8e5a-eba663b492ee" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a85e903513c43f68f2d4184e.png" alt=""><figcaption></figcaption></figure>
 
 * Call hash function, to see whats argument should be passed (if needed)
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2Fbn9slEQPHGy8p8ck8XDb%2Fimage.png?alt=media&amp;token=b8e1cc10-90c4-4f67-b911-21c88e2aa367" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/18b8d7c557c654bc5a74767d.png" alt=""><figcaption></figcaption></figure>
 
 Now we know what argument should be passed, lets try to pass some data based on known information (trial and error will be enough)
 
@@ -108,7 +108,7 @@ code = open('/home/kosong/ctf/tfc/re/mcknight/hasher.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FEVrQLBvZFeodb2gS4D5f%2Fimage.png?alt=media&amp;token=a44abaf9-fa35-408b-a566-c28918f07869" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/af6379443beab981601469c8.png" alt=""><figcaption></figcaption></figure>
 
 So using this approach we can call any function inside the protected code, what about getting the "plaintext" code? Lets try using dis
 
@@ -124,7 +124,7 @@ code = open('/home/kosong/ctf/tfc/re/mcknight/hasher.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FePoRb5SEOX2aLb7dJOdF%2Fimage.png?alt=media&amp;token=73b245a4-3534-4d21-a88a-2945b925e2a1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/76242992f433b55497ccd23a.png" alt=""><figcaption></figcaption></figure>
 
 It failed, but if we take a look on the partial disassembled code it looks like still protected with pyarmor. Also the error shown message "IndexError: tuple index out of range", so it looks like something missing with the list of name (wether variable or function). Lets try another approach to disassembly the code, one of the approach we can use is by utilizing function attribute in python which is \`\_\_code\_\_\`.
 
@@ -216,7 +216,7 @@ code = open('/home/kosong/ctf/tfc/re/mcknight/hasher.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FMZKQunI4X3Hyad8L9zlw%2Fimage.png?alt=media&amp;token=286e5b85-217c-40b2-9adc-c9f38801f2f7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b86d2d4fb26c6f90c83c6a86.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 import pprint
@@ -231,7 +231,7 @@ code = open('/home/kosong/ctf/tfc/re/mcknight/hasher.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FQcZeVvA9wES5c1O873Zu%2Fimage.png?alt=media&amp;token=d4325415-3544-47ca-9e69-5bec492a218d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/894b9fc3215e4393445528bf.png" alt=""><figcaption></figcaption></figure>
 
 If the code is not much complex we can do educated guess to know the algorithm. For example we know that there is loop in the code and there is usage of coeffs variable.
 
@@ -299,11 +299,11 @@ The result from our educated guess is the operation from calc\_line is matrix mu
 
 Given python file protected with pyarmor file with directory below
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FxXGXO4Ozde06scunxPiZ%2Fimage.png?alt=media&amp;token=db60a8a4-ce5b-4c27-8658-e01ed5369fc3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d80fae554a590b402cb623c6.png" alt=""><figcaption></figcaption></figure>
 
 lf we run run.py it will give nothing, but if we use python run.py with argument it will show the output like below
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2F2XuDs2gOlbqWGIQxN8xR%2Fimage.png?alt=media&amp;token=c127749b-7d01-4adb-9033-befc963dd3f8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c323582351ae01208697e4b2.png" alt=""><figcaption></figcaption></figure>
 
 We can see that there is print function also called, so lets stomp it again.
 
@@ -321,7 +321,7 @@ exec(code)
 
 Because there is self deletion we need to overcome it by calling exit at first print.&#x20;
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2Fe9LnXcigFVYpF269M7bS%2Fimage.png?alt=media&amp;token=c996ff73-38f5-45c8-89aa-5e585abd3fef" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9e1adfa02c6f16e1502943f3.png" alt=""><figcaption></figcaption></figure>
 
 Looks like there is only main function, because we know that it will be failed if we disassembly the main function because it is protected with pyarmor lets gather some information from \`\_\_code\_\_\`.&#x20;
 
@@ -338,7 +338,7 @@ code = open('/home/kosong/ctf/bhmea/re/armor/player/run.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FxsuvSuj1pRsnc7x9ywav%2Fimage.png?alt=media&amp;token=7fd7f7cb-b4b2-4fa5-8c20-d6e713bfdb6f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bdf37a192ac14927cee55267.png" alt=""><figcaption></figcaption></figure>
 
 So looks like there is inner function inside main function, lets try to disassembly those inner functions.
 
@@ -355,7 +355,7 @@ code = open('/home/kosong/ctf/bhmea/re/armor/player/run.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FFT4vZLrTh2gMsJpr3dRZ%2Fimage.png?alt=media&amp;token=b85445e6-5869-4dfd-a270-8869001c8e66" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8808907858bb03c22a3b7fc9.png" alt=""><figcaption></figcaption></figure>
 
 Looks like it successfully disassembled, lets loop all the code object.
 
@@ -376,7 +376,7 @@ code = open('/home/kosong/ctf/bhmea/re/armor/player/run.py','rb').read()
 exec(code)
 ```
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FOcdLeK7b7PtkFbMzILUA%2Fimage.png?alt=media&amp;token=9d553b34-7ae1-4ff8-a226-04196d4c832b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/64829e7c9727487a8fce1a28.png" alt=""><figcaption></figcaption></figure>
 
 Nice, looks like until this step we've been successfully got the flag by disassembling inner function by looking at the constants.&#x20;
 
@@ -846,7 +846,7 @@ exec(tmp)
 
 Run code above and we will get dump/hasher.pyc, then use pycdc to decompile the code.
 
-<figure><img src="https://479888236-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FSbHHLkH4CgRwZEsWg50y%2Fuploads%2FuIwYqmZSqtj87Kntf3c0%2Fimage.png?alt=media&amp;token=c180d8f7-497c-47db-82e2-049259718c52" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/09ba50c529d1f4f005a60394.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 # Source Generated with Decompyle++

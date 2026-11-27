@@ -19,9 +19,9 @@
 
 We try to compile it but fail, the far step we do only converting it to object file using command “aarch64-linux-gnu-as -o chall.o asm.s” in kali linux aarch64. After getting the object file we use ghidra to decompile it.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/XJEP60xus_6nP5ykxnm30LTphEAA8fAA7Dx6Tu_ZGdU-OiZtEiUQJdq7T2DrATV8gQXZ8h2sYdYD4nVAg2jYQRjug9oCRzuT8ukTnELTWceEkOKPrTeVjjsoWu5XoUdZ1vAvjO8g1mCa3ivUxIT2snQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/deeec3772450a5a65564017b.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/Ole3GVsJMtdLlv-O7I9DGAq2I-tVLTmk4DEUA_yAA9DVg5W6eFm1TbD3fmg2u9LgqvhE58k04iL6g6sS3Bm8ycvHYPf5J2rstYZMbzPpUWm-IPEqdiBUHPOdX3Lydd4sXhj1-a6PxegX1MRIgXYscAM" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c1a6fabdb52967567e282f42.png" alt=""><figcaption></figcaption></figure>
 
 Since the algorithm is not too complex, we try reimplement the code in python and then run it to get flag. Actually we try to use ida also but somehow it doesn’t produce the flag. Here is reimplement code in python&#x20;
 
@@ -79,7 +79,7 @@ print(flag)
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/oZNN6-pwCR5X3WxsVF7ONslEjhjiD1DMrhfAWMBMJ-w8XDpTTs5qu-V8k1fIjjmqO3u5v0p-pJOD9olgCEhA87VcTR4u02CPfirjKjkaPV-YG1xjsBwvC_7MLZ4Gx0wot8Z7y0OfJxNVxM3p6C13Xco" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9d5911174b081fa90c871310.png" alt=""><figcaption></figcaption></figure>
 
 Flag : CJ2023{leet\_low\_level\_learner\_avoid\_large\_language\_model}
 
@@ -93,15 +93,15 @@ Flag : CJ2023{leet\_low\_level\_learner\_avoid\_large\_language\_model}
 
 Given elf 32 bit and packed with upx new version. Here we used upx-4.0.2-amd64\_linux version. After unpacking the binary we try to decompile it using ida. Basically we try to find out where our input processed by doing dynamic analysis with hardware breakpoint. At the end we found that our input processed in address 0x15231 (xored) and then on 0x15233 (substracted) which is on centifd\_\_stub\_15
 
-<figure><img src="https://lh7-us.googleusercontent.com/fhTuxRswbdT3dykTKfO1zCYec68Eov7FhHZNI5rZnQUlZlMytiZyye8ftJ_Sc-r4ciKx3c9VEw8ahsxgNz1m6dPtNXnVrnWlCANHOyDfqv5-5uF2Tge43iBnNYb5oRZL9Z-LhoW_V9sG26KkXbQ6FEE" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8b5dca9426f678585f21c08e.png" alt=""><figcaption></figcaption></figure>
 
 After that there is something like debugger detection with ptrace but we can easily bypass it. Looking at another function after centifd\_\_stub\_15 we found that the binary write another binary on memfd then execute it , including our input.
 
-<figure><img src="https://lh7-us.googleusercontent.com/IEaxYN7y8pLwvmRYuI0qajO5uY64VF_jcfEbitBCjtDfJU5wsKt-SdZHW1CrhRzqKuiuI5rN34HPh5Lnkir5y4sujgJ1vV4alci79GiGDdx7i4Cy0eJjVTDEjgEtoPleuQFF7mEqyvK81glOb9Tx5Bs" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/de0955dcaa6aace8615fd9b6.png" alt=""><figcaption></figcaption></figure>
 
 So to dump the binary we can breakpoint on address inside write\_\_system which is fwrite
 
-<figure><img src="https://lh7-us.googleusercontent.com/QKCqNUD3kFZ5tL-I3fZBDORHRPiSXS8ok30H0RglBi132qL-Q6krsLEtv8IUU7OUdxVSk1mz9e3HLMYz-vWChK2CqCmrpZRtOJ_8l2xbNTJ1FgXV1dQcfZ-Z9JKxuNDv1PaPnFiPLguGacxfUPGl_H8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a2b25f8d174b506f5ed3c2f0.png" alt=""><figcaption></figcaption></figure>
 
 After that just dump the binary. When we manually dump the binary and then unpack the dumped binary then we found that the binary is “typical”. So the next step is we automate the process for dumping the binary using script below
 
@@ -149,7 +149,7 @@ SolverEquation()
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/QxqlOxxT1NkXIMO1c1Sry6b4TBxxhVX9PVC7t4nESi7_Obs9X5MkXV2oD9XW8DfwKkGZcbRkhCf0TMbjN9dkWj-jqVtIuYhIW6Yv1rpU2bOKtCgel7MagEiX4hnwmhbS_iOVi6JFPqO2lutwGwMTisc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fc078dd24cbfbc1c53c63bab.png" alt=""><figcaption></figcaption></figure>
 
 After that we get the xor value and the subtract value through scripting then reverse it to get the flag. Here is script we used during the competition
 
@@ -220,6 +220,6 @@ SolverEquation()
 
 We also facing issue during iteration on 41 since it doesn’t have subtract operation (only xor). But we can skip it by changing the range of iteration without 41.
 
-<figure><img src="https://lh7-us.googleusercontent.com/S1hYFjUnkQSFZnV2ZmowxgTmhaO9bJZ2h4ku6WTdI5TWcnnjoagIbkkmqIvcJyUThW_CCr2_Zwi1YrUnix-b05W8kBUiuJ807UZVlaANsL2vXzyEhIZp9sppVLMpsPgl2ST4Ani-gHTvVIat9DhQ27U" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4387ff540057e8c4179a1d4b.png" alt=""><figcaption></figcaption></figure>
 
 Flag : CJ2023{did\_you\_know\_despite\_their\_name\_centipede\_dont\_always\_have\_exactly\_100\_legs}<br>

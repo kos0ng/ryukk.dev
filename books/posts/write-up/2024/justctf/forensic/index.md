@@ -23,7 +23,7 @@ Given flashdump.bin, parse the executable using [this](https://github.com/tenabl
 python3 esp32_image_parser.py show_partitions flashdump.bin
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FLr5ES2UChM7datPNSUN0%2Fimage.png?alt=media&amp;token=3e3fd131-b9c3-4a7f-a1c5-eb0b37e5b465" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d2e0b9b0ddeee2e480f23254.png" alt=""><figcaption></figcaption></figure>
 
 Dump app0 executable using create\_elf argument.
 
@@ -31,11 +31,11 @@ Dump app0 executable using create\_elf argument.
 python esp32_image_parser.py create_elf flashdump.bin -partition app0 -output app.elf
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FeOMLnJIKYJLn7Bf9Ujlf%2Fimage.png?alt=media&amp;token=8fef4c21-9503-4897-b16a-9d3b05146962" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b07301fec2a81f0734553ec4.png" alt=""><figcaption></figcaption></figure>
 
 Use ghidra to decompile the ELF file. Looking at available strings that there is "Flag" string.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FLmXy7OcjBug0t2b9YzbA%2Fimage.png?alt=media&amp;token=f467b40c-2768-42d5-ae29-a7ce07a5d0c2" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/15ab2f1d9d5ff02ae0778de9.png" alt=""><figcaption></figcaption></figure>
 
 <pre class="language-c" data-title="FUN_400d2964" data-line-numbers><code class="lang-c">---snippet---
   memw();
@@ -84,7 +84,7 @@ for i in range(len(a)):
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FtWAIohRei9HHE7JkVW3l%2Fimage.png?alt=media&amp;token=b697a9d0-ebe3-4e96-829b-a8545d245836" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/968086735c575602b439a774.png" alt=""><figcaption></figcaption></figure>
 
 Flag: justCTF{you\_x0r\_me\_r1ght\_r0und\_b4by}
 
@@ -102,7 +102,7 @@ Given flashdump.bin, parse the executable using [this](https://github.com/tenabl
 python3 esp32_image_parser.py show_partitions flashdump.bin
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FoGCtqMkqvbY5OkGhVsZu%2Fimage.png?alt=media&amp;token=68ea3019-abab-48fc-afd0-5c73cc213013" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bb063d893689dcc3f20bcad4.png" alt=""><figcaption></figcaption></figure>
 
 Dump app0 executable using create\_elf argument.
 
@@ -112,7 +112,7 @@ python esp32_image_parser.py create_elf flashdump.bin -partition app0 -output ap
 
 Open it using ghidra and look at string "flag" we will found reference to the function that will produce flag like in previous SOC challenge.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FCGzdoD5xDfDtH8qXp0Qf%2Fimage.png?alt=media&amp;token=4e8655e8-9c22-4406-ac8f-eaa1d818fd76" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6e8e33e15deb2287f46dec6d.png" alt=""><figcaption></figcaption></figure>
 
 Rename some variable and function to make it easier to understand.
 
@@ -147,7 +147,7 @@ memw();
 
 So the ciphertext are processed on function FUN\_400d296c, next take a look on function FUN\_400d296c. There are some constant in the function so it nice to search it on github.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FX3bHyPhD2pKHZ8UKjmBT%2Fimage.png?alt=media&amp;token=cb2c17a9-bbcd-4759-a6a8-0e707da0360d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8861337266b66806fd277a73.png" alt=""><figcaption></figcaption></figure>
 
 Search for the constant in 4 bytes format, <https://github.com/search?q=0x52096ad5&type=code> and i found [this](https://github.com/defanator/mcespi/blob/800d492838ca56dde29e6c56df28249131fda3d4/mcespi.c#L339.).&#x20;
 
@@ -182,7 +182,7 @@ FUN_400d831c(auStack_134,ciphertext,param_3,output,&DAT_3ffbdb68,0x10,uVar1);
 
 Looking at ELF file, we know that \_DAT\_3ffc3e38 is not stored on it.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FoJq324uHXJqIoQQGUkQk%2Fimage.png?alt=media&amp;token=e8e3c737-e394-42df-9740-71d6bdbf82b1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/689b64701faa2e0e384da310.png" alt=""><figcaption></figcaption></figure>
 
 So we assume that the data is maybe on runtime memory. Because we have the flashdump.bin we try to directly find the ciphertext by bruteforcing all 32 bytes value in the flashdump.bin. Below is our script to do bruteforce.
 
@@ -201,7 +201,7 @@ for i in range(0, len(f) - 32):
 		print(i, res)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F7WjyqMjkgtrMYHaHRDe3%2Fimage.png?alt=media&amp;token=d6cb882f-637f-4d31-8ad2-d10e14246f9e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/81b9fba02af5c0e12d3294d3.png" alt=""><figcaption></figcaption></figure>
 
 Looks like we got partial flag, so the mode should be not ECB. The next step we do is trying to use AES CBC with iv null bytes, because the first block is already correct plaintext.
 
@@ -218,6 +218,6 @@ tmp = f[i:i+32]
 print(cipher.decrypt(tmp))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FokU1UVpnbJPPcSPyiUoa%2Fimage.png?alt=media&amp;token=850a9c51-191e-4326-bb3a-db0facade8c7" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5dfa5a40030398e9fdd4e2d1.png" alt=""><figcaption></figcaption></figure>
 
 Flag: justCTF{dUmp3d\_r3v3rs3d\_h4ck3d}

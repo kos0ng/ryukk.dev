@@ -97,6 +97,6 @@ d = pow(e, -1, p-1)
 print(long_to_bytes(pow(c_p, d, p)))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F61NaXVDITPUIFkAX96Q8%2Fimage.png?alt=media&amp;token=7d97e61f-2c1f-46ef-87fa-59d612e2534e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f86fe6b694ec3c8f49e2616a.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ASCIS{W3lc0me\_t0\_th3\_P4rty\_8597b0394054835f80ebd573a238ddbe1d86942657a59a7b6f84660d629472b5}

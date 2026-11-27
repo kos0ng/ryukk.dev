@@ -18,7 +18,7 @@ Is this a FileSystem? Identify the file and make the necessary adjustments to so
 
 During the competition, my friend found an interesting file without header using r-studio
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FXvjfOmEVt7u75lOLDFiI%2Fimage.png?alt=media&amp;token=52e10526-591d-4c61-8a6e-307840577c41" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d16e37bb680817a5bb5c5582.png" alt=""><figcaption></figcaption></figure>
 
 Because it is a free edition of r-studio we cant dump the file, so looking at some hex value i tried to search the file. First, i use autopsy to load Chall.img file and export the unallocated space partition. Because if we search on 16gb files it will take a long time. Because i know some hex value and know what should the end of PNG file we can just parse the png and get the flag.
 
@@ -34,6 +34,6 @@ out = open("flag.png", "wb")
 out.write(nice)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FbBEuaetraaN47QHXBZ4C%2Fflag.png?alt=media&amp;token=6d35ed01-d7d6-4a94-8ddd-af65421344af" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1d0fdf07fe0ecbb0179e9232.png" alt=""><figcaption></figcaption></figure>
 
 Flag: BHFlagY{8bd8dc3ea7636c5fb8aeb}

@@ -31,7 +31,7 @@ open('flag.enc', 'wb').write(enc)
 
 Sepertinya tidak ada yang aneh dari source code tersebut , jadi selanjutnya kami coba cek keynya dan ternyata nilai e yang diberikan besar.
 
-<figure><img src="https://lh7-us.googleusercontent.com/hVTcWFvmZBzJhTPXb6r6jdg_eO90qTjG9FoY4mL7gObexF2bkmIrWAj_27nVfRNg8R57YTww9QoMsDglSEgNQqAbA-ZhKBneit6UYMC_kTvx11i9W469qmKDTQFppuN2LkQStsmyIIY-WFUMIZDSkA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f1cbbcad6469cfb602df516c.png" alt=""><figcaption></figcaption></figure>
 
 Dari sini kami coba lakukan common attack pada rsa dengan public exponent besar yaitu menggunakan wiener attack dan ternyata berhasil. Berikut script yang kami gunakan
 
@@ -118,6 +118,6 @@ print(long_to_bytes(int(str(pow(c,d,n)),8))[::-1])
 
 {% endcode %}
 
-<figure><img src="https://lh7-us.googleusercontent.com/3DomXz2q7RTEeikL7bY7jCvTxqf8_szLH_3zXtMAtCLFraSnRIHmHd9Zcj00HWcZqQiR13T4z1ysFIRuz0oLQHu6s-Ss_YMl7L92jsnPyKS_pBEdPCpI3sR79_AkNR7C9zQ_vn-TGQ7O2Pnn6G7IwA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/66e39ac8c40b2692b2b10e92.png" alt=""><figcaption></figcaption></figure>
 
 Flag : MDT4.0{small\_d\_\_i\_mean\_d\_as\_RSA\_private\_key}

@@ -24,27 +24,27 @@ Let's just deal with them one by one, shall we?
 
 Given PE32+ executable, open it using IDA
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJIWdkzeShcnjXwXQ3dHQ%2Fimage.png?alt=media&amp;token=79c50ceb-31f9-4faf-94f2-59961e1c4f20" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/659166dc3574b0b3ea66a321.png" alt=""><figcaption></figcaption></figure>
 
 We can see that there are some unknown function such as sub\_140001020 and sub\_140001000. Take a look on each function we can know what is those function do
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FjduIC1tZHOvkXCDX8FXX%2Fimage.png?alt=media&amp;token=072fcb18-1447-4499-9a93-ef5e8d6e3211" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ac25660fa46eeeeab4170823.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FobiLUYQpkmTkUWenyqd2%2Fimage.png?alt=media&amp;token=71382e90-2fac-4289-adc5-b682b4e7c02e" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/08a5000cca1b752fae28ad9d.png" alt=""><figcaption></figcaption></figure>
 
 To help us carry out static analysis, we rename those function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fi6MhbghIfRfJmfp4GfJs%2Fimage.png?alt=media&amp;token=20815596-608e-431d-8778-b64d62a2e890" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e6ea0151346c3bde411f5e10.png" alt=""><figcaption></figcaption></figure>
 
 We can see the program receive our input on line 28 using scanf function, but there is a function that executed before our input received which is sub\_140001480.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fxg7yRXJyxzQ2ionJOAJM%2Fimage.png?alt=media&amp;token=dfeed7ad-0fc6-4745-8001-9dbec8fd9a17" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e0c9108f3d204743399f0bd0.png" alt=""><figcaption></figcaption></figure>
 
 Function sub\_140001480 is custom function and the result from that function is static.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fn4ZZsiO4gEGln3TIdaSA%2Fimage.png?alt=media&amp;token=7d97f176-69d5-4386-a7e6-e125917f0ab0" alt=""><figcaption><p>Value generated from function sub_140001480 (1)</p></figcaption></figure>
+<figure><img src="images/411cdece8cd2852a5eb73d04.png" alt=""><figcaption><p>Value generated from function sub_140001480 (1)</p></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FKvYHOfGWoDUNqFQ6uB4j%2Fimage.png?alt=media&amp;token=e464b8f4-0f96-4e0d-8a6c-6266c8b0f68d" alt=""><figcaption><p>Value generated from function sub_140001480 (2)</p></figcaption></figure>
+<figure><img src="images/6b85381946eed5873c0522b8.png" alt=""><figcaption><p>Value generated from function sub_140001480 (2)</p></figcaption></figure>
 
 So basically we can dump the values and use it for next step without reimplement the function.  After receiving our input, the program processed our input with custom algorithm again.
 
@@ -278,13 +278,13 @@ do {
 
 To validate the last part (xor part), we can debug the executable and breakpoint on instruction below
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FpPeyrvTkcJiijP6VSRZh%2Fimage.png?alt=media&amp;token=1e830a69-7866-4048-8c95-d6c91a8d9abd" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c8d8ede9ea7020d12328fc39.png" alt=""><figcaption></figcaption></figure>
 
 ```nasm
 00007FF7293A113C: xor     al, [r11-2]
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FjIJwz5TQAIDTOoG8CDca%2Fimage.png?alt=media&amp;token=c5bf252f-8db7-4580-893c-57390209dcee" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/461ba17aaf87a4e99b2d0605.png" alt=""><figcaption></figcaption></figure>
 
 After we know how the algorithm processed our input and static values now we just need to reimplement it on python
 
@@ -610,7 +610,7 @@ for i in range(0, len(v7),  32):
 print(bytes(make_byte(v7)))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPewHMVvVH0MF4ssH6hAV%2Fimage.png?alt=media&amp;token=6b496950-e53e-47e6-9105-f6e1f6d7444d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7609442cf8ec48caa75975f0.png" alt=""><figcaption></figcaption></figure>
 
 Flag : TSGCTF{y0u\_w0uld\_und3r57and\_h0w\_70\_d3cryp7\_arc4\_and\_h0w\_70\_d3cryp7\_7h3\_l3ak3d\_5af3\_l1nk1ng\_p01n73r}
 
@@ -624,40 +624,32 @@ T「AHHHHHH!」 S「LOOKS LIKE T IS DEFEATED」 G「HEH. HE'S ALWAYS THE WEAKEST
 
 Given ELF 64 bit, open it using IDA
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FWs2xg4yHctcup2pW8C8u%2Fimage.png?alt=media&amp;token=1b954fac-57a2-4645-8d08-2d4d431bdfca" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9b90692532f8b1f2afc4b5d8.png" alt=""><figcaption></figcaption></figure>
 
 So IDA cant decompile it and when i try to edit the stack IDA still cant decompile it. Next, i try to open it using ghidra. Looking at start function, we found the main address which is LAB\_001010a0.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FHquzWYQkJmWhWtMXhTR9%2Fimage.png?alt=media&amp;token=8c0e1844-9b99-42db-ae61-9d90a64917cc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d84a2b80b0d227547027afcc.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FVBwHS5WayEWElwFV1lqo%2Fimage.png?alt=media&amp;token=b31f733d-8aa8-4557-9a4d-60e3339de158" alt=""><figcaption><p>FUN_001010a0</p></figcaption></figure>
+<figure><img src="images/b85ae9f1353344719a24b39c.png" alt=""><figcaption><p>FUN_001010a0</p></figcaption></figure>
 
 From pseudocode we can see the big picture of the program but there still some part that easier to analyze on assembly part. Here is the big picture of the whole executable
 
 * FUN\_00101255(), print "ng" then exit
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPESs5tLYa6UhaUKWSIhB%2Fimage.png?alt=media&amp;token=88fe63b6-026f-4a75-88ed-f12f8022710f" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/3d06f329a3b177207829cd41.png" alt=""><figcaption></figcaption></figure>
 * If there is no argument provided, the program will exit by calling FUN\_00101255
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FdDpIHHLclk3jYPzkObCh%2Fimage.png?alt=media&amp;token=13d06588-1974-4298-a5ce-60954fcec8b0" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/baaddf2fc8e677b4ae055827.png" alt=""><figcaption></figcaption></figure>
 * If argv\[1] (first argument) is not "T" the program will exit by calling FUN\_00101255.
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FAUF1u8X65aoOVkGk1YFu%2Fimage.png?alt=media&amp;token=8be92282-ed98-4f7b-a9b2-42b09d39d925" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/174a2de30fa8839f344dc470.png" alt=""><figcaption></figcaption></figure>
 * Program will call memfd\_create using syscall then write data to it. After write done, execute the written data on fd/x using execv function with the next byte of our first argument (argv\[1] + 1).
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIr3pswn5yNhazFAr9gXY%2Fimage.png?alt=media&amp;token=bbb2b57c-3cbc-462b-9408-a1857a1ed333" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/3d78d5f2128d2eab0487c335.png" alt=""><figcaption></figcaption></figure>
 
 From above information, i tried to implement automation using gdb scripting. In this case i try to implement flow below automatically with my script.
 
@@ -666,9 +658,7 @@ From above information, i tried to implement automation using gdb scripting. In 
 * If input is correct, it will call write function that has known pattern in assembly. So dump the new executable if it call write function then move to new executable.
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FsiBSnUHFEb4qsle9S0gO%2Fimage.png?alt=media&amp;token=7b97ceeb-af5c-4e0e-8f4c-2658a0eb1908" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/7ea2a0ea93fb0f77c45cc07b.png" alt=""><figcaption></figcaption></figure>
 * Check if char has been found or not, if char not found so there is something different with the new executable
 
 ```python
@@ -757,15 +747,15 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FV9x6sQjk3iIiquiKTGvz%2Fimage.png?alt=media&amp;token=7a08e766-934a-4c7e-ba6f-1d2c6c907e83" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8a1b61ef7b16f9a613d7560b.png" alt=""><figcaption></figcaption></figure>
 
 Last flag we got is TSGCTF{hint\_do\_script, so check the newest executable then decompile it using ghidra.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FmVV6gnWRP94F6B296tNa%2Fimage.png?alt=media&amp;token=b362aaed-12c7-455d-b356-06d4ab289625" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1d6c425c3f4bee7c9d049c7e.png" alt=""><figcaption></figcaption></figure>
 
 main function on t21 is on address 001010b0.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FLaOXtytkYuTMnChIIkny%2Fimage.png?alt=media&amp;token=25174871-919c-464f-9385-81ddb8eeb0a8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2c7212aeb87d8431462d7731.png" alt=""><figcaption></figcaption></figure>
 
 t21 check environment variable LINES and COLUMNS, if there is environment variable LINES and COLUMNS it will automatically exit the program by calling FUN\_0010285 function. So to bypass this validation we need to add unset environment command in our automation script. Besides that we need to add address 0x001010b0 in list of main function. Here is the modified script
 
@@ -862,13 +852,13 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FKpIoNgXOnhUZyRS5CpKI%2Fimage.png?alt=media&amp;token=428fc4ad-7493-4180-a64f-2b9538cc79e0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/406984732779f5a4b61da13a.png" alt=""><figcaption></figcaption></figure>
 
 Okay, t26 is different. Open it using ghidra
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FpU3XEDYolKwCfX7x3iJ0%2Fimage.png?alt=media&amp;token=913c3f4e-39b9-4a49-b7a2-80276f22f47d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/58fd07a0f6d7d12389c26909.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fzpo5DXx7BdVsC0zilNTJ%2Fimage.png?alt=media&amp;token=d9f1f582-f882-42cc-8a58-6cbff2b36ded" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8995b6bc513e4d2b19505755.png" alt=""><figcaption></figcaption></figure>
 
 There is new validation which compare (returned values from malloc) - rdx with 0x20000. To bypass this we just need to set rax value to > 0x20000 on address 0x1010d8. Here is the modified script
 
@@ -974,19 +964,19 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F2uVqGGIyRv9IJChp8nsp%2Fimage.png?alt=media&amp;token=c51461d0-6c63-42dd-914e-1189901ac890" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3c1181e722f1a8ae98538313.png" alt=""><figcaption></figcaption></figure>
 
 Open t41 using ghidra.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FatqHXn8buSLX8BYb2hJU%2Fimage.png?alt=media&amp;token=ea56725a-a84a-48db-9106-5817f0c18a9f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7f81a8b5682ea989a5beb63b.png" alt=""><figcaption></figcaption></figure>
 
 It use LAB\_001010c0 as main address, open main function
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FRQhKaX4dAvOof6dnVJxW%2Fimage.png?alt=media&amp;token=f1b8a6d9-a8c1-453c-9990-658d6469daeb" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d2ed074b78ba5212366d694c.png" alt=""><figcaption></figcaption></figure>
 
 It calls signal function that will exit program in particular time. So to bypass this we can just skip the call process of signal function. We can skip it by set the rip register to next instruction which has different 0x5 with call signal address.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FFDjGDY6El7hA17J6JVWz%2Fimage.png?alt=media&amp;token=e221a44e-9f12-44f5-8773-29d0481f1e73" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6bc10b9bb341c842615eeb42.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 #!/usr/bin/python3
@@ -1102,17 +1092,17 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FhazS34OcpbQ5FwPG6tL6%2Fimage.png?alt=media&amp;token=04cd9130-6f5e-49f7-9e9a-c58e3ad8ee00" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f53bf8b7277db3c2b9c0ce6d.png" alt=""><figcaption></figcaption></figure>
 
 Open t59 using ghidra.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FBHUnN2nF3bd8QZhMr8Jl%2Fimage.png?alt=media&amp;token=fe4b455f-b21e-4227-a4bc-f226031cf767" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a01aa2a52797d05aeafb0ffb.png" alt=""><figcaption></figcaption></figure>
 
 t59 use LAB\_001010e0 as main function, open main function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FYAUNeSyY3eGygP1iuuQW%2Fimage.png?alt=media&amp;token=2163442d-d482-4e45-95da-1d41667cb1af" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fbc1874ca74f63307f4aee6a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F1GivGzccHETcMIhGmlgU%2Fimage.png?alt=media&amp;token=c3909cb5-076e-44f2-a941-21a1ff9cd424" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b7a2c82f46456b676e8be202.png" alt=""><figcaption></figcaption></figure>
 
 It compare the return of ptrace function with 0 after incremented it. So to bypass it we just need to set the rax value to valid value, such as for INC RAX -> JNZ we can set RAX to 0xffffffffffffffff, for INC RAX -> JZ we can set RAX to 0x0. Here is the modified script
 
@@ -1250,29 +1240,29 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FTmdg1jBImvXYMqAvFE2B%2Fimage.png?alt=media&amp;token=29033322-7d1b-45bb-b983-dca89c1c9815" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/be60b80f2202af85cad27fb8.png" alt=""><figcaption></figcaption></figure>
 
 Open t60 using ghidra
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F107ocopArlWMkfhMd19D%2Fimage.png?alt=media&amp;token=52d1fa55-15c1-48cc-a259-7d4eca6e9f15" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/47bed8c16e7dd385e771f647.png" alt=""><figcaption></figcaption></figure>
 
 t60 only has diffeerent on main address. So just add 0x1100 in poss\_main array.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F38IM61Q0T9ksTW1u6Rkj%2Fimage.png?alt=media&amp;token=3cb3468e-e68a-4116-b8b4-bda4bc8f6e6c" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/81c75a6e7ca9fe8ea4593647.png" alt=""><figcaption></figcaption></figure>
 
 t64 also has different in main address, so just add 0x10f0 in poss\_main array.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FUDHIPSQFTeE8FldGXpbc%2Fimage.png?alt=media&amp;token=2e698ce7-cf2d-45c7-846e-9e367e79a48f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3890c7a9eb03dfec83e14659.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FtmR1ihmE1tXt2ISuCl5D%2Fimage.png?alt=media&amp;token=4da1cb55-c546-405e-a150-95bf72733f42" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a1f1e82fb15477cd08a00867.png" alt=""><figcaption></figcaption></figure>
 
 Got sigsegv on t84, open it using ghidra
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FLhGXloRQnZ3sED8ugtnR%2Fimage.png?alt=media&amp;token=503f762b-de42-4e42-9ad4-5d75e9142892" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6de063cbc941fbdba7ad3695.png" alt=""><figcaption></figcaption></figure>
 
 It use 0x1010d0 as main address, so add it to poss\_main array.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fh2IZIrdnSi9LiUysaVMZ%2Fimage.png?alt=media&amp;token=02119c8e-181c-4ee8-91e7-1e8a44e44aa6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d5af7d5d8565d26d000eacfe.png" alt=""><figcaption></figcaption></figure>
 
 Here is the final script
 

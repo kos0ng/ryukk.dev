@@ -94,7 +94,7 @@ for i in range(len(seeds)):
 print(flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FXlmbds5WpNS3VuEefhDU%2Fimage.png?alt=media&amp;token=21fb4f8c-c298-45e5-ac38-dd0d8a29d74f" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/723cc2c7ae1d70654dc6edd5.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CBC2024{okaay\_congrattsss\_\_\_this\_is\_your\_flag!!}
 
@@ -181,7 +181,7 @@ e1 = pow(c2, inverse(e2, phi), n2)
 print(long_to_bytes(pow(c1, e1, n1)))
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F2353mHqePp9Dqza91qcQ%2Fimage.png?alt=media&amp;token=f7297bb4-5e8b-430e-b0bc-12c01f0758e1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b47f25f5f9666bf63b755254.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CBC2024{hope\_you\_are\_not\_using\_automation\_tools\_for\_this\_:(}
 
@@ -305,7 +305,7 @@ for i in string.printable[:-6]:
         continue
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FhmEb6bZG5dvPIDJYtsf3%2Fimage.png?alt=media&amp;token=8bd48075-cfdf-471b-b026-39a391f532d6" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/49b7bfb422e2ec3bc95d1960.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CBC2024{simple\_linear\_congruential\_generator\_cracks}
 
@@ -366,6 +366,6 @@ for i in range(0, len(flag), 8):
 print(real_flag)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FuymyqtLZXpzYCTQiF9HB%2Fimage.png?alt=media&amp;token=6c2fdb1b-798c-400a-878b-7dd83ec7d437" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/18aff1c3ae3f371d66fb31b4.png" alt=""><figcaption></figcaption></figure>
 
 Flag: CBC2024{OK\_now\_submit\_this\_flag\_quickly!!!}

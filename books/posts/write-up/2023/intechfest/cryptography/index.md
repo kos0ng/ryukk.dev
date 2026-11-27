@@ -59,7 +59,7 @@ for i in range(0,len(tmp_bin),8):
 print(flag)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/ENHJ8YeDj_T5vYUGuMJwDcBA_NzFnKrL7h8jCqoCpADAJFsHmPu_304aQuwtg4OaP44Cmg4woO2QwEVF9tg7oGMXq2z-K2OJ_kKmk-7eRCpEJ1ZeCLX6BWhxqGMqQu5nSv8SUC5H-yz07naV-LZ4iQI" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e8d0c43d6b66c5fcba83f2c3.png" alt=""><figcaption></figcaption></figure>
 
 Flag : INTECHFEST{WhY\_W0ulD\_AnY0n3\_Us3\_Th1S\_Enc0D1nG?}
 
@@ -131,7 +131,7 @@ print(long_to_bytes(int(flag.xy()[0])))
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/gh5SUYqquCWSASSS8nqZCDUK2LnHuamu1IRJ5B8gA3gzvdHGoNfTOxVFvPlTRTfKDeerl_Do1y_U53sguBMaKtbh5L35xiNEql3nDAP8-avQFhWtLGETg5-Lui9_SOOA65paR4SuIRWSMidEnegEhTo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b64ef2a4ae8e43d091e49c30.png" alt=""><figcaption></figcaption></figure>
 
 Flag : INTECHFEST{ECC\_FUNd4m3nt4l}
 

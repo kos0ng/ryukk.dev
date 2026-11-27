@@ -24,7 +24,7 @@
 
 Given a pyc file then i just try to decompile it using uncompyle6.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*VNefAmfzCb59Kc6Dm6ptWg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/02944eb6b22917a9e55539fe.png" alt=""><figcaption></figcaption></figure>
 
 The script looks obfuscated but it is still readable. There is one interesting function and here is the code
 
@@ -78,7 +78,7 @@ Flag : darkCON{0bfu5c4710ns\_v5\_4n1m4710ns}
 
 Given ELF 64-bit executable and then i try to decompile it using IDA
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*nQfu_qWk9RNo6QZ9yV0CfA.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/903f90e6efed64d062802a34.png" alt=""><figcaption></figcaption></figure>
 
 It has many function but all functions are identical. The difference is the variables and constant value. So we can get all value and generate the code then get the flag.
 
@@ -137,7 +137,7 @@ Flag : darkCON{4r3\_y0u\_r34lly\_th1nk1n9\_th4t\_y0u\_c4n\_try\_th15\_m4nu4lly??
 
 Given apk file and then i try to decompile the apk.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*k3LO1qhqUxEj-bcts-qOYQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c1e7957f64796d7e40491fdf.png" alt=""><figcaption></figcaption></figure>
 
 Looking at MainActivity class we know that there is flag checking in YEET\[0].equals(MainActivity.**this**.button.getText().toString()). So the idea is make the application showing flag instead of “Damn…500 times? are u kidding me” with patching the counter and change the string to be shown.
 
@@ -175,7 +175,7 @@ goto :goto_0
 
 And then we will get the flag when click “CLICK ME” button
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*jbz7toYNViA-mhq_02c5HQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3d1a5feb3e65fa0684f796de.png" alt=""><figcaption></figcaption></figure>
 
 ## CyberDark0x01: ShitComp
 
@@ -187,11 +187,11 @@ And then we will get the flag when click “CLICK ME” button
 
 Given ELF 64-bit and then i try to decompile it using IDA
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*rsWCuoyJbdclMgQPz-FkRA.png" alt=""><figcaption><p>sub_1410</p></figcaption></figure>
+<figure><img src="images/52c4b51faad3e0c6c81ea66c.png" alt=""><figcaption><p>sub_1410</p></figcaption></figure>
 
 At first the program will compress our file ( as shown image above )
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*U31amK1XssNfqb4SoH7oxA.png" alt=""><figcaption><p>sub_13A0</p></figcaption></figure>
+<figure><img src="images/612e7521689c362db09b4e82.png" alt=""><figcaption><p>sub_13A0</p></figcaption></figure>
 
 And then encrypted the compressed data. So the idea is decrypt the data by brute force the algorithm then uncompress the data by reversing the algorithm.
 
@@ -238,9 +238,9 @@ f.close()
 
 And then by running original ELF we will get the flag
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*n5rsWRyDuHs2HB2Z0fe1aw.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d51bc176202f41a9eba24ab8.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*zHymnQJLCRBP1OIRFUyQBg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1df9a354d8ce1b7b3858791d.png" alt=""><figcaption></figcaption></figure>
 
 ## CyberDark\_0x02: Installer
 
@@ -252,19 +252,19 @@ And then by running original ELF we will get the flag
 
 Now we need to work with the original ELF. So i try to decompile it using IDA
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*ob4D97HkpgobRN0cQwUzBw.png" alt=""><figcaption><p>sub_1BD0</p></figcaption></figure>
+<figure><img src="images/09f36f3699c029eca11bce6e.png" alt=""><figcaption><p>sub_1BD0</p></figcaption></figure>
 
 We can see there is function that the return value is compared by constant value and determine whether the result is correct key or wrong key.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*5n8X3CfUeXan_8J0rrk3IQ.png" alt=""><figcaption><p>sub_1AB0</p></figcaption></figure>
+<figure><img src="images/cc6782ea8ebb17e250c5cc40.png" alt=""><figcaption><p>sub_1AB0</p></figcaption></figure>
 
 At first the program check the input ( it must uppercase ) and store the input to variable ( except the “-” ).
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*9UKaUxRytJd7ZquqF7-DLQ.png" alt=""><figcaption><p>sub_19A0</p></figcaption></figure>
+<figure><img src="images/9018eaf176c2814621c83090.png" alt=""><figcaption><p>sub_19A0</p></figcaption></figure>
 
 After that it call function that generate values and our input will be the index of that value.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*x3AHEpUeOIdHhDuGvxTNTA.png" alt=""><figcaption><p>sub_1A20</p></figcaption></figure>
+<figure><img src="images/7af3d1dae1642d79dfbcc985.png" alt=""><figcaption><p>sub_1A20</p></figcaption></figure>
 
 And the last is checking our input with comparison algorithm that using manipulation of index of array and array. So the idea is reversing the algorithm to generate the key then submit it to server. But i only got 8 correct key ( the other keys are incorrect because there is one character that are not uppercase ) . So for the 2 other keys i brute force one character and then got the correct uppercase character on that position and submit all keys.
 
@@ -296,7 +296,7 @@ for i in range(len(key)):
 r.interactive()
 ```
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*wiS8tENJoWL1SHQ2FMhOaQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e11435c173d25230509d8333.png" alt=""><figcaption></figcaption></figure>
 
 ## (Not) Easy
 
@@ -308,7 +308,7 @@ r.interactive()
 
 Given PE file and then i try to open it using IDA
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*S7KEt3Ta8w3p8V5DC6PEjQ.png" alt=""><figcaption><p>sub_40189D</p></figcaption></figure>
+<figure><img src="images/d5f99a4f2656b90061909605.png" alt=""><figcaption><p>sub_40189D</p></figcaption></figure>
 
 Looking at encryption function it seems like modified xxtea encryption so the idea is reconstruct decrypt function by reversing the encryption algorithm.
 
@@ -363,23 +363,23 @@ Flag : darkCON{4\_L177l3\_crYp70\_4\_d4y\_m4K3S\_R3v3rS3s\_g0\_4W4Y}
 
 Given apk file and then i try to decompile it.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*X0yHa7-Yk6JodHt1vciIRw.png" alt=""><figcaption><p>MainActivity</p></figcaption></figure>
+<figure><img src="images/aa750111cdf0daddf0ff722c.png" alt=""><figcaption><p>MainActivity</p></figcaption></figure>
 
 Looking at MainActivity that we need internet connection to run this application and there are a method called from data\_receiver class.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*s-Q-bAze_cDBomS7ufU0fw.png" alt=""><figcaption><p>data_receiver</p></figcaption></figure>
+<figure><img src="images/7a3934b0e22747edf46a56b8.png" alt=""><figcaption><p>data_receiver</p></figcaption></figure>
 
 From getData method we know that class member ( data ) will store encrypted flag from firebase storage. data\_receiver.data will be used in magic function which is called by doInBackground function from nested class ( loader class in MyReceiver class )
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*VAGF6wAaMIzeGBeE2tR-og.png" alt=""><figcaption><p>MyReceiver</p></figcaption></figure>
+<figure><img src="images/bf4ea39c35cf0acc3d19175c.png" alt=""><figcaption><p>MyReceiver</p></figcaption></figure>
 
 Magic method is called from native library so we need to decompile that library to know what is magic method do
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*l5txCnHj8-5pIjqwDi2SHA.png" alt=""><figcaption><p>Java_com_application_darkcon_MyReceiver_magic</p></figcaption></figure>
+<figure><img src="images/0d5d2b47f4ad4cbcd2297db4.png" alt=""><figcaption><p>Java_com_application_darkcon_MyReceiver_magic</p></figcaption></figure>
 
 From the code above we know that our input xored with looper(i) and compared with v4 which is encrypted\_flag . Here is what looper function do
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*KiZbx49oo3k-6P7Ps1wG6Q.png" alt=""><figcaption><p>looper</p></figcaption></figure>
+<figure><img src="images/591abcd386c23c8d27419fc6.png" alt=""><figcaption><p>looper</p></figcaption></figure>
 
 So the idea is getting the encrypted\_flag using frida then run looper function and xor it with encrypted\_flag and get the flag. Here is frida script that i used
 
@@ -404,7 +404,7 @@ sleep(5000).then(() => {
 });
 ```
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*TaRHvEhhI1EEwHdThA0CIg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3e815d78419dafb5ee702e76.png" alt=""><figcaption></figcaption></figure>
 
 After that implemented the looper function
 

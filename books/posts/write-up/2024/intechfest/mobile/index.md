@@ -18,11 +18,11 @@
 
 Diberikan file APK, berikut gambaran ketika file APK tersebut dijalankan
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcbK3MnBmIwHVyqL7-cfYCj3hqtIGAsZELbbr-Ri55WK5bfMIbYtHpGiRoLqKSTjWx6Ex3YD7u87BJftgxRDx3g2_kxxp8qzUyuZVSbAlmN9iPOqY-pG5qlGEStkTNC2R7y9KHTFqsRsLJfP0bevoNRCIj9?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/94c55637ecf0f1ac21dbb66b.png" alt=""><figcaption></figcaption></figure>
 
 Berdasarkan notes kita mengetahui bahwa objective dari soal ini adalah mendapatkan pin dari user.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXei2WaBY1_JFEvyRgBOcl4U65WxqlBbdO6A2vdg4ddRFgB5qOamYf73Kx2Q4aFFhWswpHEcNKV2iSO_tUWUcBx8mxmbKVkbw_P8kVZXOLNxKjhxUiW2dtBjD_1kMTVUq0QrrhOxUyz6T_1zg8dGEhNBYVc?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/340f95c744cd3afd219bc12e.png" alt=""><figcaption></figcaption></figure>
 
 Karena semua permission alam diallow maka disini kita bisa melakukan tapjacking dengan memanfaatkan window service dan layoutinflatter. Agar aplikasi yang kita buat memiliki layout yang sama dengan letak tombol dari aplikasi target maka copy layout dari aplikasi target. Berikut komponen penting dari aplikasi yang kami buat
 
@@ -347,8 +347,8 @@ public class Overlay extends Service implements View.OnTouchListener, View.OnCli
 
 Compile menjadi apk dan upload ke POC tester. Malicious apps kita akan dijalankan terlebih dahulu lalu ketika victim membuka aplikasi hijacker victim akan menekan button pinnya, disini aplikasi kita akan berada didepan layout aplikasi asli sehingga menyebabkan penekanan yang ada masuk ke aplikasi malicious kita dan ketika sudah mendapatkan pin sepanjang 6 akan dilakukan show pin ke layar yang akhirnya ditampilkan pada POC tester. Berikut hasil dari POC Tester
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc7j4Pf_XM7ZlxA5RieUv9DdUenba0Q91OO_2r143r9B9DpO3MEWzJPy_GhlGSnNiKJepAVB4RP_7p-73jq4bv0IN9NUQiLfxHrTNQqooxMGMWAeRsG0mDT6hTVxtycfyuP-4FlTt4hlDPy4yGM1ckjuqmT?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1e10d6df39743ce1219aa1cd.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXd4ZNj22IPWS4i8L8Dyyqv_zQpfIQoIP8RMzoQ24ywxGToLLtpYgzNnVia6q0foOJ2xUAYGJ5CHUbegW0VYF4HggBu9S1NaxlZvhu0Uxi864FLFuzRqf2jBJdXJxI1doqcjtFAYj5n03af6WTDU5IHn2oAx?key=K_FOmU9t8UMYPP2CCSzl6g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9c4c5d39c1652ce34a1e1712.png" alt=""><figcaption></figcaption></figure>
 
 Flag: INTECHFEST{T4pj4ck1ng\_In\_Andr01d?!?!}

@@ -20,7 +20,7 @@
 
 Given ELF file, open it using IDA. Through dynamic analysis we able to recover some of the function names.
 
-<figure><img src="https://hackmd.io/_uploads/SJ1hQazQJl.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3f9671ca824f17d60e5ee57b.png" alt=""><figcaption></figcaption></figure>
 
 Above code basically doing validation for the result from function `std::function<std::variant<unsigned int,std::string,std::shared_ptr<Cons>> ()(void)>::function<main::{lambda(void)#1},void>(`. To take a look on the actual code from lambda function we can follow below pattern
 
@@ -32,7 +32,7 @@ Above code basically doing validation for the result from function `std::functio
 
 We will see below code as the main process&#x20;
 
-<figure><img src="https://hackmd.io/_uploads/Bk0iypfm1x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2a153a63acbd7425c6631888.png" alt=""><figcaption></figcaption></figure>
 
 #### **lambda\_1\_op1**
 
@@ -46,13 +46,13 @@ res = ((arr[idx])|(arr[idx+1] << 8)|(arr[idx+2] << 16)|(arr[idx+3] << 24))
 
 * Click function with the most argument `lambda_op2_wrapper(a1, a2, v4, v8, v9);`
   * Choose function that processed function\_if\_false
-  * <img src="https://hackmd.io/_uploads/ByF4xaG7kx.png" alt="image" data-size="original">
+  * <img src="images/76bb69a3e0c8810e8a093f49.png" alt="image" data-size="original">
     * Click function next to (a1 + 3) or \_M\_invoke
     * Then do the same flow like the first lambda function
 
 lambda\_1\_op1 actual code will be look like below
 
-<figure><img src="https://hackmd.io/_uploads/Bkkhepf7ye.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/37995003c2b9c7343bdd4f38.png" alt=""><figcaption></figcaption></figure>
 
 To take a look on the actual code for each wrapper we can do the same approach. During the competition we analyze it dynamically and make conclusion for each wrapper
 
@@ -69,7 +69,7 @@ To take a look on the actual code for each wrapper we can do the same approach. 
 
 Do validation for processed input and static values
 
-<figure><img src="https://hackmd.io/_uploads/Byj0XTfQJl.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/03639b3960a92ecb98015bb9.png" alt=""><figcaption></figcaption></figure>
 
 After getting all the algorithm we reconstruct the whole process in python.
 
@@ -255,7 +255,7 @@ for i in a:
 print(flag) 
 ```
 
-<figure><img src="https://hackmd.io/_uploads/SkPKW7fm1l.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0e82ea550854923bd22c86eb.png" alt=""><figcaption></figcaption></figure>
 
 Flag: `SECCON{fUnCt10n4l_pRoGr4mM1n6_1s_pR4c7iC4lLy_a_pUr3_0bfu5c4T1oN}`
 
@@ -267,15 +267,15 @@ Flag: `SECCON{fUnCt10n4l_pRoGr4mM1n6_1s_pR4c7iC4lLy_a_pUr3_0bfu5c4T1oN}`
 
 Given ELF file with architecture aarch64. Open it using IDA.
 
-<figure><img src="https://hackmd.io/_uploads/BkST8-GXJe.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3e56c5306f9be51952686ace.png" alt=""><figcaption></figcaption></figure>
 
 Looking at start function, we will see sub\_4004f4 which will act as main function. Going deeper. we will found the argument length check and if it is not 2 it will printout incorrect string. &#x20;
 
-<figure><img src="https://hackmd.io/_uploads/BJ-XvbMQ1x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bd84e1db5b964dcec30837d5.png" alt=""><figcaption></figcaption></figure>
 
 So basically this program is a flag checker, through analyzing each function we found interesting function that do validation.
 
-<figure><img src="https://hackmd.io/_uploads/ry_EdbMQJl.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c858ab1261118e2282cf370d.png" alt=""><figcaption></figcaption></figure>
 
 All of the functions has the same pattern which is it uses check\_val (global variable) to store the result. So we can get all of the check function by looking at its xref.
 
@@ -382,7 +382,7 @@ SolverEquation()
 
 From trial and error we found that there are only 3 breakpoints hitted. &#x20;
 
-<figure><img src="https://hackmd.io/_uploads/S1x4JMMQyg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/644f88f01a0ed4d7ae9a81e7.png" alt=""><figcaption></figcaption></figure>
 
 Each value compared it also from our input (except the validation that use 1 constant and 1 variable)
 
@@ -398,7 +398,7 @@ for i in list_val:
 
 &#x20;
 
-<figure><img src="https://hackmd.io/_uploads/S1SylzGQye.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/91e8e411cbaa5bd8cc2a5c9d.png" alt=""><figcaption></figcaption></figure>
 
 Now we know the pattern used, which is block\[i] block\[i-1] (which is same like in the code). But the problem is we dont know what is the value of i used on each function. So i decided to map each function manually.
 
@@ -463,7 +463,7 @@ rec(known, arr, opr, leaked, b"")
 	
 ```
 
-![image](https://hackmd.io/_uploads/r12Eb7zQJl.png)
+![image](images/9efe13de30c9b9bd0a37bcbd.png)
 
 Flag: `SECCON{5h4k3_1t_up_5h-5h-5h5hk3}`
 
@@ -477,7 +477,7 @@ Flag: `SECCON{5h4k3_1t_up_5h-5h-5h5hk3}`
 
 Given ELF, open using IDA. Look at main function.&#x20;
 
-<figure><img src="https://hackmd.io/_uploads/r1Uo4TMQJe.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/72448d7429889a922dd763d5.png" alt=""><figcaption></figcaption></figure>
 
 Code above basically do 3 things
 
@@ -487,11 +487,11 @@ Code above basically do 3 things
 
 So lets take a look on Environment::update
 
-<figure><img src="https://hackmd.io/_uploads/rJiwUNMXJx.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/35b0f3c54f3599096310f4aa.png" alt=""><figcaption></figcaption></figure>
 
 Our input received at Environment::set, each input consist of 2 bytes value.&#x20;
 
-<figure><img src="https://hackmd.io/_uploads/Sk4CVazmkl.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cde6f59349a4904ad8303566.png" alt=""><figcaption></figcaption></figure>
 
 From code above we can see that the second byte can be only 0,1,2, or 3. And the first value is limited to < 0xe (which is the same size like maximum index of array initialized in main function). After having this information we tried to debug it and take a look on each data processed.
 
@@ -533,7 +533,7 @@ At first i though it was a maze direction, so i tried to findout where is the ra
 
 &#x20;
 
-<figure><img src="https://hackmd.io/_uploads/HJfxB6zQ1l.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ea79cf5c641794d0e085cf37.png" alt=""><figcaption></figcaption></figure>
 
 After found it, i convert the whole random number generation process.
 
@@ -630,7 +630,7 @@ The output doesnt look like a value in maze. So i continue to analyze the algori
 
 &#x20;
 
-<figure><img src="https://hackmd.io/_uploads/S1CXB6MQ1g.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fd68ac8531640905dfd188f4.png" alt=""><figcaption></figcaption></figure>
 
 From analysis we found that Environment::react process information based on column and row. The total of column and row is 14x14 and it is the same address like we got from the Environment::set. So in this step we tried to dump the table to know the mapping for our input.
 
@@ -714,7 +714,7 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-![image](https://hackmd.io/_uploads/SJkJ0Ezm1g.png)
+![image](images/cf79de6d16324adad392ed92.png)
 
 I dont know what kind of puzzle is this, so i just shared it to the discord and my teammate found that it was a `puyo puyo`. So the next step i did is trying to find out how to get the block and then i realize that the block was leaked from the response. To get the block i just send the most possible combinations that can be made if there is no block explodes.
 
@@ -741,7 +741,7 @@ After that my teammate tried to solve it manually, he has experience with this k
 
 To solve, I (zafirr) played puyo puyo manually on google sheets :grin: and recorded the moves. This is the state of the board before the last move. It results in a 15 chain&#x20;
 
-<figure><img src="https://hackmd.io/_uploads/SyDVcnWmkl.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4a872f08f3842ab243da9270.png" alt=""><figcaption></figcaption></figure>
 
 During the solving process, after he found the solution there is a little step missing, so i decide to do a modification on my gdb script to help him to find out the actual map of the block. To do that, basically i change the value written to the map with the value from the server. Below is the updated gdb script.
 
@@ -824,7 +824,7 @@ Below is the example of the output to debug the puyo puyo
 
 &#x20;
 
-<figure><img src="https://hackmd.io/_uploads/H1P51BMXkg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c3d65a3a6aeb21043811580a.png" alt=""><figcaption></figcaption></figure>
 
 Last step, just send the moves and solved:
 
@@ -865,6 +865,6 @@ for i in range(len(moves)):
 
 &#x20;
 
-<figure><img src="https://hackmd.io/_uploads/HyhQ52-XJe.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2439313d9eaf6f4c355f4f84.png" alt=""><figcaption></figcaption></figure>
 
 FLAG: `SECCON{puyoyo_mo_yoyo_mo_yoyo_no_uchi}`

@@ -29,21 +29,15 @@ Given .prg file, in some cases there are protection of .prg file that make the d
 * execute S PRG 0 fffd /tmp/dump.prg
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FgGhL8eRVr99xNnTOM2YS%2Fimage.png?alt=media&amp;token=79c7c2be-b19d-432d-99cf-af491e7c50b9" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/3243eb3e8197d973338cd647.png" alt=""><figcaption></figcaption></figure>
 * Open ghidra and import new file with below options
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJZjJFmlt68iAAv5T8BFP%2Fimage.png?alt=media&amp;token=9e710004-ce79-480c-9241-7593f1b211ea" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/bb42fd4ff4f632a0ebfa5ebc.png" alt=""><figcaption></figcaption></figure>
 * Select all block then disassemble, now we've the same address and instruction like in the debugger
   \*
 
-  ```
-  <figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FkzHv5Qd0YqfACJS0Rdog%2Fimage.png?alt=media&amp;token=58222c8f-4980-4671-b247-6af8bee45458" alt=""><figcaption></figcaption></figure>
-  ```
+  <figure><img src="images/13b0715f795c2b2ce292b0de.png" alt=""><figcaption></figcaption></figure>
 
 \----TBU-----
 

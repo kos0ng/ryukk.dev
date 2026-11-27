@@ -48,11 +48,11 @@ frida-trace -U -f com.anyujin.kepiting_cirebon \
   -j '*!*File*' 
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfSnLYgVQDYDrONJ4g06UOM3l55LxaUeJnd38IqTaaQwq4KT1IoTQkL8oWgmpj0OArinR3GuGXmbAKI5yARepnRrOkDp_KpG78rMztXHhh8LAVJHwUlV5H26vfXocsnsGgSvf2m?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/668586925657cbc03cbf167f.png" alt=""><figcaption></figcaption></figure>
 
 From the output above, we know that there is a file in the code\_cache, namely `i11111i111.zip`. After unzipping, there are two files: `classes.dex` and `classes2.dex`. We tried decompiling them with `jadx`.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc2_9rsvq5TFL8Z0nDfBXcjALnm3g_BesOjnFjEfvToneR_-3PyEQytBtzsFwk-isnmyPouHzP2ET9Mpdi23EKOuQTj1lgB9bcCBec6Px837PqCXuAjQqlxIOOgZOUhQ4aVVLfKRg?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3400565e3f0d7b16969d9aa9.png" alt=""><figcaption></figcaption></figure>
 
 The decompile results show that the dex file's code is still `encrypted`, so the next step is to try dumping the dex file while the application is running. Here, we'll use `frida-dexdump`. Because there's anti-frida, we'll try running frida-dexdump on a `running process`, assuming the anti-frida check is performed at the `start of the application`.
 
@@ -60,11 +60,11 @@ The decompile results show that the dex file's code is still `encrypted`, so the
 frida-dexdump -p 5267 -U
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfLVQSqPpQzEnAsDllBOjx7sORBhJyRw_p0WHbQXefwX6bjs9vUabPyDXS6gq2Tx04YPCQBhkUAEFlChg61D5kU9zPQBPDx3DCq7c60Ai79ONzcgKK8UIqhDwwfhi1al0uOiPGd?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b0d6e1e824486072666c7a2b.png" alt=""><figcaption></figcaption></figure>
 
 Next we try grep with keyword `PudingCoklatPakHambali`.&#x20;
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcEwAHGXZzHrxXyfSrnmOO4tAjdRsHU62b-qESxRnPAOj5sRfXFi6H0pzjH7XVMFin0XWtHPRI4Q050obDqaLYCtTiISV8BBOksXT7CBUTpxwVd5Z7MwT_pnkVUuomzSFHzd2nq3g?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/645ea15c989d5cb3408582b0.png" alt=""><figcaption></figcaption></figure>
 
 After obtaining the two dex files, we tried decompiling each dex file. We found that `classes02.dex` is the same dex file as the one in the .zip (still encrypted), and `classes04.dex` cannot be decompiled with jadx. The next step is to convert it to jar and then decompile it again.
 
@@ -74,7 +74,7 @@ d2j-dex2jar classes04.dex
 
 And it turns out we can decompile it, so the next step is to understand the code of the program.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf0kPxmINcY4rdCcXGhTC1Ux_AgC_5NYIr3gpSIi09zCJ4dRxgiASIouZyRzvROTkhMgcAdwwRqyGzKJNV8rWQzEUuUTRUir8u0lX0oI8NQYyMhx3ppYDHoTaDSg5dctlDZpj9JGg?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b18de56e8626302eb3e079d0.png" alt=""><figcaption></figcaption></figure>
 
 By hooking each existing function with the script below and looking at the source code, we can see that `keretaArgoNgawi` actually performs an `xor` operation from index `arg1` to index `arg2` and then `compares` it with the static value.
 
@@ -240,7 +240,7 @@ for model in all_smt(s, input_vars):
         print(nice)
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdfC5nHa4gWlyGkxKojw2WBPa7-6qnmlUWdbjLONYxQMPezYZkQeH-IUBH4i-0pqiBanFY0JznwTVDfboJkQoXInXAtrd2bS1rRushAQCnpOS2iaIQ9jtTifOJLEUYgtQbcAcUkWA?key=c3e_Ogduzon_K-QvFEHtTg" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/cba5f22af5240f42ebafb36c.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Flag: ITSEC{K3p1Tin9\_45l1\_C1r3Bon\_C1k}<br>
 
@@ -287,7 +287,7 @@ From the code above, we know that the program writes a flag to address `0x57b0b3
 
 Next, decompiling it with IDA will reveal some information from the `strings`.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfTOCK6PTXu6r7DMx2rGZazVLMupZbbDHT1UT2ITYFlc3atBISxF0BWU277XQGcG6g6ioZwQccP-xcBEMn94TQ3aegbzaQ7p0qY5LxSuUCb_t5mW6KjPiybv_FeOFc-jCFUvOjCbQ?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c84943e155adacdd63194f82.png" alt=""><figcaption></figcaption></figure>
 
 Searching for `quickjs` reveals two repositories: `quickjs-ng` and `bellard`. We initially compiled quickjs-ng and noticed that the structure of the available functions `differed significantly` from the provided ones. So, we compiled it from the bellard repository, first downloading the version corresponding to the one listed in the strings, `2024-01-13`.
 
@@ -302,11 +302,11 @@ gcc -O2 -g -fno-stack-protector chall.c quickjs.c quickjs-libc.c cutils.c libreg
 
 Next, when we decompile `test_program`, we'll see a code structure similar to the original. So, we create a signature for the `test_program` executable, but when we load it in v9, we find many mismatches.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeSGPmX50rxLj4PmDQ_ecFXyn8CT7U640ThEMpsjsnjYmb64vqvxMu4mSA6ToYlGk5X0IbCxvUVIlwgOgndFCo704DYO5hy6Yy7gFXFiWsJY2Tvf4w0EmYLagDwUI7NrsoHH6E-AA?key=c3e_Ogduzon_K-QvFEHtTg" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/419f26dba5fb416c1fd94bf1.png" alt="" width="375"><figcaption></figcaption></figure>
 
 So the next step is to manually recover the function name based on the `code structure` and `error strings` present in the function.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdP9YWB0eNivQtentNv8fhQCXeaLNkExNrzrfiYbqgKGwUXpyRn-ENGXn7gGBMvxtgXOfAO0A0rYBIBg63OVaeDjFP_M1f1AINHv4Sm8ouWh5cvRAtNBlJi77Md6OZVu-khBEW0xg?key=c3e_Ogduzon_K-QvFEHtTg" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/c17dcf570f82ae760f23e47a.png" alt="" width="375"><figcaption></figcaption></figure>
 
 For example, as in the image above, the function name with a `blue` background is the result of the signature, and the `black` background is the function we renamed ourselves. So, the next step is dynamic analysis. After performing dynamic analysis, we obtained the following information.
 
@@ -382,7 +382,7 @@ While there may be something missing from each process, we can at least see a pa
 
 From here we can see that each input is actually not processed completely independently but there is still a relationship between index-i and index-i+1 or at least we can see in the first array that the 0th index has 1 bit of value from the last input index. From this we can conclude that we can do `bruteforce per byte`. So the idea is to take the final value of the entire process, then check it with the correct value. The question is, where is the correct value? So we checked the bytecode that we had dumped and found an `interesting sequence`
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfoJzvDvlc0hU5VfqHD06Bm6wLIo6Dt9jNyC5RzGGuPKq9rv_fBzD_vgOfvwl3YiF-4RLNvm0stcjrN-EplLecEerEcs01i49MJsRvtOR8d6Ud067ju1yu_J_HVljNNl5Zv52GqPg?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/37f2d26bc6c4f316faadb757.png" alt=""><figcaption></figcaption></figure>
 
 From there, we realized that the correct final value was hardcoded. So, we tried dumping it and validating it with `qjsc`.
 
@@ -415,7 +415,7 @@ and compile it with qjsc
 ./qjsc -e -o test.c test.js
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdFmAxp4n-cTBjBeFIG4rrL83_csm4JY5xKVLVmOUy2Fn63IRkSRq2XK0pjccseL2mE4CHXIVmM2IO9rRGER4ZtQWTkmogP68uR7Q2T3zlFGDk2ZLNHd0OSdyGlpiVN3_x8z-h_bg?key=c3e_Ogduzon_K-QvFEHtTg" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/2f46ed96086be3633de78871.png" alt="" width="375"><figcaption></figcaption></figure>
 
 And we can see the results are the same as those in bytecode.bin or the question bytecode. The final step, because I forgot this was a Linux problem, i used `idapython` to automate the solution, which of course took longer than using `gdb scripting`. Here's our solver
 
@@ -513,7 +513,7 @@ while index_target != len(init_flag) - 1:
 			idaapi.wait_for_next_event(idaapi.WFNE_SUSP, -1)
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdSI_E9x4rBlhe7k2-4J_ZxO_x4QGlpIvs_O2o8dcytchwFlKSoQZJ9AenF9ZTXDLqO-mga4uSd1DxrM5_nQznZ6DLlKhJUP7giTFmIJ4bl-F1_-jXFivZd3oU2pxu3PEUp0RSg?key=c3e_Ogduzon_K-QvFEHtTg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6091753c10cf298727cca384.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ITSEC{th!s\_1s\_4n\_0pt1m!z33d\_v8r5i0n}
 
@@ -587,7 +587,7 @@ console.log(123);
 
 When we run that javascript file with qjs-debug we will see the following output
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FSM3wuUkiLlMaOjKh2YE5%2Fimage.png?alt=media&amp;token=9b7057a0-4dcc-4a3b-bf23-40df444aad56" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f82a5e30229e0bef55b61705.png" alt=""><figcaption></figcaption></figure>
 
 Okay now we can confirm that we able to dump the `opcode` of `quickjs`, now the question is how to dump the opcodes of the given challenge? during the competition we also try to just create our own `quickjs` wrapper and compile the code and run the executable but the result is failed, we got `segmentation fault` by running it.
 
@@ -1710,6 +1710,6 @@ pt = decrypt(ct)
 print(pt)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FIcTya7mK11nEgFZplcoP%2Fimage.png?alt=media&amp;token=dca4e60e-7c9e-43d2-80e6-62a46ffa0193" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/763c85233817a3bb8ef78104.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ITSEC{th!s\_1s\_4n\_0pt1m!z33d\_v8r5i0n}

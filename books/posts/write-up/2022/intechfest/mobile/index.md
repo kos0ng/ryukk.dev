@@ -23,11 +23,11 @@
 
 Diberikan file apk , kami lakukan decompile dengan menggunakan apktool. Kemudian lakukan grep pada string flag dan kami mendapatkan suatu hash.
 
-<figure><img src="https://lh7-us.googleusercontent.com/268LR9tXuQ8A94ushFwDYJMhLMM7UytAvBDCI5a4Cir53iXScqOu6ZcLiNg3e54QwFI__gaHQKvLwn-iSDauKwdtuHIbMqR_WC7jkQqeddYCLRKHQuALj6Dr3Z2qkOSgB_beA_-g4dEsY2yOSFh6WG4" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/233f249230b0efa6f2f784c1.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya kami lakukan crack dengan onlinetools yaitu crackstation.
 
-<figure><img src="https://lh7-us.googleusercontent.com/_64-ngeqRL68OdGJ0wN_1aOTTlHYo6g7OJq9HVjBvrhHFUT1vnFK6FMtVky0sFgn_GltEwM62CxpXxhIfhC6ytQ-HOnGjdafR9rO0mg9kITmoS5Q2xrfBRGOgx_vvQnRsRFK7EZtKH0QtqrrPU5gaSw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dc416773d6b6b58a14f65517.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{Android}
 
@@ -41,23 +41,23 @@ Flag : itf{Android}
 
 Diberikan file oat
 
-<figure><img src="https://lh7-us.googleusercontent.com/4oAIXBOdUphGPG8OvICFgWwWln2ZUCHcpNs_K2T3wK-C4gS9qD40PE4mG8f23kR1RwIrzdyMjjMUFWLxl5U311b4NUMvy4VS54dYdJwwIQKtaNxtGhT47reo-dpZQLL8d3542nrcObIy3IpGjg5FHIs" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d6e8e7ed38b082d71436a6ab.png" alt=""><figcaption></figcaption></figure>
 
 Disini kami menggunakan oat2dex untuk mendapatkan file dexnya.
 
-<figure><img src="https://lh7-us.googleusercontent.com/H_2lIqBVuhNFuKx5Q4JYjamSU2XJzxnTPsTddgNyq9ymh9kaTEIbJDsoPEhL531v_TRtfcS-K2pU355tqhbqw4VF817_71dPYEy8F0tTYJ9dYwrn44or_I3r2U3Eke2xNKd3XiwSObD0kS4ft0j8Z1Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/34bed9bbb2ae443e563be64b.png" alt=""><figcaption></figcaption></figure>
 
 Sesudah mendapatkan odex , kita bisa decompile menjadi java dengan jadx.&#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/0qSYCYZupIWP_9rCFHrWKUBfhWa0igp0qul77uJjZ59LWXZzSAqaeyKUKznsuORv0_6d0yQocKMzL6SXCVK0lh9wII6_X3WTUBIKgZ2M1GdFZe5S6ZMja-DjdKCUWRXGqUZqcq3yjYsPMUO6qH3WF8M" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0135d4ea7e899cd90a75425e.png" alt=""><figcaption></figcaption></figure>
 
 Kemudian kami mencari “flag” pada direktori com.mxtech karena ini package utama dari APK. Akhirnya kami mendapatkan function decrypt\_flag
 
-<figure><img src="https://lh7-us.googleusercontent.com/tyU_-Ys1LJI35F2D_CjaD6FIiNaTAyUKof1yKKCR0mLzSpQx8FHj9ArdV_ITwY19C4V-RS7bv3ipACi2wlsbxGIBq_FxR0VpKQ_0U4iEO-CEhhClNuW0dRUtMDItVeW0AwHa-efik_pfJCRvPbGeyXg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/781e2a410218384698f20e2d.png" alt=""><figcaption></figcaption></figure>
 
 Karena ini fungsi decrypt flag , jadi cukup salin dan compile menggunakan java untuk dapat flag. Berikut solver yang kami gunakan
 
-<figure><img src="https://lh7-us.googleusercontent.com/WgO_Rnw04PbWPlW9rVUn02OAvQ_2DzYepB8o5GBQKGQ3h283l2IK032Ub7GE3qa2qxhJoE5za9qMpKqM4njlqA0FrO2AGXKFsPgPdjIqQEqzQ5JB2WrNf7qUZaj4q-r_p4nxvw04s2rjEHoVBLIHVFM" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ccfdbcd1b946d840976bec3b.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{an4lyzing\_d33x\_l1k3\_a\_b00ss}
 
@@ -71,11 +71,11 @@ Flag : itf{an4lyzing\_d33x\_l1k3\_a\_b00ss}
 
 Diberikan sebuah apk, kami coba decompile menggunakan jadx
 
-<figure><img src="https://lh7-us.googleusercontent.com/VKsxWHMvFPi_GR7yxxWRjWMBgYa17p6tVJD1iXAPVFiwHn3gpnHSuL4vg7xxz0mzVykupkr4HWHWKQO1IkvcVr0ieIL9a9Z5brYGhGEah6VxcopGDyMc75TrX29BPIYpONecYUF0bNsw10R1vDIBLnQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/be94f428fb0026fa0974ca4d.png" alt=""><figcaption></figcaption></figure>
 
 Terdapat native library yaitu intechfest yang di load dimana 2 fungsi yang dipanggil pada mainActivity adalah init dan check. Kita lakukan decompile pada library tersebut menggunakan IDA
 
-<figure><img src="https://lh7-us.googleusercontent.com/LFw5KfT5lm6Fn-M0LbtsS90CezqMFpxgPubxZ8VNvn6_76Gt4r7XoD9e7w1hTKDK45brvN_jXa4pWqktyYztpEj0XC4cCmALZa76ISZrKJm3KSD6Y29YvKUogBMs7JItdW95Ab3IkeZm_qt1cCeTLm0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0109cf605b687eba5c638c25.png" alt=""><figcaption></figcaption></figure>
 
 Pada fungsi init , setelah kami analisis terlihat bahwa dilakukan decrypt section .text. Langkah decryptnya simple yaitu dilakukan xor dengan key , dimana key digenerate berdasarkan static value. Jadi disini kami reproduce kode untuk generate key untuk mendapatkan key. Berikut kodenya
 
@@ -100,7 +100,7 @@ int main(int argc, char const *argv[])
 
 &#x20;
 
-<figure><img src="https://lh7-us.googleusercontent.com/OzyuKP1I31qn9vfgPxCTUYr9s2IhZu85ktKEP1iiY84d85IYxtRNVTgaSza_Vj-mMdDRXz70KQYDGpEssQFClPozksWVSgUz-2nQ9BXUG_OViMr_bVn-zsCZZJHWOj9sSpTwVshrCLGRSIImZvU--9g" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1eea57925c72c0db1f500ca6.png" alt=""><figcaption></figcaption></figure>
 
 Dapat flag pertama, setelah dapat flag pertama untuk melakukan decrypt terhadap section main ternyata tidak dimulai dari index ke-0 pada key. Namun kita bisa bruteforce dan validasi manual untuk index key yang digunakan mulai dari nilai berapa. Caranya adalah dengan disassemble fungsi yang didecrypt dan validasi manual .&#x20;
 
@@ -131,11 +131,11 @@ for ind in range(0,len(key)):
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/DuQLT9v-aQ-T_cz-CPs89h_17u7u7NDOGFXFVnBXhlsRNhhw9CzZnrNjaJ0MYx3FbGRK-WSfgQqI_VtIH1p74hmkWRXk6qEI3EIEyZ_mRSymh_20Jh9ook7BwqEIHuSHjaJmeRtKHz8a1o3Ebzr6ZFo" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/094251688785e02d6b8fbc39.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat index 14 memiliki instruksi yang valid. Jadi gunakan index 14 untuk start index pada key dan lakukan decrypt keseluruhan section .text. Caranya cukup ubah loop ind yang awalnya range(0,len(key)) menjadi range(14,15)
 
-<figure><img src="https://lh7-us.googleusercontent.com/ZHuR7jn8mcif80XMOkHMcnoy8RVsEnVs1zlRY4qrKQDIb-H5Yr6Pn0pJCk5rNGmtpkDNdwx4Zfe11XfsRjZU6KfvVmvt-oHauwNjfup4SI-8Hs0p4uon3I2rK8XnGiv7bddFQO45naoe2Pal2hlMZUg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a22a4cc1f183d57db0fb5e63.png" alt=""><figcaption></figcaption></figure>
 
 Sampai disini kita telah berhasil decrypt section .text
 
@@ -151,7 +151,7 @@ Flag : itf{s1Mpl3\_x0r\_s1mPl3\_d3crYpT}
 
 Selanjutnya untuk game #2 lanjutkan analisis pada library. Disini kami melakukan analisis terhadap fungsi level1 pada gambar sebelumnya.
 
-<figure><img src="https://lh7-us.googleusercontent.com/scI_38n5Fg0-KaTROshljD395-OoeD03yI6G8BuvMHLE3oyHiGLPPLD4PtRlhFiNgYPEQtcp-oriUzyDyXJ4tAZ6kPXG7tbY6ipOQAe3AD__0EqOmXDM1aRJcbXon6LKiYVO7f8XU3LbbsLa-Zs7E50" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7049e5a855e19b6627bf2625.png" alt=""><figcaption></figcaption></figure>
 
 level 1 melakukan decrypt terhadap section .level2 , dan sub\_104D0 merupakan fungsi string compare, jadi kita bisa mendapatkan keynya dari fungsi  SSM::Decrypt((SSM \*)((unsigned int)\&dword\_40 + 1)); . Argument fungsi SSM:Decrypt adalah 0x40+1 . Jadi implementasikan SSM:Decrypt menggunakan python dan dapatkan hasil decrpyt untuk nilai sesuai argumentnya. Berikut implementasi dari SSM:Decrypt.
 
@@ -169,7 +169,7 @@ while data[param_1+1+i]!=0:
 print(dec)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/QEjhXrs0mcQKR4zBCA7-Ltlqy2q43qvnhmuVnWTeQt35NFXYyLPw85xgDeu8q6pe5wO7OdyOUZSCwz6aHbO--6P_rZYLmDZwZr1Z7d7VOugi2JfLmf25rDVVlw8MRbfUtkfJ4x7bdWxwrf_3EzsfWWM" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0e22c9ff41cbf6793a522c39.png" alt=""><figcaption></figcaption></figure>
 
 Setelah mendapatkan key maka selanjutnya decrypt section .level2 . Caranya sama seperti kode decrypt .text sebelumnya, cman beda di validasi address disassembly, section, dan keynya.
 
@@ -199,7 +199,7 @@ for ind in range(len(key)):
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/xvS-B-t0D3KrcJ2JUt9z5TTIMhyZYA78xUpukwzqJ_mEqS8KBKNhqFrAjwj7Xf3GJ0DvBDvlrHFUM6p6vXbooNYvvJqYW0XF3YmlYwD5uiAeuxaJ_LHiYhUOXYExGaNPZboGDAuj-WYz31q1irvsaRc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/acfb33f56e38889cff56c20b.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat index ke-0 sudah merupakan instruksi yang valid, jadi gunakan index ke-0.
 
@@ -215,7 +215,7 @@ Flag : itf{h1dd3n\_bY\_w3ak\_3ncrypt10n}
 
 Selanjutnya analisis level 2
 
-<figure><img src="https://lh7-us.googleusercontent.com/B8klx-5gbBTRgorPCX4yG2f9fMZJblECZcHeFARAjGnyX11FsyTfyAZVCwNJMTrMz3Wj3hoazLVgPWdlY-b_JrNje4CJdlefKLzFICTR18n-AuuyG1NZ1Kwp9yhe0z-rCQrYEUVqZHR__EZuPvw3Ow8" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c4abb12f2b0840a1c48fda3f.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat terdapat xor terhadap static value dan algoritma semacam caesar cipher. Jadi tinggal implementasi saja untuk mendapatkan v122 dimana v122 ini nanti dibandingkan dengan suatu nilai dan digunakan untuk decrypt section. Maka dari sini bisa kita simpulkan bahwa v122 merupakan keynya.
 
@@ -234,7 +234,7 @@ for i in range(15):
 print(''.join(map(chr,v122)))
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/i1f1yqbwQq2teBLDUbEowWeGnqE2rh1s6U0meCRtJVGpSCHDz1FjltERDAafqUMBSBJBkpRygUL2FTsME1M8vkoSrMhC91qak1HAtgpn5pRDAmXyGH93nZVpuKUT_sKDitydGWp0Gkqmp5JkRnSevUg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/09f0f9fad7de5907897849ac.png" alt=""><figcaption></figcaption></figure>
 
 Selanjutnya decrypt section .level3 dengan key tersebut
 
@@ -264,7 +264,7 @@ for ind in range(len(key)):
 
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/AgIsOHIRyZR41aorNDwiNWl3mK8Ka-bNfh-TEUmEn9zbP1N-YCBigwr7XUOW-B7HqHiA4IybT_rMlHn3iifT7PLdEEp5fz1SORrtgJyyvRfPpVLBd02OXl9IgfK8RXjnp6cD8nxaZ-_MFhXtJ9WdzPM" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bf28a7115e9e8a2a9287692a.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat index 7 merupakan instruksi yang valid.
 
@@ -280,7 +280,7 @@ Flag : itf{Circle of Trust}
 
 Terakhir , dilakukan decrypt terhadap game.dex pada assets . Hal ini diketahui dari decrypt menggunakan SSM:Decrypt untuk setiap index yang menjadi argument.
 
-<figure><img src="https://lh7-us.googleusercontent.com/ygCLPCEeLJmT_KD0K1GDW_RYXAJh6pPWliOnQATPQY2zwkFYlYc8E5XhO_CP2E8M2qn6qZFhjrByNoJqV1sHmS76BHmJjm1XeNX_zc0eT6iX377bB93IrCNqxegQsQtoQGZqLyqq-6B9wMHRpzsP0K0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9e6941969bfcd18fe4ee0974.png" alt=""><figcaption></figcaption></figure>
 
 Algoritma decrypt yang diimplementasikan adalah rc4 jadi tinggal dapatkan key (v12) lalu implementasikan decrypt menggunakan rc4.
 
@@ -288,7 +288,7 @@ Algoritma decrypt yang diimplementasikan adalah rc4 jadi tinggal dapatkan key (v
 Ubah value param_1 pada script ssm_dec sebelumnya menjadi 0x202
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/1Ua6XBJLZs34Yg6jzSP6EkJP0SUc9COYCiBybH1cRD8IqoDxjs0LOYDvOmjmWFqxFKfhi_lylCBeVW8WEhrvXHGhanWp5yn7L5i_99Vb7YhJCuAgvOvlULGvhj_Lymr5pQgX9JW9QqjNZP2HAXriD9w" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/191d18775554d336f9ca7ccf.png" alt=""><figcaption></figcaption></figure>
 
 Read asset dilakukan per 0x400 bytes, jadi implementasikan hal yang sama juga.
 
@@ -306,7 +306,7 @@ out.close()
 
 Gunakan jadx untuk decompile file dex nya
 
-<figure><img src="https://lh7-us.googleusercontent.com/vp7Hex2eMeUE_8By5585QCmkhu8RYNdfosTSXGTzQDpz-TRh-k7rAT6csRB6Az_NCS05IzQrVQLI8yKlh2vZCkIw7DsUzXjb_2o_rIRwcuaCeCDrLoUpJlH04bckIKeWi5my3bO0vcFyznpx1tVV8qQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b338d0971f9ce70f8960f42a.png" alt=""><figcaption></figcaption></figure>
 
 Terlihat terdapat function getFlag yang dipanggil dari libgame.so . Karena libgame.so juga diobfsucate dan cukup kompleks , maka cara paling mudah adalah dengan mengikuti alur dari awal. Yaitu input key pada apk, patch file name apk . Dari percobaan ketika score 9 maka titik hijau yang ditekan menjadi sangat acak dan tidak bisa ditekan. Jadi disini kami lakukan patch untuk game.dex (patch pada smali) karena entah kenapa kami tidak bisa melakukan hook terhadap beberapa function. Berikut alur patch kami + commandnya
 
@@ -327,7 +327,7 @@ java -jar uber-apk-signer-1.2.1.jar --allowResign -a circle.apk
 
 Berikut smali yang kami patch
 
-<figure><img src="https://lh7-us.googleusercontent.com/APC-f5WQZBQta544vQxGZuie3agKZF3Jv4GJxEPbXBidPpgGPa1LEHcGV7g7kT3gHZ8AXpLoNwDTE5wqz2rhg4_Plq5BpTtDEYjDcJzxeuuwyRHMQBLqkHiwo4VLRS8tPKPJaKvsrbOC8c74MfPyiYc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0f0e641ca04a177260872e59.png" alt=""><figcaption></figcaption></figure>
 
 Berikut full file smalinya <https://gist.github.com/kos0ng/95092381869c0a4d1d1e5e32616434ed>&#x20;
 
@@ -347,8 +347,8 @@ Java.perform(function x(){
 });
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/3900CUdExcyeNxdqeo7n5rsOO3LZp45HvcjuZasuo-TZNNR3tHrkslFDP2fPrQaT5aD2W1fxgrSgDQ6PtQGBT5ULvH2qIkeiMooOGK7dWBbS6zHlvF288tq3s15Ay5RnPh_gHBuQDr8dczYmi9mdbCk" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4e4de130c23d25fb330356d2.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/5wT-FApk02BM5809jVIRBKjwc6ZfebmBpu0kc4R-tsWiqdWfyfDe1DoJ6-_iF8nKU5v6YVKANRkXMpFwuIkI2uZ2zKQY8r67FXTijd2TfDhAiqpZJRSC-pSQoTJVcHoZX5oUsWR3hSNurhQZ4Zi8L34" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/79654d6427144e5b198b4a80.png" alt=""><figcaption></figcaption></figure>
 
 Flag : itf{0bFusC4t10n\_V3rryy\_AnN0y1nG\_R1gHt}

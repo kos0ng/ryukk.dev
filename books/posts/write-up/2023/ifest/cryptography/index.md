@@ -84,7 +84,7 @@ for i in flag:
 print(real_flag)
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/6zDJdNjSBhw5ZDhkDsdE-G7MGUMss3tVCISgd0WHBNdzBjeu7GbyPuaZUdqmYYz2RnrYnMLIq3Ry6nxxPesuj44JVyxVKKi4lyxiNEGOHD5LwbehYyp45kw47LaDQ578XAnml5Butm5FCudJDfu7JmE" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/a6e680bc780cdc416bed3a88.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST23{APA\_film\_xorror\_favorittt\_mu??\_1ba83b4}
 
@@ -159,6 +159,6 @@ d = inverse(e, phi)
 print(long_to_bytes(pow(enkripsi,d,n)))
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/RNxMFW1vXsp0ktsvJ03j5jItJFCY3SbmW7a9eiLOnJsfNxsfZ5rCS05n65r-EVAw9mYKkoHWZ_wnO-wUlIeYLYRTOaLe7dXSBSaPWjduFcJ8UXn_KbBCqBa_soM-Y7CvkYM4khLRE6nOOxlfmTDP6eA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/85b3d7ccd2b66455a375ff05.png" alt=""><figcaption></figcaption></figure>
 
 Flag : IFEST23{m4s1\_tr4ns4ksi\_p3rt4ma\_l4\_y4\_c3c1ng\_c3c1ng}

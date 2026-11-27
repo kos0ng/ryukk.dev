@@ -26,11 +26,11 @@ It functions.
 
 Given program compiled with ghc, lets try to run it.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FKRt6OyzFQ0n0zaRw9XRX%2Fimage.png?alt=media&amp;token=8c9bd85e-ac03-426a-b002-9469c2857657" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b2a76b14df151c16c32202f9.png" alt=""><figcaption></figcaption></figure>
 
 It only shows "Checking flag..." and there is no process that receive our input when we run the program. Decompile it using IDA. Searching for "Checking flag..." string we will see another string in near the address of "Checking flag..."
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FjuCRWDeRGLgzelbdq6oS%2Fimage.png?alt=media&amp;token=c848034f-e32a-4d77-b98b-3526bfb728d5" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fc546f8d0cc7218095bcdbe8.png" alt=""><figcaption></figcaption></figure>
 
 Based on information above the program should produce "Wrong!" output if we input incorrect value. Previously i've been reversed program compiled with ghc too in this [writeup](https://blog.ryukk.dev/ctfs/write-up/2023/hsctf/reverse-engineering#re-cursed-4-solves).  So the next step i did is debugging using GDB. Set breakpoint on instruction that call res\_evalLazyIO.
 
@@ -40,7 +40,7 @@ b *0x48AAD9
 
 Run the program with argument, in this case i tried to check wether our argument is used or not as the input.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F4Lodhdwu7xw2oodsB8iS%2Fimage.png?alt=media&amp;token=a754aa9f-7428-4223-a5b5-a6acc5a89b25" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7d6b187637c77ad64fa20504.png" alt=""><figcaption></figcaption></figure>
 
 Set hardware read breakpoint on 0x4d3410 then continue the program
 
@@ -48,7 +48,7 @@ Set hardware read breakpoint on 0x4d3410 then continue the program
 rwatch *0x4d3410
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FO7N0NWLMPp9giCDYA0ZY%2Fimage.png?alt=media&amp;token=cc9a693f-8653-4353-81e1-5abd28f4b8d9" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/edd8069089fcc0ae345fc3f1.png" alt=""><figcaption></figcaption></figure>
 
 From image above we know that our input processed and it passed to function base\_GHCziForeign\_zdwpeekCString\_info which is ghc internal function.  Continue the program and we will see again that the next index will be processed also. Continue until the program exited we still dont receive any "Wrong" output. In this step i assume that the length should be correct, so lets just bruteforce it.
 
@@ -62,11 +62,11 @@ for i in range(1, 100):
 	print(i, target_output)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FdnrDaYyz69ymkrAttXOy%2Fimage.png?alt=media&amp;token=4e8dab63-1a0a-4ec6-942a-32b0f8fdc1e0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/07d77b4132c5ea2843a5dfb9.png" alt=""><figcaption></figcaption></figure>
 
 We can see that there is Wrong output when i == 28 , so our input length should be 28. Lets strace the program. Try with argument "A"\*28 , "T"  + "A"\*27 , "TF" + A\*26.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FoODSgI9wEEgQQWMQqNT0%2Fimage.png?alt=media&amp;token=49588251-c5a3-421d-ad57-fe44a7d2b32b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bd9c9714de0f1d7e4bede6c6.png" alt=""><figcaption></figcaption></figure>
 
 All of the trial give different length of  total instruction executed
 
@@ -84,11 +84,11 @@ If i do bruteforce based on time or instruction it can be solved but would take 
 
 * <https://github.com/ghc/ghc/blob/8b2f70a202ec0913515bf4945de789e959ff8cac/rts/posix/Select.c#L69>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F8RhsX9ztqLVZXUj0JiFU%2Fimage.png?alt=media&amp;token=93552023-f481-49e2-8611-029da198a3e1" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6403bb09b743bb9e462eceb3.png" alt=""><figcaption></figcaption></figure>
 
 If the value is correct it will execute `call getDelayTarget` so we can trace the correct value by counting the executed times on 0x497896. Lets patch instruction so it will always do getDelayTarget(0)
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGeZsFJJY1Jqtqul0MmzF%2Fimage.png?alt=media&amp;token=65a30105-e278-4a24-9cbe-d94fc0669f94" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c161f6b0e8ba73e0b5eef3e5.png" alt=""><figcaption></figcaption></figure>
 
 The easiest way is jut by changing xor eax,eax to xor edi, edi. After that just do gdb scripting to get the flag.
 
@@ -134,7 +134,7 @@ def addr2num(addr):
 SolverEquation()
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEqaMi4jUY6uxmJC46bEv%2Fimage.png?alt=media&amp;token=c8a0147a-25e4-43f2-9d44-073ad41090bf" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3eb5beed7a225e03e35d5518.png" alt=""><figcaption></figcaption></figure>
 
 Flag : TFCCTF{timing\_are\_a\_bit\_off}
 

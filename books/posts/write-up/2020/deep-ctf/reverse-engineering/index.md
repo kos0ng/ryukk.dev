@@ -20,23 +20,23 @@
 
 ### Solution
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*Y-L9pLvdnjMR4eHXCi4nQQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/237fcef6303cc8a097096490.png" alt=""><figcaption></figcaption></figure>
 
 Using ghidra for open the binary file and go to the main function
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*AzYr825i5AM4Z0f7FaMnJg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/911a2a362f35f2cacfd00d93.png" alt=""><figcaption></figcaption></figure>
 
 There are lots of if statement which if we order the variables it will produce flag, but i’m too lazy to do it. So here i am using angr to automate solving that binary.
 
 Finding address of main function
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*N89YU9tqdsXsx-KYhbuAUw.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4edf8f47fd84fdf139a47c2e.png" alt=""><figcaption></figcaption></figure>
 
 Finding instruction for load string “Voila!!! You Got It” from memory using gdb.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*dEhWC40hLB5K1WkZMT2dVg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f3782f07cc8d3857d0443fa2.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*EXGA4aH5ZJQIee7cw_rCjQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f03ae6dc256ba52d13bfcfb8.png" alt=""><figcaption></figcaption></figure>
 
 After that write a program for find the correct value automatically using angr.
 
@@ -63,7 +63,7 @@ else:
 
 and here is the result.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*qkZN6_0SYA2jz2go65uUIA.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d1bcac0ce30fc9d2fbe706ef.png" alt=""><figcaption></figcaption></figure>
 
 Flag : d33p{y0u\_r3v3rs3d\_1t\_w3ll}
 
@@ -75,17 +75,17 @@ Flag : d33p{y0u\_r3v3rs3d\_1t\_w3ll}
 
 ### Solution
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*58XpIf7cFE1lY-lQ5Z4X3A.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f5df62388b18f8fe5c5a8de5.png" alt=""><figcaption></figcaption></figure>
 
 Open the binary using ghidra and go to the main function
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*aECffliq6SU33tk7a_2skA.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/3cd778a6256fd76f74143c4e.png" alt=""><figcaption></figcaption></figure>
 
 In this challenge we need to change the value of our computer name,os,cpuid to the correct value like in strcmp argument and in the end if our values are correct the program will run finish function. So like the title of challenge **“SkipMe” ,** we can skip all those checks and directly call finish function.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*bQ01jUxz6HeD7QNQau2Htw.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/43a42d65bd1dd2513f5ad707.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*ULVfEBtWOZU3DCYShonZeA.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/4fa85441f5087d3d58a0ca9b.png" alt=""><figcaption></figcaption></figure>
 
 Flag : d33p{f51579e9ca38ba87d71539a9992887ff}
 
@@ -97,23 +97,23 @@ Flag : d33p{f51579e9ca38ba87d71539a9992887ff}
 
 ### Solution
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*_uoqlF-9W8ZaDIVJPuVwxQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e1fcaf161846dfe5445dbab8.png" alt=""><figcaption></figcaption></figure>
 
 Open the binary using ghidra and go to the main function
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*h5dtJLuMbqshg18VlaCaFQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/71ac3df8ace03812efd43408.png" alt=""><figcaption></figcaption></figure>
 
 I think this challenge is broke, because we can easily knowing the flag by using ltrace command (because there is strcmp function which compare string and we can find out the argument of strcmp using ltrace command).
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*xuOLggRbRBzcY6J7Jms_sg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/34f2d943cd8a43190b4ced44.png" alt=""><figcaption></figcaption></figure>
 
 If there is no strcmp function we can examine the address of secret like this for find out the flag.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*V9ST-ymt3OQ3qRhNLr2Atw.png" alt=""><figcaption><p>main function</p></figcaption></figure>
+<figure><img src="images/7d5fdc2f84418db19cb92e72.png" alt=""><figcaption><p>main function</p></figcaption></figure>
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*5W5oqb1zUgm6Azt9FHU0aQ.png" alt=""><figcaption><p>break after generateMyFlag and then run the program</p></figcaption></figure>
+<figure><img src="images/28d9e2a4bdc2dd070942b2ce.png" alt=""><figcaption><p>break after generateMyFlag and then run the program</p></figcaption></figure>
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*LVr9keLEwhkvoUhLNZ1MYA.png" alt=""><figcaption><p>examine the value of secret as string and got the flag</p></figcaption></figure>
+<figure><img src="images/3af5329d18d6206be6c74c39.png" alt=""><figcaption><p>examine the value of secret as string and got the flag</p></figcaption></figure>
 
 Flag : d33p{jnhFClg2sv3uaBBxs}
 
@@ -125,51 +125,51 @@ Flag : d33p{jnhFClg2sv3uaBBxs}
 
 ### Solution
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*KO38gZHFxTqKF9W5ET-tdw.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/de5872fb11bce3cba2d25e16.png" alt=""><figcaption></figcaption></figure>
 
 Open the binary using ghidra
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*mT0sdxHaxI_cLMZLvGxpSQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/d37329f1d5d83756abe85b93.png" alt=""><figcaption></figcaption></figure>
 
 Nothing helpful, so here i decide to run the file and here is the result.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*oaFLOdkIOWvVyhydt3u6Sw.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/da49414db1a135b5f3df10d3.png" alt=""><figcaption></figcaption></figure>
 
 After clicking ok the program will close, but here we know some string stored on that executable , so the next step is try to examine defined string on that executable.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*cFR0l0DoL2HC9a-6vv9YkQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/0236430bb14c09f556c4b672.png" alt=""><figcaption></figcaption></figure>
 
 Using the address for that string we can find the reference to that address which may be the address of main function.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*SOEQpUZprhDlbVsI3vmncQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/39c5b5156974deed407f440a.png" alt=""><figcaption></figcaption></figure>
 
 Lets move to assembly tab instead of pseudocode tab to be more obvious.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*3BLevWGUjsrxUBo2A_xefA.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/29d89f1e0acd5ca58c60365c.png" alt=""><figcaption></figcaption></figure>
 
 from the instruction we know that the program after calling message box will call FUN\_004012c0() which is calling GetTickCount function and the next instrucion is INT (interrupt) 3 which is intended for calling the debug exception handler and this instruction make the program break. There area many int 3 instruction after calling FUN\_004012c0() and then something like garbage after the last int 3 instruction.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*YySmn8b9LnUXyoerdxzrug.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5a19ce318728422ffddbd34f.png" alt=""><figcaption></figcaption></figure>
 
 Here i try to convert it to assembly instruction and here is the result
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*h8_eNbLyFPF7T76zGyLoBg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7cbde583288ff56c7a108d2d.png" alt=""><figcaption></figcaption></figure>
 
 There are some jump instruction and the last jump instruction lead to the flag.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*ldWjobcgKR65BKsgjuOKQA.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5dbc1bb850c34886793bc9c2.png" alt=""><figcaption></figcaption></figure>
 
 So here my solution is changing the assembly instruction int3 to nop so the program can continue to the next instruction and lead to the message box with flag on it.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*iHCQPUPUoVxKGM5q4IgJYQ.png" alt=""><figcaption><p>before patched</p></figcaption></figure>
+<figure><img src="images/329135c59ac989164ba81a3b.png" alt=""><figcaption><p>before patched</p></figcaption></figure>
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*DB8p-juVV20JWAlpLSDb0w.png" alt=""><figcaption><p>after patched</p></figcaption></figure>
+<figure><img src="images/ef34ff6a1c31374d2405ca3b.png" alt=""><figcaption><p>after patched</p></figcaption></figure>
 
 And then run the file to get the flag
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*wPgSVIkJ4XU-NwOOLggSIg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/78186e72c4f9b69b8d94d458.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*qxnewrP_fETnEbZwDLzxkg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9b57f6f5e1edf53bcc494a1c.png" alt=""><figcaption></figcaption></figure>
 
 Flag : d33p{ww\.canabalt.com}
 
@@ -181,15 +181,15 @@ Flag : d33p{ww\.canabalt.com}
 
 ### Solution
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*SjESZ_0iHj3S8z4ZRHUb3w.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cdbfa92e6d3c6eb35860a7c4.png" alt=""><figcaption></figcaption></figure>
 
 At the beginning i thought the challenge was about reversing the encrypted pdf file , but it didn’t,it was even worse :) . Here is the contents of the pdf file.
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*F9NEtVFZLerTWpPhJDYYLw.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1193d7ee8c2160e74ac4260f.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*2dKsyimqXlwZ9dcR7boVtg.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/abc5b0bc11a0b3a51a6ea6fb.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://cdn-images-1.medium.com/max/800/1*Q0MkHx58sZpFLMZndosdIQ.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1214669b2f8fe3fc777fba17.png" alt=""><figcaption></figcaption></figure>
 
 That is assembly on arm architecture, here I analyze these instructions manually .
 

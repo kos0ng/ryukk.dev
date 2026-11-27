@@ -21,7 +21,7 @@ Diberikan file apk , disini kami langsung membukanya menggunakan jadx-gui lalu m
 
 Pada class MainActivity terdapat method menarik yaitu onClick
 
-<figure><img src="https://lh7-us.googleusercontent.com/CVXiIfO4ek6MXLh0i3LCzSlLr6zmS-zjXttWrgEpIlcrHPi0THJFQbeH3WAe7vl3YTrcDKh53AenRZgQcmqywXGaYIfY0NlmS9-xBApUfHo-iSMTl0A0sogn7qtRGKVKT_VKOOigntqOiGIU47_ZLg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/ee3682c32131f6138d7c0128.png" alt=""><figcaption></figcaption></figure>
 
 Pada method tersebut dilakukan pengecekan login , kemudian akan ada suatu sharedpreference dengan nama FLAG yang di set dengan value yaitu variable v pada class MainActivity
 
@@ -31,11 +31,11 @@ public byte[] v = {49, 53, 66, 68, 53, 65, 50, 67, 48, 56, 48, 66, 66, 48, 55, 5
 
 Pada class DashboardActivity terdapat method oncreate yang menggunakan sharedpreference flag yang di set tadi dan memanggil method a
 
-<figure><img src="https://lh7-us.googleusercontent.com/Qc-h1mj1Z2Sa0jLZv52HXuX58b5XnllPTx-T_XeHmcISPG9oqnl2LAmqJApHbDnvdwTnifQedC1kuikrVwX_d0Pkkm51v_2k3o-2epUahsudRml1YFZ8TyCRyKylM165TOoOiDjTtxNhQTltXZ7bCA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9252702f0dae209fdf391be6.png" alt=""><figcaption></figcaption></figure>
 
 Jadi selajutnya kami coba buka method a
 
-<figure><img src="https://lh7-us.googleusercontent.com/NNCIrd0bH8-prZ1L6Q13lPp12Xs7mT3et8Rv5w07tIbAgmqqYHMXOOJ5jxmM657ywf1ozEogF2vZXOo-u2VB_XkmwpNNPyXMQg-V5CDK1aT_Kcqri1jJnf62dSGnaymt_Ne7fvs50vv0yxz8rMLbLg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e9f296ee2f3347693697a8cf.png" alt=""><figcaption></figcaption></figure>
 
 Pada method a dilakukan decrypt menggunakan AES , jadi disini kami tinggal menyalin kode tersebut untuk melakukan decrypt terhadap encrypted text. Berikut script yang kami gunakan
 
@@ -68,7 +68,7 @@ class Coba{
 }
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/rfZ4F-BlZWicqgmy-u6zaCM2S1ramP8rAZJrcEIYjboQKAeTlH3aDn7qvvxLMO75BBffBh6QL4ybaO8tLv90JsilfZ7AuJvcmfS5DvkjYoOEk8PrdSetpTFLe9buCAgXjiwoHKBcgVLjx7rN0HlrZQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/82b443c06fd21a28465129bf.png" alt=""><figcaption></figcaption></figure>
 
 Flag : WRECKIT{m0bil3\_eZ\_Reves3}
 
@@ -84,13 +84,13 @@ Diberikan file apk disini kami langsung membukanya menggunakan jadx.
 
 Pada class MainActivity terdapat pemanggilan method yang menarik karena melibatkan native library yaitu xide
 
-<figure><img src="https://lh7-us.googleusercontent.com/1EU0jveAr-zyt8Xuby7uvHvIN0bYkTR7lmtyNnBoRBDUMxwPvo5-Wz2nxkn3uoRSy1J9TUKbeksIgA3Sqfyul3OoSCh_pkCmbivR39c9nWxH-RquDaeHJNIGGMe61SBU0gLo6AkQHFhmxacB0ll_Tg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/8ecbe9e228b62f8401b96888.png" alt=""><figcaption></figcaption></figure>
 
 Setelah kami telusuri ternyata pada class flags dilakukan pemanggilan terhadap fungsi flag yang didapat dari hasil load terhadap dex. File dex sendiri didapat dari fungsi wrt yang dilakukan pemanggilan dari native library. Jadi disini saya coba buka native library tersebut lalu mengambil file dex nya dan konversi file dex ke jar lalu membukanya dengan jd gui. Terakhir tinggal analisis fungsi decrypt dari flag dan terapkan pada kode java yang dibuat sendiri.
 
-<figure><img src="https://lh7-us.googleusercontent.com/zao5nr0qkw6dZVCoCbT8zMbp-XbYTMS0I2XKy9fVS8Po3Rq_BqPCIHpb4V_i6OLTJrBvEVB5clR5iXkCJpUuiR0MsoL5VvTMYjiHZxMDGBwdasSqjXhckKVIVvzeg4rWkOK4X64wwlEtjQYM3muPGg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1c6a78fa43d2fb35bd5964bd.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/8s4aWlqGm9oVHOVIJsIxFmOp2_LRI1mXUyO5_ruTUEE9nkyJDenuyKrvFaRfEVyZ7U8UEul4EpsdqYd1KvtHOcVAxf2zxLCeqWqoZILZ9XfvtZtpGo46nrzzpQ8ZbRUv-G3FoOwq-vhbJlo3kLxCaw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fc8d6320fcc5b506944398b7.png" alt=""><figcaption></figcaption></figure>
 
 Extract dengan python
 
@@ -100,9 +100,9 @@ out = open("flags.jar","wb")
 out.write(f[0xB66B0:0xB6EFD])
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/lrufSA7huKrYAaivHloOtJdURhrEtE6KDpKf9n0ZLKCF2pSGmLXKRypzree0KL3B35tJEpRCr7OAVOvoAfSAPW5M8rGzDbMgldLUjod2AA6pDqgy4z_e0Dzf1UOyRZWkZuA1XOzEU0QMcOHkF3ihCA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9b7396f4146e1985f0507044.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-us.googleusercontent.com/2a2UHFqH43e1rmYy-Z-YhbjQNwLtSmUPuOM_21POce8dGXZYHC3djBpwaFnLLLDx8Fg7ywepHkGaQeQuQLjGaCnNUliBycLmfsbqQzneLEVjRz7sBbgfCwj7dsaECfIcz3ufjGIGF5TyRZlc9vwM_w" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e4f12d62746572b09f7303f1.png" alt=""><figcaption></figcaption></figure>
 
 &#x20;Berikut script yang kami gunakan untuk melakukan decrypt
 
@@ -154,6 +154,6 @@ class OtherXide{
 }
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/P_IPRqJfJ1IXQOOcwpXEn8vjvPhzEwMtEWa1TcO2UCdE3oxpLeug7BNJYy1FCxflm9kFZvB9N9R4ZFNHyLGGOt0FAQx9bvNMGV062VIVEPXTIZhsGkfeCM_UgL68_kSVqbxRKJNyqoyK79AMXcUw5Q" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/65c4c153dee267614d09ee57.png" alt=""><figcaption></figcaption></figure>
 
 Flag : WRECKIT{J4r\_Lar1\_5aaT\_rUnT1me}

@@ -12,7 +12,7 @@
 
 Two files are given: nvm.exe and easy.vm.bin. Based on the two files provided, it seems this problem refers to a `VM` problem. Run the `easy.vm.bin` file with `nvm.exe`.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc4ARCEPuSNrQctbtIBM1iwRW3_xghLEq7nbsVgP2EIkJlRfUWUsyh8sf9sxUIh5jWBlup6w_35sbFkHAqwSdYw5AQJgDg_xvnmnkg15VksHCDQdiK_xDhnkZz6y1X7w6go2MTT1g?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/6f5bb9bad8bc3bca3244b78a.png" alt=""><figcaption></figcaption></figure>
 
 The output shows that easy.vm.bin only prints `69` characters, so the objective is to identify the characters that aren't printed. Debug and locate the function that executes the print, assuming the VM logic is in the same function or its `XREF`.  We found function `sub_140068CA0` is the one producing this output.
 
@@ -30,9 +30,9 @@ The output shows that easy.vm.bin only prints `69` characters, so the objective 
 
 The code snippet above prints to the console, so to get the full output, we can change the `v8` value. First, set a breakpoint at function address `140068EA0` and change the value of `EDI` to something larger, like `0x100`. We'll end up with a stack underflow error because the exact length of the stack isn't `0x100`, but we still get the flag.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcKf3D--gvLWLZ55dbAyJ46O7g5p86DGlm5vU-WzoDRczvqVTCen3O5nLIrYZFIzFoYIHtbtn3Bp4n9sPgjb4b53FwbKcOxbtdGg3UZYMTxnrdjdzx0Z3t2WHAU0o5_fs528TXNwQ?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c65ca5e0e3a245ab4d7d5753.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeYkLHsNRfS4oq1bdLUZYUl9eu_wkTmPEJU0Y0GMOCWHPwbO0HBb06xgFi1RpT8pXQKM90lPUS7k9bH9nOZQIiSU03Zd3qL4uvOHRPyYPigYn98408HOFLvZQXCUkvQPvhqqgF5?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f5459494dd664f853fa0b6a1.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ITSEC{this\_one\_belong\_in\_stego\_category}
 
@@ -46,7 +46,7 @@ Flag: ITSEC{this\_one\_belong\_in\_stego\_category}
 
 Given following files
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeS48uOLinAbAe4EWqhsRfEw8OO_-U51AM-StslJh5IycY1skMwSHFqY5Olb_tZHMbWuk0pqBOiI_ImfCTZZQpsCVWy0hgg9p9T6mavk3tpLvXn0B8E7o2NheX8_6ewUyPmXYRIHA?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/be06c45b98db6de4b44a6802.png" alt="" width="375"><figcaption></figcaption></figure>
 
 The `README.md` file contains a tutorial on how to run the application. So, the application can be run with `NWJS`, and the original JavaScript code has been compiled into `native code` in `app.bin`. To solve this challenge, we downloaded the NWJS SDK with the same version, `0.100.0`. Copy all files to the NWJS SDK directory, then change `loader.js` to the following code
 
@@ -70,11 +70,11 @@ The `README.md` file contains a tutorial on how to run the application. So, the 
 
 Through the data from app.bin we can see several variables such as `correctPositions` and `secret`. Lets print it through console.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdzInCRn0GEd_jABYF9edL0KMf4OAFklhIMQDwvwPvAUOAMg2-E6nJ_8EIIDcyRIEKxdAe0p0YpzKPRblGqX_YP3AaznXDjWHj68Po6_q_bkH8zW5AnkhflGvADdXLepSDz0Zg_Kg?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/666eb8575fd44e537a99dcd7.png" alt=""><figcaption></figcaption></figure>
 
 As we can see the length of secret corresponds to the length of `correctPositions`. When we try to input 'a' 24 times, we can see the change in `correctPositions`.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdWXU3sqJtkMDJG6wth-VCz1fNGCnUJB7IVCNTs58CSz47tG0rYG2jHwsD0qDVtYM2dEuSPW06h1nDKbhhXjX7GvihK6oblVp0pmPmhyMVqdbqa7hYD4Io6iMF4lcK-JcOFjWtq?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/763329b2ad418471498310c4.png" alt=""><figcaption></figcaption></figure>
 
 We can see that the value changes from false to true at `index 12` after we input the value 'a'. From this, we can see that the correctPositions value will change according to the input we enter. If the value at that index is true, the correctPositions value at that index will also change. Here's the script we use to dump the correctPositions for each value in the secret.
 
@@ -127,7 +127,7 @@ for (var i = 0; i < characters.length; i++) {
 }
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfaU6FioAbHwde1plOtHNVL2cxhgjZvz9NQ7Xg5Tkqkh6ZBm1DMdvlGDeQ3_7o-ghNq4y_R_C5zOvaWzgSf5Jl-mNcjUwCW5jfwzkLYVqgbr6fHwodwXEdHPTof2_TgPsd1dMm5?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/08d33069f6a7fa4658f562e4.png" alt=""><figcaption></figcaption></figure>
 
 Next, copy and make a few corrections because the value of 'h' should be at index 0. Following is the solver we use to map the correct input.
 
@@ -171,9 +171,9 @@ print(''.join(nice))
 
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeaaH0P3FCdeQzk-6iTzRn_INXkF8YURi5ing550RS9wDGBQsWC8NmNt1Hd4OFvb_jth0OvtMmBmDbRiO351CWHC7Mf0gUb3N_BiXRaix-WwiAxlzt_ifsmFEXbQROEiOaYV5qWvQ?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/90d2b9ce4046ef1fe26ae80c.png" alt="" width="375"><figcaption></figcaption></figure>
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdbL1iTgZvfXEAbF1SNuV7AS0Q_KjSqjVLgXzHX3C7p_NHMMU3Tqk5PIqG9cJyrYB5Av0bCJurxHjfCeexn5KDAN7_h46dFKFP0y3cotFatb21U-3JpcelmyBVwI2KryXB8t6Upnw?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/85c76bd43fed8c4ce8537103.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ITSEC{all\_th0se\_v4rs\_in\_v8\_sn4psh0t\_and\_forg3T5\_t0\_d1s4ble\_F12}
 
@@ -681,7 +681,7 @@ for i in all_mapped:
 	print(i)
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcNXirkBitx-pyzGP__YzPsMS45ownzwuZ_OLx9OnFubuVjzdBXncBGMKL_gp_774VUo8jmtmXa727OwXh5ZauuJYNWxKaf-dmZZgKyhxYFeGLD8SP4CLGK7HsJc7I8filV3bh3?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/2da231e3f9aabb4c45ea76fc.png" alt="" width="375"><figcaption></figcaption></figure>
 
 It can be seen that there is a pattern for each check.
 
@@ -775,7 +775,7 @@ for i in poss:
 
 And it only takes 0.09 seconds to get the whole flag
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdTXX-cv0ewHpmyp-3EEMVf5eTGrJX2vhZSBeGIJ7YlC7vdamVXdr9iR2LrGnJroJLeKIbSSFbpjCpniXv_HJbjMPqqjOiOaQT-mKk2JXo_sXP4-AcEs2-YRtawQlcUOnEwv2VIsA?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/df632a3554f6c26e5282df52.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ITSEC{self\_modifying\_vm\_bytecode\_in\_dot\_net\_aot}
 
@@ -789,7 +789,7 @@ Flag: ITSEC{self\_modifying\_vm\_bytecode\_in\_dot\_net\_aot}
 
 Given the executable file and assets, run the executable file and you'll see a Minesweeper game. Just like in a typical Minesweeper game, if you hit the wrong block, you lose.
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXchOCoKnZz9lyLSTVep_EBc2P3t4veh8y9DR-ePaKzxMqChm0jWFHUzsGgUPm9vPCiwkXJ4B5vdM4kE5GDJboJCGpMH8rFUCJyxiatUFoRCqzBp_23F_3yzSggxhlZ8XJF55nmMiw?key=NzaOQ3nlX3Qqiq5cQCdyhA)![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfpPMzwnNuGb2ATAPUpht8RFZzejtDEeFTOLqsfhpD1BLWcs4w5qhBIvyqLSLmqrswt-1qTyLpqLX1BdYGpSfxry2sNfF_l6vLsI0qUw92ACVHpBgcMRTLjddJghnJSDRmA7EJa?key=NzaOQ3nlX3Qqiq5cQCdyhA)
+![](images/b50b72db44d3eeffda05e715.png)![](images/ed75520a7026f9095331d687.png)
 
 \
 Decompile with IDA, and we'll initiate the win message in the main function, `"You win!!"`. Entering the `sub_6D38B0` function, we'll see the asset initiation process, or the function to load assets. Next, we'll find the following code snippet
@@ -1028,7 +1028,7 @@ predictor = MinePredictor(width, height, seed, param1, param2, constant)
 predictor.print_mine_map()
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdI4uf36UOgK48XGACBBivd62U-WBDOx6_YTqgFqfV5ELacgzmeD1eFBw5j7eRc4HH97dwXiShWQc9V0OG6dGCVFXq6jUOwMIG4CePAb2ec_JzCTjNlm3GIwbCvPUh6EA7ZO0vVag?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/33851542343dc6fa8c1e86cc.png" alt=""><figcaption></figcaption></figure>
 
 Now we know which coordinates to open. However, we can't get the flag simply by opening the correct coordinates; we also need to open the coordinates in the `correct order`. We can determine this from the program's decrypt and validation functions, namely `sub_6D1BF0` (the base address changes to `0x6D0000`).
 
@@ -1735,7 +1735,7 @@ for i in old_state:
 print(maps)
 ```
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfBjNK5T9eVtOpF1iBZLjfeAKggf9puLG29DpKjtNzZ_XQ9hqYWczOhdnGD_nkFAcSlBPkDyWdE9hXrXED3h2mmBarVSS4Od0RI6ZaDSSTH-TwVp8k8_mzcEQr6D7LJziOy_GZuMA?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e1cad49d62641cd4d91e8a89.png" alt=""><figcaption></figcaption></figure>
 
 Once the coordinates are obtained, the next step is to `automatically` call the function and optimize it for authentication. Here's what you need to do:
 
@@ -1811,6 +1811,6 @@ print(list_eax)
 
 {% endcode %}
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc3vJXvw1rQC5b376lg894-8c1FKGQnNxyIMi8AGh3Um5IafYHxFOhjMSOc720MsjNrIxo0R-0ckeM3dQZCUUJCtyVYsH-kZlryCFYaP-kYfTOmVmzN-53OwFaHS4uMRzJLAXqYBA?key=NzaOQ3nlX3Qqiq5cQCdyhA" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="images/6cf49a9f1babfd0b59e5d9e0.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Flag: ITSEC{P3mbEr51H\_R4nJ4U\_HanD4L}

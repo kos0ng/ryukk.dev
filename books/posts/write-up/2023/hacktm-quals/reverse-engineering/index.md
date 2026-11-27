@@ -18,33 +18,33 @@
 
 * At initial, we try to decompile using ghidra plugin but it fail, also we can't do decompile and converting to wat using wasm2c and wasm2wat&#x20;
 
-<figure><img src="https://raw.githubusercontent.com/kos0ng/ctf-writeups/master/solver/2023/hacktm/re/free-play/images/Pasted%20image%2020230220124348.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/50500cfbe7f98c1126c9943b.png" alt=""><figcaption></figcaption></figure>
 
 * We found the solution , we set --enable-threads to convert the file to wat&#x20;
 
-<figure><img src="https://github.com/kos0ng/ctf-writeups/raw/master/solver/2023/hacktm/re/free-play/images/Pasted%20image%2020230220124227.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/31da98b96195ca55dd2c1312.png" alt=""><figcaption></figcaption></figure>
 
 * There is a binary that can convert wat to wasm, so using this approach we try to patch some instruction so we can compiel the wat to wasm and decompile it using ghidra plugin/wasm2c/wasm-decompile&#x20;
 
-<figure><img src="https://github.com/kos0ng/ctf-writeups/raw/master/solver/2023/hacktm/re/free-play/images/Pasted%20image%2020230220124440.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bd64dc6a5181989ea4e24850.png" alt=""><figcaption></figcaption></figure>
 
 * There are some instruction that can't be converted , so my approach is trying to replacing the instruction and then compile again
 * here is the patched [main.wat ](https://github.com/kos0ng/ctf-writeups/blob/master/solver/2023/hacktm/re/free-play/main.wat)
 
-<figure><img src="https://github.com/kos0ng/ctf-writeups/raw/master/solver/2023/hacktm/re/free-play/images/Pasted%20image%2020230220124710.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cc44a98ee531781744fa819b.png" alt=""><figcaption></figcaption></figure>
 
 * After that just open it on ghidra , here is the example of opening checkFlag function on ghidra&#x20;
 
-<figure><img src="https://github.com/kos0ng/ctf-writeups/raw/master/solver/2023/hacktm/re/free-play/images/Pasted%20image%2020230220125120.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/dba08fba07a691ff212255a9.png" alt=""><figcaption></figcaption></figure>
 
 * During the competition we use `chrome` to do dynamic analysis , such as inspecting the value on memory, stack , and register value.
 * Here is an example when we try to inspecting the value on stack/argument for func46 which is address of memory&#x20;
 
-<figure><img src="https://github.com/kos0ng/ctf-writeups/raw/master/solver/2023/hacktm/re/free-play/images/Pasted%20image%2020230220125302.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/9af7f65b7192d8283465db64.png" alt=""><figcaption></figcaption></figure>
 
 * Here is when we try to inspecting value on address `63984`&#x20;
 
-<figure><img src="https://github.com/kos0ng/ctf-writeups/raw/master/solver/2023/hacktm/re/free-play/images/Pasted%20image%2020230220125310.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/5a549d089332350ebfdb9158.png" alt=""><figcaption></figcaption></figure>
 
 * Last part before creating the solver, we try to reconstruct the algorithm in python. Here is reconstructed algorithm in python
 
@@ -296,6 +296,6 @@ print(f"CT value : {result.hex()}")
 print(f"Flag : {cipher.decrypt(result)}")
 ```
 
-<figure><img src="https://github.com/kos0ng/ctf-writeups/raw/master/solver/2023/hacktm/re/free-play/images/Pasted%20image%2020230220130944.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/fb5f7f5cc8a78ee3a914d104.png" alt=""><figcaption></figcaption></figure>
 
 * Flag : `HackTM{bee3dc52aabec5c1b673d8d2beaeef64fbbf94fbbfe3f7ebcf716e465bd7af2a609a0be0717f6bcbed7c33dcfc95aadaae2f3e046a3b1ee42dbfb7da3687d77fbece4d957b48c3c3fa00d77da8aeffdedbe823bbc89678ded4bfe9f71fdcbf8c9cbd8b84ebffb118eb68b39bee0bfeccd07efbf8cd530b2dadbff4af}`

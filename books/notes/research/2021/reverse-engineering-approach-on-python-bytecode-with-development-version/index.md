@@ -10,7 +10,7 @@ Most of the tools that disassembling or decompiling pyc file are not support the
 
 Given a python pyc file, at first i got stuck because I didn't read the description. Thinking that the python version is 3.1.1 . After realizing that the python in question was python 3.11 (development), we tried building python from source (<https://github.com/python/cpython/>). Then we tried to import the pyc file and failed.
 
-<figure><img src="https://lh7-us.googleusercontent.com/-FXyrowj5rcdCblKqvTN3ORAGkJtps4zRz3QVzBE8qk7Y9hdTWVPo6x4pja0hSp821J7lWhZj36xgJEcwkYsN98e4EI2ZzGd3DGncDRXDhnXR9jLWJPzTb7ivCjBeT0vQZYWZ73MwpRoK8ej-UyjTw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/85f17b08442f68d343103868.png" alt=""><figcaption></figcaption></figure>
 
 From image above, we can see that the magic number is wrong, the magic number of the target is 0xd81, so we commit with the magic number 0xd81
 
@@ -18,13 +18,13 @@ From image above, we can see that the magic number is wrong, the magic number of
 git log -S "MAGIC_NUMBER = (3457)" --source --all
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/WooswYtvjCf0PBsKHyqJRIo2-_c2miUhSR0Gbyw4OuQdhgIhy4a7g9y-cjKg4D9xns5l6-XjKQZfwq93aPF9xpgJacLxwrLzqEgqgaWfp2Ni8KFmuz-KC-XYp4JCgbHxymBkCt6F-RUs70Uc0QVWag" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c82c7d1c4bad55ce9b688c40.png" alt=""><figcaption></figcaption></figure>
 
 Next, checkout the commit hash. In this case, I checkout the bottom commit hash. Then pull and rebuild the python. After that, just reload the pyc file.
 
 ## Disassembling Python Bytecode
 
-<figure><img src="https://lh7-us.googleusercontent.com/TOb-rLhLfgOC7z_UBz8Lli9tL7DaSaBkJxHxuQT84PBCllFBpRSnlD4M2-Xf88Z1q24ISBXQDkdaGPVzP2SJGxCnB38eRHwyeo7E6CJ1xXUcyJV9HDJYW2zOpsm76QWoxA3DvNLKNtgHq7e5ySwOYw" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b9d85f390786ee55ae8ca0d4.png" alt=""><figcaption></figcaption></figure>
 
 It turned out to be successful, then all we need to do was disassemble the byte code with the dis library and convert the assembly to python code. Following are the disassembly results
 
@@ -369,6 +369,6 @@ Next, analyze the function and it is known that the core of the program code is 
 >>> hex(pow(c,d,n))[2:-1].decode('hex')
 ```
 
-<figure><img src="https://lh7-us.googleusercontent.com/bklhsHdVCdV5FkJCH0FAM7dnIqler3inelzAy7YOTVCEwMRc8DShBX_TZlm5VTpVaATnU1bU9MAWLL-KRSO61s31fS56OkX9L5Dq5yAmwucJGor0i9lfZdlqgFy9q7kgVxOF_qHwU4BjD8Q2iq8Ncg" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c26da7e97630c8869de864b6.png" alt=""><figcaption></figcaption></figure>
 
 Flag : MDT4.0{sekian\_lama\_kamu\_menunggu\_untuk\_kedatanganku}

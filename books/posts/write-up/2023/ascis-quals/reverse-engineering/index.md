@@ -19,11 +19,11 @@
 
 Given PE file, open it using IDA.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F0BDNE0GFDV0iXTlod7sa%2Fimage.png?alt=media&amp;token=67da3b69-39f6-414c-a337-2d481f589472" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/c0854d7e419ae727fe164d2b.png" alt=""><figcaption></figcaption></figure>
 
 We can see on main function most of the function called looks like "stripped". If we take a look on one of those called functions (sub\_140004d60) we can see that it looks like statically compiled then stripped.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FGJ1G0b5YKE9iTKlbmEvz%2Fimage.png?alt=media&amp;token=2c896047-51ef-495c-b4cb-8893b32224c0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/cc91574ad38af0255dfaedef.png" alt=""><figcaption></figcaption></figure>
 
 To recover the function name i did debugging then analyze the input and output. After knowing what the function do i rename the function name to make it easier to understand.
 
@@ -329,9 +329,9 @@ for i in range(len(byte_7FF661CE2BAC)):
 print("ASCIS{" + "-".join(flag) + "}")
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FEJu6BGNcUuAMTDRfEzQM%2Fimage.png?alt=media&amp;token=c89732c9-5144-4c15-8878-e7dcd23a4b88" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/073155b8ed7cc38651ed3c50.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FhaEhsPFcMcz9BpqQGFI7%2Fimage.png?alt=media&amp;token=edf32f62-0079-4e40-bfca-b2d0476cb75d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/7b8defd5dfdfbf1d6127ecd0.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ASCIS{829872-bccd38-3e2960-783f8d-63d824-32bc76}
 
@@ -345,27 +345,27 @@ Flag: ASCIS{829872-bccd38-3e2960-783f8d-63d824-32bc76}
 
 Given PE file, open it using IDA. IDA can't detect main function but there is start function.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FJ1pcMxH9XhsSmRFtVVTe%2Fimage.png?alt=media&amp;token=321e47cf-58f6-453a-815e-4516ed30cbde" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/28059210848d8bfb3323e912.png" alt=""><figcaption></figcaption></figure>
 
 Analyzing start function i can't find "main" function, so i tried to look at available strings.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FzexH7Oa8LutKsR5ZMC5m%2Fimage.png?alt=media&amp;token=dd68ac85-0f20-4be5-bb61-dbc382cf0d57" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/b09575916b48bc70eede9a40.png" alt=""><figcaption></figcaption></figure>
 
 Go to address for each reference, we will find out that the main function is sub\_7FF61CE8D7A0.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FiQTDKJuYTNXWAnbjve2u%2Fimage.png?alt=media&amp;token=350953c1-a5fd-4a7d-acf2-50de95914c5a" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/566a191799a51dfe7d6c1211.png" alt=""><figcaption></figcaption></figure>
 
 There is something weird on decompiled code (sub\_7FF61CE8B8E0).&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FNpRFWg8G64EssntXcDsQ%2Fimage.png?alt=media&amp;token=7302c327-ed46-43b9-93fa-7b0666b2d528" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/93c366f158c624244644dcc7.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FPSbguQH3ybzSC3tKgD7T%2Fimage.png?alt=media&amp;token=8588a88c-65ed-4c6a-8af6-09bfe7388ffe" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/f6519eca80253466a8586246.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F1wUNNcGqWSfWTY0APqFR%2Fimage.png?alt=media&amp;token=4900eb71-7d8b-4751-8e52-bde2fcb4b196" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/bddaca592393fbd4de2f8041.png" alt=""><figcaption></figcaption></figure>
 
 Through trial and error i found the solution, we can just put change the second call to nop then decompile again.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FZtQRmFN9Fd2E0oYMuh2O%2Fimage.png?alt=media&amp;token=134195e2-3110-40d6-82b0-04a3f14e8db5" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/31488021f78884350af4abc1.png" alt=""><figcaption></figcaption></figure>
 
 ```c
 int __fastcall __noreturn main_0(int argc, const char **argv, const char **envp)
@@ -494,13 +494,13 @@ LABEL_24:
 
 From above analysis we can conclude that we need to find input that return 1 for function unk\_14002D000. At first i tried to disassemble unk\_14002D000 and it looks like not a valid assembly.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FbEtEjpoybS5PJT5p9CfP%2Fimage.png?alt=media&amp;token=ae89a65c-91e4-40f9-b329-4dab11e181fc" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/023829fa71c7f7bc04d25834.png" alt=""><figcaption></figcaption></figure>
 
 So lets take a look on cross reference.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FwZEFCqtpNbKq2OMB48R1%2Fimage.png?alt=media&amp;token=2f1a88cb-5d31-4408-bd52-88e1e22bb65b" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/1aae2d8151dc2b1ade886c09.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FlPbDVjGgUYmAgolESHTu%2Fimage.png?alt=media&amp;token=42afae0f-f57e-4947-afd5-0576a53324c0" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/da17f87026a7a086b90e7513.png" alt=""><figcaption></figcaption></figure>
 
 Looks like it just basic xor, use idapython to automatically patch the values.
 
@@ -515,11 +515,11 @@ for i in range(0x7b):
 
 &#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2F6h5ucdhQTkZnZltl8p80%2Fimage.png?alt=media&amp;token=d8e8f9be-09e6-43ec-bcee-c5361b85b40d" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/2f1dbb9f70686af883838e04.png" alt=""><figcaption></figcaption></figure>
 
 Now it looks like valid assembly, lets decompile the code and rename known variables.&#x20;
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FR6vUoniUWWSzhOHUfz8P%2Fimage.png?alt=media&amp;token=6833adf6-ce96-4b2a-80db-ca135b5658e3" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/61139430ee9c42446ae994c8.png" alt=""><figcaption></figcaption></figure>
 
 * v9 = input - target
   * target\[v9] == target + input - target
@@ -556,10 +556,10 @@ for i in poss:
 print(key)
 ```
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2FpSVowNjrrOYLdCHSRjJd%2Fimage.png?alt=media&amp;token=d2bcbc1d-a5ec-459d-a95e-9c3c7e300f52" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/46e830885066a62d1153e4f2.png" alt=""><figcaption></figcaption></figure>
 
 Finally put the generated key to the service.
 
-<figure><img src="https://329253018-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FIYUhWFsdATjBxpgp6f6z%2Fuploads%2Fhq9N6RCTF7uMhB4wIg4V%2Fimage.png?alt=media&amp;token=1de79124-dcc5-499a-9fd8-29d84f6df395" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/e32c2a204ea17679ad8855fd.png" alt=""><figcaption></figcaption></figure>
 
 Flag: ASCIS{W3\_g0nn4\_m33t\_4t\_th3\_f1naL\_r0uND}
