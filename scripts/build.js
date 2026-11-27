@@ -24,7 +24,7 @@ const github = 'https://github.com/kos0ng'
 const twitter = 'https://x.com/_ryuk12345'
 const profiles = `<a href="${github}">GitHub ↗</a><a href="${twitter}">Twitter ↗</a>`
 const esc = md.utils.escapeHtml
-const team = (name, id) => `<a href="https://ctftime.org/team/${id}">@${name}</a>`
+const team = (name, id) => `<a href="https://ctftime.org/team/${id}">${name}</a>`
 const affiliations = `CTFs with ${team('idek', 157039)}, ${team('SKSD', 211952)}, ${team('HCS', 70159)}, and ${team('PwnSec', 28797)}.`
 const pages = []
 function collect(section, dir = '') {
