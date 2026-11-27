@@ -44,7 +44,7 @@ def save(job):
 
 if __name__ == '__main__':
     jobs = []
-    for book, section in [('ctfs', 'posts'), ('notes', 'shelves')]:
+    for book, section in [('ctfs', 'posts'), ('notes', 'notes')]:
         base = BASE + book
         xml = ET.fromstring(get(base + '/sitemap-pages.xml'))
         for loc in xml.findall('.//{*}loc'):

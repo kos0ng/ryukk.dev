@@ -1,4 +1,4 @@
-// Only dated write-ups go on the calendar. Keep other collections intact.
+// Dated write-ups and research notes go on the calendar. Other paths remain intact.
 // Nodes may have both a page and children: keep the overview link independent
 // of the disclosure so a click never has to both navigate and expand.
 const sectionNames = new Map([
@@ -16,12 +16,18 @@ function child(parent, key, label) {
   return parent.children.get(key)
 }
 
-export function postsTree(pages, esc) {
+const calendarPath = /^(?:write-up|research)\/(20\d\d)(?:\/|$)/
+
+export function isArchiveEntry({ dir }) {
+  const isYearOverview = calendarPath.test(dir) && dir.split('/').length === 2
+  return dir && dir !== 'introduction' && !isYearOverview
+}
+
+export function archiveTree(pages, esc) {
   const groups = new Map()
   for (const page of pages) {
     const parts = page.dir.split('/')
-    const year =
-      parts[0] === 'write-up' && /^20\d\d$/.test(parts[1]) ? parts[1] : ''
+    const year = page.dir.match(calendarPath)?.[1] || ''
     if (!groups.has(year)) groups.set(year, branch(year || 'Collections'))
     let node = groups.get(year)
     for (const part of year ? parts.slice(2) : parts) {
@@ -60,5 +66,5 @@ export function postsTree(pages, esc) {
     .sort()
     .reverse()
     .map((key, i) => render(groups.get(key), [], i === 0).html)
-  return `<ul class="posts-tree" id="entries">${sections.join('')}</ul>`
+  return `<ul class="archive-tree" id="entries">${sections.join('')}</ul>`
 }

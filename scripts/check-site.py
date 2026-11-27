@@ -24,7 +24,15 @@ public = Path('public')
 pages = {p: Page(p) for p in public.rglob('*.html')}
 sources = list(Path('books').rglob('index.md'))
 expected = {public / p.relative_to('books').with_suffix('.html') for p in sources}
-expected.update(public / p for p in ('index.html', 'posts/index.html', 'shelves/index.html'))
+expected.update(public / p for p in ('index.html', 'posts/index.html', 'notes/index.html'))
+# Static redirects exist on hosts that do not apply Netlify's HTTP redirects.
+for note in list(expected):
+    if note.is_relative_to(public / 'notes'):
+        alias = public / 'shelves' / note.relative_to(public / 'notes')
+        target = '/' + note.parent.relative_to(public).as_posix() + '/'
+        if alias not in pages or target not in pages[alias].links:
+            raise SystemExit(f'Missing redirect from {alias} to {target}')
+        expected.add(alias)
 if expected != pages.keys():
     raise SystemExit(f'Page inventory mismatch: {expected.symmetric_difference(pages)}')
 errors = []

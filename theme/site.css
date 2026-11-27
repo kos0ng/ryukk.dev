@@ -34,7 +34,6 @@ footer,
 .profiles,
 .section-title,
 .card small,
-.entries a,
 .crumb {
   display: flex;
   align-items: center;
@@ -60,8 +59,7 @@ a {
 }
 .brand,
 .bar a,
-.card,
-.entries a {
+.card {
   text-decoration: none;
 }
 a:hover {
@@ -183,14 +181,12 @@ h2 {
   box-shadow: 4px 4px #090a0e;
   color: var(--text);
 }
-.card:hover,
-.entries a:hover {
+.card:hover {
   background: #2a2931;
   text-decoration: none;
   border-color: var(--gold);
 }
-.card small,
-.entries a {
+.card small {
   justify-content: space-between;
 }
 .card h3 {
@@ -228,45 +224,24 @@ footer {
   border: 1px solid var(--edge);
   font: inherit;
 }
-.entries {
-  list-style: none;
-  padding: 0;
-}
-.entries a {
-  padding: 0.8rem 1rem;
-  border-bottom: 1px solid var(--edge);
-  color: var(--text);
-  gap: 1rem;
-}
-.entries strong,
-.entries small {
-  display: block;
-}
-.entries b {
-  color: var(--gold);
-}
-.entries small {
-  letter-spacing: 0.06em;
-  color: var(--muted);
-}
-.posts-tree,
-.posts-tree ul {
+.archive-tree,
+.archive-tree ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.posts-tree > li {
+.archive-tree > li {
   margin: 0.8rem 0;
   border: 1px solid var(--edge);
   border-left: 3px solid var(--gold);
   background: var(--panel);
 }
-.posts-tree details {
+.archive-tree details {
   padding: 0;
   border: none;
   background: transparent;
 }
-.posts-tree summary,
+.archive-tree summary,
 .tree-page {
   display: flex;
   align-items: baseline;
@@ -275,40 +250,40 @@ footer {
   padding: 0.6rem 0.8rem;
   overflow-wrap: anywhere;
 }
-.posts-tree summary {
+.archive-tree summary {
   list-style: none;
   cursor: pointer;
   font-weight: 650;
 }
-.posts-tree summary::-webkit-details-marker {
+.archive-tree summary::-webkit-details-marker {
   display: none;
 }
-.posts-tree summary::before {
+.archive-tree summary::before {
   content: '+';
   color: var(--gold);
   font: 700 1rem var(--mono);
 }
-.posts-tree details[open] > summary::before {
+.archive-tree details[open] > summary::before {
   content: '−';
 }
-.posts-tree > li > details > summary {
+.archive-tree > li > details > summary {
   font: 700 1.4rem var(--mono);
   padding: 1rem;
 }
-.posts-tree summary small {
+.archive-tree summary small {
   margin-left: auto;
   white-space: nowrap;
   color: var(--muted);
 }
-.posts-tree ul {
+.archive-tree ul {
   margin: 0 clamp(0.3rem, 1vw, 1rem) 0.6rem clamp(0.65rem, 2vw, 1.7rem);
   border-left: 1px solid var(--edge);
 }
-.posts-tree summary:hover,
+.archive-tree summary:hover,
 .tree-page:hover {
   background: #2c2c35;
 }
-.posts-tree summary:focus-visible {
+.archive-tree summary:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: -3px;
 }

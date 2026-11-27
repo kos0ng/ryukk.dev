@@ -1,4 +1,4 @@
-const tree = document.querySelector('.posts-tree')
+const tree = document.querySelector('.archive-tree')
 const field = document.querySelector('.filter')
 const pages = [...tree.querySelectorAll('[data-search]')]
 const folders = [...tree.querySelectorAll('details')]
@@ -41,5 +41,5 @@ field.querySelector('input').addEventListener('input', (event) => {
   for (const folder of folders) folder.open = visible.has(folder.parentElement)
   count.textContent = matches
     ? `${matches} matching ${matches === 1 ? 'page' : 'pages'}`
-    : 'No matches. Try another year, event or category.'
+    : 'No matches. Try another year, title or topic.'
 })

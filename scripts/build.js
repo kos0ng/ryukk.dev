@@ -7,17 +7,17 @@ import {
   writeFileSync,
 } from 'node:fs'
 import { dirname, join } from 'node:path'
-import { postsTree } from './posts-tree.js'
+import { archiveTree, isArchiveEntry } from './archive-tree.js'
 import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 
 const md = MarkdownIt({ html: true, linkify: false })
-const labels = { posts: 'Posts', shelves: 'Notes' }
-const books = { posts: 'ctfs', shelves: 'notes' }
+const labels = { posts: 'Posts', notes: 'Notes' }
+const books = { posts: 'ctfs', notes: 'notes' }
 const descriptions = {
   posts:
     'Explore CTF write-ups by year, then open a competition to find its challenges.',
-  shelves: 'Research notes on reverse engineering, software and security.',
+  notes: 'Research notes on reverse engineering, software and security.',
 }
 const github = 'https://github.com/kos0ng'
 const linkedin =
@@ -25,7 +25,6 @@ const linkedin =
 const profiles = `<a href="${github}">GitHub ↗</a><a href="${linkedin}">LinkedIn ↗</a>`
 const esc = md.utils.escapeHtml
 const pages = []
-const pretty = (s) => s.replaceAll('-', ' ')
 function collect(section, dir = '') {
   for (const file of readdirSync(join('books', section, dir), {
     withFileTypes: true,
@@ -59,13 +58,7 @@ for (const [section, book] of Object.entries(books)) {
 }
 const entries = (section) =>
   pages
-    .filter((p) => p.section === section && p.dir)
-    // Navigation only: keep the imported pages available at their original URLs.
-    .filter(
-      (p) =>
-        section !== 'posts' ||
-        (p.dir !== 'introduction' && !/^write-up\/20\d\d$/.test(p.dir))
-    )
+    .filter((p) => p.section === section && isArchiveEntry(p))
     .sort((a, b) => {
       const year = (p) =>
         Number(p.dir.match(/(?:^|\/)(20\d\d)(?:\/|$)/)?.[1] || 0)
@@ -202,6 +195,20 @@ function emit(url, title, body, section = '') {
   const file = join('public', url, 'index.html')
   mkdirSync(dirname(file), { recursive: true })
   writeFileSync(file, html)
+  // Netlify serves HTTP redirects. Keep old bookmarks working on plain static
+  // hosts and the local preview too, including search parameters and anchors.
+  if (section === 'notes') {
+    const alias = join(
+      'public',
+      url.replace(/^\/notes\//, '/shelves/'),
+      'index.html'
+    )
+    mkdirSync(dirname(alias), { recursive: true })
+    writeFileSync(
+      alias,
+      `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved to Notes</title><meta name="robots" content="noindex"><link rel="canonical" href="${esc(url)}"><script>location.replace(document.querySelector('[rel=canonical]').href + location.search + location.hash)</script><meta http-equiv="refresh" content="0;url=${esc(url)}"></head><body><a href="${esc(url)}">Continue to Notes</a></body></html>`
+    )
+  }
 }
 function card(k, i) {
   return `<a class="card" href="/${k}/"><small>VOLUME 0${i + 1} <b>↗</b></small><h3>${labels[k]}</h3><p>${descriptions[k]}</p><strong>${entries(k).length} entries →</strong></a>`
@@ -213,19 +220,11 @@ emit(
 )
 for (const [section, label] of Object.entries(labels)) {
   const items = entries(section)
-  const tree = section === 'posts'
-  const archive = tree
-    ? postsTree(items, esc)
-    : `<ul class="entries" id="entries">${items
-        .map(
-          (p) =>
-            `<li><a href="${p.url}"><div><small>${esc(p.dir.split('/').slice(0, -1).map(pretty).join(' / '))}</small><strong>${esc(p.title)}</strong></div><b aria-hidden="true">→</b></a></li>`
-        )
-        .join('')}</ul>`
+  const archive = archiveTree(items, esc)
   emit(
     `/${section}/`,
     label,
-    `<small>FIELD ARCHIVE / ${section === 'posts' ? '01' : '02'}</small><h1>${label}</h1><p>${descriptions[section]}</p><label class="filter" hidden>Filter ${label.toLowerCase()}<input type="search" placeholder="Type a year, title or topic…" aria-controls="entries"></label><p id="count" aria-live="polite">${items.length} entries</p>${archive}<script src="/${tree ? 'tree-filter' : 'filter'}.js" defer></script>`,
+    `<small>FIELD ARCHIVE / ${section === 'posts' ? '01' : '02'}</small><h1>${label}</h1><p>${descriptions[section]}</p><label class="filter" hidden>Filter ${label.toLowerCase()}<input type="search" placeholder="Type a year, title or topic…" aria-controls="entries"></label><p id="count" aria-live="polite">${items.length} entries</p>${archive}<script src="/tree-filter.js" defer></script>`,
     section
   )
 }

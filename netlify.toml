@@ -4,3 +4,15 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+[[redirects]]
+  from = "/shelves"
+  to = "/notes/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shelves/*"
+  to = "/notes/:splat"
+  status = 301
+  force = true
