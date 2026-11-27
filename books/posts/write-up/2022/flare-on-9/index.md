@@ -1,7 +1,7 @@
 # Flare-On 9
 
 {% hint style="info" %}
-Participated as kosong. Placed 278th worldwide.
+Participated as ryuk. Placed 278th worldwide.
 {% endhint %}
 
 [Official Hall of Fame](https://flare-on.com/2022.html)
