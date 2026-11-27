@@ -19,8 +19,10 @@
 We have `p = 2*q + 1`, so&#x20;
 
 $$
+\begin{gathered}
 p*q = 2*q^2 + q\\
-\frac{p\*q}{2} = q^2 + \frac{q}{2}
+\frac{p*q}{2} = q^2 + \frac{q}{2}
+\end{gathered}
 $$
 
 With those equation , we can get number close with `q` by doing integer square root on `(p*q)/2` . Here is implemented script i used
@@ -227,24 +229,30 @@ r.interactive()
 We know that r\*d is static, d is generated at initial run and r is calculated from k and G which is generated at initial run also. By using two different message we have
 
 $$
-s\_1 = (h(m\_1) + r*d) \* k^{-1}\\
-s\_2 = (h(m\_2) + r*d) \* k^{-1}\\
-s\_1 - s\_2 = (h(m\_1) - h(m\_2)) \* k^{-1}
+\begin{gathered}
+s_1 = (h(m_1) + r*d) * k^{-1}\\
+s_2 = (h(m_2) + r*d) * k^{-1}\\
+s_1 - s_2 = (h(m_1) - h(m_2)) * k^{-1}
+\end{gathered}
 $$
 
 Since we can get value of h(m1) and h(m2) we can leak k using equation below
 
 $$
-(s\_1 - s\_2)^{-1} = (h(m\_1) - h(m\_2))^{-1} \* k\\
-k = (h(m\_1) - h(m\_2)) \* (s\_1 - s\_2 )^{-1}
+\begin{gathered}
+(s_1 - s_2)^{-1} = (h(m_1) - h(m_2))^{-1} * k\\
+k = (h(m_1) - h(m_2)) * (s_1 - s_2 )^{-1}
+\end{gathered}
 $$
 
 After getting value for k , we can get value for other unknown value which is d. To get value of d we can use equation below
 
 $$
-s\_1 = (h(m\_1) + r*d) \* k^{-1}\\
-s\_1 \* k = (h(m\_1) + r*d)\\
-s\_1 \* k - h(m\_1) \* r^{-1} = d\\
+\begin{gathered}
+s_1 = (h(m_1) + r*d) * k^{-1}\\
+s_1 * k = (h(m_1) + r*d)\\
+s_1 * k - h(m_1) * r^{-1} = d
+\end{gathered}
 $$
 
 Last step just sign new value using leaked value. Here is solver i used during competition

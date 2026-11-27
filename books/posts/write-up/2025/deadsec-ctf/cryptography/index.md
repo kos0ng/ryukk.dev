@@ -61,14 +61,16 @@ Because we can control the plaintext and in above example plaintext length is 15
 In this challenge, our input are passed to RSA decryption and there is no secret or flag added to our input. But, because we have the ciphertext (RSA) of flag we can implicitly add "flag" and plaintext to AES encryption oracle by utilizing its homomorphic property. Example
 
 $$
-c\_1 = m\_1^e \bmod n \\
-c\_2 = (m\_1\*m\_2)^e \bmod n
+\begin{gathered}
+c_1 = m_1^e \bmod n \\
+c_2 = (m_1*m_2)^e \bmod n
+\end{gathered}
 $$
 
 To create c2 we dont need to know m1 value because we can do the following equation
 
 $$
-c\_2 \equiv c\_1 \* (m\_2 ^ e) \bmod n
+c_2 \equiv c_1 * (m_2 ^ e) \bmod n
 $$
 
 Then, what should be the value of m2? because we want the decryption result of RSA still contains the valid flag we can do null padding, such as from "A" become "A\x00". Null padding basically multiply a value with 256^i for i = padding length. So if we pad the flag with null padding it will append data after the flag or it becomes different with first example to leak the flag which controlled plaintext become a prefix not the suffix.&#x20;

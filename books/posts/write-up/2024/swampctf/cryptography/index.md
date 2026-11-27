@@ -83,8 +83,10 @@ elif choice == "decrypt":
 We can leak 1000 bytes last seed by xor last 1000 bytes ciphertext with 0x41. Because a, c, and modulus only 1 byte (1-256) it is possible to do bruteforce (total 3 bytes). After getting valid a,c, and modulus value just reverse the flow to get previous seed.&#x20;
 
 $$
-s\_i = (a \* s\_{i-1} + c) \bmod m\\
-s\_{i-1} = ((s\_i - c)\*a^{-1}) \bmod m
+\begin{gathered}
+s_i = (a * s_{i-1} + c) \bmod m\\
+s_{i-1} = ((s_i - c)*a^{-1}) \bmod m
+\end{gathered}
 $$
 
 Here is my solver
@@ -176,8 +178,10 @@ with open('out.txt', 'w') as fout:
 So the idea is finding m^e by removing the padding. Because the padded m is m\*256^i we can remove the padding by doing multiplication inverse with 256^-i. After that just do nthroot.
 
 $$
-ct = (m\*256^i)^e \bmod n\\
-ct \* (256^{-i})^e = m^e \bmod n
+\begin{gathered}
+ct = (m*256^i)^e \bmod n\\
+ct * (256^{-i})^e = m^e \bmod n
+\end{gathered}
 $$
 
 Here is my solver

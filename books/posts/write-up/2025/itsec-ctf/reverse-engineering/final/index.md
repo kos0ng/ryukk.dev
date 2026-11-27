@@ -1610,13 +1610,13 @@ console.log(result);
 Last, we just need reverse the process. One round looping can be written as following equation
 
 $$
-y\_{bits} = x\_{bits} \oplus ROTR1(x\_{bits}) \oplus k\_{bits}
+y_{bits} = x_{bits} \oplus ROTR1(x_{bits}) \oplus k_{bits}
 $$
 
 With x is our input each round, y is output each round, and k is key. Our target is recovering x value, so let's `eliminate` k first
 
 $$
-y\_{bits}  \oplus k\_{bits} = x\_{bits} \oplus ROTR1(x\_{bits})
+y_{bits}  \oplus k_{bits} = x_{bits} \oplus ROTR1(x_{bits})
 $$
 
 Now only left operation on x, because the operation is xoring with rotate right 1 bit, basically by choosing the first bit we can generate the rest bit and only two values are possible which is 0 or 1. Example

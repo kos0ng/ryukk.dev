@@ -33,24 +33,30 @@ print(f"{f1=}\n{f2=}\n{f3=}")
 So we have equation below
 
 $$
+\begin{gathered}
 f1 = axy + bx - cy + ab\\
 f2 = axy - abx + cy - abc\\
-f3 = axy + abx - by + ac\\
+f3 = axy + abx - by + ac
+\end{gathered}
 $$
 
 So basically we need to recover `x` and `y` and we know `a`, `b`, and `c`. The idea i used to solve the challenge is by eliminating the variable. Here is the proof
 
 $$
+\begin{gathered}
 f1 - f2 = kx - ly + d\\
-f2 - f3 = mx - ny + e\\
+f2 - f3 = mx - ny + e
+\end{gathered}
 $$
 
 Variables `k`, `m`, `l`, `n`, `d`, and `e` are known so the next step is by doing `lcm` on one of the coefficent on `x` or `y`. After that just eliminate the variable and back to modulus part. For example i eliminate variable `x` so now we need to work only with variable y and some known constant which are `k`, `d`, and `e`.
 
 $$
+\begin{gathered}
 k*y - d  = e \bmod p\\
 k*y = e + d \bmod p\\
-y = (e + d)\*k^{-1} \bmod p
+y = (e + d)*k^{-1} \bmod p
+\end{gathered}
 $$
 
 After getting `y` next we just need to substitute `y` and one of initial equation to get `x`. To get flag we just need to inverse the `x` then multiply with `y`. Here is script i used to solve the challenge
@@ -165,27 +171,32 @@ while True:
 So we can recover the flag by utilizing 2 pair of signature. First we need to substract `s2` on each pair
 
 $$
-S\_{21} = (M\_1 - a*S\_1) \* k^{-1}\\
-S\_{22} = (M\_2 - a*S\_1) \* k^{-1}\\
-S\_{21} - S\_{22} = (M\_1 - M\_2) \* k^{-1}
+\begin{gathered}
+S_{21} = (M_1 - a*S_1) * k^{-1}\\
+S_{22} = (M_2 - a*S_1) * k^{-1}\\
+S_{21} - S_{22} = (M_1 - M_2) * k^{-1}
+\end{gathered}
 $$
 
 Since we know values of `M1` and `M2` we can eliminate it to get `k`
 
 $$
-(S\_{21} - S\_{22})^{-1} = (M\_1 - M\_2) \* k\\
-k = (M\_1 - M\_2) \* (S\_{21} - S\_{22})^{-1}
+\begin{gathered}
+(S_{21} - S_{22})^{-1} = (M_1 - M_2) * k\\
+k = (M_1 - M_2) * (S_{21} - S_{22})^{-1}
+\end{gathered}
 $$
 
 After getting `k` now we can recover `a` by doing equation below
 
 $$
-(M\_1 - a*S\_1) \* k^{-1} = S\_2\\
-(M\_1 - a*S\_1) = S\_2 \* k\\
-a\*S\_1 = (S\_2 \* k) - M\_1\\
-
-* a = ((S\_2 \* k) - M\_1) \* S\_1^{-1}\\
-  -1 \* -a = - (((S\_2 \* k) - M\_1) \* S\_1^{-1})
+\begin{gathered}
+(M_1 - a*S_1) * k^{-1} = S_2\\
+(M_1 - a*S_1) = S_2 * k\\
+a*S_1 = (S_2 * k) - M_1\\
+- a = ((S_2 * k) - M_1) * S_1^{-1}\\
+-1 * -a = - (((S_2 * k) - M_1) * S_1^{-1})
+\end{gathered}
   $$
 
 But since there is chance that `s1` and `k` are not coprime with `p-1` we can still get the flag by repeating request until get the flag. Here is script i used to solve the challenge

@@ -9,10 +9,11 @@ import {
 import { dirname, join } from 'node:path'
 import { archiveTree, isArchiveEntry } from './archive-tree.js'
 import { highlightCode } from './highlight-code.js'
+import { archiveMath, mathSlots } from './math.js'
 import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 
-const md = MarkdownIt({ html: true, linkify: false })
+const md = MarkdownIt({ html: true, linkify: false }).use(archiveMath)
 const labels = { posts: 'Posts', notes: 'Notes' }
 const books = { posts: 'ctfs', notes: 'notes' }
 const descriptions = {
@@ -110,7 +111,8 @@ function article(p) {
     })
     .join('\n')
     .replace(/^# .+\n/m, '')
-  const tokens = md.parse(markdown, {})
+  const env = { math: mathSlots(p.url) }
+  const tokens = md.parse(markdown, env)
   const used = new Set()
   tokens.forEach((t, i) => {
     if (t.type !== 'heading_open') return
@@ -147,7 +149,7 @@ function article(p) {
     if (matches.length === 1) return '#' + matches[0]
     return used.has(oldTargets[slug]) ? '#' + oldTargets[slug] : href
   }
-  return sanitize(md.renderer.render(tokens, md.options, {}), {
+  const safe = sanitize(md.renderer.render(tokens, md.options, env), {
     allowedTags: [
       ...sanitize.defaults.allowedTags,
       'img',
@@ -181,18 +183,24 @@ function article(p) {
       img: sanitize.simpleTransform('img', { loading: 'lazy' }),
     },
   })
+  return env.math.restore(highlightCode(safe))
 }
 rmSync('public', { recursive: true, force: true })
 cpSync('theme', 'public', { recursive: true })
 const tokenTheme = new URL(
   import.meta.resolve('highlight.js/styles/tokyo-night-dark.css')
 )
+const mathTheme = new URL(import.meta.resolve('katex/dist/katex.min.css'))
+mkdirSync('public/katex', { recursive: true })
+cpSync(mathTheme, 'public/katex/katex.min.css')
+cpSync(new URL('fonts/', mathTheme), 'public/katex/fonts', { recursive: true })
+cpSync(new URL('../LICENSE', mathTheme), 'public/katex/LICENSE')
 cpSync(tokenTheme, 'public/tokyo-night-dark.css')
 cpSync(new URL('../LICENSE', tokenTheme), 'public/highlight-js-LICENSE.txt')
 function emit(url, title, body, section = '') {
   const nav = (href, text, current) =>
     `<a href="${href}"${current ? ' aria-current="' + (href === url ? 'page' : 'location') + '"' : ''}>${text}</a>`
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#15161d"><title>${esc(title)} · ryukk.dev</title><link rel="icon" type="image/svg+xml" sizes="any" href="/zenitsu-face.svg"><link rel="stylesheet" href="/tokyo-night-dark.css"><link rel="stylesheet" href="/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="bar"><a class="brand" href="/"><img src="/zenitsu-face.svg" alt="" width="48" height="48"> ryukk<span>.dev</span></a><nav aria-label="Primary">${nav('/', 'Home', url === '/')}${Object.keys(
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#15161d"><title>${esc(title)} · ryukk.dev</title><link rel="icon" type="image/svg+xml" sizes="any" href="/zenitsu-face.svg"><link rel="stylesheet" href="/tokyo-night-dark.css">${body.includes('<span class="katex') ? '<link rel="stylesheet" href="/katex/katex.min.css">' : ''}<link rel="stylesheet" href="/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="bar"><a class="brand" href="/"><img src="/zenitsu-face.svg" alt="" width="48" height="48"> ryukk<span>.dev</span></a><nav aria-label="Primary">${nav('/', 'Home', url === '/')}${Object.keys(
     labels
   )
     .map((k) => nav('/' + k + '/', labels[k], section === k))
@@ -251,7 +259,7 @@ for (const p of pages.filter((p) => p.dir)) {
   emit(
     p.url,
     p.title,
-    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article><small>${labels[p.section].toUpperCase()} / FIELD NOTES</small><h1>${esc(p.title)}</h1>${highlightCode(article(p))}</article>`,
+    `<nav class="crumb" aria-label="Breadcrumb">${crumbs.join(' / ')}</nav><article><small>${labels[p.section].toUpperCase()} / FIELD NOTES</small><h1>${esc(p.title)}</h1>${article(p)}</article>`,
     p.section
   )
 }

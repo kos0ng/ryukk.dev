@@ -939,22 +939,26 @@ print("d",inverse(e, phi), phi % e) # d 1 0
 Because of that, we need to check that which factor of phi can be `divided` by e and we found that q-1 is divided e. So the idea constructing m by only utilizing factor p and r
 
 $$
-d\_p \equiv e^{-1} \pmod{p-1}, \quad
-d\_r \equiv e^{-1} \pmod{r-1}\\
+d_p \equiv e^{-1} \pmod{p-1}, \quad
+d_r \equiv e^{-1} \pmod{r-1}
 $$
 
 Then compute `mp` and `mr`
 
 $$
-m\_p \equiv c^{d\_p} \pmod{p}\\
-m\_r \equiv c^{d\_r} \pmod{r}
+\begin{gathered}
+m_p \equiv c^{d_p} \pmod{p}\\
+m_r \equiv c^{d_r} \pmod{r}
+\end{gathered}
 $$
 
 And we can construct m using `CRT`
 
 $$
-m \equiv m\_p \pmod{p}\\
-m \equiv m\_r \pmod{r}
+\begin{gathered}
+m \equiv m_p \pmod{p}\\
+m \equiv m_r \pmod{r}
+\end{gathered}
 $$
 
 Following is our final script to solve the challenge

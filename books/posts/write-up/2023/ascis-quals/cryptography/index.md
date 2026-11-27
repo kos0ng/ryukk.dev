@@ -47,16 +47,20 @@ What we have:
 We can get p and q by utilizing phi and n
 
 $$
+\begin{gathered}
 (p-1)(q-1) = pq - p - q + 1\\
 (p-1)(q-1) = n - (p + q) + 1\\
 p + q = n - phi + 1
+\end{gathered}
 $$
 
 After getting p+q we can put it on quadratic equation
 
 $$
+\begin{gathered}
 x^2 - bx + c = 0\\
 x^2 - (p+q)x + pq = 0
+\end{gathered}
 $$
 
 Finally, with asumption that m < p, we can decrypt it by only using p.

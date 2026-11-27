@@ -5,6 +5,8 @@ import re
 import html
 from urllib.parse import urlparse, parse_qs
 import subprocess
+from functools import cache
+from gitbook_math import restore_equations
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1] / 'books'
@@ -15,13 +17,13 @@ def get(url):
     return subprocess.check_output(['curl', '-fsSL', '--retry', '3', '--max-time', '60', url]).decode()
 
 
-def fix_images(md, url):
+def fix_images(md, url, load_html):
     # Some exports use opaque /files/ IDs. The public reader exposes the real
     # storage URLs in the same sequence as the exported figures.
     if 'src="/files/' not in md:
         return md
     figures = list(re.finditer(r'<figure>\s*<img src="([^"]+)"', md))
-    tags = re.findall(r'<img [^>]*data-testid="zoom-image"[^>]*>', get(url))
+    tags = re.findall(r'<img [^>]*data-testid="zoom-image"[^>]*>', load_html())
     if len(tags) != len(figures):
         raise ValueError('Cannot match exported figures: ' + url)
     for match, tag in reversed(list(zip(figures, tags))):
@@ -39,7 +41,12 @@ def save(job):
     if md.startswith('# Page Not Found') or not re.search(r'^# .+', md, re.M):
         raise ValueError('Invalid Markdown: ' + url)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(fix_images(md, url), encoding='utf8')
+    @cache
+    def load_html():
+        return get(url)
+
+    md = restore_equations(md, load_html, url)
+    path.write_text(fix_images(md, url, load_html), encoding='utf8')
 
 
 if __name__ == '__main__':

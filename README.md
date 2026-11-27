@@ -16,6 +16,10 @@ After building, run `python3 scripts/check-site.py` to verify that every Markdow
 - The collection roots serve searchable indexes. Each book’s introduction and other Markdown pages retain their source paths. Images and downloads remain hosted at their original URLs.
 - `theme/` contains the pixel landscape, palette, typography and optional archive filter. The full archive is navigable without JavaScript. Language-tagged code blocks are highlighted at build time with Highlight.js and its Tokyo Night Dark theme; unlabelled or unsupported languages stay plain text.
 
+## Writing equations
+
+Use `$x_i$` or `\(x_i\)` for inline math. Put display equations between `$$` lines, `\[...\]`, or in a fenced `math` block. For multiple rows, use a `gathered` or `aligned` environment. KaTeX renders HTML and accessible MathML during the build; styles and fonts are served locally, with no browser JavaScript required. Invalid TeX stops the build and identifies the affected page. On import, display equations are recovered from GitBook’s original TeX annotations rather than its Markdown-escaped version.
+
 ## License
 
 The original site code was distributed under the [MIT License](LICENSE). Imported write-ups, images and linked materials retain their respective ownership.

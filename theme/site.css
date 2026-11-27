@@ -328,6 +328,14 @@ article h3 {
 article h2 {
   font-size: 1.8rem;
 }
+article .katex-display {
+  overflow-x: auto;
+  padding: 0.4em 0;
+}
+article .katex-display > .katex {
+  width: max-content;
+  min-width: 100%;
+}
 article img {
   max-width: 100%;
   height: auto;

@@ -46,9 +46,11 @@ Each valid OTP will give us the encrypted version of flag which is m^e mod n\_i,
 To get the modulus, we can do the following equation
 
 $$
-c\_i \equiv m\_i^e\pmod n\\
-c\_i - m\_i^e \equiv 0 \pmod n\\
-c\_i - m\_i^e = k\*n
+\begin{gathered}
+c_i \equiv m_i^e\pmod n\\
+c_i - m_i^e \equiv 0 \pmod n\\
+c_i - m_i^e = k*n
+\end{gathered}
 $$
 
 Next, by using two different ciphertext and plaintext we can recover the modulus by implementing GCD to those values. Following is my script to solve the challenge
@@ -612,7 +614,7 @@ while True:
 The different with previous version is the signed OTP is shifted right 65 bit so we can't recover modulus using the same equations. But in this case we can use approximate GCD to recover the modulus with r\_i is 65 bit.
 
 $$
-m\_i^e - (c\_i << 65) + r\_i= k\*n\\
+m_i^e - (c_i << 65) + r_i= k*n
 $$
 
 ```python
