@@ -7,7 +7,7 @@ import { promisify } from 'node:util'
 import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 import { indexHeadings } from './table-of-contents.js'
-import { imageAttributes, imageLayout } from './image-layout.js'
+import { imageAttributes, imageLayout, markdownImageLayout } from './image-layout.js'
 import { highlightCode } from './highlight-code.js'
 import { seal } from '../theme/note-crypto.js'
 
@@ -15,7 +15,7 @@ const [source, output] = process.argv.slice(2)
 if (!source || !output || process.stdin.isTTY) throw Error('Pass the Markdown and output paths; supply the password on stdin, not as an argument.')
 const password = readFileSync(0, 'utf8').replace(/\r?\n$/, '')
 if (!password || /[\r\n]/.test(password)) throw Error('Expected one non-empty passphrase on stdin')
-const md = MarkdownIt({ html: true })
+const md = MarkdownIt({ html: true }).use(markdownImageLayout)
 const env = {}
 const tokens = md.parse(readFileSync(source, 'utf8'), env)
 indexHeadings(tokens)

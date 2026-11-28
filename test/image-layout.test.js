@@ -22,6 +22,18 @@ test('resolve named sizes; no implicit width on original or ordinary inline imag
   assert.match(render('Before ![inline](a.png) after'), /Before <img[^>]*> after/)
 })
 
+test('standalone Markdown image layouts work without altering prose, code, or invalid suffixes', () => {
+  for (const [align, size, width] of [['left', 'small', 188], ['center', 'medium', 375], ['right', 'big', 563]]) {
+    const html = render(`![Details](a.png){align=${align} size=${size}}`)
+    assert.ok(html.includes(`<figure align="${align}">`) && html.includes(`width="${width}"`))
+    assert.doesNotMatch(html, /\{align=/)
+  }
+  assert.match(render('![Details](a.png){width=420}'), /width="420"/)
+  for (const source of ['Before ![a](a.png){align=left}', '![a](a.png){align=bad}', '`![a](a.png){align=left}`']) {
+    assert.doesNotMatch(render(source), /<figure/)
+  }
+})
+
 test('reject arbitrary styling, unknown presets, bad widths and alignment', () => {
   assert.doesNotMatch(render('<div align="justify"><figure style="color:red"><img src="a.png" style="width:300vw" width="80vw" data-size="huge" onload="noop()"></figure></div>'), /(?:align|style|width|data-size|onload)=/)
 })

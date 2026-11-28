@@ -1,11 +1,11 @@
-import { imageAttributes, imageLayout } from './image-layout.js'
+import { imageAttributes, imageLayout, markdownImageLayout } from './image-layout.js'
 import { highlightCode } from './highlight-code.js'
 import { archiveMath, mathSlots } from './math.js'
 import { indexHeadings, tableOfContents } from './table-of-contents.js'
 import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 
-const md = MarkdownIt({ html: true, linkify: false }).use(archiveMath)
+const md = MarkdownIt({ html: true, linkify: false }).use(archiveMath).use(markdownImageLayout)
 
 export function article(p, { sourceMap = false } = {}) {
   // GitBook's layout directives are not standard Markdown. Leave code fences untouched.

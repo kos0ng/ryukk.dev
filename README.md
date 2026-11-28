@@ -24,7 +24,17 @@ To connect `ryukk.dev` later, verify domain ownership in your GitHub account’s
 
 ## Image size and alignment
 
-For an inline image, use `![Description](images/filename.png)`. For a centered screenshot, a caption, or a specific size, put a GitBook-style HTML figure in the article’s **Markdown**, with a blank line before and after it:
+For an inline image, use `![Description](images/filename.png)`. To position or resize a standalone image, append this blog’s optional Markdown layout suffix. Separate each image from surrounding text with blank lines:
+
+```md
+![Login screen](images/login.png){align=left size=small}
+
+![Settings dialog](images/settings.png){align=center size=medium}
+
+![Dashboard](images/dashboard.png){align=right size=big}
+```
+
+Use `width=420` instead of `size=medium` for an exact pixel width. Standard Markdown readers may show the suffix as text. Imported GitBook HTML also works, including captions:
 
 ```html
 <div align="right"><figure><img src="images/screenshot.png" alt="Settings dialog" width="375"><figcaption>Settings before saving.</figcaption></figure></div>
