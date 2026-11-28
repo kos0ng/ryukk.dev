@@ -7,6 +7,7 @@ import { promisify } from 'node:util'
 import MarkdownIt from 'markdown-it'
 import sanitize from 'sanitize-html'
 import { indexHeadings } from './table-of-contents.js'
+import { imageAttributes, imageLayout } from './image-layout.js'
 import { highlightCode } from './highlight-code.js'
 import { seal } from '../theme/note-crypto.js'
 
@@ -21,13 +22,13 @@ indexHeadings(tokens)
 const sources = new Map()
 const html = highlightCode(sanitize(md.renderer.render(tokens, md.options, env), {
   allowedTags: [...sanitize.defaults.allowedTags, 'img', 'figure', 'figcaption', 'details', 'summary', 'kbd', 'del', 'mark'],
-  allowedAttributes: { a: ['href'], img: ['src', 'alt', 'loading'], code: ['class'], ol: ['start'],
+  allowedAttributes: { a: ['href'], ...imageAttributes, code: ['class'], ol: ['start'],
     ...Object.fromEntries(['h1','h2','h3','h4','h5','h6'].map(tag => [tag, ['id']])) },
   allowedSchemes: ['https', 'http', 'mailto'],
   transformTags: { img: (_, a) => {
     if (!a.src) throw Error('Private image without a source')
     if (!sources.has(a.src)) sources.set(a.src, sources.size)
-    return { tagName: 'img', attribs: { src: `private-media/${sources.get(a.src)}`, alt: a.alt || '', loading: 'lazy' } }
+    return { tagName: 'img', attribs: { src: `private-media/${sources.get(a.src)}`, alt: a.alt || '', loading: 'lazy', ...imageLayout(a) } }
   } },
 }))
 const curl = promisify(execFile)

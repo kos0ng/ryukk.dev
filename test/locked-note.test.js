@@ -13,7 +13,7 @@ test('sealed Markdown and images are authenticated, private, and rendered withou
   try {
     const source = join(dir, 'private.md'), out = join(dir, 'note.locked')
     const secret = randomBytes(24).toString('hex'), text = 'private-' + randomBytes(16).toString('hex')
-    writeFileSync(source, `# Private example\n\n${text}\n\n![Example](a.png)\n\n<script>alert(1)</script>\n`)
+    writeFileSync(source, `# Private example\n\n${text}\n\n![Example](a.png)\n\n<div align="right"><figure><img src="a.png" alt="Detail" width="307"></figure></div>\n\n<script>alert(1)</script>\n`)
     writeFileSync(join(dir, 'a.png'), Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a3XkAAAAASUVORK5CYII=', 'base64'))
     const result = spawnSync(process.execPath, ['scripts/seal-note.js', source, out], { input: secret })
     assert.equal(result.status, 0, result.stderr.toString())
@@ -21,6 +21,7 @@ test('sealed Markdown and images are authenticated, private, and rendered withou
     assert.ok(!sealed.includes(secret) && !sealed.includes(text))
     const html = gunzipSync(Buffer.from(await unseal(secret, sealed))).toString()
     assert.ok(html.includes(text) && html.includes('src="data:image/png;base64,'))
+    assert.match(html, /<div align="right"><figure><img src="data:image\/png;base64,[^"]+" alt="Detail" loading="lazy" width="307"/)
     assert.doesNotMatch(html, /<script|src="a\.png"/)
     await assert.rejects(unseal('incorrect', sealed))
     sealed[sealed.length - 1] ^= 1

@@ -566,8 +566,13 @@ article img {
   max-width: 100%;
   height: auto;
 }
-figure {
+/* GitBook block images default to centered; an explicit wrapper or figure wins. */
+article [align='left'] { --figure-align: left; }
+article [align='center'] { --figure-align: center; }
+article [align='right'] { --figure-align: right; }
+article figure {
   margin: 1.4rem 0;
+  text-align: var(--figure-align, center);
 }
 figcaption {
   color: var(--muted);

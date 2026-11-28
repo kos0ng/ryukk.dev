@@ -22,6 +22,18 @@ To connect `ryukk.dev` later, verify domain ownership in your GitHub account’s
 - The collection roots serve searchable indexes. The retired `/posts/introduction/`, `/notes/introduction/`, and `/shelves/introduction/` URLs redirect to their respective archives. Article images are versioned in an `images/` folder beside their `index.md` and copied byte-for-byte into the published page directory. To add an image, save it there and use `![Description](images/filename.png)`. Outbound citations and third-party download links remain external.
 - `theme/` contains the pixel landscape, palette, typography and optional archive filter. The full archive is navigable without JavaScript. Language-tagged code blocks are highlighted at build time with Highlight.js and its Tokyo Night Dark theme; unlabelled or unsupported languages stay plain text.
 
+## Image size and alignment
+
+For an inline image, use `![Description](images/filename.png)`. For a centered screenshot, a caption, or a specific size, put a GitBook-style HTML figure in the article’s **Markdown**, with a blank line before and after it:
+
+```html
+<div align="right"><figure><img src="images/screenshot.png" alt="Settings dialog" width="375"><figcaption>Settings before saving.</figcaption></figure></div>
+```
+
+- Change `align` to `left`, `center`, or `right`. Without a wrapper, figures default to centered. You can also put `align` directly on the figure. The caption follows the image.
+- Change `width="375"` to a positive pixel width (no `px`), or replace it with `data-size="small"` (188 px), `medium` (375 px), `large` / `big` (563 px), or `original`. An explicit width wins. With neither attribute, the intrinsic size is used. Images always shrink to fit a narrower reading column.
+- Omit `<figcaption>…</figcaption>` if no caption is needed. Rebuild after editing; no JavaScript or CSS changes are required. For a [protected note](docs/locked-notes.md), edit the private Markdown and re-seal it instead of editing the public title stub.
+
 ## Challenge indexes
 
 Use `Challenge | Topic`: link the challenge name (including points and medals) to its heading, a migrated article, or a verified external solution. Use short topic labels from the write-up; an undocumented technique is not a reason to guess. Leave the name as plain text when there is no known destination.

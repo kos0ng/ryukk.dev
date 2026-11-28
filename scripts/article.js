@@ -1,3 +1,4 @@
+import { imageAttributes, imageLayout } from './image-layout.js'
 import { highlightCode } from './highlight-code.js'
 import { archiveMath, mathSlots } from './math.js'
 import { indexHeadings, tableOfContents } from './table-of-contents.js'
@@ -85,7 +86,7 @@ export function article(p, { sourceMap = false } = {}) {
     allowedAttributes: {
       ...(sourceMap ? { '*': ['data-source-line'] } : {}),
       a: ['href', 'id', 'name'],
-      img: ['src', 'alt', 'loading'],
+      ...imageAttributes,
       code: ['class'],
       h2: ['id'],
       h3: ['id'],
@@ -102,7 +103,10 @@ export function article(p, { sourceMap = false } = {}) {
           ...(a.href ? { href: articleLink(a.href) || '' } : {}),
         },
       }),
-      img: sanitize.simpleTransform('img', { loading: 'lazy' }),
+      img: (tagName, attrs) => {
+        const { width, ...rest } = attrs
+        return { tagName, attribs: { ...rest, loading: 'lazy', ...imageLayout(attrs) } }
+      },
     },
   })
   return {
